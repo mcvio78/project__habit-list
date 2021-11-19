@@ -39,7 +39,6 @@
     "sourceType": "module"
   },
   "rules": {
-    "prettier/prettier": ["warn", { "endOfLine": "lf" }],
     "no-bitwise": 0,
     "no-unused-expressions": "off",
     "no-use-before-define": "off",

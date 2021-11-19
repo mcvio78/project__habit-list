@@ -89,6 +89,16 @@
         ],
         "unnamedComponents": ["function-expression", "arrow-function"]
       }
-    ]
-  }
+    ],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
+  },
+  "overrides": [
+    {
+      "files": ["*.{ts,tsx}"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
 }

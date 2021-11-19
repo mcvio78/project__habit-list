@@ -1,13 +1,19 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import App from './App';
+import { Theme } from './hoc/Theme';
+import { Global } from './hoc/Global';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <StrictMode>
+    <Theme>
+      <Global>
+        <App />
+      </Global>
+    </Theme>
+  </StrictMode>,
   document.getElementById('root'),
 );
 

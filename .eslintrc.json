@@ -39,7 +39,7 @@
     "sourceType": "module"
   },
   "rules": {
-    // "brace-style": ["error", "stroustrup"],
+    "prettier/prettier": ["warn", { "endOfLine": "lf" }],
     "no-bitwise": 0,
     "no-unused-expressions": "off",
     "no-use-before-define": "off",
@@ -50,7 +50,7 @@
     "consistent-return": "off",
     "import/no-named-as-default": "off",
     "no-plusplus": "off",
-    "no-confusing-arrow": ["off", {"allowParens": true}],
+    "no-confusing-arrow": ["off", { "allowParens": true }],
     "import/no-unresolved": "error",
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "import/extensions": [

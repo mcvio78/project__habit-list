@@ -50,6 +50,7 @@
     "consistent-return": "off",
     "import/no-named-as-default": "off",
     "no-plusplus": "off",
+    "no-confusing-arrow": ["off", {"allowParens": true}],
     "import/no-unresolved": "error",
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "import/extensions": [

@@ -1,34 +1,12 @@
-import styled from 'styled-components';
+import React from 'react';
 
-const Button = styled.button`
-  color: palevioletred;
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
-`;
+import { PageContainer } from './components/layout/PageContainer';
+import { Home } from './pages/Home';
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <Button>Normal Button</Button>
-        <p>this is a test</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PageContainer>
+      <Home />
+    </PageContainer>
   );
 }
-
-export default App;

@@ -1,9 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
+import { normalize } from 'styled-normalize';
 import { ReactNode } from 'react';
 
 const GlobalStyle = createGlobalStyle`
+  ${normalize}
+
   body {
-    margin: 0;
     font-family:
       -apple-system,
       BlinkMacSystemFont,

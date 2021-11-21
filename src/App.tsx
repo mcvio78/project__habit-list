@@ -3,7 +3,7 @@ import React from 'react';
 import { PageContainer } from './components/layout/PageContainer';
 import { Home, TestText } from './pages/Home';
 
-export default function App() {
+export const App = () => {
   return (
     <PageContainer>
       <Home>
@@ -11,4 +11,4 @@ export default function App() {
       </Home>
     </PageContainer>
   );
-}
+};

@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 
 import reportWebVitals from './reportWebVitals';
-import App from './App';
+import { App } from './App';
 import { Theme } from './hoc/Theme';
 import { Global } from './hoc/Global';
 

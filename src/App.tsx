@@ -1,12 +1,14 @@
 import React from 'react';
 
 import { PageContainer } from './components/layout/PageContainer';
-import { Home } from './pages/Home';
+import { Home, TestText } from './pages/Home';
 
 export default function App() {
   return (
     <PageContainer>
-      <Home />
+      <Home>
+        <TestText>My Habits List</TestText>
+      </Home>
     </PageContainer>
   );
 }

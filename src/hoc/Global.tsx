@@ -45,9 +45,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
 
     @supports (font-variation-settings: normal) {
-      body  {
         font-family: 'Montserrat VF', sans-serif;
-      }
     }
   }
 `;

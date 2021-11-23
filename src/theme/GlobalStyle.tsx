@@ -1,14 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
-import { ReactNode } from 'react';
 
 import montserratVariable from '../fonts/Montserrat_VF.woff2';
 import montserratRegular from '../fonts/Montserrat_Regular.woff2';
 import montserratItalic from '../fonts/Montserrat_Italic.woff2';
 import montserratSemiBoldItalic from '../fonts/Montserrat_Semi-Bold-Italic.woff2';
 import montserratBold from '../fonts/Montserrat_Bold.woff2';
+import { COLORS } from '../config/constants/colors';
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   ${normalize}
 
   @font-face {
@@ -48,15 +48,22 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Montserrat VF', sans-serif;
     }
   }
+
+  body[data-theme='light'] {
+    --colors-primary: ${COLORS.turquoiseBlue};
+    --colors-primary_variant: ${COLORS.malibu};
+    --colors-text: ${COLORS.white};
+
+    background-color: var(--colors-primary_variant);
+    color: var(--colors-text);
+  }
+
+  body[data-theme='dark'] {
+    --colors-primary: ${COLORS.indigo};
+    --colors-primary_variant: ${COLORS.black};
+    --colors-text: ${COLORS.lightPurple};
+
+    background-color: var(--colors-primary_variant);
+    color: var(--colors-text);
+  }
 `;
-
-interface GlobalProps {
-  children: ReactNode;
-}
-
-export const Global = ({ children }: GlobalProps) => (
-  <>
-    <GlobalStyle />
-    {children}
-  </>
-);

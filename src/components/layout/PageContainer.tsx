@@ -12,6 +12,4 @@ export const PageContainer = styled.div<PageContainerProps>`
   min-height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: ${props =>
-    props.bgColor ? props.bgColor : props.theme.colors.light.primaryVariant};
 `;

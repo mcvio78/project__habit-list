@@ -53,6 +53,7 @@ export const GlobalStyle = createGlobalStyle`
     --colors-primary: ${COLORS.turquoiseBlue};
     --colors-primary_variant: ${COLORS.malibu};
     --colors-text: ${COLORS.white};
+    --colors-text_shadow-rgba: ${COLORS.black_rgba};
 
     background-color: var(--colors-primary_variant, white);
     color: var(--colors-text, black);
@@ -62,6 +63,7 @@ export const GlobalStyle = createGlobalStyle`
     --colors-primary: ${COLORS.indigo};
     --colors-primary_variant: ${COLORS.black};
     --colors-text: ${COLORS.lightPurple};
+    --colors-text_shadow-rgba: ${COLORS.white_rgba};
 
     background-color: var(--colors-primary_variant, black);
     color: var(--colors-text, white);

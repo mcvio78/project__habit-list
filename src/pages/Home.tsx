@@ -10,8 +10,3 @@ export const Home = styled.div`
   border-radius: 30px;
   background: var(--colors-primary);
 `;
-
-export const TestText = styled.p`
-  font-weight: 900;
-  font-style: italic;
-`;

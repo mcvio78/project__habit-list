@@ -54,8 +54,8 @@ export const GlobalStyle = createGlobalStyle`
     --colors-primary_variant: ${COLORS.malibu};
     --colors-text: ${COLORS.white};
 
-    background-color: var(--colors-primary_variant);
-    color: var(--colors-text);
+    background-color: var(--colors-primary_variant, white);
+    color: var(--colors-text, black);
   }
 
   body[data-theme='dark'] {
@@ -63,7 +63,7 @@ export const GlobalStyle = createGlobalStyle`
     --colors-primary_variant: ${COLORS.black};
     --colors-text: ${COLORS.lightPurple};
 
-    background-color: var(--colors-primary_variant);
-    color: var(--colors-text);
+    background-color: var(--colors-primary_variant, black);
+    color: var(--colors-text, white);
   }
 `;

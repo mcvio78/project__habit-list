@@ -1,12 +1,27 @@
+import React from 'react';
 import styled from 'styled-components';
 
-export const Home = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  width: 100%;
-  align-items: center;
-  margin: 20px 0;
-  border-radius: 30px;
-  background: var(--colors-primary);
-`;
+import { PageLayout } from '../components/layout/PageLayout';
+import { Display1, ParagraphLarge } from '../components/Typograpy';
+
+export const Home = () => {
+  const HomeLayout = styled(PageLayout)`
+    > :first-child {
+      align-self: flex-start;
+      margin-left: 20px;
+    }
+  `;
+
+  return (
+    <HomeLayout>
+      <ParagraphLarge italic shadow>
+        *not backed up
+      </ParagraphLarge>
+      <Display1 shadow>
+        My
+        <br />
+        Habits List
+      </Display1>
+    </HomeLayout>
+  );
+};

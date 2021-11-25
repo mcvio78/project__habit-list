@@ -74,7 +74,7 @@ export const GlobalStyle = createGlobalStyle`
     --colors-primary: ${COLORS.turquoiseBlue};
     --colors-primary_variant: ${COLORS.malibu};
     --colors-text: ${COLORS.white};
-    --colors-text_shadow-rgba: rgba(${COLORS.black_rgb}, .5);
+    --shadow-text-rgba: rgba(${COLORS.black_rgb}, .25);
 
     background-color: var(--colors-primary_variant, white);
     color: var(--colors-text, black);
@@ -84,7 +84,7 @@ export const GlobalStyle = createGlobalStyle`
     --colors-primary: ${COLORS.indigo};
     --colors-primary_variant: ${COLORS.black};
     --colors-text: ${COLORS.lightPurple};
-    --colors-text_shadow-rgba: rgba(${COLORS.white_rgb}, .3);
+    --shadow-text-rgba: rgba(${COLORS.white_rgb}, .25);
 
     background-color: var(--colors-primary_variant, black);
     color: var(--colors-text, white);

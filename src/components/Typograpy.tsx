@@ -1,17 +1,37 @@
 import styled, { css } from 'styled-components';
 
-const CommonStyle = css`
+interface CommonStyleProps {
+  shadow?: boolean;
+  italic?: boolean;
+}
+
+const CommonStyle = css<CommonStyleProps>`
   margin: 0;
+  ${({ shadow }) => shadow && `text-shadow: 0 4px 4px var(--shadow-text-rgba)`};
+  ${({ italic }) => italic && `font-style: italic`};
 `;
 
 const CommonDisplay = css`
+  ${CommonStyle};
+  text-align: center;
+`;
+
+const CommonParagraph = css`
   ${CommonStyle};
 `;
 
 export const Display1 = styled.h1`
   ${CommonDisplay};
-  line-height: 49px;
-  letter-spacing: 0;
-  text-align: center;
-  text-shadow: 2px 2px 3px var(--colors-text_shadow-rgba);
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.8px;
+`;
+
+export const ParagraphLarge = styled.p`
+  ${CommonParagraph};
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -0.4px;
 `;

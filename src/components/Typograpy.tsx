@@ -6,12 +6,10 @@ const CommonStyle = css`
 
 const CommonDisplay = css`
   ${CommonStyle};
-  font-weight: 700;
 `;
 
 export const Display1 = styled.h1`
   ${CommonDisplay};
-  font-size: 40px;
   line-height: 49px;
   letter-spacing: 0;
   text-align: center;

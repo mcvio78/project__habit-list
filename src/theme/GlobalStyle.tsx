@@ -66,7 +66,7 @@ export const GlobalStyle = createGlobalStyle`
 
     @supports (font-variation-settings: normal) {
       font-family: 'Montserrat VF', sans-serif;
-      font-variation-settings: 'wght' 400;
+      font-variation-settings: 'wght' 300;
     }
   }
 
@@ -74,7 +74,7 @@ export const GlobalStyle = createGlobalStyle`
     --colors-primary: ${COLORS.turquoiseBlue};
     --colors-primary_variant: ${COLORS.malibu};
     --colors-text: ${COLORS.white};
-    --shadow-text-rgba: rgba(${COLORS.black_rgb}, .25);
+    --shadow-text-rgb: ${COLORS.black_rgb};
 
     background-color: var(--colors-primary_variant, white);
     color: var(--colors-text, black);
@@ -84,7 +84,7 @@ export const GlobalStyle = createGlobalStyle`
     --colors-primary: ${COLORS.indigo};
     --colors-primary_variant: ${COLORS.black};
     --colors-text: ${COLORS.lightPurple};
-    --shadow-text-rgba: rgba(${COLORS.white_rgb}, .25);
+    --shadow-text-rgb: ${COLORS.white_rgb};
 
     background-color: var(--colors-primary_variant, black);
     color: var(--colors-text, white);

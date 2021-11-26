@@ -7,6 +7,7 @@ interface ButtonContainerProps {
 
 const ButtonContainer = styled.button.attrs({
   type: 'button',
+  title: 'hamburgerButton',
 })<ButtonContainerProps>`
   width: 40px;
   height: 26px;
@@ -30,7 +31,7 @@ const ButtonContainer = styled.button.attrs({
     background-color: var(--colors-text);
     box-shadow: ${({ open }) =>
       !open && `0 4px 4px rgba(var(--shadow-text-rgb), 0.25)`};
-    transition: all 1s linear;
+    transition: all 0.5s linear;
 
     :first-child {
       transform: ${({ open }) =>
@@ -39,7 +40,7 @@ const ButtonContainer = styled.button.attrs({
 
     :nth-child(2) {
       opacity: ${({ open }) => (open ? '0' : '1')};
-      transform: ${({ open }) => (open ? 'translateX(20px)' : 'translateX(0)')};
+      transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
     }
 
     :nth-child(3) {

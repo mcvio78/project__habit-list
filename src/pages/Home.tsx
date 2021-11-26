@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import { PageLayout } from '../components/layout/PageLayout';
 import { Display1, ParagraphLarge } from '../components/Typography';

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import React, { useState } from 'react';
 
 interface ButtonContainerProps {

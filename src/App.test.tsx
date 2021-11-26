@@ -1,7 +1,10 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import { App } from './App';
 
-test('renders my habits list', () => {
-  render(<App />);
+describe('App rendering tests', () => {
+  test('renders my habits list header', () => {
+    render(<App />);
+    expect(screen.getByText('*not backed up')).toBeVisible();
+  });
 });

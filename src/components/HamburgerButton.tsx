@@ -5,7 +5,9 @@ interface ButtonContainerProps {
   open: boolean;
 }
 
-const ButtonContainer = styled.button<ButtonContainerProps>`
+const ButtonContainer = styled.button.attrs({
+  type: 'button',
+})<ButtonContainerProps>`
   width: 40px;
   height: 26px;
   display: flex;

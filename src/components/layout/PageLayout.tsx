@@ -8,5 +8,5 @@ export const PageLayout = styled.div`
   align-items: center;
   margin: 20px 0;
   border-radius: 30px;
-  background: var(--colors-primary);
+  background: var(--clr-pr-v01);
 `;

@@ -17,22 +17,22 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body[data-theme='light'] {
-    --colors-primary: ${COLORS.turquoiseBlue};
-    --colors-primary_variant: ${COLORS.malibu};
-    --colors-text: ${COLORS.white};
-    --shadow-text-rgb: ${COLORS.black_rgb};
+    --clr-pr-v01: ${COLORS.turquoiseBlue};
+    --clr-pr-v02: ${COLORS.malibu};
+    --clr-nt-v01: ${COLORS.white};
+    --clr-nt-v02-rgb: ${COLORS.black_rgb};
 
-    background-color: var(--colors-primary_variant, white);
-    color: var(--colors-text, black);
+    background-color: var(--clr-pr-v02, white);
+    color: var(--clr-nt-v01, black);
   }
 
   body[data-theme='dark'] {
-    --colors-primary: ${COLORS.indigo};
-    --colors-primary_variant: ${COLORS.black};
-    --colors-text: ${COLORS.lightPurple};
-    --shadow-text-rgb: ${COLORS.white_rgb};
+    --clr-pr-v01: ${COLORS.indigo};
+    --clr-pr-v02: ${COLORS.black};
+    --clr-nt-v01: ${COLORS.ashGrey};
+    --clr-nt-v02-rgb: ${COLORS.white_rgb};
 
-    background-color: var(--colors-primary_variant, black);
-    color: var(--colors-text, white);
+    background-color: var(--clr-pr-v02, black);
+    color: var(--clr-nt-v01, white);
   }
 `;

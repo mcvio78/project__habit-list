@@ -8,7 +8,7 @@ interface CommonStyleProps {
 const CommonStyle = css<CommonStyleProps>`
   margin: 0;
   ${({ shadow }) =>
-    shadow && `text-shadow: 0 4px 4px rgba(var(--shadow-text-rgb), 0.25)`};
+    shadow && `text-shadow: 0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
   ${({ italic }) => italic && `font-style: italic`};
 `;
 

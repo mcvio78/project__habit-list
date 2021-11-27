@@ -1,25 +1,17 @@
 import styled from 'styled-components/macro';
 import React, { useState } from 'react';
 
-interface ButtonContainerProps {
+import { BasicButton, BasicButtonProps } from './BasicButton';
+
+interface ButtonContainerProps extends BasicButtonProps {
   open: boolean;
 }
 
-const ButtonContainer = styled.button.attrs({
-  type: 'button',
+const ButtonContainer = styled(BasicButton).attrs(() => ({
   title: 'hamburgerButton',
-})<ButtonContainerProps>`
+}))<ButtonContainerProps>`
   width: 40px;
   height: 26px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
 
   :focus {
     outline: rgba(var(--shadow-text-rgb), 0.1) 2px solid;

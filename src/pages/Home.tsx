@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 
 import { PageLayout } from '../components/layout/PageLayout';
 import { Display1, ParagraphLarge } from '../components/Typography';
-import { HamburgerButton } from '../components/HamburgerButton';
+import { HamburgerButton } from '../components/buttons/HamburgerButton';
 
 const HomeLayout = styled(PageLayout)`
   > :first-child {

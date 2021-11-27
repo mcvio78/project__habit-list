@@ -1,12 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
-import { fontStyles } from './fontStyles';
 import { COLORS } from '../config/constants/colors';
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
-  ${fontStyles}
 
   html {
     font-family: 'Montserrat', sans-serif;

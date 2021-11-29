@@ -1,15 +1,20 @@
 import styled, { css } from 'styled-components/macro';
 
-interface CommonStyleProps {
-  shadow?: boolean;
+import { spacer, SpacerProps } from '../utility/spacer';
+
+export interface CommonStyleProps extends SpacerProps {
+  shadowText?: boolean;
   italic?: boolean;
+  color?: string;
 }
 
 const CommonStyle = css<CommonStyleProps>`
   margin: 0;
-  ${({ shadow }) =>
-    shadow && `text-shadow: 0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
-  ${({ italic }) => italic && `font-style: italic`};
+  text-shadow: ${({ shadowText }) =>
+    shadowText && `0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
+  font-style: ${({ italic }) => italic && `italic`};
+  color: ${({ color }) => color || 'inherit'};
+  ${spacer};
 `;
 
 const CommonDisplay = css`
@@ -17,7 +22,15 @@ const CommonDisplay = css`
   text-align: center;
 `;
 
+// Heading
+
 const CommonParagraph = css`
+  ${CommonStyle};
+`;
+
+// Link
+
+const CommonLabel = css`
   ${CommonStyle};
 `;
 
@@ -32,6 +45,15 @@ export const Display1 = styled.h1`
 
 export const ParagraphLarge = styled.p`
   ${CommonParagraph};
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -0.4px;
+`;
+
+export const LabelLarge = styled.span`
+  ${CommonLabel};
+  font-variation-settings: 'wght' 600;
+  font-weight: 600;
   font-size: 24px;
   line-height: 28px;
   letter-spacing: -0.4px;

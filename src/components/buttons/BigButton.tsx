@@ -7,9 +7,9 @@ const ButtonContainer = styled(BasicButton).attrs(() => ({
   title: 'bigButton',
   bgColor: 'var(--clr-nt-v01)',
 }))<BasicButtonProps>`
-  width: 220px;
-  height: 70px;
-  border-radius: 8px;
+  width: 260px;
+  height: 86px;
+  border-radius: 10px;
 `;
 
 interface BigButtonProps

@@ -24,7 +24,7 @@ export const Home = () => {
         <br />
         Habits List
       </Display1>
-      <Container fd="column" mt="auto" mb="30px" h="160px" jc="space-between">
+      <Container fd="column" mt="auto" mb="30px" h="192px" jc="space-between">
         <BigButton italic shadowBox shadowText>
           Create Habits
         </BigButton>

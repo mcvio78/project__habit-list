@@ -19,6 +19,7 @@ export const GlobalStyle = createGlobalStyle`
   body[data-theme='light'] {
     --clr-pr-v01: ${COLORS.turquoiseBlue};
     --clr-pr-v02: ${COLORS.malibu};
+    --clr-ac-v01: ${COLORS.cerulean};
     --clr-nt-v01: ${COLORS.white};
     --clr-nt-v02-rgb: ${COLORS.black_rgb};
 
@@ -29,6 +30,7 @@ export const GlobalStyle = createGlobalStyle`
   body[data-theme='dark'] {
     --clr-pr-v01: ${COLORS.indigo};
     --clr-pr-v02: ${COLORS.black};
+    --clr-ac-v01: ${COLORS.azure};
     --clr-nt-v01: ${COLORS.ashGrey};
     --clr-nt-v02-rgb: ${COLORS.white_rgb};
 

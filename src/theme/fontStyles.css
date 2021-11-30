@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Montserrat VF';
-  src: url('../fonts/MontserratVF.woff2') format('woff2-variations');
+  src: url('../assets/fonts/MontserratVF.woff2') format('woff2-variations');
   font-weight: 100 900;
   font-stretch: 50% 150%;
   font-style: normal;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'Montserrat VF';
-  src: url('../fonts/MontserratVF_Italic.woff2') format('woff2-variations');
+  src: url('../assets/fonts/MontserratVF_Italic.woff2') format('woff2-variations');
   font-weight: 100 900;
   font-stretch: 50% 150%;
   font-style: italic;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('../fonts/Montserrat_Regular.woff2') format('woff2');
+  src: url('../assets/fonts/Montserrat_Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('../fonts/Montserrat_Italic.woff2') format('woff2');
+  src: url('../assets/fonts/Montserrat_Italic.woff2') format('woff2');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -32,7 +32,7 @@
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('../fonts/Montserrat_Semi-Bold-Italic.woff2') format('woff2');
+  src: url('../assets/fonts/Montserrat_Semi-Bold-Italic.woff2') format('woff2');
   font-weight: 600;
   font-style: italic;
   font-display: swap;
@@ -40,7 +40,7 @@
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('../fonts/Montserrat_Bold.woff2') format('woff2');
+  src: url('../assets/fonts/Montserrat_Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;

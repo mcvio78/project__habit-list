@@ -2,11 +2,14 @@ import styled from 'styled-components/macro';
 
 export interface BasicButtonProps {
   title: string;
+  'aria-label': string;
   id?: string;
   type?: 'button' | 'submit' | 'reset' | undefined;
+  name?: string;
   value?: string | number;
-  ariaLabel?: string;
-  ariaLabelledBy?: string;
+  text?: string;
+  disabled?: boolean;
+  autoFocus?: boolean;
   bgColor?: string;
   shadowBox?: boolean;
 }
@@ -19,7 +22,7 @@ export const BasicButton = styled.button.attrs(props => ({
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${({ bgColor }) => bgColor || 'transparent'};
+  background-color: ${({ bgColor }) => bgColor || 'var(--clr-se-v01)'};
   border: none;
   padding: 0;
   font: inherit;

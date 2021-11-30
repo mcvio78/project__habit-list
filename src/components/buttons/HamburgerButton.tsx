@@ -14,6 +14,8 @@ const ButtonContainer = styled(BasicButton).attrs(() => ({
   height: 26px;
   justify-content: space-between;
   box-shadow: none;
+  color: transparent !important;
+  background-color: transparent !important;
 
   :focus {
     outline: rgba(var(--clr-nt-v02-rgb), 0.1) 2px solid;

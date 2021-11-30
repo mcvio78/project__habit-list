@@ -17,7 +17,7 @@ export const Home = () => {
         <ParagraphLarge italic shadowText>
           *not backed up
         </ParagraphLarge>
-        <HamburgerButton shadowBox />
+        <HamburgerButton aria-label="open settings menu button" shadowBox />
       </Container>
       <Display1 shadowText>
         My
@@ -25,10 +25,22 @@ export const Home = () => {
         Habits List
       </Display1>
       <Container fd="column" mt="auto" mb="30px" h="192px" jc="space-between">
-        <BigButton italic shadowBox shadowText>
+        <BigButton
+          aria-label="create an habit"
+          title="create habits"
+          italic
+          shadowBox
+          shadowText
+        >
           Create Habits
         </BigButton>
-        <BigButton italic shadowBox shadowText>
+        <BigButton
+          aria-label="go to user guide"
+          title="quick start"
+          italic
+          shadowBox
+          shadowText
+        >
           Quick Start
         </BigButton>
       </Container>

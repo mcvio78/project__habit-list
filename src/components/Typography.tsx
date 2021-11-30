@@ -6,6 +6,7 @@ export interface CommonStyleProps extends SpacerProps {
   shadowText?: boolean;
   italic?: boolean;
   color?: string;
+  btnLabel?: boolean;
 }
 
 const CommonStyle = css<CommonStyleProps>`
@@ -32,6 +33,7 @@ const CommonParagraph = css`
 
 const CommonLabel = css`
   ${CommonStyle};
+  color: ${({ btnLabel }) => btnLabel && `inherit`};
 `;
 
 export const Display1 = styled.h1`

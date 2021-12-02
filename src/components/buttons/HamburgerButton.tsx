@@ -14,17 +14,16 @@ const ButtonContainer = styled(BasicButton).attrs(() => ({
   height: 26px;
   justify-content: space-between;
   box-shadow: none;
-  color: transparent !important;
-  background-color: transparent !important;
+  background-color: transparent;
 
   :focus {
-    outline: rgba(var(--clr-nt-v02-rgb), 0.1) 2px solid;
+    outline: rgba(var(--clr-ac-v03-rgb), 0.1) 2px solid;
   }
 
   div {
     width: 100%;
     height: 4px;
-    background-color: var(--clr-nt-v01);
+    background-color: var(--clr-se-v01);
     box-shadow: ${({ open, shadowBox }) =>
       !open && shadowBox && `0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
     transition: all 0.5s linear;

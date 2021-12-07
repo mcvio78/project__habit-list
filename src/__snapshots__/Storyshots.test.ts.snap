@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots ParagraphLarge Basic 1`] = `
+<p
+  className="sc-gsDKAQ eZoXjg"
+>
+  Basic
+</p>
+`;
+
+exports[`Storyshots ParagraphLarge Styled 1`] = `
+<p
+  className="sc-gsDKAQ jtOlKz"
+>
+  Styled
+</p>
+`;

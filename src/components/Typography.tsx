@@ -3,18 +3,20 @@ import styled, { css } from 'styled-components/macro';
 import { spacer, SpacerProps } from '../utility/spacer';
 
 export interface CommonStyleProps extends SpacerProps {
-  shadowText?: boolean;
-  italic?: boolean;
-  color?: string;
-  btnLabel?: boolean;
+  /** Has font text shadow? */
+  txtSdw?: boolean;
+  /** Is font italicized type? */
+  it?: boolean;
+  /** Overwrite default font color */
+  txtClr?: string;
 }
 
 const CommonStyle = css<CommonStyleProps>`
   margin: 0;
-  text-shadow: ${({ shadowText }) =>
-    shadowText && `0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
-  font-style: ${({ italic }) => italic && `italic`};
-  color: ${({ color }) => color || 'inherit'};
+  text-shadow: ${({ txtSdw }) =>
+    txtSdw && `0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
+  font-style: ${({ it }) => it && `italic`};
+  color: ${({ txtClr }) => txtClr || 'inherit'};
   ${spacer};
 `;
 
@@ -33,7 +35,6 @@ const CommonParagraph = css`
 
 const CommonLabel = css`
   ${CommonStyle};
-  color: ${({ btnLabel }) => btnLabel && `inherit`};
 `;
 
 export const Display1 = styled.h1`

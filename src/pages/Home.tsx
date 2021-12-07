@@ -1,48 +1,40 @@
 import { PageLayout } from '../components/layout/PageLayout';
 import { Container } from '../components/layout/Container';
 import { Display1, ParagraphLarge } from '../components/Typography';
-import { HamburgerButton } from '../components/buttons/HamburgerButton';
-import { BigButton } from '../components/buttons/BigButton';
+import { ButtonHamburger } from '../components/buttons/ButtonHamburger';
+import { ButtonLarge } from '../components/buttons/ButtonLarge';
 
 export const Home = () => {
   return (
     <PageLayout>
       <Container
-        w="100%"
+        mxw="800px"
         bs="border-box"
         jc="space-between"
         mt="28px"
         p="0 28px"
       >
-        <ParagraphLarge italic shadowText>
+        <ParagraphLarge it txtSdw>
           *not backed up
         </ParagraphLarge>
-        <HamburgerButton aria-label="open settings menu button" shadowBox />
+        <ButtonHamburger aria-label="open settings menu button" />
       </Container>
-      <Display1 shadowText>
+      <Display1 txtSdw>
         My
         <br />
         Habits List
       </Display1>
-      <Container fd="column" mt="auto" mb="30px" h="192px" jc="space-between">
-        <BigButton
-          aria-label="create an habit"
-          title="create habits"
-          italic
-          shadowBox
-          shadowText
-        >
+      <Container mt="auto" mb="30px" fd="column" ai="center">
+        <ButtonLarge aria-label="create habits button" title="create habits">
           Create Habits
-        </BigButton>
-        <BigButton
+        </ButtonLarge>
+        <ButtonLarge
           aria-label="go to user guide"
-          title="quick start"
-          italic
-          shadowBox
-          shadowText
+          title="go to quick start user guide"
+          mt="30px"
         >
           Quick Start
-        </BigButton>
+        </ButtonLarge>
       </Container>
     </PageLayout>
   );

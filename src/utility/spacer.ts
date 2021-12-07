@@ -1,23 +1,33 @@
 type SpaceValue = `${number}px` | `${number}%` | 0 | 'auto';
 
 export interface SpacerProps {
+  /** Margin - shorthand */
   m?:
     | SpaceValue
     | `${SpaceValue} ${SpaceValue}`
     | `${SpaceValue} ${SpaceValue} ${SpaceValue}`
     | `${SpaceValue} ${SpaceValue} ${SpaceValue} ${SpaceValue}`;
+  /** Margin top - individual */
   mt?: SpaceValue;
+  /** Margin right - individual */
   mr?: SpaceValue;
+  /** Margin bottom - individual */
   mb?: SpaceValue;
+  /** Margin left - individual */
   ml?: SpaceValue;
+  /** Padding - shorthand */
   p?:
     | SpaceValue
     | `${SpaceValue} ${SpaceValue}`
     | `${SpaceValue} ${SpaceValue} ${SpaceValue}`
     | `${SpaceValue} ${SpaceValue} ${SpaceValue} ${SpaceValue}`;
+  /** Padding top - individual */
   pt?: SpaceValue;
+  /** Padding right - individual */
   pr?: SpaceValue;
+  /** Padding bottom - individual */
   pb?: SpaceValue;
+  /** Padding left - individual */
   pl?: SpaceValue;
 }
 

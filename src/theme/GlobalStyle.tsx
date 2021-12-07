@@ -1,10 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
+import './fontStyles.css';
 import { themeLight, themeDark } from './colorSchemes';
 
 export const GlobalStyle = createGlobalStyle`
-  ${normalize}
+  ${normalize};
 
   html {
     font-family: 'Montserrat', sans-serif;
@@ -27,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
     @media (hover: hover) {
       &:hover {
         transition: background 1s ease, color 0.2s linear;
-        --clr-ac-v01: var(--clr-ac-v01-h);
+        --clr-ac-v01-d: var(--clr-ac-v01-h);
         --clr-se-v01-d: var(--clr-se-v01-h);
       }
     }
@@ -40,7 +41,7 @@ export const GlobalStyle = createGlobalStyle`
 
     &:active {
       transition: background, color 0.3s ease, color 0.1s linear;
-      --clr-ac-v01: var(--clr-ac-v01-a);
+      --clr-ac-v01-d: var(--clr-ac-v01-a);
       --clr-se-v01-d: var(--clr-se-v01-a);
     }
   }

@@ -1,13 +1,13 @@
 import styled from 'styled-components/macro';
 import React, { useState } from 'react';
 
-import { BasicButton, BasicButtonProps } from './BasicButton';
+import { ButtonBasic, BasicButtonProps } from './ButtonBasic';
 
 interface ButtonContainerProps extends BasicButtonProps {
   open: boolean;
 }
 
-const ButtonContainer = styled(BasicButton).attrs(() => ({
+const ButtonContainer = styled(ButtonBasic).attrs(() => ({
   title: 'hamburgerButton',
 }))<ButtonContainerProps>`
   width: 40px;
@@ -24,8 +24,8 @@ const ButtonContainer = styled(BasicButton).attrs(() => ({
     width: 100%;
     height: 4px;
     background-color: var(--clr-se-v01);
-    box-shadow: ${({ open, shadowBox }) =>
-      !open && shadowBox && `0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
+    box-shadow: ${({ open }) =>
+      !open && `0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
     transition: all 0.5s linear;
 
     :first-child {
@@ -47,7 +47,7 @@ const ButtonContainer = styled(BasicButton).attrs(() => ({
 
 type HamburgerButtonProps = Omit<BasicButtonProps, 'title'>;
 
-export const HamburgerButton = (props: HamburgerButtonProps) => {
+export const ButtonHamburger = (props: HamburgerButtonProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (

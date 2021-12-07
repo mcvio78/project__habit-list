@@ -6,7 +6,9 @@ export const PageLayout = styled.div`
   flex-grow: 1;
   width: 100%;
   align-items: center;
+  box-sizing: border-box;
   margin: 20px 0;
+  padding: 0 16px;
   border-radius: 30px;
   background: var(--clr-pr-v01);
 `;

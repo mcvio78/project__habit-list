@@ -4,6 +4,7 @@ import { spacer, SpacerProps } from '../../utility/spacer';
 
 interface ContainerProps extends SpacerProps {
   w?: `${number}px` | `${number}%` | 'auto';
+  mxw?: `${number}px` | `${number}%` | 'auto';
   h?: `${number}px` | `${number}%` | 'auto';
   bs?: 'content-box' | 'border-box';
   d?: 'flex' | 'inline-flex';
@@ -26,7 +27,8 @@ interface ContainerProps extends SpacerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  width: ${({ w }) => w};
+  width: ${({ w }) => w || '100%'};
+  max-width: ${({ mxw }) => mxw};
   height: ${({ h }) => h};
   box-sizing: ${({ bs }) => bs};
   display: ${({ d }) => d || 'flex'};

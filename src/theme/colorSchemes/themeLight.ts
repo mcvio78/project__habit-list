@@ -6,9 +6,9 @@ export const themeLight = css`
   body[data-theme='light'] {
     --clr-pr-v01: ${COLORS.turquoiseBlue};
     --clr-pr-v02: ${COLORS.malibu};
-    --clr-ac-v01: ${COLORS.cerulean};
+    --clr-ac-v01-d: ${COLORS.tealBlue};
     --clr-ac-v01-h: ${COLORS.white};
-    --clr-ac-v01-a: ${COLORS.cerulean};
+    --clr-ac-v01-a: ${COLORS.tealBlue};
     --clr-ac-v02-d: null;
     --clr-ac-v02-f: ${COLORS.white};
     --clr-ac-v03-rgb: ${COLORS.black_rgb};

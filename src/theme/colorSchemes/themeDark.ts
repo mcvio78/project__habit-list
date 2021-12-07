@@ -6,7 +6,7 @@ export const themeDark = css`
   body[data-theme='dark'] {
     --clr-pr-v01: ${COLORS.cinder};
     --clr-pr-v02: ${COLORS.bleachedCedar};
-    --clr-ac-v01: ${COLORS.brightLavender};
+    --clr-ac-v01-d: ${COLORS.brightLavender};
     --clr-ac-v01-h: ${COLORS.greenWhite};
     --clr-ac-v01-a: ${COLORS.brightLavender};
     --clr-ac-v02-d: null;

@@ -1,8 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots ParagraphLarge Basic 1`] = `
+exports[`Storyshots LargeButton Default 1`] = `
+<button
+  className="ButtonBasic-sc-kprwbr-0 ButtonLarge__ButtonContainer-sc-4t3mvg-0 bsFFTK hsWNhy"
+  type="button"
+>
+  <span
+    className="Typography__LabelLarge-sc-vgvlfn-2 VHsWv"
+  >
+    Basic
+  </span>
+</button>
+`;
+
+exports[`Storyshots ParagraphLarge Default 1`] = `
 <p
-  className="sc-gsDKAQ eZoXjg"
+  className="Typography__ParagraphLarge-sc-vgvlfn-1 eMLiLk"
 >
   Basic
 </p>
@@ -10,7 +23,7 @@ exports[`Storyshots ParagraphLarge Basic 1`] = `
 
 exports[`Storyshots ParagraphLarge Styled 1`] = `
 <p
-  className="sc-gsDKAQ jtOlKz"
+  className="Typography__ParagraphLarge-sc-vgvlfn-1 hteahr"
 >
   Styled
 </p>

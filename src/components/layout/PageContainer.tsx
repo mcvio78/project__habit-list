@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
 
 interface PageContainerProps {
+  /** background-color CSS property (prop) */
   bgColor?: string;
 }
 

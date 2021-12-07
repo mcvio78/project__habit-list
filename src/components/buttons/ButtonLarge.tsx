@@ -1,11 +1,9 @@
 import styled from 'styled-components/macro';
 
-import { ButtonBasic, BasicButtonProps } from './ButtonBasic';
+import { ButtonBasic, ButtonBasicProps } from './ButtonBasic';
 import { LabelLarge, CommonStyleProps } from '../Typography';
 
-const ButtonContainer = styled(ButtonBasic).attrs(props => ({
-  title: props.title,
-}))<BasicButtonProps>`
+const ButtonContainer = styled(ButtonBasic)<ButtonBasicProps>`
   max-width: 260px;
   width: 100%;
   height: 86px;
@@ -15,16 +13,9 @@ const ButtonContainer = styled(ButtonBasic).attrs(props => ({
   background-color: var(--clr-se-v01-d);
 `;
 
-interface BigButtonProps extends BasicButtonProps, CommonStyleProps {
-  children: any;
-}
+interface ButtonLargeProps extends ButtonBasicProps, CommonStyleProps {}
 
-export const ButtonLarge = ({
-  it,
-  txtSdw,
-  children,
-  ...props
-}: BigButtonProps) => (
+export const ButtonLarge = ({ children, ...props }: ButtonLargeProps) => (
   <ButtonContainer boxSdw {...props}>
     <LabelLarge it txtSdw>
       {children}

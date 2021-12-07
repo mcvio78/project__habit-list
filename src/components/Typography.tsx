@@ -1,14 +1,17 @@
 import styled, { css } from 'styled-components/macro';
+import { ReactNode } from 'react';
 
 import { spacer, SpacerProps } from '../utility/spacer';
 
 export interface CommonStyleProps extends SpacerProps {
-  /** Has font text shadow? */
+  /** has font text shadow? */
   txtSdw?: boolean;
-  /** Is font italicized type? */
+  /** is font italicized type? */
   it?: boolean;
-  /** Overwrite default font color */
+  /** overwrite default font color */
   txtClr?: string;
+  /** children prop */
+  children: string | number | ReactNode;
 }
 
 const CommonStyle = css<CommonStyleProps>`

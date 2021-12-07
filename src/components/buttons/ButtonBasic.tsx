@@ -2,23 +2,32 @@ import styled from 'styled-components/macro';
 
 import { spacer, SpacerProps } from '../../utility/spacer';
 
-export interface BasicButtonProps extends SpacerProps {
+export interface ButtonBasicProps extends SpacerProps {
+  /** title attribute - required */
   title: string;
+  /** aria-label attribute - required */
   'aria-label': string;
+  /** ID attribute */
   id?: string;
+  /** type attribute */
   type?: 'button' | 'submit' | 'reset' | undefined;
+  /** name attribute */
   name?: string;
+  /** value attribute */
   value?: string | number;
-  text?: string;
+  /** disable attribute */
   disabled?: boolean;
+  /** autoFocus attribute */
   autoFocus?: boolean;
+  /** background-color CSS property (prop) */
   bkgCol?: string;
+  /** box-shadow CSS property (prop) */
   boxSdw?: boolean;
 }
 
 export const ButtonBasic = styled.button.attrs(props => ({
   type: props.type || 'button',
-}))<BasicButtonProps>`
+}))<ButtonBasicProps>`
   display: flex;
   flex-direction: column;
   align-items: center;

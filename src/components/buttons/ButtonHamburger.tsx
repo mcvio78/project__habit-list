@@ -1,15 +1,19 @@
 import styled from 'styled-components/macro';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import { ButtonBasic, BasicButtonProps } from './ButtonBasic';
+import { ButtonBasic, ButtonBasicProps } from './ButtonBasic';
 
-interface ButtonContainerProps extends BasicButtonProps {
-  open: boolean;
+interface ButtonHamburgerProps extends Omit<ButtonBasicProps, 'title'> {
+  /** open button state (prop) */
+  open?: boolean;
+  /** set open state handler (prop) */
+  setIsOpen?: () => void;
 }
 
 const ButtonContainer = styled(ButtonBasic).attrs(() => ({
   title: 'hamburgerButton',
-}))<ButtonContainerProps>`
+  role: 'button',
+}))<ButtonHamburgerProps>`
   width: 40px;
   height: 26px;
   justify-content: space-between;
@@ -45,9 +49,7 @@ const ButtonContainer = styled(ButtonBasic).attrs(() => ({
   }
 `;
 
-type HamburgerButtonProps = Omit<BasicButtonProps, 'title'>;
-
-export const ButtonHamburger = (props: HamburgerButtonProps) => {
+export const ButtonHamburger = ({ ...props }: ButtonHamburgerProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (

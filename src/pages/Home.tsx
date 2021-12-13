@@ -8,11 +8,11 @@ export const Home = () => {
   return (
     <PageLayout>
       <Container
+        w={{ de: '100%' }}
         mxw={{ lg: '800px' }}
         bs={{ de: 'border-box' }}
         jc={{ de: 'space-between' }}
         mt={{ de: '28px' }}
-        p={{ de: '0 28px' }}
       >
         <ParagraphLarge it txtSdw>
           *not backed up
@@ -28,7 +28,7 @@ export const Home = () => {
         mt={{ de: 'auto' }}
         mb={{ de: '30px' }}
         fd={{ de: 'column' }}
-        ai={{ de: 'center' }}
+        g={{ de: '30px' }}
       >
         <ButtonLarge aria-label="create habits button" title="create habits">
           Create Habits
@@ -36,7 +36,6 @@ export const Home = () => {
         <ButtonLarge
           aria-label="go to user guide"
           title="go to quick start user guide"
-          mt={{ de: '30px' }}
         >
           Quick Start
         </ButtonLarge>

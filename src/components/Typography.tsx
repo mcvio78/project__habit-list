@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components/macro';
 import { ReactNode } from 'react';
 
-import { spacer, SpacerProps } from '../utility/spacer';
+import { styledMargin, StyledMarginProps } from '../utility/styledMargin';
 
-export interface CommonStyleProps extends SpacerProps {
+export interface CommonStyleProps extends StyledMarginProps {
   /** has font text shadow? */
   txtSdw?: boolean;
   /** is font italicized type? */
@@ -20,7 +20,7 @@ const CommonStyle = css<CommonStyleProps>`
     txtSdw && `0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
   font-style: ${({ it }) => it && `italic`};
   color: ${({ txtClr }) => txtClr || 'inherit'};
-  ${spacer};
+  ${styledMargin};
 `;
 
 const CommonDisplay = css`

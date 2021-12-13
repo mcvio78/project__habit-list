@@ -1,8 +1,8 @@
 import styled from 'styled-components/macro';
 
-import { spacer, SpacerProps } from '../../utility/spacer';
+import { styledMargin, StyledMarginProps } from '../../utility/styledMargin';
 
-export interface ButtonBasicProps extends SpacerProps {
+export interface ButtonBasicProps extends StyledMarginProps {
   /** title attribute - required */
   title: string;
   /** aria-label attribute - required */
@@ -40,5 +40,5 @@ export const ButtonBasic = styled.button.attrs(props => ({
   outline: inherit;
   box-shadow: ${({ boxSdw }) =>
     boxSdw ? ` 0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)` : 'none'};
-  ${spacer};
+  ${styledMargin};
 `;

@@ -2,11 +2,11 @@
 
 exports[`Storyshots LargeButton Default 1`] = `
 <button
-  className="ButtonBasic-sc-kprwbr-0 ButtonLarge__ButtonContainer-sc-4t3mvg-0 bsFFTK hsWNhy"
+  className="ButtonBasic-sc-kprwbr-0 ButtonLarge__ButtonContainer-sc-4t3mvg-0 jPGdxu hsWNhy"
   type="button"
 >
   <span
-    className="Typography__LabelLarge-sc-vgvlfn-2 VHsWv"
+    className="Typography__LabelLarge-sc-vgvlfn-2 jRdDEv"
   >
     Basic
   </span>
@@ -15,7 +15,7 @@ exports[`Storyshots LargeButton Default 1`] = `
 
 exports[`Storyshots ParagraphLarge Default 1`] = `
 <p
-  className="Typography__ParagraphLarge-sc-vgvlfn-1 eMLiLk"
+  className="Typography__ParagraphLarge-sc-vgvlfn-1 bInOLc"
 >
   Basic
 </p>
@@ -23,7 +23,7 @@ exports[`Storyshots ParagraphLarge Default 1`] = `
 
 exports[`Storyshots ParagraphLarge Styled 1`] = `
 <p
-  className="Typography__ParagraphLarge-sc-vgvlfn-1 hteahr"
+  className="Typography__ParagraphLarge-sc-vgvlfn-1 kXdxbr"
 >
   Styled
 </p>

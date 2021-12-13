@@ -1,24 +1,20 @@
 import styled, { css } from 'styled-components/macro';
 
-import { spacer, SpacerProps } from '../../utility/spacer';
+import { BreakPointsProps, SpaceValue } from '../../helpers/globalTypes';
+import { styledMargin, StyledMarginProps } from '../../utility/styledMargin';
 import { BREAKPOINTS } from '../../config/constants/breakpoints';
 
-interface BreakPointsProps<T> {
-  de?: T;
-  xs?: T;
-  sm?: T;
-  md?: T;
-  lg?: T;
-  xl?: T;
-}
-
-interface ContainerProps extends SpacerProps {
+interface ContainerProps extends StyledMarginProps {
   /** width CSS property (prop) */
   w?: BreakPointsProps<`${number}px` | `${number}%` | 'auto' | 0>;
+  /** min-width CSS property (prop) */
+  miw?: BreakPointsProps<`${number}px` | `${number}%` | 'auto'>;
   /** max-width CSS property (prop) */
   mxw?: BreakPointsProps<`${number}px` | `${number}%` | 'auto'>;
   /** height CSS property (prop) */
   h?: BreakPointsProps<`${number}px` | `${number}%` | 'auto' | 0>;
+  /** min-height CSS property (prop) */
+  mih?: BreakPointsProps<`${number}px` | `${number}%` | 'auto'>;
   /** max-height CSS property (prop) */
   mxh?: BreakPointsProps<`${number}px` | `${number}%` | 'auto'>;
   /** box-sizing CSS property (prop) */
@@ -56,6 +52,22 @@ interface ContainerProps extends SpacerProps {
     | 'space-around'
     | 'space-between'
   >;
+  g?: BreakPointsProps<SpaceValue>;
+  /** Padding - shorthand */
+  p?: BreakPointsProps<
+    | SpaceValue
+    | `${SpaceValue} ${SpaceValue}`
+    | `${SpaceValue} ${SpaceValue} ${SpaceValue}`
+    | `${SpaceValue} ${SpaceValue} ${SpaceValue} ${SpaceValue}`
+  >;
+  /** Padding top - individual */
+  pt?: BreakPointsProps<SpaceValue>;
+  /** Padding right - individual */
+  pr?: BreakPointsProps<SpaceValue>;
+  /** Padding bottom - individual */
+  pb?: BreakPointsProps<SpaceValue>;
+  /** Padding left - individual */
+  pl?: BreakPointsProps<SpaceValue>;
 }
 
 const styleBreakpointProps = (
@@ -65,8 +77,11 @@ const styleBreakpointProps = (
   css<ContainerProps>`
     @media screen and (min-width: ${breakpointSize}) {
       width: ${({ w }) => w?.[propName]};
+      min-width: ${({ miw }) => miw?.[propName]};
       max-width: ${({ mxw }) => mxw?.[propName]};
       height: ${({ h }) => h?.[propName]};
+      min-height: ${({ mih }) => mih?.[propName]};
+      max-height: ${({ mxh }) => mxh?.[propName]};
       box-sizing: ${({ bs }) => bs?.[propName]};
       display: ${({ d }) => d?.[propName]};
       flex-direction: ${({ fd }) => fd?.[propName]};
@@ -79,11 +94,16 @@ const styleBreakpointProps = (
       order: ${({ o }) => o?.[propName]};
       flex-wrap: ${({ fw }) => fw?.[propName]};
       align-content: ${({ ac }) => ac?.[propName]};
+      gap: ${({ g }) => g?.[propName]};
+      padding: ${({ p }) => p?.[propName]};
+      padding-top: ${({ pt }) => pt?.[propName]};
+      padding-right: ${({ pr }) => pr?.[propName]};
+      padding-bottom: ${({ pb }) => pb?.[propName]};
+      padding-left: ${({ pl }) => pl?.[propName]};
     }
   `;
 
 export const Container = styled.div<ContainerProps>`
-  width: ${'100%'};
   display: ${'flex'};
   ${styleBreakpointProps(BREAKPOINTS.de, 'de')};
   ${styleBreakpointProps(BREAKPOINTS.xs, 'xs')};
@@ -91,5 +111,5 @@ export const Container = styled.div<ContainerProps>`
   ${styleBreakpointProps(BREAKPOINTS.md, 'md')};
   ${styleBreakpointProps(BREAKPOINTS.lg, 'lg')};
   ${styleBreakpointProps(BREAKPOINTS.xl, 'xl')};
-  ${spacer};
+  ${styledMargin}
 `;

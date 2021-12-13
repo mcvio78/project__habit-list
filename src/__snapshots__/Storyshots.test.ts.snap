@@ -1,12 +1,109 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots LargeButton Default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: var(--clr-se-v01);
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  box-shadow: 0 4px 4px rgba(var(--clr-nt-v02-rgb),0.25);
+}
+
+.c2 {
+  margin: 0;
+  text-shadow: 0 4px 4px rgba(var(--clr-nt-v02-rgb),0.25);
+  font-style: italic;
+  color: inherit;
+  font-variation-settings: 'wght' 600;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28px;
+  -webkit-letter-spacing: -0.4px;
+  -moz-letter-spacing: -0.4px;
+  -ms-letter-spacing: -0.4px;
+  letter-spacing: -0.4px;
+}
+
+.c1 {
+  width: 260px;
+  height: 86px;
+  border-radius: 10px;
+  outline: var(--clr-ac-v02-d) 1px solid;
+  color: var(--clr-ac-v01-d);
+  background-color: var(--clr-se-v01-d);
+}
+
+@media screen and (min-width:0) {
+
+}
+
+@media screen and (min-width:320px) {
+
+}
+
+@media screen and (min-width:480px) {
+
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+@media screen and (min-width:1024px) {
+
+}
+
+@media screen and (min-width:1200px) {
+
+}
+
+@media screen and (min-width:0) {
+
+}
+
+@media screen and (min-width:320px) {
+
+}
+
+@media screen and (min-width:480px) {
+
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+@media screen and (min-width:1024px) {
+
+}
+
+@media screen and (min-width:1200px) {
+
+}
+
 <button
-  className="ButtonBasic-sc-kprwbr-0 ButtonLarge__ButtonContainer-sc-4t3mvg-0 jPGdxu hsWNhy"
+  className="c0 c1"
   type="button"
 >
   <span
-    className="Typography__LabelLarge-sc-vgvlfn-2 jRdDEv"
+    className="c2"
   >
     Basic
   </span>
@@ -14,16 +111,88 @@ exports[`Storyshots LargeButton Default 1`] = `
 `;
 
 exports[`Storyshots ParagraphLarge Default 1`] = `
+.c0 {
+  margin: 0;
+  color: inherit;
+  font-size: 24px;
+  line-height: 28px;
+  -webkit-letter-spacing: -0.4px;
+  -moz-letter-spacing: -0.4px;
+  -ms-letter-spacing: -0.4px;
+  letter-spacing: -0.4px;
+}
+
+@media screen and (min-width:0) {
+
+}
+
+@media screen and (min-width:320px) {
+
+}
+
+@media screen and (min-width:480px) {
+
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+@media screen and (min-width:1024px) {
+
+}
+
+@media screen and (min-width:1200px) {
+
+}
+
 <p
-  className="Typography__ParagraphLarge-sc-vgvlfn-1 bInOLc"
+  className="c0"
 >
   Basic
 </p>
 `;
 
 exports[`Storyshots ParagraphLarge Styled 1`] = `
+.c0 {
+  margin: 0;
+  text-shadow: 0 4px 4px rgba(var(--clr-nt-v02-rgb),0.25);
+  font-style: italic;
+  color: red;
+  font-size: 24px;
+  line-height: 28px;
+  -webkit-letter-spacing: -0.4px;
+  -moz-letter-spacing: -0.4px;
+  -ms-letter-spacing: -0.4px;
+  letter-spacing: -0.4px;
+}
+
+@media screen and (min-width:0) {
+
+}
+
+@media screen and (min-width:320px) {
+
+}
+
+@media screen and (min-width:480px) {
+
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+@media screen and (min-width:1024px) {
+
+}
+
+@media screen and (min-width:1200px) {
+
+}
+
 <p
-  className="Typography__ParagraphLarge-sc-vgvlfn-1 kXdxbr"
+  className="c0"
 >
   Styled
 </p>

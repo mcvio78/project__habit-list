@@ -15,7 +15,7 @@ export const Home = () => {
         mt={{ de: '28px' }}
       >
         <ParagraphLarge it txtSdw>
-          *not backed up
+          Sign In
         </ParagraphLarge>
         <ButtonHamburger aria-label="open settings menu button" />
       </Container>
@@ -25,19 +25,16 @@ export const Home = () => {
         Habits List
       </Display1>
       <Container
-        mt={{ de: 'auto' }}
-        mb={{ de: '30px' }}
+        m={{ de: 'auto 0 30px 0' }}
         fd={{ de: 'column' }}
+        ai={{ de: 'center' }}
         g={{ de: '30px' }}
       >
+        <ParagraphLarge it txtSdw>
+          Start organizing your life!
+        </ParagraphLarge>
         <ButtonLarge aria-label="create habits button" title="create habits">
           Create Habits
-        </ButtonLarge>
-        <ButtonLarge
-          aria-label="go to user guide"
-          title="go to quick start user guide"
-        >
-          Quick Start
         </ButtonLarge>
       </Container>
     </PageLayout>

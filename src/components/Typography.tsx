@@ -16,6 +16,7 @@ export interface CommonStyleProps extends StyledMarginProps {
 
 const CommonStyle = css<CommonStyleProps>`
   margin: 0;
+  text-align: center;
   text-shadow: ${({ txtSdw }) =>
     txtSdw && `0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
   font-style: ${({ it }) => it && `italic`};
@@ -25,7 +26,6 @@ const CommonStyle = css<CommonStyleProps>`
 
 const CommonDisplay = css`
   ${CommonStyle};
-  text-align: center;
 `;
 
 // Heading

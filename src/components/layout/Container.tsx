@@ -53,6 +53,9 @@ interface ContainerProps extends StyledMarginProps {
     | 'space-between'
   >;
   g?: BreakPointsProps<SpaceValue>;
+  ta?: BreakPointsProps<
+    'left' | 'right' | 'center' | 'justify' | 'initial' | 'inherit'
+  >;
   /** Padding - shorthand */
   p?: BreakPointsProps<
     | SpaceValue
@@ -95,6 +98,7 @@ const styleBreakpointProps = (
       flex-wrap: ${({ fw }) => fw?.[propName]};
       align-content: ${({ ac }) => ac?.[propName]};
       gap: ${({ g }) => g?.[propName]};
+      text-align: ${({ ta }) => ta?.[propName]};
       padding: ${({ p }) => p?.[propName]};
       padding-top: ${({ pt }) => pt?.[propName]};
       padding-right: ${({ pr }) => pr?.[propName]};

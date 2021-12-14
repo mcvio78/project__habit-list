@@ -1,8 +1,8 @@
 import { PageLayout } from '../components/layout/PageLayout';
 import { Container } from '../components/layout/Container';
-import { Display1, ParagraphLarge } from '../components/Typography';
+import { Display1, LabelLarge, ParagraphLarge } from '../components/Typography';
 import { ButtonHamburger } from '../components/buttons/ButtonHamburger';
-import { ButtonLarge } from '../components/buttons/ButtonLarge';
+import { Button } from '../components/buttons/Button';
 
 export const Home = () => {
   return (
@@ -12,11 +12,18 @@ export const Home = () => {
         mxw={{ lg: '800px' }}
         bs={{ de: 'border-box' }}
         jc={{ de: 'space-between' }}
+        ai={{ de: 'center' }}
         mt={{ de: '28px' }}
       >
-        <ParagraphLarge it txtSdw>
-          Sign In
-        </ParagraphLarge>
+        <Button
+          tb
+          title="registration or access button"
+          aria-label="log in / sign up button"
+        >
+          <LabelLarge it txtSdw>
+            Sign In
+          </LabelLarge>
+        </Button>
         <ButtonHamburger aria-label="open settings menu button" />
       </Container>
       <Display1 txtSdw>
@@ -33,9 +40,17 @@ export const Home = () => {
         <ParagraphLarge it txtSdw>
           Start organizing your life!
         </ParagraphLarge>
-        <ButtonLarge aria-label="create habits button" title="create habits">
-          Create Habits
-        </ButtonLarge>
+        <Button
+          lg
+          nb
+          boxSdw
+          aria-label="create habits button"
+          title="create habits"
+        >
+          <LabelLarge it txtSdw>
+            Create Habits
+          </LabelLarge>
+        </Button>
       </Container>
     </PageLayout>
   );

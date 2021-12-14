@@ -324,7 +324,7 @@ exports[`Storyshots LargeButton Disabled 1`] = `
   aria-label="a large button"
   className="c0 c1"
   disabled={true}
-  title="ButtonLarge"
+  title="Button"
   type="button"
 >
   <span
@@ -440,7 +440,7 @@ exports[`Storyshots LargeButton Submit 1`] = `
   className="c0 c1"
   id="submit-form-01"
   name="subject"
-  title="ButtonLarge"
+  title="Button"
   type="submit"
   value="form"
 >

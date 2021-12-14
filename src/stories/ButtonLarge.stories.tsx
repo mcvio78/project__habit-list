@@ -2,39 +2,34 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ButtonLarge } from '../components/buttons/ButtonLarge';
+import { Button } from '../components/buttons/Button';
 
 export default {
-  title: 'LargeButton',
-  component: ButtonLarge,
-} as ComponentMeta<typeof ButtonLarge>;
+  title: 'Button',
+  component: Button,
+} as ComponentMeta<typeof Button>;
 
-export const Default: ComponentStory<typeof ButtonLarge> = args => (
-  <ButtonLarge {...args}>Default</ButtonLarge>
+export const Default: ComponentStory<typeof Button> = args => (
+  <Button {...args}>Default</Button>
 );
 
-export const Disabled: ComponentStory<typeof ButtonLarge> = ({
+export const Disabled: ComponentStory<typeof Button> = ({
   title,
   'aria-label': ariaLabel,
   ...args
 }) => (
-  <ButtonLarge
-    title="ButtonLarge"
-    aria-label="a large button"
-    disabled
-    {...args}
-  >
+  <Button title="Button" aria-label="a button" disabled {...args}>
     Disabled
-  </ButtonLarge>
+  </Button>
 );
 
-export const Submit: ComponentStory<typeof ButtonLarge> = ({
+export const Submit: ComponentStory<typeof Button> = ({
   title,
   'aria-label': ariaLabel,
   ...args
 }) => (
-  <ButtonLarge
-    title="ButtonLarge"
+  <Button
+    title="Button"
     aria-label="form submit button"
     type="submit"
     name="subject"
@@ -43,5 +38,5 @@ export const Submit: ComponentStory<typeof ButtonLarge> = ({
     {...args}
   >
     Submit
-  </ButtonLarge>
+  </Button>
 );

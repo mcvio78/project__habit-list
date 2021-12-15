@@ -3,6 +3,7 @@ import { normalize } from 'styled-normalize';
 
 import './fontStyles.css';
 import { themeLight, themeDark } from './colorSchemes';
+import { DIMENSIONS } from '../config/constants/dimensions';
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -19,20 +20,20 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     button {
-      --btn-sm-w: 100px;
-      --btn-sm-h: 34px;
-      --btn-sm-br: 2px;
+      --btn-sm-w: ${DIMENSIONS.btn.size.sm.w};
+      --btn-sm-h: ${DIMENSIONS.btn.size.sm.h};
+      --btn-sm-br: ${DIMENSIONS.btn.size.sm.br};
 
-      --btn-md-w: 148px;
-      --btn-md-h: 54px;
-      --btn-md-br: 5px;
+      --btn-md-w: ${DIMENSIONS.btn.size.md.w};
+      --btn-md-h: ${DIMENSIONS.btn.size.md.h};
+      --btn-md-br: ${DIMENSIONS.btn.size.md.br};
 
-      --btn-lg-w: 260px;
-      --btn-lg-h: 86px;
-      --btn-lg-br: 10px;
+      --btn-lg-w: ${DIMENSIONS.btn.size.lg.w};
+      --btn-lg-h: ${DIMENSIONS.btn.size.lg.h};
+      --btn-lg-br: ${DIMENSIONS.btn.size.lg.br};
 
-      --btn-t-p: 6px;
-      --btn-t-br: 2px;
+      --btn-t-p: ${DIMENSIONS.btn.type.t.p};
+      --btn-t-br: ${DIMENSIONS.btn.type.t.br};
     }
 
     button:not(:disabled) {
@@ -74,7 +75,6 @@ export const GlobalStyle = createGlobalStyle`
 
     a {
       &:active {
-        color: violet;
         --nvl-n-cl: var(--nvl-n-cl-a);
       }
     }

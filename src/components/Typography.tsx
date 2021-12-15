@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components/macro';
 import { ReactNode } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import { styledMargin, StyledMarginProps } from '../utility/styledMargin';
 
@@ -14,13 +15,20 @@ export interface CommonStyleProps extends StyledMarginProps {
   children: string | number | ReactNode;
 }
 
+interface NavLinkProps extends CommonStyleProps {
+  /** NavLink active class */
+  active?: string;
+  /** location match */
+  exact?: boolean;
+}
+
 const CommonStyle = css<CommonStyleProps>`
   margin: 0;
   text-align: center;
+  color: ${({ txtClr }) => txtClr};
   text-shadow: ${({ txtSdw }) =>
     txtSdw && `0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
   font-style: ${({ it }) => it && `italic`};
-  color: ${({ txtClr }) => txtClr || 'inherit'};
   ${styledMargin};
 `;
 
@@ -34,7 +42,16 @@ const CommonParagraph = css`
   ${CommonStyle};
 `;
 
-// Link
+const CommonNavLink = css<NavLinkProps>`
+  ${CommonStyle};
+  text-decoration: none;
+  color: var(--nvl-n-cl);
+
+  &:hover,
+  &.active {
+    text-decoration: underline;
+  }
+`;
 
 const CommonLabel = css`
   ${CommonStyle};
@@ -51,6 +68,13 @@ export const Display1 = styled.h1`
 
 export const ParagraphLarge = styled.p`
   ${CommonParagraph};
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -0.4px;
+`;
+
+export const NavLinkLarge = styled(NavLink)`
+  ${CommonNavLink};
   font-size: 24px;
   line-height: 28px;
   letter-spacing: -0.4px;

@@ -3,6 +3,7 @@ export const COLORS = {
   white_rgb: '255, 255, 255',
   brightLavender: '#bc8cf2',
   greenWhite: '#D0D3C8',
+  lightPurple: '#BC6FF1',
   silverChalice: '#B4A5A5',
   stormGrey: '#6E6F86',
   turquoiseBlue: '#67daff',

@@ -1,6 +1,11 @@
 import { PageLayout } from '../components/layout/PageLayout';
 import { Container } from '../components/layout/Container';
-import { Display1, LabelLarge, ParagraphLarge } from '../components/Typography';
+import {
+  Display1,
+  LabelLarge,
+  ParagraphLarge,
+  NavLinkLarge,
+} from '../components/Typography';
 import { ButtonHamburger } from '../components/buttons/ButtonHamburger';
 import { Button } from '../components/buttons/Button';
 
@@ -15,15 +20,9 @@ export const Home = () => {
         ai={{ de: 'center' }}
         mt={{ de: '28px' }}
       >
-        <Button
-          tb
-          title="registration or access button"
-          aria-label="log in / sign up button"
-        >
-          <LabelLarge it txtSdw>
-            Sign In
-          </LabelLarge>
-        </Button>
+        <NavLinkLarge to="/auth" it txtSdw>
+          Sign In
+        </NavLinkLarge>
         <ButtonHamburger aria-label="open settings menu button" />
       </Container>
       <Display1 txtSdw>

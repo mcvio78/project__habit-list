@@ -8,7 +8,7 @@ export const Auth = (): JSX.Element => (
     <NavLinkLarge to="/" txtSdw it>
       Home
     </NavLinkLarge>
-    <NavLinkLarge to="/auth" txtClr="red" txtSdw it>
+    <NavLinkLarge to="/auth" txtSdw it>
       Sign In
     </NavLinkLarge>
   </>

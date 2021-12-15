@@ -17,7 +17,7 @@ export interface CommonStyleProps extends StyledMarginProps {
 
 interface NavLinkProps extends CommonStyleProps {
   /** NavLink active class */
-  active?: string;
+  aClass?: boolean;
   /** location match */
   exact?: boolean;
 }
@@ -27,8 +27,8 @@ const CommonStyle = css<CommonStyleProps>`
   text-align: center;
   color: ${({ txtClr }) => txtClr};
   text-shadow: ${({ txtSdw }) =>
-    txtSdw && `0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
-  font-style: ${({ it }) => it && `italic`};
+    txtSdw && '0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)'};
+  font-style: ${({ it }) => it && 'italic'};
   ${styledMargin};
 `;
 
@@ -47,7 +47,10 @@ const CommonNavLink = css<NavLinkProps>`
   text-decoration: none;
   color: var(--nvl-n-cl);
 
-  &:hover,
+  &:hover {
+    text-decoration: underline;
+  }
+
   &.active {
     text-decoration: underline;
   }

@@ -40,5 +40,13 @@ export const ButtonBasic = styled.button.attrs(props => ({
   outline: inherit;
   box-shadow: ${({ boxSdw }) =>
     boxSdw ? ` 0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)` : 'none'};
+
+  &:disabled {
+    opacity: 0.6;
+    filter: saturate(60%);
+    user-select: none;
+    cursor: not-allowed;
+  }
+
   ${styledMargin};
 `;

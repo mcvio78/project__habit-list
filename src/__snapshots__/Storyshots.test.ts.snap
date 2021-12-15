@@ -1,5 +1,202 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Button Default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: var(--clr-se-v01);
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  box-shadow: none;
+}
+
+.c1 {
+  width: auto;
+  height: auto;
+}
+
+@media screen and (min-width:0) {
+
+}
+
+@media screen and (min-width:320px) {
+
+}
+
+@media screen and (min-width:480px) {
+
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+@media screen and (min-width:1024px) {
+
+}
+
+@media screen and (min-width:1200px) {
+
+}
+
+<button
+  className="c0 c1"
+  type="button"
+>
+  Default
+</button>
+`;
+
+exports[`Storyshots Button Disabled 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: var(--clr-se-v01);
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  box-shadow: none;
+}
+
+.c1 {
+  width: auto;
+  height: auto;
+}
+
+@media screen and (min-width:0) {
+
+}
+
+@media screen and (min-width:320px) {
+
+}
+
+@media screen and (min-width:480px) {
+
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+@media screen and (min-width:1024px) {
+
+}
+
+@media screen and (min-width:1200px) {
+
+}
+
+<button
+  aria-label="a button"
+  className="c0 c1"
+  disabled={true}
+  title="Button"
+  type="button"
+>
+  Disabled
+</button>
+`;
+
+exports[`Storyshots Button Submit 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: var(--clr-se-v01);
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  box-shadow: none;
+}
+
+.c1 {
+  width: auto;
+  height: auto;
+}
+
+@media screen and (min-width:0) {
+
+}
+
+@media screen and (min-width:320px) {
+
+}
+
+@media screen and (min-width:480px) {
+
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+@media screen and (min-width:1024px) {
+
+}
+
+@media screen and (min-width:1200px) {
+
+}
+
+<button
+  aria-label="form submit button"
+  className="c0 c1"
+  id="submit-form-01"
+  name="subject"
+  title="Button"
+  type="submit"
+  value="form"
+>
+  Submit
+</button>
+`;
+
 exports[`Storyshots ButtonHamburger Default 1`] = `
 .c0 {
   display: -webkit-box;
@@ -105,350 +302,6 @@ exports[`Storyshots ButtonHamburger Default 1`] = `
   <div />
   <div />
   <div />
-</button>
-`;
-
-exports[`Storyshots LargeButton Default 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  background-color: var(--clr-se-v01);
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  box-shadow: 0 4px 4px rgba(var(--clr-nt-v02-rgb),0.25);
-}
-
-.c2 {
-  margin: 0;
-  text-align: center;
-  text-shadow: 0 4px 4px rgba(var(--clr-nt-v02-rgb),0.25);
-  font-style: italic;
-  color: inherit;
-  font-variation-settings: 'wght' 600;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 28px;
-  -webkit-letter-spacing: -0.4px;
-  -moz-letter-spacing: -0.4px;
-  -ms-letter-spacing: -0.4px;
-  letter-spacing: -0.4px;
-}
-
-.c1 {
-  width: 100%;
-  max-width: 260px;
-  height: 86px;
-  border-radius: 10px;
-  outline: var(--clr-ac-v02-d) 1px solid;
-  color: var(--clr-ac-v01-d);
-  background-color: var(--clr-se-v01-d);
-}
-
-@media screen and (min-width:0) {
-
-}
-
-@media screen and (min-width:320px) {
-
-}
-
-@media screen and (min-width:480px) {
-
-}
-
-@media screen and (min-width:768px) {
-
-}
-
-@media screen and (min-width:1024px) {
-
-}
-
-@media screen and (min-width:1200px) {
-
-}
-
-@media screen and (min-width:0) {
-
-}
-
-@media screen and (min-width:320px) {
-
-}
-
-@media screen and (min-width:480px) {
-
-}
-
-@media screen and (min-width:768px) {
-
-}
-
-@media screen and (min-width:1024px) {
-
-}
-
-@media screen and (min-width:1200px) {
-
-}
-
-<button
-  className="c0 c1"
-  type="button"
->
-  <span
-    className="c2"
-  >
-    Default
-  </span>
-</button>
-`;
-
-exports[`Storyshots LargeButton Disabled 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  background-color: var(--clr-se-v01);
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  box-shadow: 0 4px 4px rgba(var(--clr-nt-v02-rgb),0.25);
-}
-
-.c2 {
-  margin: 0;
-  text-align: center;
-  text-shadow: 0 4px 4px rgba(var(--clr-nt-v02-rgb),0.25);
-  font-style: italic;
-  color: inherit;
-  font-variation-settings: 'wght' 600;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 28px;
-  -webkit-letter-spacing: -0.4px;
-  -moz-letter-spacing: -0.4px;
-  -ms-letter-spacing: -0.4px;
-  letter-spacing: -0.4px;
-}
-
-.c1 {
-  width: 100%;
-  max-width: 260px;
-  height: 86px;
-  border-radius: 10px;
-  outline: var(--clr-ac-v02-d) 1px solid;
-  color: var(--clr-ac-v01-d);
-  background-color: var(--clr-se-v01-d);
-}
-
-@media screen and (min-width:0) {
-
-}
-
-@media screen and (min-width:320px) {
-
-}
-
-@media screen and (min-width:480px) {
-
-}
-
-@media screen and (min-width:768px) {
-
-}
-
-@media screen and (min-width:1024px) {
-
-}
-
-@media screen and (min-width:1200px) {
-
-}
-
-@media screen and (min-width:0) {
-
-}
-
-@media screen and (min-width:320px) {
-
-}
-
-@media screen and (min-width:480px) {
-
-}
-
-@media screen and (min-width:768px) {
-
-}
-
-@media screen and (min-width:1024px) {
-
-}
-
-@media screen and (min-width:1200px) {
-
-}
-
-<button
-  aria-label="a large button"
-  className="c0 c1"
-  disabled={true}
-  title="Button"
-  type="button"
->
-  <span
-    className="c2"
-  >
-    Disabled
-  </span>
-</button>
-`;
-
-exports[`Storyshots LargeButton Submit 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  background-color: var(--clr-se-v01);
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  box-shadow: 0 4px 4px rgba(var(--clr-nt-v02-rgb),0.25);
-}
-
-.c2 {
-  margin: 0;
-  text-align: center;
-  text-shadow: 0 4px 4px rgba(var(--clr-nt-v02-rgb),0.25);
-  font-style: italic;
-  color: inherit;
-  font-variation-settings: 'wght' 600;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 28px;
-  -webkit-letter-spacing: -0.4px;
-  -moz-letter-spacing: -0.4px;
-  -ms-letter-spacing: -0.4px;
-  letter-spacing: -0.4px;
-}
-
-.c1 {
-  width: 100%;
-  max-width: 260px;
-  height: 86px;
-  border-radius: 10px;
-  outline: var(--clr-ac-v02-d) 1px solid;
-  color: var(--clr-ac-v01-d);
-  background-color: var(--clr-se-v01-d);
-}
-
-@media screen and (min-width:0) {
-
-}
-
-@media screen and (min-width:320px) {
-
-}
-
-@media screen and (min-width:480px) {
-
-}
-
-@media screen and (min-width:768px) {
-
-}
-
-@media screen and (min-width:1024px) {
-
-}
-
-@media screen and (min-width:1200px) {
-
-}
-
-@media screen and (min-width:0) {
-
-}
-
-@media screen and (min-width:320px) {
-
-}
-
-@media screen and (min-width:480px) {
-
-}
-
-@media screen and (min-width:768px) {
-
-}
-
-@media screen and (min-width:1024px) {
-
-}
-
-@media screen and (min-width:1200px) {
-
-}
-
-<button
-  aria-label="form submit button"
-  className="c0 c1"
-  id="submit-form-01"
-  name="subject"
-  title="Button"
-  type="submit"
-  value="form"
->
-  <span
-    className="c2"
-  >
-    Submit
-  </span>
 </button>
 `;
 

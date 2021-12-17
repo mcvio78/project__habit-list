@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { COLORS } from '../../config/constants/colors';
+import { COLORS } from '../../config/constants';
 
 export const themeDark = css`
   body[data-theme='dark'] {

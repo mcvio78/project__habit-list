@@ -20,18 +20,21 @@ interface VariantButtonProps extends ButtonBasicProps {
 export const Button = styled(ButtonBasic)<VariantButtonProps>`
   ${props => {
     if (props.sm && !props.tb)
-      return `width: var(--btn-sm-w);
-      height: var(--btn-sm-h);
+      return `min-width: var(--btn-sm-mw);
+      min-height: var(--btn-sm-mh);
+      padding: var(--btn-sm-p);
       border-radius: var(--btn-sm-br);
       `;
     if (props.md && !props.tb)
-      return `width: var(--btn-md-w);
-      height: var(--btn-md-h);
+      return `min-width: var(--btn-md-mw);
+      min-height: var(--btn-md-mh);
+      padding: var(--btn-md-p);
       border-radius: var(--btn-md-br);
       `;
     if (props.lg && !props.tb)
-      return `width: var(--btn-lg-w);
-      height: var(--btn-lg-h);
+      return `min-width: var(--btn-lg-mw);
+      min-height: var(--btn-lg-mh);
+      padding: var(--btn-lg-p);
       border-radius: var(--btn-lg-br);
       `;
     return `width: auto; height: auto;`;
@@ -46,13 +49,13 @@ export const Button = styled(ButtonBasic)<VariantButtonProps>`
       return `color: var(--btn-h-cl);
       background-color: var(--btn-h-bk);
       outline: var(--btn-h-ol) 1px solid;
+      box-shadow: none;
       `;
     if (props.tb)
       return `color: var(--btn-t-cl);
       background-color: var(--btn-t-bk);
       outline: var(--btn-t-ol) 1px solid;
-      padding: var(--btn-t-p);
-      border-radius: var(--btn-t-br);
+      box-shadow: none;
       `;
   }};
 `;

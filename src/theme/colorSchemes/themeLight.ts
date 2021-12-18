@@ -80,7 +80,7 @@ export const themeLight = css`
     }
 
     a {
-      --nvl-n-cl: inherit;
+      --nvl-n-cl: var(--clr-nt-v01);
 
       &:active {
         --nvl-n-cl: ${COLORS.lightPurple};

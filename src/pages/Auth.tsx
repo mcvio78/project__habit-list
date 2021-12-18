@@ -1,15 +1,21 @@
-import { NavLinkLarge, ParagraphLarge } from '../components/Typography';
+import { PageLayout, Container } from '../components/layout';
+import { NavLinkIcon } from '../components/Typography';
+import { ReactComponent as HomeSVG } from '../assets/icons/icon-home.svg';
+import { Header } from '../components/Header';
 
 export const Auth = (): JSX.Element => (
-  <>
-    <ParagraphLarge txtSdw it>
-      Authentication Page
-    </ParagraphLarge>
-    <NavLinkLarge to="/" txtSdw it>
-      Home
-    </NavLinkLarge>
-    <NavLinkLarge to="/auth" txtSdw it>
-      Sign In
-    </NavLinkLarge>
-  </>
+  <PageLayout>
+    <Container
+      w={{ de: '100%' }}
+      mih={{ de: '40px' }}
+      mt={{ de: '20px' }}
+      jc={{ de: 'flex-end' }}
+      ai={{ de: 'center' }}
+    >
+      <NavLinkIcon to="/" iconSdw>
+        <HomeSVG />
+      </NavLinkIcon>
+    </Container>
+    <Header header="Account" subHeader="Login" />
+  </PageLayout>
 );

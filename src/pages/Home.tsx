@@ -1,10 +1,11 @@
-import { PageLayout } from '../components/layout/PageLayout';
-import { Container } from '../components/layout/Container';
+import { PageLayout, Container } from '../components/layout';
 import {
   Display1,
   ParagraphLarge,
   LabelLarge,
-  NavLinkMedium,
+  NavLinkLarge,
+  B,
+  It,
 } from '../components/Typography';
 import { ButtonHamburger } from '../components/buttons/ButtonHamburger';
 import { Button } from '../components/buttons/Button';
@@ -15,14 +16,15 @@ export const Home = () => {
       <Container
         w={{ de: '100%' }}
         mxw={{ lg: '800px' }}
+        mih={{ de: '40px' }}
         bs={{ de: 'border-box' }}
         jc={{ de: 'space-between' }}
         ai={{ de: 'center' }}
-        mt={{ de: '28px' }}
+        mt={{ de: '20px' }}
       >
-        <NavLinkMedium to="/auth" it txtSdw>
-          Sign In
-        </NavLinkMedium>
+        <NavLinkLarge to="/auth" txtSdw>
+          <i>Sign In</i>
+        </NavLinkLarge>
         <ButtonHamburger aria-label="open settings menu button" />
       </Container>
       <Display1 txtSdw>
@@ -36,8 +38,8 @@ export const Home = () => {
         ai={{ de: 'center' }}
         g={{ de: '30px' }}
       >
-        <ParagraphLarge it txtSdw>
-          Start organizing your life!
+        <ParagraphLarge txtSdw>
+          <i>Start organizing your life!</i>
         </ParagraphLarge>
         <Button
           lg
@@ -46,8 +48,10 @@ export const Home = () => {
           aria-label="create habits button"
           title="create habits"
         >
-          <LabelLarge it txtSdw>
-            Create Habits
+          <LabelLarge txtSdw>
+            <B>
+              <It>Create Habits</It>
+            </B>
           </LabelLarge>
         </Button>
       </Container>

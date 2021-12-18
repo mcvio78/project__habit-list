@@ -9,6 +9,6 @@ export const PageLayout = styled.div`
   box-sizing: border-box;
   margin: 20px 0;
   padding: 0 16px;
-  border-radius: 30px;
+  border-radius: 32px;
   background: var(--clr-pr-v01);
 `;

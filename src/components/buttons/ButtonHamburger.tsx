@@ -3,7 +3,8 @@ import { useState } from 'react';
 
 import { ButtonBasic, ButtonBasicProps } from './ButtonBasic';
 
-interface ButtonHamburgerProps extends Omit<ButtonBasicProps, 'title'> {
+interface ButtonHamburgerProps
+  extends Omit<ButtonBasicProps, 'title' | 'boxSdw' | 'bkgCol'> {
   /** open button state (prop) */
   open?: boolean;
   /** set open state handler (prop) */
@@ -14,7 +15,7 @@ const ButtonContainer = styled(ButtonBasic).attrs(() => ({
   title: 'hamburgerButton',
   role: 'button',
 }))<ButtonHamburgerProps>`
-  width: 40px;
+  width: 36px;
   height: 26px;
   justify-content: space-between;
   box-shadow: none;

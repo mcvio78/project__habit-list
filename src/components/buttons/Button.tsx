@@ -39,6 +39,7 @@ export const Button = styled(ButtonBasic)<VariantButtonProps>`
       `;
     return `width: auto; height: auto;`;
   }};
+
   ${props => {
     if (props.nb)
       return `color: var(--btn-n-cl);

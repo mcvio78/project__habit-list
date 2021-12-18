@@ -3,7 +3,7 @@ import { normalize } from 'styled-normalize';
 
 import './fontStyles.css';
 import { themeLight, themeDark } from './colorSchemes';
-import { buttonSizes } from './elementSizes/buttonSizes';
+import { buttonSize, typographySize } from './elementSize';
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -23,6 +23,7 @@ export const GlobalStyle = createGlobalStyle`
   ${themeDark}
 
   body {
-    ${buttonSizes};
+    ${buttonSize};
+    ${typographySize};
   }
 `;

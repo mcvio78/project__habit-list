@@ -1,24 +1,28 @@
 import { css } from 'styled-components/macro';
 
 import { BreakPointsProps, SpaceValue } from '../helpers/globalTypes';
-import { BREAKPOINTS } from '../config/constants/breakpoints';
+import { BREAKPOINTS } from '../config/constants';
 
 export interface StyledMarginProps {
-  /** Margin - shorthand */
+  /** margin - shorthand */
   m?: BreakPointsProps<
     | SpaceValue
     | `${SpaceValue} ${SpaceValue}`
     | `${SpaceValue} ${SpaceValue} ${SpaceValue}`
     | `${SpaceValue} ${SpaceValue} ${SpaceValue} ${SpaceValue}`
   >;
-  /** Margin top - individual */
+  /** margin top - individual */
   mt?: BreakPointsProps<SpaceValue>;
-  /** Margin right - individual */
+  /** margin right - individual */
   mr?: BreakPointsProps<SpaceValue>;
-  /** Margin bottom - individual */
+  /** margin bottom - individual */
   mb?: BreakPointsProps<SpaceValue>;
-  /** Margin left - individual */
+  /** margin left - individual */
   ml?: BreakPointsProps<SpaceValue>;
+  /** align-self [if children] CSS property (prop) */
+  flxAs?: BreakPointsProps<
+    'auto' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch'
+  >;
 }
 
 const styleBreakpointProps = (
@@ -32,6 +36,7 @@ const styleBreakpointProps = (
       margin-right: ${({ mr }) => mr?.[propName]};
       margin-bottom: ${({ mb }) => mb?.[propName]};
       margin-left: ${({ ml }) => ml?.[propName]};
+      align-self: ${({ flxAs }) => flxAs?.[propName]};
     }
   `;
 

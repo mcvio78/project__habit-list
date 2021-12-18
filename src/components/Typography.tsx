@@ -7,21 +7,24 @@ import { styledMargin, StyledMarginProps } from '../utility/styledMargin';
 export interface CommonStyleProps extends StyledMarginProps {
   /** font text shadow */
   txtSdw?: boolean;
-  /** font italicized type */
-  it?: boolean;
   /** overwrite default font color */
   txtClr?: string;
-  /** font bold tag */
-  b?: boolean;
   /** children prop */
   children: string | number | ReactNode;
 }
 
-interface NavLinkProps extends CommonStyleProps {
+interface NavLinkProps {
   /** NavLink active class */
   aClass?: boolean;
   /** location match */
   exact?: boolean;
+}
+
+interface NavLinkTextProps extends NavLinkProps, CommonStyleProps {}
+
+interface NavLinkIconProps extends NavLinkProps, StyledMarginProps {
+  /** NavLink active class */
+  iconSdw?: boolean;
 }
 
 const CommonStyle = css<CommonStyleProps>`
@@ -30,7 +33,6 @@ const CommonStyle = css<CommonStyleProps>`
   color: ${({ txtClr }) => txtClr};
   text-shadow: ${({ txtSdw }) =>
     txtSdw && '0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)'};
-  font-style: ${({ it }) => it && 'italic'};
   ${styledMargin};
 `;
 
@@ -52,10 +54,10 @@ const CommonParagraph = css`
   font-weight: 400;
 `;
 
-const CommonNavLink = css<NavLinkProps>`
+const CommonNavLink = css<NavLinkTextProps>`
   ${CommonStyle};
-  font-variation-settings: 'wght' 700;
-  font-weight: 700;
+  font-variation-settings: 'wght' 600;
+  font-weight: 600;
   text-decoration: none;
   color: var(--nvl-n-cl);
 
@@ -67,14 +69,14 @@ const CommonNavLink = css<NavLinkProps>`
   &.active {
     text-decoration: underline;
     text-shadow: none;
-    cursor: text;
+    pointer-events: none;
   }
 `;
 
 const CommonLabel = css`
   ${CommonStyle};
-  font-variation-settings: ${({ b }) => (b ? `'wght' 700` : `'wght' 400`)};
-  font-weight: ${({ b }) => (b ? 700 : 400)};
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
 `;
 
 export const Display1 = styled.h1`
@@ -181,6 +183,24 @@ export const NavLinkExtraSmall = styled(NavLink)`
   line-height: var(--typ-ln-xs-lh);
 `;
 
+export const NavLinkIcon = styled(NavLink)<NavLinkIconProps>`
+  line-height: 0;
+  fill: var(--nvl-n-cl);
+  filter: ${({ iconSdw }) =>
+    iconSdw && `drop-shadow(0px 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25))`};
+  ${styledMargin};
+
+  &:hover {
+    filter: none;
+  }
+
+  &.active {
+    border-bottom: 2px solid var(--nvl-n-cl);
+    filter: none;
+    pointer-events: none;
+  }
+`;
+
 export const LabelLarge = styled.span`
   ${CommonLabel};
   font-size: var(--typ-lbl-lg-fs);
@@ -197,4 +217,14 @@ export const LabelSmall = styled.span`
   ${CommonLabel};
   font-size: var(--typ-lbl-sm-fs);
   line-height: var(--typ-lbl-sm-lh);
+`;
+
+export const B = styled.span`
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+`;
+
+export const It = styled.span`
+  font-style: italic;
+  font-synthesis: none;
 `;

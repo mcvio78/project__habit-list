@@ -2,9 +2,9 @@ import { PageLayout } from '../components/layout/PageLayout';
 import { Container } from '../components/layout/Container';
 import {
   Display1,
-  LabelLarge,
   ParagraphLarge,
-  NavLinkLarge,
+  LabelLarge,
+  NavLinkMedium,
 } from '../components/Typography';
 import { ButtonHamburger } from '../components/buttons/ButtonHamburger';
 import { Button } from '../components/buttons/Button';
@@ -20,9 +20,9 @@ export const Home = () => {
         ai={{ de: 'center' }}
         mt={{ de: '28px' }}
       >
-        <NavLinkLarge to="/auth" it txtSdw>
+        <NavLinkMedium to="/auth" it txtSdw>
           Sign In
-        </NavLinkLarge>
+        </NavLinkMedium>
         <ButtonHamburger aria-label="open settings menu button" />
       </Container>
       <Display1 txtSdw>

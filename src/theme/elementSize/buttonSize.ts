@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-export const buttonSizes = css`
+export const buttonSize = css`
   button {
     --btn-sm-mw: 32px;
     --btn-sm-mh: 16px;

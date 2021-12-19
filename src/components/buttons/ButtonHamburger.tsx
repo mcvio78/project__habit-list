@@ -6,9 +6,9 @@ import { ButtonBasic, ButtonBasicProps } from './ButtonBasic';
 interface ButtonHamburgerProps
   extends Omit<ButtonBasicProps, 'title' | 'boxSdw' | 'bkgCol'> {
   /** open button state (prop) */
-  open?: boolean;
+  $open?: boolean;
   /** set open state handler (prop) */
-  setIsOpen?: () => void;
+  $setIsOpen?: () => void;
 }
 
 const ButtonContainer = styled(ButtonBasic).attrs(() => ({
@@ -29,23 +29,25 @@ const ButtonContainer = styled(ButtonBasic).attrs(() => ({
     width: 100%;
     height: 4px;
     background-color: var(--clr-se-v01);
-    box-shadow: ${({ open }) =>
-      !open && `0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
+    box-shadow: ${({ $open }) =>
+      !$open && `0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
     transition: all 0.5s linear;
 
     :first-child {
-      transform: ${({ open }) =>
-        open ? 'translateY(11px) rotate(45deg) ' : 'rotate(0) translateY(0)'};
+      transform: ${({ $open }) =>
+        $open ? 'translateY(11px) rotate(45deg) ' : 'rotate(0) translateY(0)'};
     }
 
     :nth-child(2) {
-      opacity: ${({ open }) => (open ? '0' : '1')};
-      transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
+      opacity: ${({ $open }) => ($open ? '0' : '1')};
+      transform: ${({ $open }) => ($open ? 'rotate(45deg)' : 'rotate(0)')};
     }
 
     :nth-child(3) {
-      transform: ${({ open }) =>
-        open ? 'translateY(-11px) rotate(-45deg) ' : 'rotate(0) translateY(0)'};
+      transform: ${({ $open }) =>
+        $open
+          ? 'translateY(-11px) rotate(-45deg) '
+          : 'rotate(0) translateY(0)'};
     }
   }
 `;
@@ -55,7 +57,7 @@ export const ButtonHamburger = ({ ...props }: ButtonHamburgerProps) => {
 
   return (
     <ButtonContainer
-      open={isOpen}
+      $open={isOpen}
       onClick={() => setIsOpen(!isOpen)}
       {...props}
     >

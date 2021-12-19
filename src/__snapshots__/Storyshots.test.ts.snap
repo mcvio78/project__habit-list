@@ -26,6 +26,17 @@ exports[`Storyshots Button Default 1`] = `
   box-shadow: none;
 }
 
+.c0:disabled {
+  opacity: 0.6;
+  -webkit-filter: saturate(60%);
+  filter: saturate(60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: not-allowed;
+}
+
 .c1 {
   width: auto;
   height: auto;
@@ -87,6 +98,17 @@ exports[`Storyshots Button Disabled 1`] = `
   cursor: pointer;
   outline: inherit;
   box-shadow: none;
+}
+
+.c0:disabled {
+  opacity: 0.6;
+  -webkit-filter: saturate(60%);
+  filter: saturate(60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: not-allowed;
 }
 
 .c1 {
@@ -153,6 +175,17 @@ exports[`Storyshots Button Submit 1`] = `
   cursor: pointer;
   outline: inherit;
   box-shadow: none;
+}
+
+.c0:disabled {
+  opacity: 0.6;
+  -webkit-filter: saturate(60%);
+  filter: saturate(60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: not-allowed;
 }
 
 .c1 {
@@ -223,8 +256,19 @@ exports[`Storyshots ButtonHamburger Default 1`] = `
   box-shadow: none;
 }
 
+.c0:disabled {
+  opacity: 0.6;
+  -webkit-filter: saturate(60%);
+  filter: saturate(60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: not-allowed;
+}
+
 .c1 {
-  width: 40px;
+  width: 36px;
   height: 26px;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -305,17 +349,115 @@ exports[`Storyshots ButtonHamburger Default 1`] = `
 </button>
 `;
 
+exports[`Storyshots Display1 Default 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+  font-size: var(--typ-d-1-fs);
+  line-height: var(--typ-d-1-lh);
+  -webkit-letter-spacing: var(--typ-d-1-ls);
+  -moz-letter-spacing: var(--typ-d-1-ls);
+  -ms-letter-spacing: var(--typ-d-1-ls);
+  letter-spacing: var(--typ-d-1-ls);
+}
+
+@media screen and (min-width:0) {
+
+}
+
+@media screen and (min-width:320px) {
+
+}
+
+@media screen and (min-width:480px) {
+
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+@media screen and (min-width:1024px) {
+
+}
+
+@media screen and (min-width:1200px) {
+
+}
+
+<h1
+  className="c0"
+>
+  Basic Display1
+</h1>
+`;
+
+exports[`Storyshots Display1 Styled 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  color: navy;
+  text-shadow: 0 4px 4px rgba(var(--clr-nt-v02-rgb),0.25);
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+  font-size: var(--typ-d-1-fs);
+  line-height: var(--typ-d-1-lh);
+  -webkit-letter-spacing: var(--typ-d-1-ls);
+  -moz-letter-spacing: var(--typ-d-1-ls);
+  -ms-letter-spacing: var(--typ-d-1-ls);
+  letter-spacing: var(--typ-d-1-ls);
+}
+
+.c1 {
+  font-style: italic;
+  font-synthesis: none;
+}
+
+@media screen and (min-width:0) {
+
+}
+
+@media screen and (min-width:320px) {
+
+}
+
+@media screen and (min-width:480px) {
+
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+@media screen and (min-width:1024px) {
+
+}
+
+@media screen and (min-width:1200px) {
+
+}
+
+<h1
+  className="c0"
+>
+  <span
+    className="c1"
+  >
+    Styled Display1
+  </span>
+</h1>
+`;
+
 exports[`Storyshots ParagraphLarge Default 1`] = `
 .c0 {
   margin: 0;
   text-align: center;
-  color: inherit;
-  font-size: 24px;
-  line-height: 28px;
-  -webkit-letter-spacing: -0.4px;
-  -moz-letter-spacing: -0.4px;
-  -ms-letter-spacing: -0.4px;
-  letter-spacing: -0.4px;
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
+  font-size: var(--typ-p-lg-fs);
+  line-height: var(--typ-p-lg-lh);
 }
 
 @media screen and (min-width:0) {
@@ -345,7 +487,7 @@ exports[`Storyshots ParagraphLarge Default 1`] = `
 <p
   className="c0"
 >
-  Basic
+  Basic ParagraphLarge
 </p>
 `;
 
@@ -353,15 +495,17 @@ exports[`Storyshots ParagraphLarge Styled 1`] = `
 .c0 {
   margin: 0;
   text-align: center;
+  color: navy;
   text-shadow: 0 4px 4px rgba(var(--clr-nt-v02-rgb),0.25);
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
+  font-size: var(--typ-p-lg-fs);
+  line-height: var(--typ-p-lg-lh);
+}
+
+.c1 {
   font-style: italic;
-  color: red;
-  font-size: 24px;
-  line-height: 28px;
-  -webkit-letter-spacing: -0.4px;
-  -moz-letter-spacing: -0.4px;
-  -ms-letter-spacing: -0.4px;
-  letter-spacing: -0.4px;
+  font-synthesis: none;
 }
 
 @media screen and (min-width:0) {
@@ -391,6 +535,10 @@ exports[`Storyshots ParagraphLarge Styled 1`] = `
 <p
   className="c0"
 >
-  Styled
+  <span
+    className="c1"
+  >
+    Styled ParagraphLarge
+  </span>
 </p>
 `;

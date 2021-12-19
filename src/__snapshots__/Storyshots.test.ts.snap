@@ -338,7 +338,6 @@ exports[`Storyshots ButtonHamburger Default 1`] = `
   aria-label="open settings menu button"
   className="c0 c1"
   onClick={[Function]}
-  open={false}
   role="button"
   title="hamburgerButton"
   type="button"
@@ -399,7 +398,6 @@ exports[`Storyshots Display1 Styled 1`] = `
   margin: 0;
   text-align: center;
   color: navy;
-  text-shadow: 0 4px 4px rgba(var(--clr-nt-v02-rgb),0.25);
   font-variation-settings: 'wght' 700;
   font-weight: 700;
   font-size: var(--typ-d-1-fs);

@@ -6,33 +6,31 @@ import { styledMargin, StyledMarginProps } from '../utility/styledMargin';
 
 export interface CommonStyleProps extends StyledMarginProps {
   /** font text shadow */
-  txtSdw?: boolean;
+  $txtSdw?: boolean;
   /** overwrite default font color */
-  txtClr?: string;
+  $txtClr?: string;
   /** children prop */
   children: string | number | ReactNode;
 }
 
 interface NavLinkProps {
-  /** NavLink active class */
-  aClass?: boolean;
   /** location match */
-  exact?: boolean;
+  $exact?: boolean;
 }
 
 interface NavLinkTextProps extends NavLinkProps, CommonStyleProps {}
 
 interface NavLinkIconProps extends NavLinkProps, StyledMarginProps {
   /** NavLink active class */
-  iconSdw?: boolean;
+  $iconSdw?: boolean;
 }
 
 const CommonStyle = css<CommonStyleProps>`
   margin: 0;
   text-align: center;
-  color: ${({ txtClr }) => txtClr};
-  text-shadow: ${({ txtSdw }) =>
-    txtSdw && '0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)'};
+  color: ${({ $txtClr }) => $txtClr};
+  text-shadow: ${({ $txtSdw }) =>
+    $txtSdw && '0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)'};
   ${styledMargin};
 `;
 
@@ -186,8 +184,8 @@ export const NavLinkExtraSmall = styled(NavLink)`
 export const NavLinkIcon = styled(NavLink)<NavLinkIconProps>`
   line-height: 0;
   fill: var(--nvl-n-cl);
-  filter: ${({ iconSdw }) =>
-    iconSdw && `drop-shadow(0px 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25))`};
+  filter: ${({ $iconSdw }) =>
+    $iconSdw && `drop-shadow(0px 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25))`};
   ${styledMargin};
 
   &:hover {

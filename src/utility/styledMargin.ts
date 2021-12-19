@@ -5,22 +5,22 @@ import { BREAKPOINTS } from '../config/constants';
 
 export interface StyledMarginProps {
   /** margin - shorthand */
-  m?: BreakPointsProps<
+  $m?: BreakPointsProps<
     | SpaceValue
     | `${SpaceValue} ${SpaceValue}`
     | `${SpaceValue} ${SpaceValue} ${SpaceValue}`
     | `${SpaceValue} ${SpaceValue} ${SpaceValue} ${SpaceValue}`
   >;
   /** margin top - individual */
-  mt?: BreakPointsProps<SpaceValue>;
+  $mt?: BreakPointsProps<SpaceValue>;
   /** margin right - individual */
-  mr?: BreakPointsProps<SpaceValue>;
+  $mr?: BreakPointsProps<SpaceValue>;
   /** margin bottom - individual */
-  mb?: BreakPointsProps<SpaceValue>;
+  $mb?: BreakPointsProps<SpaceValue>;
   /** margin left - individual */
-  ml?: BreakPointsProps<SpaceValue>;
+  $ml?: BreakPointsProps<SpaceValue>;
   /** align-self [if children] CSS property (prop) */
-  flxAs?: BreakPointsProps<
+  $flxAs?: BreakPointsProps<
     'auto' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch'
   >;
 }
@@ -31,12 +31,12 @@ const styleBreakpointProps = (
 ) =>
   css<StyledMarginProps>`
     @media screen and (min-width: ${breakpointSize}) {
-      margin: ${({ m }) => m?.[propName]};
-      margin-top: ${({ mt }) => mt?.[propName]};
-      margin-right: ${({ mr }) => mr?.[propName]};
-      margin-bottom: ${({ mb }) => mb?.[propName]};
-      margin-left: ${({ ml }) => ml?.[propName]};
-      align-self: ${({ flxAs }) => flxAs?.[propName]};
+      margin: ${({ $m }) => $m?.[propName]};
+      margin-top: ${({ $mt }) => $mt?.[propName]};
+      margin-right: ${({ $mr }) => $mr?.[propName]};
+      margin-bottom: ${({ $mb }) => $mb?.[propName]};
+      margin-left: ${({ $ml }) => $ml?.[propName]};
+      align-self: ${({ $flxAs }) => $flxAs?.[propName]};
     }
   `;
 

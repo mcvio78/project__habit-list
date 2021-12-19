@@ -20,9 +20,9 @@ export interface ButtonBasicProps extends StyledMarginProps {
   /** autoFocus attribute */
   autoFocus?: boolean;
   /** background-color CSS property (prop) */
-  bkgCol?: string;
+  $bkgCol?: string;
   /** box-shadow CSS property (prop) */
-  boxSdw?: boolean;
+  $boxSdw?: boolean;
 }
 
 export const ButtonBasic = styled.button.attrs(props => ({
@@ -32,14 +32,14 @@ export const ButtonBasic = styled.button.attrs(props => ({
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${({ bkgCol }) => bkgCol || 'var(--clr-se-v01)'};
+  background-color: ${({ $bkgCol }) => $bkgCol || 'var(--clr-se-v01)'};
   border: none;
   padding: 0;
   font: inherit;
   cursor: pointer;
   outline: inherit;
-  box-shadow: ${({ boxSdw }) =>
-    boxSdw ? ` 0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)` : 'none'};
+  box-shadow: ${({ $boxSdw }) =>
+    $boxSdw ? ` 0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)` : 'none'};
 
   &:disabled {
     opacity: 0.6;

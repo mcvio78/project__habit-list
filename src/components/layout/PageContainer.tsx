@@ -1,11 +1,6 @@
 import styled from 'styled-components/macro';
 
-interface PageContainerProps {
-  /** background-color CSS property (prop) */
-  bgColor?: string;
-}
-
-export const PageContainer = styled.div<PageContainerProps>`
+export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;

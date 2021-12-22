@@ -270,12 +270,16 @@ exports[`Storyshots ButtonHamburger Default 1`] = `
 .c1 {
   width: 36px;
   height: 26px;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
   box-shadow: none;
   background-color: transparent;
+  z-index: 1000;
 }
 
 .c1:focus {
@@ -286,28 +290,27 @@ exports[`Storyshots ButtonHamburger Default 1`] = `
   width: 100%;
   height: 4px;
   background-color: var(--clr-se-v01);
-  box-shadow: 0 4px 4px rgba(var(--clr-nt-v02-rgb),0.25);
   -webkit-transition: all 0.5s linear;
   transition: all 0.5s linear;
 }
 
 .c1 div:first-child {
-  -webkit-transform: rotate(0) translateY(0);
-  -ms-transform: rotate(0) translateY(0);
-  transform: rotate(0) translateY(0);
+  -webkit-transform: translateY(11px) rotate(45deg);
+  -ms-transform: translateY(11px) rotate(45deg);
+  transform: translateY(11px) rotate(45deg);
 }
 
 .c1 div:nth-child(2) {
-  opacity: 1;
-  -webkit-transform: rotate(0);
-  -ms-transform: rotate(0);
-  transform: rotate(0);
+  opacity: 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .c1 div:nth-child(3) {
-  -webkit-transform: rotate(0) translateY(0);
-  -ms-transform: rotate(0) translateY(0);
-  transform: rotate(0) translateY(0);
+  -webkit-transform: translateY(-11px) rotate(-45deg);
+  -ms-transform: translateY(-11px) rotate(-45deg);
+  transform: translateY(-11px) rotate(-45deg);
 }
 
 @media screen and (min-width:0) {
@@ -335,9 +338,8 @@ exports[`Storyshots ButtonHamburger Default 1`] = `
 }
 
 <button
-  aria-label="open settings menu button"
+  aria-label="open side drawer menu button"
   className="c0 c1"
-  onClick={[Function]}
   role="button"
   title="hamburgerButton"
   type="button"

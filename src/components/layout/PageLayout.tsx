@@ -4,9 +4,10 @@ export const PageLayout = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  width: 100%;
   align-items: center;
+  width: 100%;
   box-sizing: border-box;
+  position: relative;
   margin: 20px 0;
   padding: 0 16px;
   border-radius: 32px;

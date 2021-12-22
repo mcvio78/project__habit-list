@@ -1,26 +1,27 @@
 import styled from 'styled-components/macro';
 
-import { Container } from './layout';
+import { Container, ContainerProps } from './layout';
 import { Display1, ParagraphLarge, It } from './Typography';
 
 interface HeaderProps {
-  $header: string;
-  $subHeader: string;
+  /** Page header */
+  $header: string | JSX.Element;
+  /** Page sub header */
+  $subHeader?: string;
 }
 
-const CustomDisplay1 = styled(Display1)`
-  line-height: var(--typ-d-1-fs);
-`;
-
-const CustomParagraphLarge = styled(ParagraphLarge)`
-  line-height: var(--typ-p-lg-fs);
-`;
+const CustomContainer = styled(Container).attrs(props => ({
+  role: 'heading',
+  'aria-level': props['aria-level'] || 1,
+}))<ContainerProps>``;
 
 export const Header = ({ $header, $subHeader }: HeaderProps): JSX.Element => (
-  <Container $fd={{ de: 'column' }}>
-    <CustomDisplay1 $txtSdw>{$header}</CustomDisplay1>
-    <CustomParagraphLarge $txtSdw>
+  <CustomContainer $fd={{ de: 'column' }} as="header">
+    <Display1 $txtSdw style={{ lineHeight: $subHeader && 'var(--typ-d-1-fs)' }}>
+      {$header}
+    </Display1>
+    <ParagraphLarge $txtSdw style={{ lineHeight: 'var(--typ-p-lg-fs)' }}>
       <It>{$subHeader}</It>
-    </CustomParagraphLarge>
-  </Container>
+    </ParagraphLarge>
+  </CustomContainer>
 );

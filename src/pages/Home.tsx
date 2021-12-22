@@ -1,21 +1,20 @@
 import { PageLayout, Container } from '../components/layout';
 import {
-  Display1,
   ParagraphLarge,
   LabelLarge,
   NavLinkLarge,
   B,
   It,
 } from '../components/Typography';
-import { ButtonHamburger } from '../components/buttons/ButtonHamburger';
-import { Button } from '../components/buttons/Button';
+import { Button } from '../components/UI/buttons';
+import { Header } from '../components/Header';
+import { SideDrawer } from '../components/UI/SideDrawer';
 
-export const Home = () => {
+export const Home = (): JSX.Element => {
   return (
     <PageLayout>
       <Container
         $w={{ de: '100%' }}
-        $mxw={{ lg: '800px' }}
         $mih={{ de: '40px' }}
         $bs={{ de: 'border-box' }}
         $jc={{ de: 'space-between' }}
@@ -25,13 +24,17 @@ export const Home = () => {
         <NavLinkLarge to="/auth" $txtSdw>
           <It>Sign In</It>
         </NavLinkLarge>
-        <ButtonHamburger aria-label="open settings menu button" />
+        <SideDrawer />
       </Container>
-      <Display1 $txtSdw>
-        My
-        <br />
-        Habits List
-      </Display1>
+      <Header
+        $header={
+          <span>
+            My
+            <br />
+            Habits List
+          </span>
+        }
+      />
       <Container
         $m={{ de: 'auto 0 30px 0' }}
         $fd={{ de: 'column' }}

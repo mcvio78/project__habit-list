@@ -1,6 +1,7 @@
+import { MouseEvent, ReactNode } from 'react';
 import styled from 'styled-components/macro';
 
-import { styledMargin, StyledMarginProps } from '../../utility/styledMargin';
+import { styledMargin, StyledMarginProps } from '../../../utility/styledMargin';
 
 export interface ButtonBasicProps extends StyledMarginProps {
   /** title attribute - required */
@@ -23,6 +24,10 @@ export interface ButtonBasicProps extends StyledMarginProps {
   $bkgCol?: string;
   /** box-shadow CSS property (prop) */
   $boxSdw?: boolean;
+  /** handle onClick functions */
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+  /** receive children elements */
+  children?: ReactNode;
 }
 
 export const ButtonBasic = styled.button.attrs(props => ({

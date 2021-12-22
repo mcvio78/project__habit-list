@@ -65,12 +65,14 @@
         "tsx": "never"
       }
     ],
+    "react/jsx-no-useless-fragment": 0,
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-unused-expressions": "error",
     "@typescript-eslint/no-shadow": "error",
     "@typescript-eslint/no-extra-semi": "off",
+    "@typescript-eslint/no-empty-interface": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-key": "off",
     "react/jsx-props-no-spreading": "off",

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ButtonHamburger } from '../components/buttons/ButtonHamburger';
+import { ButtonHamburger } from '../components/UI/buttons';
 
 export default {
   title: 'ButtonHamburger',
@@ -10,5 +10,5 @@ export default {
 } as ComponentMeta<typeof ButtonHamburger>;
 
 export const Default: ComponentStory<typeof ButtonHamburger> = () => (
-  <ButtonHamburger aria-label="open settings menu button" />
+  <ButtonHamburger aria-label="open side drawer menu button" $isOpen />
 );

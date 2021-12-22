@@ -1,25 +1,24 @@
 import styled from 'styled-components/macro';
-import { useState } from 'react';
 
 import { ButtonBasic, ButtonBasicProps } from './ButtonBasic';
 
 interface ButtonHamburgerProps
   extends Omit<ButtonBasicProps, 'title' | 'boxSdw' | 'bkgCol'> {
   /** open button state (prop) */
-  $open?: boolean;
-  /** set open state handler (prop) */
-  $setIsOpen?: () => void;
+  $isOpen: boolean;
 }
 
-const ButtonContainer = styled(ButtonBasic).attrs(() => ({
+const ButtonContainer = styled(ButtonBasic).attrs({
   title: 'hamburgerButton',
   role: 'button',
-}))<ButtonHamburgerProps>`
+})<ButtonHamburgerProps>`
   width: 36px;
   height: 26px;
+  flex-shrink: 0;
   justify-content: space-between;
   box-shadow: none;
   background-color: transparent;
+  z-index: 1000;
 
   :focus {
     outline: rgba(var(--clr-ac-v03-rgb), 0.1) 2px solid;
@@ -29,38 +28,38 @@ const ButtonContainer = styled(ButtonBasic).attrs(() => ({
     width: 100%;
     height: 4px;
     background-color: var(--clr-se-v01);
-    box-shadow: ${({ $open }) =>
-      !$open && `0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
+    box-shadow: ${({ $isOpen }) =>
+      !$isOpen && `0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
     transition: all 0.5s linear;
 
     :first-child {
-      transform: ${({ $open }) =>
-        $open ? 'translateY(11px) rotate(45deg) ' : 'rotate(0) translateY(0)'};
+      transform: ${({ $isOpen }) =>
+        $isOpen
+          ? 'translateY(11px) rotate(45deg) '
+          : 'rotate(0) translateY(0)'};
     }
 
     :nth-child(2) {
-      opacity: ${({ $open }) => ($open ? '0' : '1')};
-      transform: ${({ $open }) => ($open ? 'rotate(45deg)' : 'rotate(0)')};
+      opacity: ${({ $isOpen }) => ($isOpen ? '0' : '1')};
+      transform: ${({ $isOpen }) => ($isOpen ? 'rotate(45deg)' : 'rotate(0)')};
     }
 
     :nth-child(3) {
-      transform: ${({ $open }) =>
-        $open
+      transform: ${({ $isOpen }) =>
+        $isOpen
           ? 'translateY(-11px) rotate(-45deg) '
           : 'rotate(0) translateY(0)'};
     }
   }
 `;
 
-export const ButtonHamburger = ({ ...props }: ButtonHamburgerProps) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
+export const ButtonHamburger = ({
+  $isOpen,
+  onClick,
+  ...props
+}: ButtonHamburgerProps) => {
   return (
-    <ButtonContainer
-      $open={isOpen}
-      onClick={() => setIsOpen(!isOpen)}
-      {...props}
-    >
+    <ButtonContainer $isOpen={$isOpen} onClick={onClick} {...props}>
       <div />
       <div />
       <div />

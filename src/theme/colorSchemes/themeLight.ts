@@ -52,7 +52,7 @@ export const themeLight = css`
         --btn-n-cl: ${COLORS.tealBlue};
         --btn-n-ol: ${COLORS.gunPowder};
 
-        --btn-h-bk: ${COLORS.azure};
+        --btn-h-bk: ${COLORS.tealBlue};
         --btn-h-cl: ${COLORS.white};
         --btn-h-ol: ${COLORS.white};
 

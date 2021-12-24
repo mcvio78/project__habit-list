@@ -1,4 +1,4 @@
-import { MouseEvent, ReactNode } from 'react';
+import { MouseEvent } from 'react';
 import styled from 'styled-components/macro';
 
 import { styledMargin, StyledMarginProps } from '../../../utility/styledMargin';
@@ -26,12 +26,17 @@ export interface ButtonBasicProps extends StyledMarginProps {
   $boxSdw?: boolean;
   /** handle onClick functions */
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
-  /** receive children elements */
-  children?: ReactNode;
+  /** button label shadow */
+  $lblSdw?: boolean;
+  /** button label bold */
+  $lblB?: boolean;
+  /** button label italic */
+  $lblIt?: boolean;
 }
 
 export const ButtonBasic = styled.button.attrs(props => ({
   type: props.type || 'button',
+  'aria-describedby': 'id-of-a-paragraph-explaining-why',
 }))<ButtonBasicProps>`
   display: flex;
   flex-direction: column;
@@ -45,6 +50,11 @@ export const ButtonBasic = styled.button.attrs(props => ({
   outline: inherit;
   box-shadow: ${({ $boxSdw }) =>
     $boxSdw ? ` 0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)` : 'none'};
+  text-shadow: ${({ $lblSdw }) =>
+    $lblSdw && '0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)'};
+  font-variation-settings: ${({ $lblB }) => $lblB && "'wght' 700"};
+  font-weight: ${({ $lblB }) => $lblB && 700};
+  font-style: ${({ $lblIt }) => $lblIt && 'italic'};
 
   &:disabled {
     opacity: 0.6;

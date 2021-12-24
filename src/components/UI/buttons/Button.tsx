@@ -19,23 +19,29 @@ interface VariantButtonProps extends ButtonBasicProps {
 
 export const Button = styled(ButtonBasic)<VariantButtonProps>`
   ${props => {
-    if (props.$sm && !props.$tb)
-      return `min-width: var(--btn-sm-mw);
-      min-height: var(--btn-sm-mh);
-      padding: var(--btn-sm-p);
-      border-radius: var(--btn-sm-br);
+    if (props.$lg && !props.$tb)
+      return `min-width: var(--btn-lg-mw);
+      min-height: var(--btn-lg-mh);
+      padding: var(--btn-lg-p);
+      border-radius: var(--btn-lg-br);
+      font-size: var(--btn-lbl-lg-fs);
+      line-height: var(--btn-lbl-lg-lh);
       `;
     if (props.$md && !props.$tb)
       return `min-width: var(--btn-md-mw);
       min-height: var(--btn-md-mh);
       padding: var(--btn-md-p);
       border-radius: var(--btn-md-br);
+      font-size: var(--btn-lbl-md-fs);
+      line-height: var(--btn-lbl-md-lh);
       `;
-    if (props.$lg && !props.$tb)
-      return `min-width: var(--btn-lg-mw);
-      min-height: var(--btn-lg-mh);
-      padding: var(--btn-lg-p);
-      border-radius: var(--btn-lg-br);
+    if (props.$sm && !props.$tb)
+      return `min-width: var(--btn-sm-mw);
+      min-height: var(--btn-sm-mh);
+      padding: var(--btn-sm-p);
+      border-radius: var(--btn-sm-br);
+      font-size: var(--btn-lbl-sm-fs);
+      line-height: var(--btn-lbl-sm-lh);
       `;
     return `width: auto; height: auto;`;
   }};

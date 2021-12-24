@@ -102,4 +102,16 @@ export const typographySize = css`
     --typ-lbl-sm-fs: 14px;
     --typ-lbl-sm-lh: 16px;
   }
+
+  button {
+    /* button label */
+    --btn-lbl-lg-fs: 20px;
+    --btn-lbl-lg-lh: 24px;
+
+    --btn-lbl-md-fs: 16px;
+    --btn-lbl-md-lh: 20px;
+
+    --btn-lbl-sm-fs: 14px;
+    --btn-lbl-sm-lh: 16px;
+  }
 `;

@@ -1,11 +1,5 @@
 import { PageLayout, Container } from '../components/layout';
-import {
-  ParagraphLarge,
-  LabelLarge,
-  NavLinkLarge,
-  B,
-  It,
-} from '../components/Typography';
+import { ParagraphLarge, NavLinkLarge, B, It } from '../components/Typography';
 import { Button } from '../components/UI/buttons';
 import { Header } from '../components/Header';
 import { SideDrawer } from '../components/UI/SideDrawer';
@@ -51,11 +45,9 @@ export const Home = (): JSX.Element => {
           aria-label="create habits button"
           title="create habits"
         >
-          <LabelLarge $txtSdw>
-            <B>
-              <It>Create Habits</It>
-            </B>
-          </LabelLarge>
+          <B>
+            <It>Create Habits</It>
+          </B>
         </Button>
       </Container>
     </PageLayout>

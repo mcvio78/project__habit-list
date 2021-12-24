@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components/macro';
 
-import { BreakPointsProps, SpaceValue } from '../../helpers/globalTypes';
+import {
+  BreakPointsProps,
+  SpaceValue,
+  BorderValue,
+} from '../../helpers/globalTypes';
 import { styledMargin, StyledMarginProps } from '../../utility/styledMargin';
 import { BREAKPOINTS } from '../../config/constants';
 
@@ -56,21 +60,39 @@ export interface ContainerProps extends StyledMarginProps {
   $ta?: BreakPointsProps<
     'left' | 'right' | 'center' | 'justify' | 'initial' | 'inherit'
   >;
-  /** Padding - shorthand */
+  /** padding - shorthand */
   $p?: BreakPointsProps<
     | SpaceValue
     | `${SpaceValue} ${SpaceValue}`
     | `${SpaceValue} ${SpaceValue} ${SpaceValue}`
     | `${SpaceValue} ${SpaceValue} ${SpaceValue} ${SpaceValue}`
   >;
-  /** Padding top - individual */
+  /** padding top - individual */
   $pt?: BreakPointsProps<SpaceValue>;
-  /** Padding right - individual */
+  /** padding right - individual */
   $pr?: BreakPointsProps<SpaceValue>;
-  /** Padding bottom - individual */
+  /** padding bottom - individual */
   $pb?: BreakPointsProps<SpaceValue>;
-  /** Padding left - individual */
+  /** padding left - individual */
   $pl?: BreakPointsProps<SpaceValue>;
+  /** position */
+  $pos?: BreakPointsProps<
+    'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'
+  >;
+  $top?: BreakPointsProps<number>;
+  $rt?: BreakPointsProps<number>;
+  $btm?: BreakPointsProps<number>;
+  $lt?: BreakPointsProps<number>;
+  $br?: BreakPointsProps<
+    | BorderValue
+    | `${BorderValue} ${BorderValue}`
+    | `${BorderValue} ${BorderValue} ${BorderValue}`
+    | `${BorderValue} ${BorderValue} ${BorderValue} ${BorderValue}`
+    | 'initial'
+    | 'inherit'
+  >;
+  $zi?: BreakPointsProps<number>;
+  $bkc?: BreakPointsProps<string>;
 }
 
 const styleBreakpointProps = (
@@ -104,6 +126,14 @@ const styleBreakpointProps = (
       padding-right: ${({ $pr }) => $pr?.[propName]};
       padding-bottom: ${({ $pb }) => $pb?.[propName]};
       padding-left: ${({ $pl }) => $pl?.[propName]};
+      position: ${({ $pos }) => $pos?.[propName]};
+      top: ${({ $top }) => $top?.[propName]};
+      right: ${({ $rt }) => $rt?.[propName]};
+      bottom: ${({ $btm }) => $btm?.[propName]};
+      left: ${({ $lt }) => $lt?.[propName]};
+      border-radius: ${({ $br }) => $br?.[propName]};
+      z-index: ${({ $zi }) => $zi?.[propName]};
+      background-color: ${({ $bkc }) => $bkc?.[propName]};
     }
   `;
 

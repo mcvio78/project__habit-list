@@ -8,3 +8,5 @@ export interface BreakPointsProps<T> {
 }
 
 export type SpaceValue = `${number}px` | `${number}%` | 0 | 'auto';
+
+export type BorderValue = `${number}px` | `${number}%`;

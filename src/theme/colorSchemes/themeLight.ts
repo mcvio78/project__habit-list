@@ -10,12 +10,12 @@ export const themeLight = css`
     --clr-ac-v02: ${COLORS.white};
     --clr-ac-v03-rgb: ${COLORS.black_rgb};
     --clr-ac-v04-d: ${COLORS.white};
-    --clr-ac-v04-h: ${COLORS.white};
-    --clr-ac-v04-a: ${COLORS.tealBlue};
     --clr-se-v01: ${COLORS.white};
     --clr-se-v02: ${COLORS.malibu};
     --clr-nt-v01: ${COLORS.white};
     --clr-nt-v02-rgb: ${COLORS.black_rgb};
+    --clr-nt-v03: ${COLORS.black};
+    --clr-nt-v04: ${COLORS.tealBlue};
 
     background-color: var(--clr-pr-v02, white);
     color: var(--clr-nt-v01, black);
@@ -79,11 +79,38 @@ export const themeLight = css`
       }
     }
 
+    svg {
+      --icon-n-cl: ${COLORS.white};
+    }
+
     a {
-      --nvl-n-cl: var(--clr-nt-v01);
+      --nvl-n-cl: ${COLORS.white};
+      --nvi-n-cl: ${COLORS.white};
+      --nvi-n-sdw-rgb: ${COLORS.black_rgb};
 
       &:active {
         --nvl-n-cl: ${COLORS.lightPurple};
+        --nvi-n-cl: ${COLORS.lightPurple};
+      }
+    }
+
+    input {
+      --inp-txt-std-cl: ${COLORS.tealBlue};
+      --inp-txt-std-bk: transparent;
+    }
+
+    .inputWrapper {
+      --inp-wrp-std-outl: 'none';
+      --inp-ico-std-clr: ${COLORS.black};
+
+      @media (hover: hover) {
+        &:hover {
+          --inp-wrp-std-outl: 2px solid ${COLORS.tealBlue};
+        }
+      }
+
+      &:focus-within {
+        --inp-wrp-std-outl: 3px solid ${COLORS.tealBlue};
       }
     }
   }

@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { PageContainer } from './components/layout/PageContainer';
+import { PageContainer } from './components/layout';
 import { Home } from './pages/Home';
 import { Auth } from './pages/Auth';
 
-export const App = () => {
+export const App = (): JSX.Element => {
   useEffect(() => {
     document.body.dataset.theme = 'light';
   }, []);

@@ -71,9 +71,15 @@ const CommonNavLink = css<NavLinkTextProps>`
   }
 `;
 
+const CommonSpan = css`
+  ${CommonStyle};
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
+`;
+
 const CommonLabel = css`
   ${CommonStyle};
-  font-variation-settings: 'wght' 300;
+  font-variation-settings: 'wght' 400;
   font-weight: 400;
 `;
 
@@ -182,36 +188,62 @@ export const NavLinkExtraSmall = styled(NavLink)`
 `;
 
 export const NavLinkIcon = styled(NavLink)<NavLinkIconProps>`
-  line-height: 0;
-  fill: var(--nvl-n-cl);
-  filter: ${({ $iconSdw }) =>
-    $iconSdw && `drop-shadow(0px 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25))`};
   ${styledMargin};
-
-  &:hover {
-    filter: none;
-  }
 
   &.active {
     border-bottom: 2px solid var(--nvl-n-cl);
     filter: none;
     pointer-events: none;
   }
+
+  svg {
+    fill: var(--nvi-n-cl);
+    filter: ${({ $iconSdw }) =>
+      $iconSdw && `drop-shadow(0px 4px 4px rgba(var(--nvi-n-sdw-rgb), 0.25))`};
+    width: var(--nvi-w);
+    height: var(--nvi-h);
+
+    &:hover {
+      filter: none;
+    }
+
+    &.active {
+      filter: none;
+    }
+  }
 `;
 
-export const LabelLarge = styled.span`
+export const SpanLarge = styled.span`
+  ${CommonSpan};
+  font-size: var(--typ-spn-lg-fs);
+  line-height: var(--typ-spn-lg-lh);
+`;
+
+export const SpanMedium = styled.span`
+  ${CommonSpan};
+  font-size: var(--typ-spn-md-fs);
+  line-height: var(--typ-spn-md-lh);
+`;
+
+export const SpanSmall = styled.span`
+  ${CommonSpan};
+  font-size: var(--typ-spn-sm-fs);
+  line-height: var(--typ-spn-sm-lh);
+`;
+
+export const LabelLarge = styled.label`
   ${CommonLabel};
   font-size: var(--typ-lbl-lg-fs);
   line-height: var(--typ-lbl-lg-lh);
 `;
 
-export const LabelMedium = styled.span`
+export const LabelMedium = styled.label`
   ${CommonLabel};
   font-size: var(--typ-lbl-md-fs);
   line-height: var(--typ-lbl-md-lh);
 `;
 
-export const LabelSmall = styled.span`
+export const LabelSmall = styled.label`
   ${CommonLabel};
   font-size: var(--typ-lbl-sm-fs);
   line-height: var(--typ-lbl-sm-lh);

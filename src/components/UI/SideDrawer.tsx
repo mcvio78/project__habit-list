@@ -1,11 +1,17 @@
 import { useState, useCallback } from 'react';
+import styled from 'styled-components/macro';
 
 import { Button, ButtonHamburger } from './buttons';
 import { Container } from '../layout';
 import { DynamicWrapper } from '../../utility/DynamicWrapper';
 import { Backdrop } from './Backdrop';
 
-export const SideDrawer = () => {
+const SideDrawerMenu = styled(Container)`
+  border-radius: 10px;
+  background-color: var(--clr-pr-v01);
+`;
+
+export const SideDrawer = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const onKeyDownHandler = useCallback((event: KeyboardEvent) => {
     if (event.defaultPrevented) {
@@ -29,13 +35,11 @@ export const SideDrawer = () => {
         <Backdrop $isOpen={isOpen} $setIsOpen={() => setIsOpen(false)} />
 
         {isOpen && (
-          <Container
+          <SideDrawerMenu
             $pos={{ de: 'absolute' }}
             $top={{ de: 0 }}
             $rt={{ de: 0 }}
-            $br={{ de: '10px' }}
             $zi={{ de: 200 }}
-            $bkc={{ de: 'var(--clr-pr-v01)' }}
             $mxw={{ de: '70%' }}
             $miw={{ de: '30%' }}
             $h={{ de: '100%' }}
@@ -76,7 +80,7 @@ export const SideDrawer = () => {
                 UI Style
               </Button>
             </Container>
-          </Container>
+          </SideDrawerMenu>
         )}
       </DynamicWrapper>
     </>

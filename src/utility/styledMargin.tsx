@@ -40,7 +40,7 @@ const styleBreakpointProps = (
     }
   `;
 
-export const styledMargin = () => css`
+export const styledMargin = css`
   ${styleBreakpointProps(BREAKPOINTS.de, 'de')};
   ${styleBreakpointProps(BREAKPOINTS.xs, 'xs')};
   ${styleBreakpointProps(BREAKPOINTS.sm, 'sm')};

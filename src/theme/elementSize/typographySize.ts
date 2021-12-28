@@ -89,9 +89,25 @@ export const typographySize = css`
 
     --typ-ln-xs-fs: 12px;
     --typ-ln-xs-lh: 16px;
+
+    /* svg icon */
+    --nvi-w: 36px;
+    --nvi-h: 36px;
   }
 
   span {
+    /* span */
+    --typ-spn-lg-fs: 20px;
+    --typ-spn-lg-lh: 24px;
+
+    --typ-spn-md-fs: 16px;
+    --typ-spn-md-lh: 20px;
+
+    --typ-spn-sm-fs: 14px;
+    --typ-spn-sm-lh: 16px;
+  }
+
+  label {
     /* label */
     --typ-lbl-lg-fs: 20px;
     --typ-lbl-lg-lh: 24px;

@@ -1,10 +1,6 @@
 import styled, { css } from 'styled-components/macro';
 
-import {
-  BreakPointsProps,
-  SpaceValue,
-  BorderValue,
-} from '../../helpers/globalTypes';
+import { BreakPointsProps, SpaceValue } from '../../helpers/globalTypes';
 import { styledMargin, StyledMarginProps } from '../../utility/styledMargin';
 import { BREAKPOINTS } from '../../config/constants';
 
@@ -36,6 +32,10 @@ export interface ContainerProps extends StyledMarginProps {
   /** align-self [if children] CSS property (prop) */
   $as?: BreakPointsProps<
     'auto' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch'
+  >;
+  /** flex shorthand */
+  $f?: BreakPointsProps<
+    number | `${number} ${number}` | `${number} ${number}px` | 'auto' | 'none'
   >;
   /** flex-grow CSS property (prop) */
   $fg?: BreakPointsProps<0 | 1 | 2 | 3>;
@@ -83,16 +83,7 @@ export interface ContainerProps extends StyledMarginProps {
   $rt?: BreakPointsProps<number>;
   $btm?: BreakPointsProps<number>;
   $lt?: BreakPointsProps<number>;
-  $br?: BreakPointsProps<
-    | BorderValue
-    | `${BorderValue} ${BorderValue}`
-    | `${BorderValue} ${BorderValue} ${BorderValue}`
-    | `${BorderValue} ${BorderValue} ${BorderValue} ${BorderValue}`
-    | 'initial'
-    | 'inherit'
-  >;
   $zi?: BreakPointsProps<number>;
-  $bkc?: BreakPointsProps<string>;
 }
 
 const styleBreakpointProps = (
@@ -113,6 +104,7 @@ const styleBreakpointProps = (
       align-items: ${({ $ai }) => $ai?.[propName]};
       justify-content: ${({ $jc }) => $jc?.[propName]};
       align-self: ${({ $as }) => $as?.[propName]};
+      flex: ${({ $f }) => $f?.[propName]};
       flex-grow: ${({ $fg }) => $fg?.[propName]};
       flex-shrink: ${({ $fs }) => $fs?.[propName]};
       flex-basis: ${({ $fb }) => $fb?.[propName]};
@@ -131,9 +123,7 @@ const styleBreakpointProps = (
       right: ${({ $rt }) => $rt?.[propName]};
       bottom: ${({ $btm }) => $btm?.[propName]};
       left: ${({ $lt }) => $lt?.[propName]};
-      border-radius: ${({ $br }) => $br?.[propName]};
       z-index: ${({ $zi }) => $zi?.[propName]};
-      background-color: ${({ $bkc }) => $bkc?.[propName]};
     }
   `;
 

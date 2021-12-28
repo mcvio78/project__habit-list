@@ -56,7 +56,7 @@ export const ButtonHamburger = ({
   $isOpen,
   onClick,
   ...props
-}: ButtonHamburgerProps) => {
+}: ButtonHamburgerProps): JSX.Element => {
   return (
     <ButtonContainer $isOpen={$isOpen} onClick={onClick} {...props}>
       <div />

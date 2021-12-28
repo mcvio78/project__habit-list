@@ -13,7 +13,6 @@ export const Home = (): JSX.Element => {
         $bs={{ de: 'border-box' }}
         $jc={{ de: 'space-between' }}
         $ai={{ de: 'center' }}
-        $mt={{ de: '20px' }}
       >
         <NavLinkLarge to="/auth" $txtSdw>
           <It>Sign In</It>

@@ -18,7 +18,10 @@ export const BackdropStyled = styled.div.attrs(props => ({
   background-color: rgba(var(--clr-nt-v02-rgb), 0.5);
 `;
 
-export const Backdrop = ({ $isOpen, $setIsOpen }: BackdropProps) => {
+export const Backdrop = ({
+  $isOpen,
+  $setIsOpen,
+}: BackdropProps): JSX.Element | null => {
   if ($isOpen) {
     return (
       <BackdropStyled

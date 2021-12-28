@@ -49,7 +49,6 @@
     "linebreak-style": "off",
     "no-console": "error",
     "import/prefer-default-export": "off",
-    "consistent-return": "off",
     "import/no-named-as-default": "off",
     "no-plusplus": "off",
     "no-confusing-arrow": ["off", { "allowParens": true }],
@@ -102,7 +101,8 @@
     {
       "files": ["*.{ts,tsx}"],
       "rules": {
-        "no-undef": "off"
+        "no-undef": "off",
+        "@typescript-eslint/explicit-module-boundary-types": ["error"]
       }
     }
   ]

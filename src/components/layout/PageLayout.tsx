@@ -11,5 +11,5 @@ export const PageLayout = styled.div`
   margin: 20px 0;
   padding: 24px 16px;
   border-radius: 32px;
-  background: var(--clr-pr-v01);
+  background: var(--primary_01);
 `;

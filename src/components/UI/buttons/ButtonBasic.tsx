@@ -42,16 +42,16 @@ export const ButtonBasic = styled.button.attrs(props => ({
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${({ $bkgCol }) => $bkgCol || 'var(--clr-se-v01)'};
+  background-color: ${({ $bkgCol }) => $bkgCol || 'var(--secondary_01)'};
   border: none;
   padding: 0;
   font: inherit;
   cursor: pointer;
   outline: inherit;
   box-shadow: ${({ $boxSdw }) =>
-    $boxSdw ? ` 0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)` : 'none'};
+    $boxSdw ? '0 4px 4px var(--neutral_05_op025)' : 'none'};
   text-shadow: ${({ $lblSdw }) =>
-    $lblSdw && '0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)'};
+    $lblSdw && '0 4px 4px rgba(--neutral_05-s025)'};
   font-variation-settings: ${({ $lblB }) => $lblB && "'wght' 700"};
   font-weight: ${({ $lblB }) => $lblB && 700};
   font-style: ${({ $lblIt }) => $lblIt && 'italic'};

@@ -15,16 +15,22 @@ interface InputProps {
   id: string;
 }
 
-const InputWrapper = styled(Container)`
+const InputWrapper = styled(Container).attrs({
+  className: 'input-wrapper',
+})`
   border: none;
   border-radius: 4px;
-  outline: var(--inp-wrp-std-outl);
-  background-color: var(--clr-se-v01);
+  outline: 2px solid var(--accent_04);
+  background-color: var(--secondary_01);
+
+  &:focus-within {
+    outline: 3px solid var(--accent_04);
+  }
 
   svg {
     width: 24px;
     height: 24px;
-    fill: var(--inp-ico-std-clr);
+    fill: var(--neutral_09);
     fill-opacity: 0.2;
   }
 `;
@@ -50,7 +56,6 @@ export const Input = ({
         $ai={{ de: 'center' }}
         $jc={{ de: 'space-between' }}
         $p={{ de: '5px' }}
-        className="inputWrapper"
       >
         {IconSVG && <IconSVG />}
         <InputText

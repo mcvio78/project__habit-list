@@ -4,8 +4,9 @@ import { COLORS } from '../../config/constants';
 
 export const themeDark = css`
   body[data-theme='dark'] {
-    --clr-pr-v01: ${COLORS.cinder};
-    --clr-pr-v02: ${COLORS.bleachedCedar};
+    --primary_01: ${COLORS.cinder};
+
+    --primary_02: ${COLORS.bleachedCedar};
     --clr-ac-v01-d: ${COLORS.brightLavender};
     --clr-ac-v01-h: ${COLORS.greenWhite};
     --clr-ac-v01-a: ${COLORS.brightLavender};
@@ -20,7 +21,7 @@ export const themeDark = css`
     --clr-nt-v01: ${COLORS.silverChalice};
     --clr-nt-v02-rgb: ${COLORS.black_rgb};
 
-    background-color: var(--clr-pr-v02, black);
+    background-color: var(--primary_02, black);
     color: var(--clr-nt-v01, white);
   }
 `;

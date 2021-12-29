@@ -17,7 +17,7 @@ exports[`Storyshots Button Default 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background-color: var(--clr-se-v01);
+  background-color: var(--secondary_01);
   border: none;
   padding: 0;
   font: inherit;
@@ -40,6 +40,10 @@ exports[`Storyshots Button Default 1`] = `
 .c1 {
   width: auto;
   height: auto;
+}
+
+.c1:active {
+  box-shadow: none;
 }
 
 @media screen and (min-width:0) {
@@ -68,7 +72,7 @@ exports[`Storyshots Button Default 1`] = `
 
 <button
   aria-describedby="id-of-a-paragraph-explaining-why"
-  className="c0 c1"
+  className="c0 c1 dynamic-button"
   type="button"
 >
   Default
@@ -92,7 +96,7 @@ exports[`Storyshots Button Disabled 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background-color: var(--clr-se-v01);
+  background-color: var(--secondary_01);
   border: none;
   padding: 0;
   font: inherit;
@@ -115,6 +119,10 @@ exports[`Storyshots Button Disabled 1`] = `
 .c1 {
   width: auto;
   height: auto;
+}
+
+.c1:active {
+  box-shadow: none;
 }
 
 @media screen and (min-width:0) {
@@ -144,7 +152,7 @@ exports[`Storyshots Button Disabled 1`] = `
 <button
   aria-describedby="id-of-a-paragraph-explaining-why"
   aria-label="a button"
-  className="c0 c1"
+  className="c0 c1 dynamic-button"
   disabled={true}
   title="Button"
   type="button"
@@ -170,7 +178,7 @@ exports[`Storyshots Button Submit 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background-color: var(--clr-se-v01);
+  background-color: var(--secondary_01);
   border: none;
   padding: 0;
   font: inherit;
@@ -193,6 +201,10 @@ exports[`Storyshots Button Submit 1`] = `
 .c1 {
   width: auto;
   height: auto;
+}
+
+.c1:active {
+  box-shadow: none;
 }
 
 @media screen and (min-width:0) {
@@ -222,7 +234,7 @@ exports[`Storyshots Button Submit 1`] = `
 <button
   aria-describedby="id-of-a-paragraph-explaining-why"
   aria-label="form submit button"
-  className="c0 c1"
+  className="c0 c1 dynamic-button"
   id="submit-form-01"
   name="subject"
   title="Button"
@@ -250,7 +262,7 @@ exports[`Storyshots ButtonHamburger Default 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background-color: var(--clr-se-v01);
+  background-color: var(--secondary_01);
   border: none;
   padding: 0;
   font: inherit;
@@ -282,16 +294,13 @@ exports[`Storyshots ButtonHamburger Default 1`] = `
   justify-content: space-between;
   box-shadow: none;
   background-color: transparent;
-}
-
-.c1:focus {
-  outline: rgba(var(--clr-ac-v03-rgb),0.1) 2px solid;
+  outline: var(--neutral_06) 2px solid;
 }
 
 .c1 div {
   width: 100%;
   height: 4px;
-  background-color: var(--clr-se-v01);
+  background-color: var(--secondary_01);
   -webkit-transition: all 0.5s linear;
   transition: all 0.5s linear;
 }
@@ -342,7 +351,7 @@ exports[`Storyshots ButtonHamburger Default 1`] = `
 <button
   aria-describedby="id-of-a-paragraph-explaining-why"
   aria-label="open side drawer menu button"
-  className="c0 c1"
+  className="c0 c1 hamburger-button"
   role="button"
   title="hamburgerButton"
   type="button"
@@ -453,12 +462,249 @@ exports[`Storyshots Display1 Styled 1`] = `
 </h1>
 `;
 
+exports[`Storyshots Input Default 1`] = `
+.c1 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
+}
+
+.c2 {
+  font-size: var(--typ-lbl-lg-fs);
+  line-height: var(--typ-lbl-lg-lh);
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c5 {
+  min-width: 60px;
+  min-height: 28px;
+  padding: 0 5px;
+  border: none;
+  -webkit-flex: 1 0;
+  -ms-flex: 1 0;
+  flex: 1 0;
+  font-style: inherit;
+  font-variation-settings: 'wght' 500;
+  font-weight: 500;
+  line-height: 0;
+  color: var(--neutral_08);
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+}
+
+.c4 {
+  border: none;
+  border-radius: 4px;
+  outline: 2px solid var(--accent_04);
+  background-color: var(--secondary_01);
+}
+
+.c4:focus-within {
+  outline: 3px solid var(--accent_04);
+}
+
+.c4 svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--neutral_09);
+  fill-opacity: 0.2;
+}
+
+@media screen and (min-width:0) {
+  .c1 {
+    -webkit-align-self: flex-start;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+  }
+}
+
+@media screen and (min-width:320px) {
+
+}
+
+@media screen and (min-width:480px) {
+
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+@media screen and (min-width:1024px) {
+
+}
+
+@media screen and (min-width:1200px) {
+
+}
+
+@media screen and (min-width:0) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width:320px) {
+
+}
+
+@media screen and (min-width:480px) {
+
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+@media screen and (min-width:1024px) {
+
+}
+
+@media screen and (min-width:1200px) {
+
+}
+
+@media screen and (min-width:0) {
+
+}
+
+@media screen and (min-width:320px) {
+
+}
+
+@media screen and (min-width:480px) {
+
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+@media screen and (min-width:1024px) {
+
+}
+
+@media screen and (min-width:1200px) {
+
+}
+
+@media screen and (min-width:0) {
+  .c3 {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 5px;
+  }
+}
+
+@media screen and (min-width:320px) {
+
+}
+
+@media screen and (min-width:480px) {
+
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+@media screen and (min-width:1024px) {
+
+}
+
+@media screen and (min-width:1200px) {
+
+}
+
+@media screen and (min-width:0) {
+
+}
+
+@media screen and (min-width:320px) {
+
+}
+
+@media screen and (min-width:480px) {
+
+}
+
+@media screen and (min-width:768px) {
+
+}
+
+@media screen and (min-width:1024px) {
+
+}
+
+@media screen and (min-width:1200px) {
+
+}
+
+<div
+  className="c0"
+>
+  <label
+    className="c1 c2"
+    htmlFor="email"
+  >
+    your email
+  </label>
+  <div
+    className="c3 c4 input-wrapper"
+  >
+    <svg>
+      icon-email_24dp.svg
+    </svg>
+    <input
+      className="c5 input-text"
+      id="email"
+      name="email"
+      onChange={[Function]}
+      placeholder="email here"
+      type="email"
+      value=""
+    />
+    <svg
+      onClick={[Function]}
+    >
+      icon-close_24dp.svg
+    </svg>
+  </div>
+</div>
+`;
+
 exports[`Storyshots ParagraphLarge Default 1`] = `
 .c0 {
   margin: 0;
   text-align: center;
   font-variation-settings: 'wght' 400;
   font-weight: 400;
+}
+
+.c1 {
   font-size: var(--typ-p-lg-fs);
   line-height: var(--typ-p-lg-lh);
 }
@@ -488,7 +734,7 @@ exports[`Storyshots ParagraphLarge Default 1`] = `
 }
 
 <p
-  className="c0"
+  className="c0 c1"
 >
   Basic ParagraphLarge
 </p>
@@ -499,14 +745,17 @@ exports[`Storyshots ParagraphLarge Styled 1`] = `
   margin: 0;
   text-align: center;
   color: navy;
-  text-shadow: 0 4px 4px rgba(var(--clr-nt-v02-rgb),0.25);
+  text-shadow: 0 4px 4px var(--neutral_05_op025);
   font-variation-settings: 'wght' 400;
   font-weight: 400;
+}
+
+.c1 {
   font-size: var(--typ-p-lg-fs);
   line-height: var(--typ-p-lg-lh);
 }
 
-.c1 {
+.c2 {
   font-style: italic;
   font-synthesis: none;
 }
@@ -536,10 +785,10 @@ exports[`Storyshots ParagraphLarge Styled 1`] = `
 }
 
 <p
-  className="c0"
+  className="c0 c1"
 >
   <span
-    className="c1"
+    className="c2"
   >
     Styled ParagraphLarge
   </span>

@@ -17,7 +17,9 @@ interface VariantButtonProps extends ButtonBasicProps {
   $tb?: boolean;
 }
 
-export const Button = styled(ButtonBasic)<VariantButtonProps>`
+export const Button = styled(ButtonBasic).attrs({
+  className: 'dynamic-button',
+})<VariantButtonProps>`
   ${props => {
     if (props.$lg && !props.$tb)
       return `min-width: var(--btn-lg-mw);
@@ -48,22 +50,25 @@ export const Button = styled(ButtonBasic)<VariantButtonProps>`
 
   ${props => {
     if (props.$nb)
-      return `color: var(--btn-n-cl);
-      background-color: var(--btn-n-bk);
-      outline: var(--btn-n-ol) 1px solid;
+      return `color: var(--accent_01);
+      background-color: var(--secondary_01);
+      outline: var(--neutral_02) 1px solid;
       `;
     if (props.$hb)
-      return `color: var(--btn-h-cl);
-      background-color: var(--btn-h-bk);
-      outline: var(--btn-h-ol) 1px solid;
-      box-shadow: none;
+      return `color: var(--accent_02);
+      background-color: var(--secondary_02);
+      outline: var(--neutral_03) 1px solid;
       `;
     if (props.$tb)
-      return `color: var(--btn-t-cl);
-      background-color: var(--btn-t-bk);
-      outline: var(--btn-t-ol) 1px solid;
-      box-shadow: none;
+      return `color: var(--accent_03);
+      background-color: var(--secondary_03);
+      outline: var(--neutral_04) 1px solid;
       `;
     return null;
   }};
+
+  &:active {
+    box-shadow: ${({ $boxSdw }) =>
+      $boxSdw ? '0 1px 1px var(--neutral_05_op025)' : 'none'};
+  }
 `;

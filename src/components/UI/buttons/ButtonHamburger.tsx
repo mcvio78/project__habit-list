@@ -9,6 +9,7 @@ interface ButtonHamburgerProps
 }
 
 const ButtonContainer = styled(ButtonBasic).attrs({
+  className: 'hamburger-button',
   title: 'hamburgerButton',
   role: 'button',
 })<ButtonHamburgerProps>`
@@ -18,17 +19,14 @@ const ButtonContainer = styled(ButtonBasic).attrs({
   justify-content: space-between;
   box-shadow: none;
   background-color: transparent;
-
-  :focus {
-    outline: rgba(var(--clr-ac-v03-rgb), 0.1) 2px solid;
-  }
+  outline: var(--neutral_06) 2px solid;
 
   div {
     width: 100%;
     height: 4px;
-    background-color: var(--clr-se-v01);
+    background-color: var(--secondary_01);
     box-shadow: ${({ $isOpen }) =>
-      !$isOpen && `0 4px 4px rgba(var(--clr-nt-v02-rgb), 0.25)`};
+      !$isOpen && `0 4px 4px var(--neutral_05_op025)`};
     transition: all 0.5s linear;
 
     :first-child {

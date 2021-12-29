@@ -15,7 +15,7 @@ export const BackdropStyled = styled.div.attrs(props => ({
   left: 0;
   top: 0;
   z-index: 100;
-  background-color: rgba(var(--clr-nt-v02-rgb), 0.5);
+  background-color: var(--neutral_10_op05);
 `;
 
 export const Backdrop = ({

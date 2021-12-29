@@ -4,113 +4,119 @@ import { COLORS } from '../../config/constants';
 
 export const themeLight = css`
   body[data-theme='light'] {
-    --clr-pr-v01: ${COLORS.turquoiseBlue};
-    --clr-pr-v02: ${COLORS.malibu};
-    --clr-ac-v01: ${COLORS.tealBlue};
-    --clr-ac-v02: ${COLORS.white};
-    --clr-ac-v03-rgb: ${COLORS.black_rgb};
-    --clr-ac-v04-d: ${COLORS.white};
-    --clr-se-v01: ${COLORS.white};
-    --clr-se-v02: ${COLORS.malibu};
-    --clr-nt-v01: ${COLORS.white};
-    --clr-nt-v02-rgb: ${COLORS.black_rgb};
-    --clr-nt-v03: ${COLORS.black};
-    --clr-nt-v04: ${COLORS.tealBlue};
+    --primary_01: ${COLORS.turquoiseBlue};
+    --primary_02: ${COLORS.malibu};
 
-    background-color: var(--clr-pr-v02, white);
-    color: var(--clr-nt-v01, black);
+    --secondary_01: ${COLORS.white};
+    --secondary_01_btn_hover: ${COLORS.malibu};
+    --secondary_01_btn_focus: ${COLORS.white};
+    --secondary_01_btn_active: ${COLORS.white};
+    --secondary_01_nav_ico_active: ${COLORS.lightPurple};
+    --secondary_02: ${COLORS.malibu};
+    --secondary_02_btn_hover: ${COLORS.white};
+    --secondary_02_hlw_btn_focus: ${COLORS.tealBlue};
+    --secondary_02_btn_active: ${COLORS.azure};
+    --secondary_03: transparent;
 
-    button {
-      --btn-n-bk: ${COLORS.white};
-      --btn-n-cl: ${COLORS.tealBlue};
+    --accent_01: ${COLORS.tealBlue};
+    --accent_01_btn_hover: ${COLORS.white};
+    --accent_01_btn_focus: ${COLORS.tealBlue};
+    --accent_01_btn_active: ${COLORS.azure};
+    --accent_02: ${COLORS.white};
+    --accent_02_btn_hover: ${COLORS.azure};
+    --accent_02_btn_focus: ${COLORS.white};
+    --accent_02_btn_active: ${COLORS.azure};
+    --accent_03: ${COLORS.egyptianBlue};
+    --accent_03_btn_hover: ${COLORS.white};
+    --accent_03_btn_focus: ${COLORS.egyptianBlue};
+    --accent_03_btn_active: ${COLORS.white};
+    --accent_04_inp_active: ${COLORS.tealBlue};
 
-      --btn-h-bk: ${COLORS.malibu};
-      --btn-h-cl: ${COLORS.white};
+    --neutral_01: ${COLORS.white};
+    --neutral_02_btn_focus: ${COLORS.gunPowder};
+    --neutral_03: transparent;
+    --neutral_03_btn_focus: ${COLORS.white};
+    --neutral_04: ${COLORS.egyptianBlue};
+    --neutral_04_btn_focus: ${COLORS.egyptianBlue};
+    --neutral_05_op025: rgba(0, 0, 0, 0.25);
+    --neutral_06_hamburger_focus: rgba(0, 0, 0, 0.1);
+    --neutral_07: ${COLORS.white};
+    --neutral_07_nav_lk_active: ${COLORS.lightPurple};
+    --neutral_08: ${COLORS.tealBlue};
+    --neutral_09: ${COLORS.black};
+    --neutral_10_op05: rgba(0, 0, 0, 0.5);
 
-      --btn-t-bk: transparent;
-      --btn-t-cl: ${COLORS.egyptianBlue};
-    }
+    background-color: var(--primary_02, white);
+    color: var(--neutral_01, black);
 
-    button:not(:disabled) {
+    .dynamic-button:not(:disabled) {
       @media (hover: hover) {
         &:hover {
-          --btn-n-bk: ${COLORS.malibu};
-          --btn-n-cl: ${COLORS.white};
+          --accent_01: var(--accent_01_btn_hover);
+          --secondary_01: var(--secondary_01_btn_hover);
 
-          --btn-h-bk: ${COLORS.white};
-          --btn-h-cl: ${COLORS.azure};
+          --accent_02: var(--accent_02_btn_hover);
+          --secondary_02: var(--secondary_02_btn_hover);
 
-          --btn-t-bk: transparent;
-          --btn-t-cl: ${COLORS.white};
+          --accent_03: var(--accent_03_btn_hover);
+          --secondary_03: var(--secondary_03);
 
           transition: background 1s ease, color 0.2s linear;
         }
       }
 
       &:focus {
-        --btn-n-bk: ${COLORS.white};
-        --btn-n-cl: ${COLORS.tealBlue};
-        --btn-n-ol: ${COLORS.gunPowder};
+        --accent_01: var(--accent_01_btn_focus);
+        --secondary_01: var(--secondary_01_btn_focus);
+        --neutral_02: var(--neutral_02_btn_focus);
 
-        --btn-h-bk: ${COLORS.tealBlue};
-        --btn-h-cl: ${COLORS.white};
-        --btn-h-ol: ${COLORS.white};
+        --accent_02: var(--accent_02_btn_focus);
+        --secondary_02: var(--secondary_02_btn_focus);
 
-        --btn-t-bk: transparent;
-        --btn-t-cl: ${COLORS.egyptianBlue};
-        --btn-t-ol: ${COLORS.egyptianBlue};
+        --accent_03: var(--accent_03_btn_focus);
+        --secondary_03: var(--secondary_03);
+        --neutral_04: var(--neutral_04);
 
         transition: all 0.6s ease, color 0.5s linear;
       }
 
       &:active {
-        --btn-n-bk: ${COLORS.white};
-        --btn-n-cl: ${COLORS.azure};
+        --accent_01: var(--accent_01_btn_active);
+        --secondary_01: var(--secondary_01_btn_active);
 
-        --btn-h-bk: ${COLORS.azure};
-        --btn-h-cl: ${COLORS.white};
+        --accent_02: var(--accent_02_btn_active);
+        --secondary_02: var(--secondary_02_btn_active);
 
-        --btn-t-bk: transparent;
-        --btn-t-cl: ${COLORS.white};
-
-        box-shadow: 0 1px 1px rgba(var(--clr-nt-v02-rgb), 0.25);
+        --accent_03: var(--accent_03_btn_active);
+        --secondary_03: var(--secondary_03);
 
         transition: background, color 0.3s ease, color 0.7s linear;
       }
     }
 
-    svg {
-      --icon-n-cl: ${COLORS.white};
-    }
-
-    a {
-      --nvl-n-cl: ${COLORS.white};
-      --nvi-n-cl: ${COLORS.white};
-      --nvi-n-sdw-rgb: ${COLORS.black_rgb};
-
-      &:active {
-        --nvl-n-cl: ${COLORS.lightPurple};
-        --nvi-n-cl: ${COLORS.lightPurple};
+    .hamburger-button:not(:disabled) {
+      &:focus {
+        --neutral_06: var(--neutral_06_hamburger_focus);
       }
     }
 
-    input {
-      --inp-txt-std-cl: ${COLORS.tealBlue};
-      --inp-txt-std-bk: transparent;
+    .navigation-link {
+      &:active {
+        --neutral_07: var(--neutral_07_nav_lk_active);
+      }
     }
 
-    .inputWrapper {
-      --inp-wrp-std-outl: 'none';
-      --inp-ico-std-clr: ${COLORS.black};
+    .navigation-icon {
+      &:active {
+        --secondary_01: var(--secondary_01_nav_ico_active);
+      }
+    }
 
+    .input-wrapper {
       @media (hover: hover) {
         &:hover {
-          --inp-wrp-std-outl: 2px solid ${COLORS.tealBlue};
+          --accent_04: var(--accent_04_inp_active);
         }
-      }
-
-      &:focus-within {
-        --inp-wrp-std-outl: 3px solid ${COLORS.tealBlue};
       }
     }
   }

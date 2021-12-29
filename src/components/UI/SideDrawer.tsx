@@ -8,7 +8,7 @@ import { Backdrop } from './Backdrop';
 
 const SideDrawerMenu = styled(Container)`
   border-radius: 10px;
-  background-color: var(--clr-pr-v01);
+  background-color: var(--primary_01);
 `;
 
 export const SideDrawer = (): JSX.Element => {

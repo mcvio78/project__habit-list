@@ -16,18 +16,19 @@ interface AppFormFieldProps {
   spellcheck?: boolean;
 }
 
+interface FormValues {
+  values: {
+    email: string;
+    password: string;
+  };
+}
+
 export const AppFormField = ({
   name,
   ...otherProps
 }: AppFormFieldProps): JSX.Element => {
-  const {
-    handleChange,
-    values,
-    setFieldTouched,
-    setFieldValue,
-    errors,
-    touched,
-  } = useFormikContext<string>();
+  const { handleChange, values, setFieldTouched, resetForm, errors, touched } =
+    useFormikContext<FormValues>();
 
   return (
     <Container $fd={{ de: 'column' }} $g={{ de: '10px' }}>
@@ -36,7 +37,7 @@ export const AppFormField = ({
         onBlur={() => setFieldTouched(name)}
         name={name}
         value={values[name]}
-        onClick={() => setFieldValue(name, '', false)}
+        onClick={() => resetForm({ values: { ...values, [name]: '' } })}
         {...otherProps}
       />
       <AppFormInputError error={errors[name]} touched={touched[name]} />

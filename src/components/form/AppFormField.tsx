@@ -31,7 +31,7 @@ export const AppFormField = ({
     useFormikContext<FormValues>();
 
   return (
-    <Container $fd={{ de: 'column' }} $g={{ de: '10px' }}>
+    <Container $fd={{ de: 'column' }} $w={{ de: '100%' }}>
       <AppInputText
         onChange={handleChange(name)}
         onBlur={() => setFieldTouched(name)}
@@ -40,7 +40,13 @@ export const AppFormField = ({
         onClick={() => resetForm({ values: { ...values, [name]: '' } })}
         {...otherProps}
       />
-      <AppFormInputError error={errors[name]} touched={touched[name]} />
+      <Container
+        $p={{ de: '6px' }}
+        $jc={{ de: 'center' }}
+        $ai={{ de: 'center' }}
+      >
+        <AppFormInputError error={errors[name]} touched={touched[name]} />
+      </Container>
     </Container>
   );
 };

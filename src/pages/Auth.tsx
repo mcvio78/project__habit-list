@@ -37,6 +37,7 @@ export const Auth = (): JSX.Element => {
       </Container>
       <Header $header="Account" $subHeader={isSignUp ? 'Register' : 'Log In'} />
       <Container
+        $mxw={{ de: '280px' }}
         $fg={{ de: 1 }}
         $fd={{ de: 'column' }}
         $jc={{ de: 'center' }}

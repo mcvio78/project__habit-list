@@ -1,18 +1,18 @@
 import styled from 'styled-components/macro';
 
-import { ButtonBasic, ButtonBasicProps } from './ButtonBasic';
+import { Button, ButtonProps } from './Button';
 
-interface ButtonHamburgerProps
-  extends Omit<ButtonBasicProps, 'title' | 'boxSdw' | 'bkgCol'> {
+interface AppButtonHamburgerProps
+  extends Omit<ButtonProps, 'title' | 'boxSdw' | 'bkgCol'> {
   /** open button state (prop) */
   $isOpen: boolean;
 }
 
-const ButtonContainer = styled(ButtonBasic).attrs({
+const ButtonContainer = styled(Button).attrs({
   className: 'hamburger-button',
   title: 'hamburgerButton',
   role: 'button',
-})<ButtonHamburgerProps>`
+})<AppButtonHamburgerProps>`
   width: 36px;
   height: 26px;
   flex-shrink: 0;
@@ -50,11 +50,11 @@ const ButtonContainer = styled(ButtonBasic).attrs({
   }
 `;
 
-export const ButtonHamburger = ({
+export const AppButtonHamburger = ({
   $isOpen,
   onClick,
   ...props
-}: ButtonHamburgerProps): JSX.Element => {
+}: AppButtonHamburgerProps): JSX.Element => {
   return (
     <ButtonContainer $isOpen={$isOpen} onClick={onClick} {...props}>
       <div />

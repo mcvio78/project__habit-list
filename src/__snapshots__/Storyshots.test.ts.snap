@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Button Default 1`] = `
+exports[`Storyshots AppButton Default 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -79,7 +79,7 @@ exports[`Storyshots Button Default 1`] = `
 </button>
 `;
 
-exports[`Storyshots Button Disabled 1`] = `
+exports[`Storyshots AppButton Disabled 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -154,14 +154,14 @@ exports[`Storyshots Button Disabled 1`] = `
   aria-label="a button"
   className="c0 c1 dynamic-button"
   disabled={true}
-  title="Button"
+  title="AppButton"
   type="button"
 >
   Disabled
 </button>
 `;
 
-exports[`Storyshots Button Submit 1`] = `
+exports[`Storyshots AppButton Submit 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -237,7 +237,7 @@ exports[`Storyshots Button Submit 1`] = `
   className="c0 c1 dynamic-button"
   id="submit-form-01"
   name="subject"
-  title="Button"
+  title="AppButton"
   type="submit"
   value="form"
 >
@@ -245,7 +245,7 @@ exports[`Storyshots Button Submit 1`] = `
 </button>
 `;
 
-exports[`Storyshots ButtonHamburger Default 1`] = `
+exports[`Storyshots AppButtonHamburger Default 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -462,7 +462,7 @@ exports[`Storyshots Display1 Styled 1`] = `
 </h1>
 `;
 
-exports[`Storyshots Input Default 1`] = `
+exports[`Storyshots AppInputText Default 1`] = `
 .c1 {
   margin: 0;
   text-align: center;

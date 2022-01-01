@@ -3,20 +3,21 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ReactComponent as EmailSVG } from '../assets/icons/icon-email_24dp.svg';
 
-import { Input } from '../components/UI/Input/Input';
+import { AppInputText } from '../components/UI/Input';
 
 export default {
   title: 'Input',
-  component: Input,
-} as ComponentMeta<typeof Input>;
+  component: AppInputText,
+} as ComponentMeta<typeof AppInputText>;
 
-export const Default: ComponentStory<typeof Input> = () => (
-  <Input
-    type="email"
+export const Default: ComponentStory<typeof AppInputText> = () => (
+  <AppInputText
+    IconSVG={EmailSVG}
+    $label="your email"
     id="email"
     name="email"
-    $label="your email"
-    IconSVG={EmailSVG}
-    placeholder="email here"
+    value="fake@email.com"
+    onChange={() => {}}
+    onBlur={() => {}}
   />
 );

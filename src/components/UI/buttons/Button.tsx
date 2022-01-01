@@ -1,74 +1,72 @@
+import { MouseEvent } from 'react';
 import styled from 'styled-components/macro';
 
-import { ButtonBasic, ButtonBasicProps } from './ButtonBasic';
+import { styledMargin, StyledMarginProps } from '../../../utility/styledMargin';
 
-interface VariantButtonProps extends ButtonBasicProps {
-  /** button size small  */
-  $sm?: boolean;
-  /** button size medium  */
-  $md?: boolean;
-  /** button size large  */
-  $lg?: boolean;
-  /** button variant normal */
-  $nb?: boolean;
-  /** button variant hollow */
-  $hb?: boolean;
-  /** button variant text */
-  $tb?: boolean;
+export interface ButtonProps extends StyledMarginProps {
+  /** title attribute - required */
+  title: string;
+  /** aria-label attribute - required */
+  'aria-label': string;
+  /** ID attribute */
+  id?: string;
+  /** type attribute */
+  type?: 'button' | 'submit' | 'reset' | undefined;
+  /** name attribute */
+  name?: string;
+  /** value attribute */
+  value?: string | number;
+  /** disable attribute */
+  disabled?: boolean;
+  /** autoFocus attribute */
+  autoFocus?: boolean;
+  /** background-color CSS property (prop) */
+  $bkgCol?: string;
+  /** box-shadow CSS property (prop) */
+  $boxSdw?: boolean;
+  /** handle onClick functions */
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+  /** button label shadow */
+  $lblSdw?: boolean;
+  /** button label bold */
+  $lblB?: boolean;
+  /** button label italic */
+  $lblIt?: boolean;
 }
 
-export const Button = styled(ButtonBasic).attrs({
-  className: 'dynamic-button',
-})<VariantButtonProps>`
-  ${props => {
-    if (props.$lg && !props.$tb)
-      return `min-width: var(--btn-lg-mw);
-      min-height: var(--btn-lg-mh);
-      padding: var(--btn-lg-p);
-      border-radius: var(--btn-lg-br);
-      font-size: var(--btn-lbl-lg-fs);
-      line-height: var(--btn-lbl-lg-lh);
-      `;
-    if (props.$md && !props.$tb)
-      return `min-width: var(--btn-md-mw);
-      min-height: var(--btn-md-mh);
-      padding: var(--btn-md-p);
-      border-radius: var(--btn-md-br);
-      font-size: var(--btn-lbl-md-fs);
-      line-height: var(--btn-lbl-md-lh);
-      `;
-    if (props.$sm && !props.$tb)
-      return `min-width: var(--btn-sm-mw);
-      min-height: var(--btn-sm-mh);
-      padding: var(--btn-sm-p);
-      border-radius: var(--btn-sm-br);
-      font-size: var(--btn-lbl-sm-fs);
-      line-height: var(--btn-lbl-sm-lh);
-      `;
-    return `width: auto; height: auto;`;
-  }};
+export const Button = styled.button.attrs(props => ({
+  type: props.type || 'button',
+  'aria-describedby': 'id-of-a-paragraph-explaining-why',
+}))<ButtonProps>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ $bkgCol }) => $bkgCol || 'var(--secondary_01)'};
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  box-shadow: ${({ $boxSdw }) =>
+    $boxSdw ? '0 4px 4px var(--neutral_05_op025)' : 'none'};
+  text-shadow: ${({ $lblSdw }) =>
+    $lblSdw && '0 4px 4px rgba(--neutral_05-s025)'};
+  font-variation-settings: ${({ $lblB }) => $lblB && "'wght' 700"};
+  font-weight: ${({ $lblB }) => $lblB && 700};
+  font-style: ${({ $lblIt }) => $lblIt && 'italic'};
 
-  ${props => {
-    if (props.$nb)
-      return `color: var(--accent_01);
-      background-color: var(--secondary_01);
-      outline: var(--neutral_02) 1px solid;
-      `;
-    if (props.$hb)
-      return `color: var(--accent_02);
-      background-color: var(--secondary_02);
-      outline: var(--neutral_03) 1px solid;
-      `;
-    if (props.$tb)
-      return `color: var(--accent_03);
-      background-color: var(--secondary_03);
-      outline: var(--neutral_04) 1px solid;
-      `;
-    return null;
-  }};
+  &:disabled {
+    opacity: 0.6;
+    filter: saturate(60%);
+    user-select: none;
+    cursor: not-allowed;
+  }
 
   &:active {
     box-shadow: ${({ $boxSdw }) =>
       $boxSdw ? '0 1px 1px var(--neutral_05_op025)' : 'none'};
   }
+
+  ${styledMargin};
 `;

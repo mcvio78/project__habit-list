@@ -2,34 +2,34 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Button } from '../components/UI/buttons';
+import { AppButton } from '../components/UI/buttons';
 
 export default {
   title: 'Button',
-  component: Button,
-} as ComponentMeta<typeof Button>;
+  component: AppButton,
+} as ComponentMeta<typeof AppButton>;
 
-export const Default: ComponentStory<typeof Button> = args => (
-  <Button {...args}>Default</Button>
+export const Default: ComponentStory<typeof AppButton> = args => (
+  <AppButton {...args}>Default</AppButton>
 );
 
-export const Disabled: ComponentStory<typeof Button> = ({
+export const Disabled: ComponentStory<typeof AppButton> = ({
   title,
   'aria-label': ariaLabel,
   ...args
 }) => (
-  <Button title="Button" aria-label="a button" disabled {...args}>
+  <AppButton title="AppButton" aria-label="a button" disabled {...args}>
     Disabled
-  </Button>
+  </AppButton>
 );
 
-export const Submit: ComponentStory<typeof Button> = ({
+export const Submit: ComponentStory<typeof AppButton> = ({
   title,
   'aria-label': ariaLabel,
   ...args
 }) => (
-  <Button
-    title="Button"
+  <AppButton
+    title="AppButton"
     aria-label="form submit button"
     type="submit"
     name="subject"
@@ -38,5 +38,5 @@ export const Submit: ComponentStory<typeof Button> = ({
     {...args}
   >
     Submit
-  </Button>
+  </AppButton>
 );

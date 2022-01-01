@@ -1,18 +1,21 @@
-import { useState, FC, SVGProps } from 'react';
+import { FC, SVGProps, ChangeEventHandler } from 'react';
 import styled from 'styled-components';
 
 import { ReactComponent as CloseSVG } from '../../../assets/icons/icon-close_24dp.svg';
 import { Container } from '../../layout';
 import { InputText } from './InputText';
 import { LabelLarge } from '../../Typography';
+import { Button } from '../buttons/Button';
 
 interface InputProps {
   IconSVG?: FC<SVGProps<SVGSVGElement>>;
-  placeholder?: string;
   $label?: string;
-  type: 'text' | 'email' | 'password';
-  name: string;
   id: string;
+  name: string;
+  value: string;
+  onChange: ChangeEventHandler<HTMLInputElement> | undefined;
+  onBlur?: () => void;
+  onClick?: (arg: any) => void;
 }
 
 const InputWrapper = styled(Container).attrs({
@@ -35,16 +38,14 @@ const InputWrapper = styled(Container).attrs({
   }
 `;
 
-export const Input = ({
+export const AppInputText = ({
   IconSVG,
-  placeholder,
   $label,
-  type,
-  name,
   id,
+  name,
+  onClick,
+  ...otherProps
 }: InputProps): JSX.Element => {
-  const [inputValue, setInputValue] = useState('');
-
   return (
     <Container $fd={{ de: 'column' }}>
       {$label && (
@@ -58,21 +59,10 @@ export const Input = ({
         $p={{ de: '5px' }}
       >
         {IconSVG && <IconSVG />}
-        <InputText
-          value={inputValue}
-          onChange={event => {
-            setInputValue(event.target.value);
-          }}
-          placeholder={placeholder}
-          type={type}
-          name={name}
-          id={id}
-        />
-        <CloseSVG
-          onClick={() => {
-            setInputValue('');
-          }}
-        />
+        <InputText id={id} {...otherProps} />
+        <Button aria-label="reset form field" title="reset">
+          <CloseSVG onClick={onClick} />
+        </Button>
       </InputWrapper>
     </Container>
   );

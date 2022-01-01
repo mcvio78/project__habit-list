@@ -46,6 +46,8 @@ export const themeLight = css`
     --neutral_09: ${COLORS.black};
     --neutral_10_op05: rgba(0, 0, 0, 0.5);
 
+    --semantic_error_01: ${COLORS.ferrariRed};
+
     background-color: var(--primary_02, white);
     color: var(--neutral_01, black);
 

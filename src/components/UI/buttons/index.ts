@@ -1,2 +1,3 @@
-export { Button } from './Button';
-export { ButtonHamburger } from './ButtonHamburger';
+export { AppButton } from './AppButton';
+export type { AppButtonProps } from './AppButton';
+export { AppButtonHamburger } from './AppButtonHamburger';

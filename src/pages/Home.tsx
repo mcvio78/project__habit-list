@@ -1,6 +1,6 @@
 import { PageLayout, Container } from '../components/layout';
 import { ParagraphLarge, NavLinkLarge, B, It } from '../components/Typography';
-import { Button } from '../components/UI/buttons';
+import { AppButton } from '../components/UI/buttons';
 import { Header } from '../components/Header';
 import { SideDrawer } from '../components/UI/SideDrawer';
 
@@ -37,7 +37,7 @@ export const Home = (): JSX.Element => {
         <ParagraphLarge $txtSdw>
           <i>Start organizing your life!</i>
         </ParagraphLarge>
-        <Button
+        <AppButton
           $lg
           $nb
           $boxSdw
@@ -47,7 +47,7 @@ export const Home = (): JSX.Element => {
           <B>
             <It>Create Habits</It>
           </B>
-        </Button>
+        </AppButton>
       </Container>
     </PageLayout>
   );

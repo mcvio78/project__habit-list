@@ -2,13 +2,13 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ButtonHamburger } from '../components/UI/buttons';
+import { AppButtonHamburger } from '../components/UI/buttons';
 
 export default {
   title: 'ButtonHamburger',
-  component: ButtonHamburger,
-} as ComponentMeta<typeof ButtonHamburger>;
+  component: AppButtonHamburger,
+} as ComponentMeta<typeof AppButtonHamburger>;
 
-export const Default: ComponentStory<typeof ButtonHamburger> = () => (
-  <ButtonHamburger aria-label="open side drawer menu button" $isOpen />
+export const Default: ComponentStory<typeof AppButtonHamburger> = () => (
+  <AppButtonHamburger aria-label="open side drawer menu button" $isOpen />
 );

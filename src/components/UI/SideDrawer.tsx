@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import styled from 'styled-components/macro';
 
-import { Button, ButtonHamburger } from './buttons';
+import { AppButton, AppButtonHamburger } from './buttons';
 import { Container } from '../layout';
 import { DynamicWrapper } from '../../utility/DynamicWrapper';
 import { Backdrop } from './Backdrop';
@@ -25,7 +25,7 @@ export const SideDrawer = (): JSX.Element => {
 
   return (
     <>
-      <ButtonHamburger
+      <AppButtonHamburger
         aria-label="close side drawer menu button"
         $isOpen={isOpen}
         onClick={() => setIsOpen(!isOpen)}
@@ -47,7 +47,7 @@ export const SideDrawer = (): JSX.Element => {
             $fd={{ de: 'column' }}
             $ai={{ de: 'center' }}
           >
-            <ButtonHamburger
+            <AppButtonHamburger
               aria-label="close side drawer menu button"
               $isOpen={isOpen}
               onClick={() => setIsOpen(!isOpen)}
@@ -59,7 +59,7 @@ export const SideDrawer = (): JSX.Element => {
               $g={{ de: '10px' }}
               $m={{ de: '20px 16px' }}
             >
-              <Button
+              <AppButton
                 $hb
                 $md
                 $lblSdw
@@ -68,8 +68,8 @@ export const SideDrawer = (): JSX.Element => {
                 aria-label="go to account section"
               >
                 Account
-              </Button>
-              <Button
+              </AppButton>
+              <AppButton
                 $hb
                 $md
                 $lblSdw
@@ -78,7 +78,7 @@ export const SideDrawer = (): JSX.Element => {
                 aria-label="go to UI setting"
               >
                 UI Style
-              </Button>
+              </AppButton>
             </Container>
           </SideDrawerMenu>
         )}

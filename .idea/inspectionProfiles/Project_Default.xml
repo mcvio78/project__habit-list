@@ -1,7 +1,21 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
+    <option name="scopesOrder">
+      <list>
+        <option value="All Changed Files" />
+        <option value="Changes" />
+        <option value="Open Files" />
+        <option value="Project Files" />
+        <option value="Scratches and Consoles" />
+        <option value="Tedious JB" />
+        <option value="Tests" />
+      </list>
+    </option>
     <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="JSVoidFunctionReturnValueUsed" enabled="true" level="WARNING" enabled_by_default="true">
+      <scope name="backend" level="INFORMATION" enabled="true" />
+    </inspection_tool>
     <inspection_tool class="Stylelint" enabled="true" level="ERROR" enabled_by_default="true" />
   </profile>
 </component>

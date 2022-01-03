@@ -17,7 +17,6 @@ const shapeLogin = {
     .min(8)
     .label('Password'),
 };
-
 const shapeRegister = {
   ...shapeLogin,
   passwordConfirmation: Yup.string()
@@ -26,14 +25,12 @@ const shapeRegister = {
 };
 
 const validationSchemaLogin = Yup.object().shape(shapeLogin);
-
 const validationSchemaRegister = Yup.object().shape(shapeRegister);
 
 const initialValuesLogin = {
   email: '',
   password: '',
 };
-
 const initialValuesRegister = {
   ...initialValuesLogin,
   passwordConfirmation: '',

@@ -36,7 +36,7 @@ export const AppFormField = ({
         onChange={handleChange(name)}
         onBlur={() => setFieldTouched(name)}
         name={name}
-        value={values[name]}
+        value={values[name] || ''}
         onClick={() => resetForm({ values: { ...values, [name]: '' } })}
         {...otherProps}
       />

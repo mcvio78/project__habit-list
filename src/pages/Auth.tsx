@@ -9,6 +9,7 @@ import { ReactComponent as EmailSVG } from '../assets/icons/icon-email_24dp.svg'
 import { ReactComponent as PasswordSVG } from '../assets/icons/icon-lock_24dp.svg';
 import { AppButton } from '../components/UI/buttons';
 import { AppFormField, AppFormSubmit, AppForm } from '../components/form';
+import { authAPI } from '../services/auth';
 
 const shapeLogin = {
   email: Yup.string().required('Email is required').email().label('Email'),
@@ -67,8 +68,7 @@ export const Auth = (): JSX.Element => {
           enableReinitialize
           initialValues={isSignUp ? initialValuesRegister : initialValuesLogin}
           onSubmit={values => {
-            /* eslint-disable-next-line */
-            console.log('values: ', values);
+            authAPI.login(values.email, values.password);
           }}
           validationSchema={
             isSignUp ? validationSchemaRegister : validationSchemaLogin

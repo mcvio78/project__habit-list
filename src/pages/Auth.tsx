@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import { PageLayout, Container } from '../components/layout';
@@ -9,12 +8,36 @@ import { Header } from '../components/Header';
 import { ReactComponent as EmailSVG } from '../assets/icons/icon-email_24dp.svg';
 import { ReactComponent as PasswordSVG } from '../assets/icons/icon-lock_24dp.svg';
 import { AppButton } from '../components/UI/buttons';
-import { AppFormField, AppFormSubmit } from '../components/form';
+import { AppFormField, AppFormSubmit, AppForm } from '../components/form';
 
-const validationSchema = Yup.object().shape({
-  email: Yup.string().required().email().label('Email'),
-  password: Yup.string().required().min(8).label('Password'),
-});
+const shapeLogin = {
+  email: Yup.string().required('Email is required').email().label('Email'),
+  password: Yup.string()
+    .required('Password is required')
+    .min(8)
+    .label('Password'),
+};
+
+const shapeRegister = {
+  ...shapeLogin,
+  passwordConfirmation: Yup.string()
+    .required('Confirm your password')
+    .oneOf([Yup.ref('password'), null], 'Passwords must match'),
+};
+
+const validationSchemaLogin = Yup.object().shape(shapeLogin);
+
+const validationSchemaRegister = Yup.object().shape(shapeRegister);
+
+const initialValuesLogin = {
+  email: '',
+  password: '',
+};
+
+const initialValuesRegister = {
+  ...initialValuesLogin,
+  passwordConfirmation: '',
+};
 
 export const Auth = (): JSX.Element => {
   const [isSignUp, setIsSignUp] = useState(true);
@@ -43,47 +66,63 @@ export const Auth = (): JSX.Element => {
         $jc={{ de: 'center' }}
         $g={{ de: '20px' }}
       >
-        <Formik
-          initialValues={{ email: '', password: '' }}
-          onSubmit={() => {}}
-          validationSchema={validationSchema}
+        <AppForm
+          enableReinitialize
+          initialValues={isSignUp ? initialValuesRegister : initialValuesLogin}
+          onSubmit={values => {
+            /* eslint-disable-next-line */
+            console.log('values: ', values);
+          }}
+          validationSchema={
+            isSignUp ? validationSchemaRegister : validationSchemaLogin
+          }
         >
-          {() => (
-            <>
-              <AppFormField
-                IconSVG={EmailSVG}
-                $label="Email"
-                id="email"
-                type="email"
-                name="email"
-                placeholder="Email here"
-                autocapitalize="off"
-                spellcheck={false}
-              />
+          <>
+            <AppFormField
+              IconSVG={EmailSVG}
+              $label="Email"
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Email here"
+              autocapitalize="off"
+              spellcheck={false}
+            />
+            <AppFormField
+              IconSVG={PasswordSVG}
+              $label="Password"
+              id="password"
+              type="password"
+              name="password"
+              placeholder="Password here"
+              autocapitalize="off"
+              spellcheck={false}
+            />
+            {isSignUp && (
               <AppFormField
                 IconSVG={PasswordSVG}
-                $label="Password"
-                id="password"
+                $label="Password Confirmation"
+                id="password-confirmation"
                 type="password"
-                name="password"
-                placeholder="Password here"
+                name="passwordConfirmation"
+                placeholder="Repeat password"
                 autocapitalize="off"
                 spellcheck={false}
               />
-              <AppFormSubmit
-                $hb
-                $md
-                $lblSdw
-                $lblB
-                title={isSignUp ? 'Sign Up' : 'Log In'}
-                aria-label={isSignUp ? 'Sign Up Button' : 'Log In Button'}
-                $flxAs={{ de: 'flex-end' }}
-              >
-                {isSignUp ? 'Sign Up' : 'Log In'}
-              </AppFormSubmit>
-            </>
-          )}
-        </Formik>
+            )}
+            <AppFormSubmit
+              $hb
+              $md
+              $lblSdw
+              $lblB
+              title={isSignUp ? 'Sign Up' : 'Log In'}
+              aria-label={isSignUp ? 'Sign Up Button' : 'Log In Button'}
+              $flxAs={{ de: 'flex-end' }}
+            >
+              {isSignUp ? 'Sign Up' : 'Log In'}
+            </AppFormSubmit>
+          </>
+        </AppForm>
         <Container $fd={{ de: 'column' }} $g={{ de: '8px' }}>
           <ParagraphSmall>
             {isSignUp

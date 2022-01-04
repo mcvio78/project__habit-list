@@ -1,16 +1,23 @@
-require('dotenv').config();
-require('./config/database').connect();
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-// importing user context
+require('./config/database').connect();
+const cors = require('cors');
+
 const User = require('./model/user');
-const auth = require("./middleware/auth");
+const auth = require('./middleware/auth');
 
 const app = express();
 
+const { ALLOWED_ORIGIN } = process.env;
+
 app.use(express.json());
+app.use(
+  cors({
+    origin: ALLOWED_ORIGIN,
+  }),
+);
 
 // Register
 app.post('/register', async (req, res) => {
@@ -44,6 +51,7 @@ app.post('/register', async (req, res) => {
     });
 
     // Create token
+    // noinspection UnnecessaryLocalVariableJS
     const token = jwt.sign(
       { user_id: user._id, email },
       process.env.TOKEN_KEY,
@@ -65,10 +73,11 @@ app.post('/register', async (req, res) => {
 // Login
 app.post('/login', (req, res) => {
   // our login logic goes here
+  return res.status(200).send('this is a test');
 });
 
-app.all("/welcome", auth, (req, res) => {
-  res.status(200).send("Welcome 🙌 ");
+app.all('/welcome', auth, (req, res) => {
+  res.status(200).send('Welcome 🙌 ');
 });
 
 module.exports = app;

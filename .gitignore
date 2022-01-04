@@ -31,3 +31,4 @@ debug.log*
  /cypress/videos
  /cypress/screenshots
 /.eslintcache
+/src/.env.development

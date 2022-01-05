@@ -52,7 +52,12 @@ export const Auth = (): JSX.Element => {
 
   const submitForm = (userValues: FormikValues) => {
     if (isSignUp) {
-      authAPI.register(userValues.email, userValues.password);
+      authAPI.register(
+        userValues.firstName,
+        userValues.lastName,
+        userValues.email,
+        userValues.password,
+      );
     } else if (!isSignUp) {
       authAPI.login(userValues.email, userValues.password);
     }

@@ -32,3 +32,4 @@ debug.log*
  /cypress/screenshots
 /.eslintcache
 /src/.env.development
+/.env.development

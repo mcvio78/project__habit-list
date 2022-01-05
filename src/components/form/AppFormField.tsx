@@ -40,11 +40,7 @@ export const AppFormField = ({
         onClick={() => resetForm({ values: { ...values, [name]: '' } })}
         {...otherProps}
       />
-      <Container
-        $p={{ de: '6px' }}
-        $jc={{ de: 'center' }}
-        $ai={{ de: 'center' }}
-      >
+      <Container $jc={{ de: 'center' }} $ai={{ de: 'center' }}>
         <AppFormInputError error={errors[name]} touched={touched[name]} />
       </Container>
     </Container>

@@ -8,6 +8,7 @@ import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';
 import { Header } from '../components/Header';
 import { ReactComponent as EmailSVG } from '../assets/icons/icon-email_24dp.svg';
 import { ReactComponent as PasswordSVG } from '../assets/icons/icon-lock_24dp.svg';
+import { ReactComponent as UserSVG } from '../assets/icons/icon-person_24dp.svg';
 import { AppButton } from '../components/UI/buttons';
 import { AppFormField, AppFormSubmit, AppForm } from '../components/form';
 import { authAPI } from '../services/auth';
@@ -20,6 +21,8 @@ const shapeLogin = {
     .label('Password'),
 };
 const shapeRegister = {
+  firstName: Yup.string().required('First name is required').label('FirstName'),
+  lastName: Yup.string().required('Last name is required').label('LastName'),
   ...shapeLogin,
   passwordConfirmation: Yup.string()
     .required('Confirm your password')
@@ -34,6 +37,8 @@ const initialValuesLogin = {
   password: '',
 };
 const initialValuesRegister = {
+  firstName: '',
+  lastName: '',
   ...initialValuesLogin,
   passwordConfirmation: '',
 };
@@ -71,7 +76,7 @@ export const Auth = (): JSX.Element => {
         $fg={{ de: 1 }}
         $fd={{ de: 'column' }}
         $jc={{ de: 'center' }}
-        $g={{ de: '20px' }}
+        $g={{ de: isSignUp ? '8px' : '20px' }}
       >
         <AppForm
           enableReinitialize
@@ -82,13 +87,37 @@ export const Auth = (): JSX.Element => {
           }
         >
           <>
+            {isSignUp && (
+              <>
+                <AppFormField
+                  IconSVG={UserSVG}
+                  $label="First Name"
+                  id="first-name"
+                  type="text"
+                  name="firstName"
+                  placeholder="First name"
+                  autocapitalize="off"
+                  spellcheck={false}
+                />
+                <AppFormField
+                  IconSVG={UserSVG}
+                  $label="Last Name"
+                  id="last-name"
+                  type="text"
+                  name="lastName"
+                  placeholder="Last name"
+                  autocapitalize="off"
+                  spellcheck={false}
+                />
+              </>
+            )}
             <AppFormField
               IconSVG={EmailSVG}
               $label="Email"
               id="email"
               type="email"
               name="email"
-              placeholder="Email here"
+              placeholder="Email"
               autocapitalize="off"
               spellcheck={false}
             />
@@ -98,7 +127,7 @@ export const Auth = (): JSX.Element => {
               id="password"
               type="password"
               name="password"
-              placeholder="Password here"
+              placeholder="Password"
               autocapitalize="off"
               spellcheck={false}
             />
@@ -122,6 +151,7 @@ export const Auth = (): JSX.Element => {
               title={isSignUp ? 'Sign Up' : 'Log In'}
               aria-label={isSignUp ? 'Sign Up Button' : 'Log In Button'}
               $flxAs={{ de: 'flex-end' }}
+              $mt={{ de: isSignUp ? '8px' : 0 }}
             >
               {isSignUp ? 'Sign Up' : 'Log In'}
             </AppFormSubmit>

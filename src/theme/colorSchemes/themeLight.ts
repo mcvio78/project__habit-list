@@ -35,7 +35,7 @@ export const themeLight = css`
     --neutral_01: ${COLORS.white};
     --neutral_02_btn_focus: ${COLORS.gunPowder};
     --neutral_03: transparent;
-    --neutral_03_btn_focus: ${COLORS.white};
+    --neutral_03_btn_focus: ${COLORS.tealBlue};
     --neutral_04: ${COLORS.egyptianBlue};
     --neutral_04_btn_focus: ${COLORS.egyptianBlue};
     --neutral_05_op025: rgba(0, 0, 0, 0.25);
@@ -74,6 +74,7 @@ export const themeLight = css`
 
         --accent_02: var(--accent_02_btn_focus);
         --secondary_02: var(--secondary_02_btn_focus);
+        --neutral_03: var(--neutral_03_btn_focus);
 
         --accent_03: var(--accent_03_btn_focus);
         --secondary_03: var(--secondary_03);

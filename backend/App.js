@@ -1,9 +1,9 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 
 require('./config/database').connect();
-const cors = require('cors');
 
 const User = require('./model/user');
 const auth = require('./middleware/auth');

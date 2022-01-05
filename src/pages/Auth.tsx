@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as Yup from 'yup';
+import { FormikValues } from 'formik';
 
 import { PageLayout, Container } from '../components/layout';
 import { NavLinkIcon, ParagraphSmall } from '../components/Typography';
@@ -44,6 +45,14 @@ export const Auth = (): JSX.Element => {
     setIsSignUp(prevState => !prevState);
   };
 
+  const submitForm = (userValues: FormikValues) => {
+    if (isSignUp) {
+      authAPI.register(userValues.email, userValues.password);
+    } else if (!isSignUp) {
+      authAPI.login(userValues.email, userValues.password);
+    }
+  };
+
   return (
     <PageLayout>
       <Container
@@ -67,9 +76,7 @@ export const Auth = (): JSX.Element => {
         <AppForm
           enableReinitialize
           initialValues={isSignUp ? initialValuesRegister : initialValuesLogin}
-          onSubmit={values => {
-            authAPI.login(values.email, values.password);
-          }}
+          onSubmit={values => submitForm(values)}
           validationSchema={
             isSignUp ? validationSchemaRegister : validationSchemaLogin
           }

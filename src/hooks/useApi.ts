@@ -1,38 +1,50 @@
 import { useState } from 'react';
 import { AxiosResponse, AxiosError } from 'axios';
 
-interface ApiFunctionReturn {
+type ApiFunction = (...args: any[]) => Promise<AxiosResponse>;
+
+interface UseAPIReturn {
   isLoading: boolean;
+  successStatus: boolean;
   data: AxiosResponse | null;
-  error: AxiosError | null;
-  request: () => Promise<unknown>;
+  error: string;
+  request: (...args: any[]) => Promise<AxiosResponse | undefined>;
 }
 
-export const useApi = async (
-  apiFunction: (...args: (string | number)[]) => Promise<AxiosResponse>,
-): Promise<ApiFunctionReturn> => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
+const isAxiosError = (candidate: any): candidate is AxiosError => {
+  return candidate.isAxiosError === true;
+};
 
-  const request = async (...args: (string | number)[]) => {
+export const useAPI = (apiFunction: ApiFunction): UseAPIReturn => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [successStatus, setSuccessStatus] = useState(false);
+  const [data, setData] = useState<AxiosResponse | null>(null);
+  const [error, setError] = useState('');
+
+  const request = async (...args: any[]) => {
+    setData(null);
+    setError('');
     try {
       setIsLoading(true);
-      const response = await apiFunction(...args);
+      const response: AxiosResponse = await apiFunction(...args);
+      if (response && (response.status === 200 || 201 || 204)) {
+        setSuccessStatus(true);
+      }
       setData(response.data);
       setIsLoading(false);
       return response;
     } catch (err) {
-      const isAxiosError = (candidate: any): candidate is AxiosError => {
-        return candidate.isAxiosError === true;
-      };
       if (isAxiosError(err)) {
-        setError(err?.response?.data);
+        if (err?.response) {
+          setError(err?.response?.data);
+        } else if (err?.request) {
+          setError('The request was made but no response was received');
+        }
+      } else if (err instanceof Error) {
+        setError(err.message);
       }
       setIsLoading(false);
-      return err;
     }
   };
-
-  return { request, isLoading, data, error };
+  return { request, isLoading, successStatus, data, error };
 };

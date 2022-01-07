@@ -12,6 +12,7 @@ import { ReactComponent as UserSVG } from '../assets/icons/icon-person_24dp.svg'
 import { AppButton } from '../components/UI/buttons';
 import { AppFormField, AppFormSubmit, AppForm } from '../components/form';
 import { authAPI } from '../services/auth';
+import { useAPI } from '../hooks/useApi';
 
 const shapeLogin = {
   email: Yup.string().required('Email is required').email().label('Email'),
@@ -46,20 +47,36 @@ const initialValuesRegister = {
 export const Auth = (): JSX.Element => {
   const [isSignUp, setIsSignUp] = useState(true);
 
+  const { request: registerRequest, successStatus: registerSuccessStatus } =
+    useAPI(authAPI.register);
+
+  const { request: loginRequest, successStatus: loginSuccessStatus } = useAPI(
+    authAPI.login,
+  );
+
   const switchLogHandler = () => {
     setIsSignUp(prevState => !prevState);
   };
 
-  const submitForm = (userValues: FormikValues) => {
+  const submitForm = async (userValues: FormikValues) => {
     if (isSignUp) {
-      authAPI.register(
+      await registerRequest(
         userValues.firstName,
         userValues.lastName,
         userValues.email,
         userValues.password,
       );
+
+      if (registerSuccessStatus) {
+        /* eslint-disable-next-line */
+        console.log('register response 2XX');
+      }
     } else if (!isSignUp) {
-      authAPI.login(userValues.email, userValues.password);
+      await loginRequest(userValues.email, userValues.password);
+      if (loginSuccessStatus) {
+        /* eslint-disable-next-line */
+        console.log('login response 2XX');
+      }
     }
   };
 

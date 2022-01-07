@@ -6,7 +6,6 @@ const cors = require('cors');
 require('./config/database').connect();
 
 const User = require('./model/user');
-const auth = require('./middleware/auth');
 const app = express();
 const { ALLOWED_ORIGIN } = process.env;
 
@@ -51,7 +50,7 @@ app.post('/register', async (req, res) => {
     // Create token
     // noinspection UnnecessaryLocalVariableJS
     const token = jwt.sign(
-      { user_id: user._id, email },
+      { user_id: user._id, email: user.email },
       process.env.TOKEN_KEY,
       {
         expiresIn: '2h',
@@ -69,7 +68,7 @@ app.post('/register', async (req, res) => {
 });
 
 // Login
-app.post('/login', auth,async (req, res) => {
+app.post('/login', async (req, res) => {
   // Our login logic starts here
   try {
     // Get user input
@@ -86,7 +85,7 @@ app.post('/login', auth,async (req, res) => {
       // Create token
       // noinspection UnnecessaryLocalVariableJS
       const token = jwt.sign(
-        { user_id: user._id, email },
+        { user_id: user._id, email: user.email },
         process.env.TOKEN_KEY,
         {
           expiresIn: '2h',

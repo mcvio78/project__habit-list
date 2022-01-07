@@ -13,6 +13,7 @@ import { AppButton } from '../components/UI/buttons';
 import { AppFormField, AppFormSubmit, AppForm } from '../components/form';
 import { authAPI } from '../services/auth';
 import { useAPI } from '../hooks/useApi';
+import { Modal } from '../components/UI/Modal';
 
 const shapeLogin = {
   email: Yup.string().required('Email is required').email().label('Email'),
@@ -47,8 +48,13 @@ const initialValuesRegister = {
 export const Auth = (): JSX.Element => {
   const [isSignUp, setIsSignUp] = useState(true);
 
-  const { request: registerRequest, successStatus: registerSuccessStatus } =
-    useAPI(authAPI.register);
+  const {
+    request: registerRequest,
+    successStatus: registerSuccessStatus,
+    errorStatus: registerErrorStatus,
+    setErrorStatus: registerSetErrorStatus,
+    errorMessage: registerErrorMessage,
+  } = useAPI(authAPI.register);
 
   const { request: loginRequest, successStatus: loginSuccessStatus } = useAPI(
     authAPI.login,
@@ -82,6 +88,11 @@ export const Auth = (): JSX.Element => {
 
   return (
     <PageLayout>
+      <Modal
+        showModal={registerErrorStatus}
+        modalCallback={() => registerSetErrorStatus(false)}
+        modalMessage={registerErrorMessage}
+      />
       <Container
         $w={{ de: '100%' }}
         $mih={{ de: '40px' }}

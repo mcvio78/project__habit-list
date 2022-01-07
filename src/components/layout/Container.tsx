@@ -79,10 +79,10 @@ export interface ContainerProps extends StyledMarginProps {
   $pos?: BreakPointsProps<
     'static' | 'relative' | 'absolute' | 'fixed' | 'sticky'
   >;
-  $top?: BreakPointsProps<number>;
-  $rt?: BreakPointsProps<number>;
-  $btm?: BreakPointsProps<number>;
-  $lt?: BreakPointsProps<number>;
+  $top?: BreakPointsProps<number | `${number}%`>;
+  $rt?: BreakPointsProps<number | `${number}%`>;
+  $btm?: BreakPointsProps<number | `${number}%`>;
+  $lt?: BreakPointsProps<number | `${number}%`>;
   $zi?: BreakPointsProps<number>;
 }
 

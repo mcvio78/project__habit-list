@@ -40,13 +40,13 @@ const CommonDisplay = css`
 
 const CommonHeading = styled.h1`
   ${CommonStyle};
-  font-variation-settings: 'wght' 700;
+  font-variation-settings: 'wght' 600;
   font-weight: 700;
 `;
 
 const CommonParagraph = styled.p`
   ${CommonStyle};
-  font-variation-settings: 'wght' 400;
+  font-variation-settings: 'wght' 300;
   font-weight: 400;
 `;
 
@@ -54,7 +54,7 @@ const CommonNavLink = styled(NavLink).attrs({
   className: 'navigation-link',
 })`
   ${CommonStyle};
-  font-variation-settings: 'wght' 600;
+  font-variation-settings: 'wght' 500;
   font-weight: 600;
   text-decoration: none;
   color: var(--neutral_07);
@@ -73,13 +73,13 @@ const CommonNavLink = styled(NavLink).attrs({
 
 const CommonSpan = styled.span`
   ${CommonStyle};
-  font-variation-settings: 'wght' 400;
+  font-variation-settings: 'wght' 300;
   font-weight: 400;
 `;
 
 const CommonLabel = styled.label`
   ${CommonStyle};
-  font-variation-settings: 'wght' 400;
+  font-variation-settings: 'wght' 300;
   font-weight: 400;
 `;
 

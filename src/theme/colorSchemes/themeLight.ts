@@ -31,6 +31,7 @@ export const themeLight = css`
     --accent_03_btn_focus: ${COLORS.egyptianBlue};
     --accent_03_btn_active: ${COLORS.white};
     --accent_04_inp_active: ${COLORS.tealBlue};
+    --accent_05: ${COLORS.ferrariRed};
 
     --neutral_01: ${COLORS.white};
     --neutral_02_btn_focus: ${COLORS.gunPowder};
@@ -45,6 +46,8 @@ export const themeLight = css`
     --neutral_08: ${COLORS.tealBlue};
     --neutral_09: ${COLORS.black};
     --neutral_10_op05: rgba(0, 0, 0, 0.5);
+    --neutral_11: ${COLORS.gunPowder};
+    --neutral_12: ${COLORS.stormGrey};
 
     --semantic_error_01: ${COLORS.ferrariRed};
 

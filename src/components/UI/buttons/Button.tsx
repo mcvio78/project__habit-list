@@ -42,7 +42,8 @@ export const Button = styled.button.attrs(props => ({
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${({ $bkgCol }) => $bkgCol || 'var(--secondary_01)'};
+  background-color: ${({ $bkgCol }) =>
+    `${$bkgCol} !important` || 'var(--secondary_01)'};
   border: none;
   padding: 0;
   font: inherit;

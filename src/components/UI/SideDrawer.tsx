@@ -13,6 +13,7 @@ const SideDrawerMenu = styled(Container)`
 
 export const SideDrawer = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
   const onKeyDownHandler = useCallback((event: KeyboardEvent) => {
     if (event.defaultPrevented) {
       return;

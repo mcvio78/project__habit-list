@@ -48,17 +48,8 @@ const initialValuesRegister = {
 export const Auth = (): JSX.Element => {
   const [isSignUp, setIsSignUp] = useState(true);
 
-  const {
-    request: registerRequest,
-    successStatus: registerSuccessStatus,
-    errorStatus: registerErrorStatus,
-    setErrorStatus: registerSetErrorStatus,
-    errorMessage: registerErrorMessage,
-  } = useAPI(authAPI.register);
-
-  const { request: loginRequest, successStatus: loginSuccessStatus } = useAPI(
-    authAPI.login,
-  );
+  const { request, successStatus, errorStatus, setErrorStatus, errorMessage } =
+    useAPI(isSignUp ? authAPI.register : authAPI.login);
 
   const switchLogHandler = () => {
     setIsSignUp(prevState => !prevState);
@@ -66,20 +57,20 @@ export const Auth = (): JSX.Element => {
 
   const submitForm = async (userValues: FormikValues) => {
     if (isSignUp) {
-      await registerRequest(
+      await request(
         userValues.firstName,
         userValues.lastName,
         userValues.email,
         userValues.password,
       );
 
-      if (registerSuccessStatus) {
+      if (successStatus) {
         /* eslint-disable-next-line */
         console.log('register response 2XX');
       }
     } else if (!isSignUp) {
-      await loginRequest(userValues.email, userValues.password);
-      if (loginSuccessStatus) {
+      await request(userValues.email, userValues.password);
+      if (successStatus) {
         /* eslint-disable-next-line */
         console.log('login response 2XX');
       }
@@ -89,9 +80,9 @@ export const Auth = (): JSX.Element => {
   return (
     <PageLayout>
       <Modal
-        showModal={registerErrorStatus}
-        modalCallback={() => registerSetErrorStatus(false)}
-        modalMessage={registerErrorMessage}
+        showModal={errorStatus}
+        modalCallback={() => setErrorStatus(false)}
+        modalMessage={errorMessage}
       />
       <Container
         $w={{ de: '100%' }}

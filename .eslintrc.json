@@ -65,6 +65,7 @@
       }
     ],
     "consistent-return": "off",
+    "no-param-reassign": ["off", { "config": false }],
     "react/jsx-no-useless-fragment": 0,
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",

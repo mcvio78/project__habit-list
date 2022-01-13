@@ -96,12 +96,16 @@ app.post('/login', async (req, res) => {
         {
           user_id: user._id,
           email: user.email,
-          firstName: user.first_name,
-          lastName: user.last_name,
+          permissions: user.permissions,
+          name: user.name,
         },
         process.env.TOKEN_KEY,
         {
-          expiresIn: '2h',
+          expiresIn: '20000',
+          issuer: 'auth-backend',
+          subject: user.email,
+          audience: 'web-frontend',
+          notBefore: '3000',
         },
       );
       ``;
@@ -109,7 +113,7 @@ app.post('/login', async (req, res) => {
       user.token = token;
 
       // user
-      res.status(200).json(token);
+      res.status(200).json({ token });
     }
     res.status(400).send('Invalid Credentials');
   } catch (err) {

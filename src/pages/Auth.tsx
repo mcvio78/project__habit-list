@@ -60,24 +60,22 @@ export const Auth = (): JSX.Element => {
   };
 
   const submitForm = async (userValues: FormikValues) => {
-    if (isSignUp) {
-      const response = await request(
-        userValues.firstName,
-        userValues.lastName,
-        userValues.email,
-        userValues.password,
-      );
+    const registerFormData = [
+      userValues.firstName,
+      userValues.lastName,
+      userValues.email,
+      userValues.password,
+    ];
+    const loginFormData = [userValues.email, userValues.password];
+    const submitData = isSignUp ? registerFormData : loginFormData;
+    const response = await request(...submitData);
 
-      if (
-        (response?.status === 200 || 201 || 204) &&
-        response?.data !== undefined
-      ) {
-        const token = response.data?.token;
-        logIn(token);
-      }
-    } else if (!isSignUp) {
-      /* eslint-disable-next-line */
-      console.log('login response 2XX');
+    if (
+      (response?.status === 200 || 201 || 204) &&
+      response?.data !== undefined
+    ) {
+      const token = response.data?.token;
+      logIn(token);
     }
   };
 

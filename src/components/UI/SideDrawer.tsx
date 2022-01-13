@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 
 import { AppButton, AppButtonHamburger } from './buttons';
 import { Container } from '../layout';
-import { DynamicWrapper } from '../../utility/DynamicWrapper';
+import { DynamicWrapper } from '../../utility/events/DynamicWrapper';
 import { Backdrop } from './Backdrop';
 
 const SideDrawerMenu = styled(Container)`

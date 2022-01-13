@@ -8,6 +8,7 @@ require('./config/database').connect();
 const User = require('./model/user');
 const app = express();
 const { ALLOWED_ORIGIN } = process.env;
+const auth = require('./middleware/auth');
 
 app.use(express.json());
 app.use(
@@ -50,17 +51,24 @@ app.post('/register', async (req, res) => {
     // Create token
     // noinspection UnnecessaryLocalVariableJS
     const token = jwt.sign(
-      { user_id: user._id, email: user.email },
+      {
+        user_id: user._id,
+        email,
+        permissions: ['read', 'write'],
+        name: `${first_name}_${last_name}`,
+      },
       process.env.TOKEN_KEY,
       {
-        expiresIn: '2h',
+        expiresIn: '20000',
+        issuer: 'auth-backend',
+        subject: email,
+        audience: 'web-frontend',
+        notBefore: '3000',
       },
     );
-    // save user token
-    user.token = token;
 
     // return new user
-    res.status(201).json(user);
+    res.status(201).json({ token });
   } catch (err) {
     console.log(err);
   }
@@ -85,24 +93,33 @@ app.post('/login', async (req, res) => {
       // Create token
       // noinspection UnnecessaryLocalVariableJS
       const token = jwt.sign(
-        { user_id: user._id, email: user.email },
+        {
+          user_id: user._id,
+          email: user.email,
+          firstName: user.first_name,
+          lastName: user.last_name,
+        },
         process.env.TOKEN_KEY,
         {
           expiresIn: '2h',
         },
       );
-
+      ``;
       // save user token
       user.token = token;
 
       // user
-      res.status(200).json(user);
+      res.status(200).json(token);
     }
     res.status(400).send('Invalid Credentials');
   } catch (err) {
     console.log(err);
   }
   // Our register logic ends here
+});
+
+app.post('/tokenValidity', auth, (req, res) => {
+  res.status(200).send('Token is valid');
 });
 
 // This should be the last route else any after it won't work

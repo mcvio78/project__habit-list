@@ -1,31 +1,24 @@
 import { MouseEvent } from 'react';
 import styled from 'styled-components/macro';
 
-import { styledMargin, StyledMarginProps } from '../../../utility/styledMargin';
+import {
+  styledMargin,
+  StyledMarginProps,
+} from '../../../utility/UI/styledMargin';
 
 export interface ButtonProps extends StyledMarginProps {
   /** title attribute - required */
   title: string;
   /** aria-label attribute - required */
   'aria-label': string;
-  /** ID attribute */
-  id?: string;
   /** type attribute */
   type?: 'button' | 'submit' | 'reset' | undefined;
-  /** name attribute */
-  name?: string;
-  /** value attribute */
-  value?: string | number;
-  /** disable attribute */
-  disabled?: boolean;
-  /** autoFocus attribute */
-  autoFocus?: boolean;
+  /** handle onClick functions */
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   /** background-color CSS property (prop) */
   $bkgCol?: string;
   /** box-shadow CSS property (prop) */
   $boxSdw?: boolean;
-  /** handle onClick functions */
-  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   /** button label shadow */
   $lblSdw?: boolean;
   /** button label bold */
@@ -36,7 +29,6 @@ export interface ButtonProps extends StyledMarginProps {
 
 export const Button = styled.button.attrs(props => ({
   type: props.type || 'button',
-  'aria-describedby': 'id-of-a-paragraph-explaining-why',
 }))<ButtonProps>`
   display: flex;
   flex-direction: column;

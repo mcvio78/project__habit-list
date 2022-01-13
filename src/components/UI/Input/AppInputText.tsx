@@ -15,7 +15,7 @@ interface InputProps {
   value: string;
   onChange: ChangeEventHandler<HTMLInputElement> | undefined;
   onBlur?: () => void;
-  onClick?: (arg: any) => void;
+  onClick?: () => void;
 }
 
 const InputWrapper = styled(Container).attrs({
@@ -60,7 +60,11 @@ export const AppInputText = ({
       >
         {IconSVG && <IconSVG />}
         <InputText id={id} {...otherProps} />
-        <Button aria-label="reset form field" title="reset">
+        <Button
+          aria-label="reset form field"
+          title="reset"
+          $bkgCol="var(--secondary_03)"
+        >
           <CloseSVG onClick={onClick} />
         </Button>
       </InputWrapper>

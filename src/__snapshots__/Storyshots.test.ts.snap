@@ -71,7 +71,6 @@ exports[`Storyshots Button Default 1`] = `
 }
 
 <button
-  aria-describedby="id-of-a-paragraph-explaining-why"
   className="c0 c1 dynamic-button"
   type="button"
 >
@@ -150,7 +149,6 @@ exports[`Storyshots Button Disabled 1`] = `
 }
 
 <button
-  aria-describedby="id-of-a-paragraph-explaining-why"
   aria-label="a button"
   className="c0 c1 dynamic-button"
   disabled={true}
@@ -232,7 +230,6 @@ exports[`Storyshots Button Submit 1`] = `
 }
 
 <button
-  aria-describedby="id-of-a-paragraph-explaining-why"
   aria-label="form submit button"
   className="c0 c1 dynamic-button"
   id="submit-form-01"
@@ -353,7 +350,6 @@ exports[`Storyshots ButtonHamburger Default 1`] = `
 }
 
 <button
-  aria-describedby="id-of-a-paragraph-explaining-why"
   aria-label="open side drawer menu button"
   className="c0 c1 hamburger-button"
   role="button"
@@ -483,7 +479,7 @@ exports[`Storyshots Input Default 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background-color: undefined !important;
+  background-color: var(--secondary_03) !important;
   border: none;
   padding: 0;
   font: inherit;
@@ -754,7 +750,6 @@ exports[`Storyshots Input Default 1`] = `
       value="fake@email.com"
     />
     <button
-      aria-describedby="id-of-a-paragraph-explaining-why"
       aria-label="reset form field"
       className="c6"
       title="reset"

@@ -18,19 +18,15 @@ const register = (
 
 const loginEndpoint = '/login';
 const login = (email: string, password: string): Promise<AxiosResponse> =>
-  apiClient.post(
-    loginEndpoint,
-    {
-      email,
-      password,
-    },
-    {
-      headers: {
-        'content-type': 'application/json',
-        'Access-Control-Allow-Headers': 'x-access-token',
-        'x-access-token': 'TOKEN_HERE',
-      },
-    },
-  );
+  apiClient.post(loginEndpoint, {
+    email,
+    password,
+  });
 
-export const authAPI = { register, login };
+const tokenValidityEndpoint = '/tokenValidity';
+const checkTokenValidity = async (): Promise<boolean> => {
+  const response = await apiClient.post(tokenValidityEndpoint);
+  return response.status === 200;
+};
+
+export const authAPI = { register, login, checkTokenValidity };

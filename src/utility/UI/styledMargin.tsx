@@ -1,7 +1,7 @@
 import { css } from 'styled-components/macro';
 
-import { BreakPointsProps, SpaceValue } from '../helpers/globalTypes';
-import { BREAKPOINTS } from '../config/constants';
+import { BreakPointsProps, SpaceValue } from '../../helpers/globalTypes';
+import { BREAKPOINTS } from '../../config/constants';
 
 export interface StyledMarginProps {
   /** margin - shorthand */

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components/macro';
 import { ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { styledMargin, StyledMarginProps } from '../utility/styledMargin';
+import { styledMargin, StyledMarginProps } from '../utility/UI/styledMargin';
 
 export interface CommonStyleProps extends StyledMarginProps {
   /** font text shadow */

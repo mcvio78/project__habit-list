@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import * as Yup from 'yup';
 import { FormikValues } from 'formik';
+import { Navigate } from 'react-router-dom';
 
 import { PageLayout, Container } from '../components/layout';
 import { NavLinkIcon, ParagraphSmall } from '../components/Typography';
@@ -14,6 +15,7 @@ import { AppFormField, AppFormSubmit, AppForm } from '../components/form';
 import { authAPI } from '../services/auth';
 import { useAPI } from '../hooks/useApi';
 import { Modal } from '../components/UI/Modal';
+import { useAuth } from '../hooks/useAuth';
 
 const shapeLogin = {
   email: Yup.string().required('Email is required').email().label('Email'),
@@ -47,9 +49,11 @@ const initialValuesRegister = {
 
 export const Auth = (): JSX.Element => {
   const [isSignUp, setIsSignUp] = useState(true);
+  const { user, logIn } = useAuth();
 
-  const { request, successStatus, errorStatus, setErrorStatus, errorMessage } =
-    useAPI(isSignUp ? authAPI.register : authAPI.login);
+  const { request, setErrorMessage, errorMessage } = useAPI(
+    isSignUp ? authAPI.register : authAPI.login,
+  );
 
   const switchLogHandler = () => {
     setIsSignUp(prevState => !prevState);
@@ -57,31 +61,31 @@ export const Auth = (): JSX.Element => {
 
   const submitForm = async (userValues: FormikValues) => {
     if (isSignUp) {
-      await request(
+      const response = await request(
         userValues.firstName,
         userValues.lastName,
         userValues.email,
         userValues.password,
       );
 
-      if (successStatus) {
-        /* eslint-disable-next-line */
-        console.log('register response 2XX');
+      if (
+        (response?.status === 200 || 201 || 204) &&
+        response?.data !== undefined
+      ) {
+        const token = response.data?.token;
+        logIn(token);
       }
     } else if (!isSignUp) {
-      await request(userValues.email, userValues.password);
-      if (successStatus) {
-        /* eslint-disable-next-line */
-        console.log('login response 2XX');
-      }
+      /* eslint-disable-next-line */
+      console.log('login response 2XX');
     }
   };
 
   return (
     <PageLayout>
       <Modal
-        showModal={errorStatus}
-        modalCallback={() => setErrorStatus(false)}
+        showModal={errorMessage}
+        modalCallback={() => setErrorMessage('')}
         modalMessage={errorMessage}
       />
       <Container
@@ -201,6 +205,7 @@ export const Auth = (): JSX.Element => {
           </AppButton>
         </Container>
       </Container>
+      {user && <Navigate to="/" />}
     </PageLayout>
   );
 };

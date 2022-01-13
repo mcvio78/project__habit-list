@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import styled from 'styled-components/macro';
 
-import { DynamicWrapper } from '../../utility/DynamicWrapper';
+import { DynamicWrapper } from '../../utility/events/DynamicWrapper';
 import { Backdrop } from './Backdrop';
 import { Container } from '../layout';
 import { HeadingExtraLarge, ParagraphSmall, It, B } from '../Typography';
@@ -9,7 +9,7 @@ import { AppButton } from './buttons';
 import { ReactComponent as CloseSVG } from '../../assets/icons/icon-close_24dp.svg';
 
 interface ModalProps {
-  showModal: boolean;
+  showModal: string;
   modalCallback: () => void;
   modalMessage: string;
 }
@@ -50,7 +50,7 @@ export const Modal = ({
 
   return (
     <DynamicWrapper keyEvt="keydown" callback={onKeyDownHandler}>
-      <Backdrop $isOpen={showModal} $setIsOpen={modalCallback} />
+      <Backdrop $isOpen={showModal !== ''} $setIsOpen={modalCallback} />
 
       {showModal && (
         <TextContainer

@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react';
 import styled from 'styled-components/macro';
 import { FormikHandlers } from 'formik';
 
@@ -17,7 +18,7 @@ export interface AppButtonProps extends ButtonProps {
   /** button variant text */
   $tb?: boolean;
   /** button event listener */
-  onClick?: () => void | FormikHandlers;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void | FormikHandlers;
 }
 
 export const AppButton = styled(Button).attrs({
@@ -63,9 +64,9 @@ export const AppButton = styled(Button).attrs({
       outline: var(--neutral_03) 1px solid;
       `;
     if (props.$tb)
-      return `color: var(--accent_03);
-      background-color: var(--secondary_03);
-      outline: var(--neutral_04) 1px solid;
+      return `color: inherit;
+      background-color: transparent;
+      outline: var(--neutral_03) 1px solid;
       `;
     return null;
   }};

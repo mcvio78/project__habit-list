@@ -1,10 +1,50 @@
+import { useCallback, useEffect } from 'react';
+
 import { PageLayout, Container } from '../components/layout';
-import { ParagraphLarge, NavLinkLarge, B, It } from '../components/Typography';
+import {
+  ParagraphLarge,
+  NavLinkLarge,
+  SpanLarge,
+  B,
+  It,
+} from '../components/Typography';
 import { AppButton } from '../components/UI/buttons';
 import { Header } from '../components/Header';
 import { SideDrawer } from '../components/UI/SideDrawer';
+import { useAuth } from '../hooks/useAuth';
+import { authStorage } from '../utility/auth/storage';
+import { authAPI } from '../services/auth';
+import { isAxiosError } from '../utility/request/axios';
 
 export const Home = (): JSX.Element => {
+  const { user, logOut, setUserContextIfToken } = useAuth();
+
+  const setUserIfStoredToken = useCallback(async () => {
+    const authToken = authStorage.getToken();
+    if (authToken && user === null) {
+      try {
+        const isTokenValid = await authAPI.checkTokenValidity();
+        if (isTokenValid) {
+          setUserContextIfToken(authToken);
+        }
+      } catch (err) {
+        if (isAxiosError(err)) {
+          if (err?.response) {
+            /* eslint-disable-next-line */
+            console.log('error: ', err.response.data);
+            if (err.response.status === 401) {
+              authStorage.removeToken();
+            }
+          }
+        }
+      }
+    }
+  }, [user, setUserContextIfToken]);
+
+  useEffect(() => {
+    setUserIfStoredToken();
+  }, [setUserIfStoredToken]);
+
   return (
     <PageLayout>
       <Container
@@ -14,9 +54,24 @@ export const Home = (): JSX.Element => {
         $jc={{ de: 'space-between' }}
         $ai={{ de: 'center' }}
       >
-        <NavLinkLarge to="/auth" $txtSdw>
-          <It>Sign In</It>
-        </NavLinkLarge>
+        {!user ? (
+          <NavLinkLarge to="/auth" $txtSdw>
+            <It>Sign In</It>
+          </NavLinkLarge>
+        ) : (
+          <AppButton
+            $tb
+            aria-label="logout button"
+            title="logout"
+            onClick={logOut}
+          >
+            <SpanLarge $txtSdw>
+              <B>
+                <It>Logout</It>
+              </B>
+            </SpanLarge>
+          </AppButton>
+        )}
         <SideDrawer />
       </Container>
       <Header

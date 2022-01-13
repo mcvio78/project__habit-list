@@ -37,7 +37,7 @@ export const themeLight = css`
     --neutral_02_btn_focus: ${COLORS.gunPowder};
     --neutral_03: transparent;
     --neutral_03_btn_focus: ${COLORS.tealBlue};
-    --neutral_04: ${COLORS.egyptianBlue};
+    --neutral_04: transparent;
     --neutral_04_btn_focus: ${COLORS.egyptianBlue};
     --neutral_05_op025: rgba(0, 0, 0, 0.25);
     --neutral_06_hamburger_focus: rgba(0, 0, 0, 0.1);

@@ -63,7 +63,6 @@ app.post('/register', async (req, res) => {
         issuer: 'auth-backend',
         subject: email,
         audience: 'web-frontend',
-        notBefore: '3000',
       },
     );
 
@@ -105,7 +104,6 @@ app.post('/login', async (req, res) => {
           issuer: 'auth-backend',
           subject: user.email,
           audience: 'web-frontend',
-          notBefore: '3000',
         },
       );
       ``;

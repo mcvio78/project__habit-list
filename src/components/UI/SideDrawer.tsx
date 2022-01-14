@@ -61,7 +61,7 @@ export const SideDrawer = (): JSX.Element => {
               $m={{ de: '20px 16px' }}
             >
               <AppButton
-                $hb
+                $flat
                 $md
                 $lblSdw
                 $lblB
@@ -71,7 +71,7 @@ export const SideDrawer = (): JSX.Element => {
                 Account
               </AppButton>
               <AppButton
-                $hb
+                $flat
                 $md
                 $lblSdw
                 $lblB

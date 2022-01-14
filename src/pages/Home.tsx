@@ -60,7 +60,7 @@ export const Home = (): JSX.Element => {
           </NavLinkLarge>
         ) : (
           <AppButton
-            $tb
+            $text
             aria-label="logout button"
             title="logout"
             onClick={logOut}
@@ -94,7 +94,7 @@ export const Home = (): JSX.Element => {
         </ParagraphLarge>
         <AppButton
           $lg
-          $nb
+          $std
           $boxSdw
           aria-label="create habits button"
           title="create habits"

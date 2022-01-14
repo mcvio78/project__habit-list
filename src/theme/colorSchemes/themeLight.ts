@@ -54,7 +54,7 @@ export const themeLight = css`
     background-color: var(--primary_02, white);
     color: var(--neutral_01, black);
 
-    .dynamic-button:not(:disabled) {
+    .app-button:not(:disabled) {
       @media (hover: hover) {
         &:hover {
           --accent_01: var(--accent_01_btn_hover);

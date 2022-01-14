@@ -59,7 +59,7 @@ export const Auth = (): JSX.Element => {
     setIsSignUp(prevState => !prevState);
   };
 
-  const submitForm = async (userValues: FormikValues) => {
+  const submitFormHandler = async (userValues: FormikValues) => {
     const registerFormData = [
       userValues.firstName,
       userValues.lastName,
@@ -107,7 +107,7 @@ export const Auth = (): JSX.Element => {
         <AppForm
           enableReinitialize
           initialValues={isSignUp ? initialValuesRegister : initialValuesLogin}
-          onSubmit={values => submitForm(values)}
+          onSubmit={values => submitFormHandler(values)}
           validationSchema={
             isSignUp ? validationSchemaRegister : validationSchemaLogin
           }

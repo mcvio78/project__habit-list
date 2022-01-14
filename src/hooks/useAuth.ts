@@ -13,17 +13,19 @@ export interface UseAuthReturn {
 
 export const useAuth = (): UseAuthReturn => {
   const { user, setUser } = useContext(AuthContext);
+  let logoutTimeout: ReturnType<typeof setTimeout>;
 
   const logOut = () => {
     authStorage.removeToken();
     setUser(null);
+    clearTimeout(logoutTimeout);
   };
 
   const logoutExpiredToken = (authToken: string) => {
     const userJWT: User = jwtDecode(authToken);
     const { exp, iat } = userJWT;
     const expiration = (exp - iat) * 1000;
-    setTimeout(logOut, expiration);
+    logoutTimeout = setTimeout(logOut, expiration);
   };
 
   const setUserContextIfToken = (authToken: string) => {

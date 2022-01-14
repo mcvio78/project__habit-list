@@ -76,7 +76,7 @@ export const Modal = ({
           </ParagraphSmall>
           <AppButton
             $md
-            $hb
+            $flat
             $bkgCol="var(--accent_05)"
             $boxSdw
             aria-label="close modal"

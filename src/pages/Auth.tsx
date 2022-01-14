@@ -170,7 +170,7 @@ export const Auth = (): JSX.Element => {
               />
             )}
             <AppFormSubmit
-              $hb
+              $flat
               $md
               $lblSdw
               $lblB
@@ -190,7 +190,7 @@ export const Auth = (): JSX.Element => {
               : 'Create a new account'}
           </ParagraphSmall>
           <AppButton
-            $hb
+            $flat
             $md
             $lblSdw
             $lblB

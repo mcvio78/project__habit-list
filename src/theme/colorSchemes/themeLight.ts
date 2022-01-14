@@ -57,14 +57,24 @@ export const themeLight = css`
     .app-button:not(:disabled) {
       @media (hover: hover) {
         &:hover {
-          --accent_01: var(--accent_01_btn_hover);
-          --secondary_01: var(--secondary_01_btn_hover);
+          &.std-btn {
+            --accent_01: var(--accent_01_btn_hover);
+            --secondary_01: var(--secondary_01_btn_hover);
+          }
 
-          --accent_02: var(--accent_02_btn_hover);
-          --secondary_02: var(--secondary_02_btn_hover);
+          &.flat-btn {
+            --accent_02: var(--accent_02_btn_hover);
+            --secondary_02: var(--secondary_02_btn_hover);
+          }
 
-          --accent_03: var(--accent_03_btn_hover);
-          --secondary_03: var(--secondary_03);
+          &.text-btn {
+            --accent_03: var(--accent_03_btn_hover);
+            --secondary_03: var(--secondary_03);
+          }
+
+          &.alert-btn {
+            --accent_02: var(--neutral_09);
+          }
 
           transition: background 1s ease, color 0.2s linear;
         }

@@ -41,11 +41,6 @@ exports[`Storyshots Button Default 1`] = `
   box-shadow: none;
 }
 
-.c1 {
-  width: auto;
-  height: auto;
-}
-
 @media screen and (min-width:0) {
 
 }
@@ -71,7 +66,7 @@ exports[`Storyshots Button Default 1`] = `
 }
 
 <button
-  className="c0 c1 dynamic-button"
+  className="c0 app-button"
   type="button"
 >
   Default
@@ -119,11 +114,6 @@ exports[`Storyshots Button Disabled 1`] = `
   box-shadow: none;
 }
 
-.c1 {
-  width: auto;
-  height: auto;
-}
-
 @media screen and (min-width:0) {
 
 }
@@ -150,7 +140,7 @@ exports[`Storyshots Button Disabled 1`] = `
 
 <button
   aria-label="a button"
-  className="c0 c1 dynamic-button"
+  className="c0 app-button"
   disabled={true}
   title="AppButton"
   type="button"
@@ -200,11 +190,6 @@ exports[`Storyshots Button Submit 1`] = `
   box-shadow: none;
 }
 
-.c1 {
-  width: auto;
-  height: auto;
-}
-
 @media screen and (min-width:0) {
 
 }
@@ -231,7 +216,7 @@ exports[`Storyshots Button Submit 1`] = `
 
 <button
   aria-label="form submit button"
-  className="c0 c1 dynamic-button"
+  className="c0 app-button"
   id="submit-form-01"
   name="subject"
   title="AppButton"

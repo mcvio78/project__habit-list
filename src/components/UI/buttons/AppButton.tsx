@@ -17,6 +17,8 @@ export interface AppButtonProps extends ButtonProps {
   $flat?: boolean;
   /** button variant text */
   $text?: boolean;
+  /** button variant alert */
+  $alert?: boolean;
   /** button event listener */
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void | FormikHandlers;
 }
@@ -36,6 +38,12 @@ const flatBtnCSS = css`
 const textBtnCSS = css`
   color: inherit;
   background-color: transparent;
+  outline: var(--neutral_03) 1px solid;
+`;
+
+const alertBtnCSS = css`
+  color: var(--accent_02);
+  background-color: var(--accent_05);
   outline: var(--neutral_03) 1px solid;
 `;
 
@@ -66,13 +74,22 @@ const smallBtnCSS = css`
   line-height: var(--btn-lbl-sm-lh);
 `;
 
-export const AppButton = styled(Button).attrs({
-  className: 'dynamic-button',
-})<AppButtonProps>`
+const AppButtonClassName = (props: any) => {
+  if (props.$std) return 'app-button std-btn';
+  if (props.$flat) return 'app-button flat-btn';
+  if (props.$text) return 'app-button text-btn';
+  if (props.$alert) return 'app-button alert-btn';
+  return 'app-button';
+};
+
+export const AppButton = styled(Button).attrs(props => ({
+  className: AppButtonClassName(props),
+}))<AppButtonProps>`
   ${props => {
     if (props.$std) return `${stdBtnCSS}`;
     if (props.$flat) return `${flatBtnCSS}`;
     if (props.$text) return `${textBtnCSS}`;
+    if (props.$alert) return `${alertBtnCSS}`;
   }};
 
   ${props => {

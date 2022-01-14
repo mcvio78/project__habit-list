@@ -64,8 +64,9 @@ export const Modal = ({
           $jc={{ de: 'center' }}
           $ai={{ de: 'center' }}
           $zi={{ de: 300 }}
-          $p={{ de: '12px 0' }}
+          $p={{ de: '12px 24px' }}
           $g={{ de: '12px' }}
+          $bs={{ de: 'border-box' }}
         >
           <ErrorIcon />
           <HeadingExtraLarge $txtClr="var(--neutral_11)">
@@ -76,8 +77,7 @@ export const Modal = ({
           </ParagraphSmall>
           <AppButton
             $md
-            $flat
-            $bkgCol="var(--accent_05)"
+            $alert
             $boxSdw
             aria-label="close modal"
             title="close modal button"

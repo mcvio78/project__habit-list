@@ -1,10 +1,11 @@
 import { useState, useCallback } from 'react';
 import styled from 'styled-components/macro';
 
-import { AppButton, AppButtonHamburger } from './buttons';
+import { AppButtonHamburger } from './buttons';
 import { Container } from '../layout';
 import { DynamicWrapper } from '../../utility/events/DynamicWrapper';
 import { Backdrop } from './Backdrop';
+import { NavigationItems } from './navigation/NavigationItems';
 
 const SideDrawerMenu = styled(Container)`
   border-radius: 10px;
@@ -42,7 +43,7 @@ export const SideDrawer = (): JSX.Element => {
             $rt={{ de: 0 }}
             $zi={{ de: 200 }}
             $mxw={{ de: '70%' }}
-            $miw={{ de: '30%' }}
+            $miw={{ de: '40%' }}
             $h={{ de: '100%' }}
             $p={{ de: '0 16px' }}
             $fd={{ de: 'column' }}
@@ -55,33 +56,7 @@ export const SideDrawer = (): JSX.Element => {
               $flxAs={{ de: 'flex-end' }}
               $mt={{ de: '27px' }}
             />
-            <Container
-              as="nav"
-              $fd={{ de: 'column' }}
-              $g={{ de: '10px' }}
-              $m={{ de: '20px 16px' }}
-            >
-              <AppButton
-                $flat
-                $md
-                $lblSdw
-                $lblB
-                title="account section"
-                aria-label="go to account section"
-              >
-                Account
-              </AppButton>
-              <AppButton
-                $flat
-                $md
-                $lblSdw
-                $lblB
-                title="UI settings"
-                aria-label="go to UI setting"
-              >
-                UI Style
-              </AppButton>
-            </Container>
+            <NavigationItems />
           </SideDrawerMenu>
         )}
       </DynamicWrapper>

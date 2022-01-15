@@ -10,7 +10,10 @@ interface CommonStyleProps extends StyledMarginProps {
   $txtClr?: string;
 }
 
-interface NavLinkCommonProps extends NavLinkProps, CommonStyleProps {}
+export interface NavLinkCommonProps extends NavLinkProps, CommonStyleProps {
+  /** aria-label attribute - required */
+  'aria-label': string;
+}
 
 interface NavLinkIconProps extends NavLinkCommonProps {
   /** NavLink active class */

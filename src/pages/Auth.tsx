@@ -92,7 +92,7 @@ export const Auth = (): JSX.Element => {
         $jc={{ de: 'flex-end' }}
         $ai={{ de: 'center' }}
       >
-        <NavLinkIcon to="/" $iconSdw>
+        <NavLinkIcon to="/" aria-label="navigation link to homepage" $iconSdw>
           <HomeSVG />
         </NavLinkIcon>
       </Container>

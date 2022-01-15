@@ -4,17 +4,18 @@ import { FormikValues } from 'formik';
 import { Navigate } from 'react-router-dom';
 
 import { PageLayout, Container } from '../components/layout';
-import { NavLinkIcon, ParagraphSmall } from '../components/Typography';
+import { Header } from '../components/UI/Header';
+import { AppButton } from '../components/UI/buttons';
+import { NavLinkIcon, ParagraphSmall } from '../components/UI/Typography';
+import { Modal } from '../components/UI/Modal';
+import { Toolbar } from '../components/layout/Toolbar';
+import { AppFormField, AppFormSubmit, AppForm } from '../components/form';
 import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';
-import { Header } from '../components/Header';
 import { ReactComponent as EmailSVG } from '../assets/icons/icon-email_24dp.svg';
 import { ReactComponent as PasswordSVG } from '../assets/icons/icon-lock_24dp.svg';
 import { ReactComponent as UserSVG } from '../assets/icons/icon-person_24dp.svg';
-import { AppButton } from '../components/UI/buttons';
-import { AppFormField, AppFormSubmit, AppForm } from '../components/form';
 import { authAPI } from '../services/auth';
 import { useAPI } from '../hooks/useApi';
-import { Modal } from '../components/UI/Modal';
 import { useAuth } from '../hooks/useAuth';
 
 const shapeLogin = {
@@ -86,16 +87,11 @@ export const Auth = (): JSX.Element => {
         modalCallback={() => setErrorMessage('')}
         modalMessage={errorMessage}
       />
-      <Container
-        $w={{ de: '100%' }}
-        $mih={{ de: '40px' }}
-        $jc={{ de: 'flex-end' }}
-        $ai={{ de: 'center' }}
-      >
+      <Toolbar>
         <NavLinkIcon to="/" aria-label="navigation link to homepage" $iconSdw>
           <HomeSVG />
         </NavLinkIcon>
-      </Container>
+      </Toolbar>
       <Header $header="Account" $subHeader={isSignUp ? 'Register' : 'Log In'} />
       <Container
         $mxw={{ de: '280px' }}

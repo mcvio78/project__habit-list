@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { ReactComponent as CloseSVG } from '../../../assets/icons/icon-close_24dp.svg';
 import { Container } from '../../layout';
 import { InputText } from './InputText';
-import { LabelLarge } from '../../Typography';
+import { LabelLarge } from '../Typography';
 import { Button } from '../buttons/Button';
 
 interface InputProps {

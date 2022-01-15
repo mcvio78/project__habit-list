@@ -4,7 +4,7 @@ import styled from 'styled-components/macro';
 import { DynamicWrapper } from '../../utility/events/DynamicWrapper';
 import { Backdrop } from './Backdrop';
 import { Container } from '../layout';
-import { HeadingExtraLarge, ParagraphSmall, It, B } from '../Typography';
+import { HeadingExtraLarge, ParagraphSmall, It, B } from './Typography';
 import { AppButton } from './buttons';
 import { ReactComponent as CloseSVG } from '../../assets/icons/icon-close_24dp.svg';
 

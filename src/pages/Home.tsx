@@ -7,10 +7,11 @@ import {
   SpanLarge,
   B,
   It,
-} from '../components/Typography';
+} from '../components/UI/Typography';
 import { AppButton } from '../components/UI/buttons';
-import { Header } from '../components/Header';
+import { Header } from '../components/UI/Header';
 import { SideDrawer } from '../components/UI/SideDrawer';
+import { Toolbar } from '../components/layout/Toolbar';
 import { useAuth } from '../hooks/useAuth';
 import { authStorage } from '../utility/auth/storage';
 import { authAPI } from '../services/auth';
@@ -29,12 +30,8 @@ export const Home = (): JSX.Element => {
         }
       } catch (err) {
         if (isAxiosError(err)) {
-          if (err?.response) {
-            /* eslint-disable-next-line */
-            console.log('error: ', err.response.data);
-            if (err.response.status === 401) {
-              authStorage.removeToken();
-            }
+          if (err?.response?.status === 401) {
+            authStorage.removeToken();
           }
         }
       }
@@ -47,13 +44,8 @@ export const Home = (): JSX.Element => {
 
   return (
     <PageLayout>
-      <Container
-        $w={{ de: '100%' }}
-        $mih={{ de: '40px' }}
-        $bs={{ de: 'border-box' }}
-        $jc={{ de: 'space-between' }}
-        $ai={{ de: 'center' }}
-      >
+      <Toolbar>
+        <SideDrawer />
         {!user ? (
           <NavLinkLarge
             to="/auth"
@@ -76,8 +68,7 @@ export const Home = (): JSX.Element => {
             </SpanLarge>
           </AppButton>
         )}
-        <SideDrawer />
-      </Container>
+      </Toolbar>
       <Header
         $header={
           <span>

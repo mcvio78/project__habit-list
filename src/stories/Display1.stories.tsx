@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Display1, It } from '../components/Typography';
+import { Display1, It } from '../components/UI/Typography';
 
 export default {
   title: 'Display1',

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ParagraphLarge, It } from '../components/Typography';
+import { ParagraphLarge, It } from '../components/UI/Typography';
 
 export default {
   title: 'ParagraphLarge',

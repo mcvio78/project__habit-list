@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-import { Container, ContainerProps } from './layout';
+import { Container, ContainerProps } from '../layout';
 import { Display1, ParagraphLarge, It } from './Typography';
 
 interface HeaderProps {

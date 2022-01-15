@@ -5,7 +5,7 @@ import { AppButtonHamburger } from './buttons';
 import { Container } from '../layout';
 import { DynamicWrapper } from '../../utility/events/DynamicWrapper';
 import { Backdrop } from './Backdrop';
-import { NavigationItems } from './navigation/NavigationItems';
+import { NavigationItems } from './navigation';
 
 const SideDrawerMenu = styled(Container)`
   border-radius: 10px;

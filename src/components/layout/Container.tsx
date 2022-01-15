@@ -22,7 +22,7 @@ export interface ContainerProps extends StyledMarginProps {
   /** display CSS property (prop) */
   $d?: BreakPointsProps<'flex' | 'inline-flex'>;
   /** flex-direction CSS property (prop) */
-  $fd?: BreakPointsProps<'row' | 'column'>;
+  $fd?: BreakPointsProps<'row' | 'column' | 'row-reverse' | 'column-reverse'>;
   /** align-items CSS property (prop) */
   $ai?: BreakPointsProps<'flex-start' | 'flex-end' | 'stretch' | 'center'>;
   /** justify-content CSS property (prop) */

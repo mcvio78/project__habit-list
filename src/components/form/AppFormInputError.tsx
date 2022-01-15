@@ -1,4 +1,4 @@
-import { ParagraphMedium } from '../Typography';
+import { ParagraphMedium } from '../UI/Typography';
 
 interface AppFormErrorMessageProps {
   touched: boolean;

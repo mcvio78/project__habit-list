@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { NavLinkLarge } from '../../Typography';
+import { NavLinkLarge } from '../Typography';
 
 interface NavigationItemProps {
   children: ReactNode;

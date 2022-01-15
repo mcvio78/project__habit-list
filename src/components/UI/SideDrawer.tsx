@@ -56,6 +56,7 @@ export const SideDrawer = (): JSX.Element => {
               $mt={{ de: '27px' }}
             />
             <Container
+              as="nav"
               $fd={{ de: 'column' }}
               $g={{ de: '10px' }}
               $m={{ de: '20px 16px' }}

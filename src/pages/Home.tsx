@@ -55,7 +55,7 @@ export const Home = (): JSX.Element => {
         $ai={{ de: 'center' }}
       >
         {!user ? (
-          <NavLinkLarge to="/auth" $txtSdw>
+          <NavLinkLarge end to="/auth" $txtSdw>
             <It>Sign In</It>
           </NavLinkLarge>
         ) : (

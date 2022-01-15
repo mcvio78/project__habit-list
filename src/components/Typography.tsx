@@ -1,24 +1,18 @@
 import styled, { css } from 'styled-components/macro';
-import { ReactNode } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, NavLinkProps } from 'react-router-dom';
 
 import { styledMargin, StyledMarginProps } from '../utility/UI/styledMargin';
 
-export interface CommonStyleProps extends StyledMarginProps {
+interface CommonStyleProps extends StyledMarginProps {
   /** font text shadow */
   $txtSdw?: boolean;
   /** overwrite default font color */
   $txtClr?: string;
-  /** children prop */
-  children: string | number | ReactNode;
 }
 
-interface NavLinkProps {
-  /** location match */
-  $exact?: boolean;
-}
+interface NavLinkCommonProps extends NavLinkProps, CommonStyleProps {}
 
-interface NavLinkIconProps extends NavLinkProps, StyledMarginProps {
+interface NavLinkIconProps extends NavLinkCommonProps {
   /** NavLink active class */
   $iconSdw?: boolean;
 }
@@ -52,7 +46,7 @@ const CommonParagraph = styled.p`
 
 const CommonNavLink = styled(NavLink).attrs({
   className: 'navigation-link',
-})`
+})<NavLinkCommonProps>`
   ${CommonStyle};
   font-variation-settings: 'wght' 500;
   font-weight: 600;

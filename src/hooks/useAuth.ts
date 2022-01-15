@@ -4,7 +4,7 @@ import jwtDecode from 'jwt-decode';
 import { AuthContext, User } from '../utility/auth/context';
 import { authStorage } from '../utility/auth/storage';
 
-export interface UseAuthReturn {
+interface UseAuthReturn {
   logIn: (args: string) => void;
   logOut: () => void;
   user: User | null;

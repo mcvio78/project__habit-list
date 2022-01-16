@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
 import './fontStyles.css';
+import './breakpoints.module.scss';
 import { themeLight, themeDark } from './colorSchemes';
 import { buttonSize, typographySize } from './elementSize';
 

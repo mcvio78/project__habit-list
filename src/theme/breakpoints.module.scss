@@ -1,0 +1,35 @@
+// Define breakpoints
+$breakpoints: (
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+);
+
+// Simple media query mixin
+@mixin respond-to($breakpoint) {
+  @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+// Expose breakpoints
+body::after {
+  position: absolute;
+  left: -1337px;
+  visibility: hidden;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0;
+  font-size: 0;
+  z-index: -1;
+
+  @each $breakpoint-key, $breakpoint-value in $breakpoints {
+    @if ($breakpoint-key == 'sm') {
+      content: 'sm';
+    } @else {
+      @include respond-to($breakpoint-key) {
+        content: '#{$breakpoint-key}';
+      }
+    }
+  }
+}

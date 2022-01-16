@@ -16,9 +16,11 @@ import { useAuth } from '../hooks/useAuth';
 import { authStorage } from '../utility/auth/storage';
 import { authAPI } from '../services/auth';
 import { isAxiosError } from '../utility/request/axios';
+import { useBreakpoint } from '../hooks/useBreakpoint';
 
 export const Home = (): JSX.Element => {
   const { user, logOut, setUserContextIfToken } = useAuth();
+  const breakpoint = useBreakpoint();
 
   const setUserIfStoredToken = useCallback(async () => {
     const authToken = authStorage.getToken();
@@ -45,7 +47,7 @@ export const Home = (): JSX.Element => {
   return (
     <PageLayout>
       <Toolbar>
-        <SideDrawer />
+        {breakpoint === 'sm' && <SideDrawer />}
         {!user ? (
           <NavLinkLarge
             to="/auth"

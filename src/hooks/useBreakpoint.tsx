@@ -5,13 +5,14 @@ import { isSSR } from '../utility/utils';
 
 export const useBreakpoint = (): string | undefined => {
   const { width } = useWindowSize();
+
+  const { getComputedStyle } = window;
   const getBreakpoint = useCallback(
     () =>
       isSSR
         ? undefined
-        : window
-            .getComputedStyle(document.body, '::after')
-            .content.replace(/"/g, ''),
+        : getComputedStyle(document.body, '::after').content.replace(/"/g, ''),
+    // eslint-disable-next-line
     [],
   );
   const [breakpoint, setBreakpoint] = useState(getBreakpoint);

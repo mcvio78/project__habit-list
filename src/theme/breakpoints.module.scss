@@ -1,9 +1,21 @@
 // Define breakpoints
 $breakpoints: (
-  sm: 768px,
-  md: 992px,
-  lg: 1200px,
+  de: 0,
+  xs: 320px,
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
 );
+
+:export {
+  de: map_get($breakpoints, de);
+  xs: map_get($breakpoints, xs);
+  sm: map_get($breakpoints, sm);
+  md: map_get($breakpoints, md);
+  lg: map_get($breakpoints, lg);
+  xl: map_get($breakpoints, xl);
+}
 
 // Simple media query mixin
 @mixin respond-to($breakpoint) {
@@ -24,8 +36,8 @@ body::after {
   z-index: -1;
 
   @each $breakpoint-key, $breakpoint-value in $breakpoints {
-    @if ($breakpoint-key == 'sm') {
-      content: 'sm';
+    @if ($breakpoint-key == 'de') {
+      content: 'de';
     } @else {
       @include respond-to($breakpoint-key) {
         content: '#{$breakpoint-key}';

@@ -1,8 +1,8 @@
 import { SetStateAction, useContext } from 'react';
 import jwtDecode from 'jwt-decode';
 
-import { AuthContext, User } from '../utility/auth/context';
-import { authStorage } from '../utility/auth/storage';
+import { AuthContext, User } from '../auth/context';
+import { authStorage } from '../auth/storage';
 
 interface UseAuthReturn {
   logIn: (args: string) => void;

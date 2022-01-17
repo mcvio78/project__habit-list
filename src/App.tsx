@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { PageContainer } from './components/layout';
 import { Home } from './pages/Home';
 import { Auth } from './pages/Auth';
-import { AuthContext } from './utility/auth/context';
+import { AuthContext } from './auth/context';
 
 export const App = (): JSX.Element => {
   const [user, setUser] = useState(null);

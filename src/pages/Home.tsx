@@ -13,7 +13,7 @@ import { Header } from '../components/UI/Header';
 import { SideDrawer } from '../components/UI/SideDrawer';
 import { Toolbar } from '../components/layout/Toolbar';
 import { useAuth } from '../hooks/useAuth';
-import { authStorage } from '../utility/auth/storage';
+import { authStorage } from '../auth/storage';
 import { authAPI } from '../services/auth';
 import { isAxiosError } from '../utility/request/axios';
 import { useBreakpoint } from '../hooks/useBreakpoint';

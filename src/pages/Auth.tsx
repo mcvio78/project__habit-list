@@ -88,7 +88,12 @@ export const Auth = (): JSX.Element => {
         modalMessage={errorMessage}
       />
       <Toolbar>
-        <NavLinkIcon to="/" aria-label="navigation link to homepage" $iconSdw>
+        <NavLinkIcon
+          to="/"
+          aria-label="navigation link to homepage"
+          $ml={{ de: 'auto' }}
+          $iconSdw
+        >
           <HomeSVG />
         </NavLinkIcon>
       </Toolbar>

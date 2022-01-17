@@ -46,11 +46,7 @@ export const Home = (): JSX.Element => {
 
   return (
     <PageLayout>
-      <h1 style={{ position: 'absolute', top: 0 }}>{breakpoint}</h1>
       <Toolbar>
-        {(breakpoint === 'de' ||
-          breakpoint === 'xs' ||
-          breakpoint === 'sm') && <SideDrawer />}
         {!user ? (
           <NavLinkLarge
             to="/auth"
@@ -73,6 +69,7 @@ export const Home = (): JSX.Element => {
             </SpanLarge>
           </AppButton>
         )}
+        {(breakpoint === 'de' || breakpoint === 'xs') && <SideDrawer />}
       </Toolbar>
       <Header
         $header={

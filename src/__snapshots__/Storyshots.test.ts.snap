@@ -41,27 +41,27 @@ exports[`Storyshots Button Default 1`] = `
   box-shadow: none;
 }
 
-@media screen and (min-width:0) {
+@media screen and (min-width:de) {
 
 }
 
-@media screen and (min-width:320px) {
+@media screen and (min-width:xs) {
 
 }
 
-@media screen and (min-width:480px) {
+@media screen and (min-width:sm) {
 
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:md) {
 
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:lg) {
 
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width:xl) {
 
 }
 
@@ -114,27 +114,27 @@ exports[`Storyshots Button Disabled 1`] = `
   box-shadow: none;
 }
 
-@media screen and (min-width:0) {
+@media screen and (min-width:de) {
 
 }
 
-@media screen and (min-width:320px) {
+@media screen and (min-width:xs) {
 
 }
 
-@media screen and (min-width:480px) {
+@media screen and (min-width:sm) {
 
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:md) {
 
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:lg) {
 
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width:xl) {
 
 }
 
@@ -190,27 +190,27 @@ exports[`Storyshots Button Submit 1`] = `
   box-shadow: none;
 }
 
-@media screen and (min-width:0) {
+@media screen and (min-width:de) {
 
 }
 
-@media screen and (min-width:320px) {
+@media screen and (min-width:xs) {
 
 }
 
-@media screen and (min-width:480px) {
+@media screen and (min-width:sm) {
 
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:md) {
 
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:lg) {
 
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width:xl) {
 
 }
 
@@ -310,27 +310,27 @@ exports[`Storyshots ButtonHamburger Default 1`] = `
   transform: translateY(-11px) rotate(-45deg);
 }
 
-@media screen and (min-width:0) {
+@media screen and (min-width:de) {
 
 }
 
-@media screen and (min-width:320px) {
+@media screen and (min-width:xs) {
 
 }
 
-@media screen and (min-width:480px) {
+@media screen and (min-width:sm) {
 
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:md) {
 
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:lg) {
 
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width:xl) {
 
 }
 
@@ -361,27 +361,27 @@ exports[`Storyshots Display1 Default 1`] = `
   letter-spacing: var(--typ-d-1-ls);
 }
 
-@media screen and (min-width:0) {
+@media screen and (min-width:de) {
 
 }
 
-@media screen and (min-width:320px) {
+@media screen and (min-width:xs) {
 
 }
 
-@media screen and (min-width:480px) {
+@media screen and (min-width:sm) {
 
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:md) {
 
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:lg) {
 
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width:xl) {
 
 }
 
@@ -412,27 +412,27 @@ exports[`Storyshots Display1 Styled 1`] = `
   font-synthesis: none;
 }
 
-@media screen and (min-width:0) {
+@media screen and (min-width:de) {
 
 }
 
-@media screen and (min-width:320px) {
+@media screen and (min-width:xs) {
 
 }
 
-@media screen and (min-width:480px) {
+@media screen and (min-width:sm) {
 
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:md) {
 
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:lg) {
 
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width:xl) {
 
 }
 
@@ -550,31 +550,31 @@ exports[`Storyshots Input Default 1`] = `
   fill-opacity: 0.2;
 }
 
-@media screen and (min-width:0) {
+@media screen and (min-width:de) {
 
 }
 
-@media screen and (min-width:320px) {
+@media screen and (min-width:xs) {
 
 }
 
-@media screen and (min-width:480px) {
+@media screen and (min-width:sm) {
 
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:md) {
 
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:lg) {
 
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width:xl) {
 
 }
 
-@media screen and (min-width:0) {
+@media screen and (min-width:de) {
   .c1 {
     -webkit-align-self: flex-start;
     -ms-flex-item-align: start;
@@ -582,27 +582,27 @@ exports[`Storyshots Input Default 1`] = `
   }
 }
 
-@media screen and (min-width:320px) {
+@media screen and (min-width:xs) {
 
 }
 
-@media screen and (min-width:480px) {
+@media screen and (min-width:sm) {
 
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:md) {
 
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:lg) {
 
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width:xl) {
 
 }
 
-@media screen and (min-width:0) {
+@media screen and (min-width:de) {
   .c0 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
@@ -610,51 +610,51 @@ exports[`Storyshots Input Default 1`] = `
   }
 }
 
-@media screen and (min-width:320px) {
+@media screen and (min-width:xs) {
 
 }
 
-@media screen and (min-width:480px) {
+@media screen and (min-width:sm) {
 
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:md) {
 
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:lg) {
 
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width:xl) {
 
 }
 
-@media screen and (min-width:0) {
+@media screen and (min-width:de) {
 
 }
 
-@media screen and (min-width:320px) {
+@media screen and (min-width:xs) {
 
 }
 
-@media screen and (min-width:480px) {
+@media screen and (min-width:sm) {
 
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:md) {
 
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:lg) {
 
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width:xl) {
 
 }
 
-@media screen and (min-width:0) {
+@media screen and (min-width:de) {
   .c3 {
     -webkit-align-items: center;
     -webkit-box-align: center;
@@ -668,47 +668,47 @@ exports[`Storyshots Input Default 1`] = `
   }
 }
 
-@media screen and (min-width:320px) {
+@media screen and (min-width:xs) {
 
 }
 
-@media screen and (min-width:480px) {
+@media screen and (min-width:sm) {
 
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:md) {
 
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:lg) {
 
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width:xl) {
 
 }
 
-@media screen and (min-width:0) {
+@media screen and (min-width:de) {
 
 }
 
-@media screen and (min-width:320px) {
+@media screen and (min-width:xs) {
 
 }
 
-@media screen and (min-width:480px) {
+@media screen and (min-width:sm) {
 
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:md) {
 
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:lg) {
 
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width:xl) {
 
 }
 
@@ -761,27 +761,27 @@ exports[`Storyshots ParagraphLarge Default 1`] = `
   line-height: var(--typ-p-lg-lh);
 }
 
-@media screen and (min-width:0) {
+@media screen and (min-width:de) {
 
 }
 
-@media screen and (min-width:320px) {
+@media screen and (min-width:xs) {
 
 }
 
-@media screen and (min-width:480px) {
+@media screen and (min-width:sm) {
 
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:md) {
 
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:lg) {
 
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width:xl) {
 
 }
 
@@ -812,27 +812,27 @@ exports[`Storyshots ParagraphLarge Styled 1`] = `
   font-synthesis: none;
 }
 
-@media screen and (min-width:0) {
+@media screen and (min-width:de) {
 
 }
 
-@media screen and (min-width:320px) {
+@media screen and (min-width:xs) {
 
 }
 
-@media screen and (min-width:480px) {
+@media screen and (min-width:sm) {
 
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:md) {
 
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:lg) {
 
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width:xl) {
 
 }
 

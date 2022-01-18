@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import * as Yup from 'yup';
 import { FormikValues } from 'formik';
 import { Navigate } from 'react-router-dom';
@@ -60,25 +60,28 @@ export const Auth = (): JSX.Element => {
     setIsSignUp(prevState => !prevState);
   };
 
-  const submitFormHandler = async (userValues: FormikValues) => {
-    const registerFormData = [
-      userValues.firstName,
-      userValues.lastName,
-      userValues.email,
-      userValues.password,
-    ];
-    const loginFormData = [userValues.email, userValues.password];
-    const submitData = isSignUp ? registerFormData : loginFormData;
-    const response = await request(...submitData);
+  const submitFormHandler = useCallback(
+    async (userValues: FormikValues) => {
+      const registerFormData = [
+        userValues.firstName,
+        userValues.lastName,
+        userValues.email,
+        userValues.password,
+      ];
+      const loginFormData = [userValues.email, userValues.password];
+      const submitData = isSignUp ? registerFormData : loginFormData;
+      const response = await request(...submitData);
 
-    if (
-      (response?.status === 200 || 201 || 204) &&
-      response?.data !== undefined
-    ) {
-      const token = response.data?.token;
-      logIn(token);
-    }
-  };
+      if (
+        (response?.status === 200 || 201 || 204) &&
+        response?.data !== undefined
+      ) {
+        const token = response.data?.token;
+        logIn(token);
+      }
+    },
+    [isSignUp, logIn, request],
+  );
 
   return (
     <PageLayout>

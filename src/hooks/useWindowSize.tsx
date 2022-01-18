@@ -16,6 +16,7 @@ export const useWindowSize = (
     }),
     [],
   );
+
   const [windowSize, setWindowSize] = useState(getWindowSize);
 
   useResize(() => {

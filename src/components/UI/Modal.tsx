@@ -1,12 +1,12 @@
 import { useCallback } from 'react';
 import styled from 'styled-components/macro';
 
-import { DynamicWrapper } from '../../utility/events/DynamicWrapper';
 import { Backdrop } from './Backdrop';
 import { Container } from '../layout';
 import { HeadingExtraLarge, ParagraphSmall, It, B } from './Typography';
 import { AppButton } from './buttons';
 import { ReactComponent as CloseSVG } from '../../assets/icons/icon-close_24dp.svg';
+import { useKeyEvent } from '../../hooks/useKeyEvent';
 
 interface ModalProps {
   showModal: string;
@@ -36,7 +36,7 @@ export const Modal = ({
   modalMessage,
 }: ModalProps): JSX.Element => {
   const onKeyDownHandler = useCallback(
-    (event: KeyboardEvent) => {
+    event => {
       if (event.defaultPrevented) {
         return;
       }
@@ -48,8 +48,10 @@ export const Modal = ({
     [modalCallback],
   );
 
+  useKeyEvent(onKeyDownHandler, 'keydown');
+
   return (
-    <DynamicWrapper keyEvt="keydown" callback={onKeyDownHandler}>
+    <>
       <Backdrop $isOpen={showModal !== ''} $setIsOpen={modalCallback} />
 
       {showModal && (
@@ -89,6 +91,6 @@ export const Modal = ({
           </AppButton>
         </TextContainer>
       )}
-    </DynamicWrapper>
+    </>
   );
 };

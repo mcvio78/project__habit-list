@@ -1,64 +1,111 @@
-import { useState, useCallback } from 'react';
-import styled from 'styled-components/macro';
+import { forwardRef, ForwardedRef, useRef } from 'react';
+import styled, { css, keyframes } from 'styled-components/macro';
+import { CSSTransition } from 'react-transition-group';
 
-import { AppButtonHamburger } from './buttons';
 import { Container } from '../layout';
-import { Backdrop } from './Backdrop';
+import { AppButtonHamburger } from './buttons';
 import { NavigationItems } from './navigation';
-import { useKeyEvent } from '../../hooks/useKeyEvent';
 
-const SideDrawerMenu = styled(Container)`
-  border-radius: 10px;
-  background-color: var(--primary_01);
+interface SideDrawerProps {
+  isOpen: boolean;
+  setIsOpen: () => void;
+  $animated?: boolean;
+}
+
+interface SideDrawerAnimatedProps {
+  $animated?: boolean;
+}
+
+const SideDrawerAnimationOpen = keyframes`
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 0;
+  }
+
+  100% {
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+  }
 `;
 
-export const SideDrawer = (): JSX.Element => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+const SideDrawerAnimationClose = keyframes`
+  0% {
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+  }
 
-  const onKeyDownHandler = useCallback(event => {
-    if (event.defaultPrevented) {
-      return;
-    }
-    if (event.key === 'Escape' || event.key === 'Esc' || event.key === '27') {
-      setIsOpen(false);
-    }
-  }, []);
+  100% {
+    height: 0;
+    width: 0;
+    opacity: 0;
+  }
+`;
 
-  useKeyEvent(onKeyDownHandler, 'keydown');
+export const AnimatedCSS = css`
+  &.appear-active,
+  &.enter-active,
+  &.enter-done {
+    animation-name: ${SideDrawerAnimationOpen};
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+  }
 
-  return (
-    <>
-      <AppButtonHamburger
-        aria-label="close side drawer menu button"
-        $isOpen={isOpen}
-        onClick={() => setIsOpen(!isOpen)}
-      />
+  &.exit-active {
+    animation-name: ${SideDrawerAnimationClose};
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+  }
+`;
 
-      <Backdrop $isOpen={isOpen} $setIsOpen={() => setIsOpen(false)} />
+const SideDrawerStyled = styled(Container)<SideDrawerAnimatedProps>`
+  border-radius: 10px;
+  background-color: var(--primary_01);
+  box-sizing: border-box;
 
-      {isOpen && (
-        <SideDrawerMenu
-          $pos={{ de: 'absolute' }}
-          $top={{ de: 0 }}
-          $rt={{ de: 0 }}
-          $zi={{ de: 200 }}
-          $mxw={{ de: '70%' }}
-          $miw={{ de: '40%' }}
-          $h={{ de: '100%' }}
-          $p={{ de: '0 16px' }}
-          $fd={{ de: 'column' }}
-          $ai={{ de: 'center' }}
+  ${({ $animated }) => $animated && AnimatedCSS}
+`;
+
+export const SideDrawer = forwardRef(
+  (
+    { isOpen, setIsOpen, $animated }: SideDrawerProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ): JSX.Element => {
+    const NavigationItemsRef = useRef<HTMLInputElement>(null);
+
+    return (
+      <SideDrawerStyled
+        $pos={{ de: 'absolute' }}
+        $top={{ de: 0 }}
+        $rt={{ de: 0 }}
+        $zi={{ de: 200 }}
+        $mxw={{ de: '100%', xs: '70%' }}
+        $p={{ de: '0 16px' }}
+        $fd={{ de: 'column' }}
+        $ai={{ de: 'center' }}
+        $animated={$animated}
+        ref={ref}
+      >
+        <AppButtonHamburger
+          aria-label="close side drawer menu button"
+          isOpen={isOpen}
+          onClick={setIsOpen}
+          $flxAs={{ de: 'flex-end' }}
+          $mt={{ de: '30px' }}
+        />
+        <CSSTransition
+          in={isOpen}
+          timeout={{ enter: 4500, exit: 4500 }}
+          mountOnEnter
+          unmountOnExit
+          appear
+          nodeRef={NavigationItemsRef}
         >
-          <AppButtonHamburger
-            aria-label="close side drawer menu button"
-            $isOpen={isOpen}
-            onClick={() => setIsOpen(!isOpen)}
-            $flxAs={{ de: 'flex-end' }}
-            $mt={{ de: '27px' }}
-          />
-          <NavigationItems />
-        </SideDrawerMenu>
-      )}
-    </>
-  );
-};
+          <NavigationItems $animated ref={NavigationItemsRef} />
+        </CSSTransition>
+      </SideDrawerStyled>
+    );
+  },
+);

@@ -52,7 +52,7 @@ export const Modal = ({
 
   return (
     <>
-      <Backdrop $isOpen={showModal !== ''} $setIsOpen={modalCallback} />
+      <Backdrop isOpen={showModal !== ''} setIsOpen={modalCallback} />
 
       {showModal && (
         <TextContainer

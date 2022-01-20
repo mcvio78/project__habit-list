@@ -1,12 +1,50 @@
-import styled from 'styled-components/macro';
+import { forwardRef, ForwardedRef } from 'react';
+import styled, { css, keyframes } from 'styled-components/macro';
 
 import { Button, ButtonProps } from './Button';
 
 interface AppButtonHamburgerProps
   extends Omit<ButtonProps, 'title' | 'boxSdw' | 'bkgCol'> {
   /** open button state (prop) */
-  $isOpen: boolean;
+  isOpen: boolean;
+  $animated?: boolean;
 }
+
+const AppButtonHamburgerAnimationOpen = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+`;
+
+const AppButtonHamburgerAnimationClose = keyframes`
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+`;
+
+export const AnimatedCSS = css`
+  &.appear-active,
+  &.enter-active,
+  &.enter-done {
+    animation-name: ${AppButtonHamburgerAnimationOpen};
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+  }
+
+  &.exit-active {
+    animation-name: ${AppButtonHamburgerAnimationClose};
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+  }
+`;
 
 const ButtonContainer = styled(Button).attrs({
   className: 'hamburger-button',
@@ -21,45 +59,52 @@ const ButtonContainer = styled(Button).attrs({
   background-color: transparent;
   outline: var(--neutral_06) 2px solid;
 
+  ${({ $animated }) => $animated && AnimatedCSS}
+
   div {
     width: 100%;
     height: 4px;
     background-color: var(--secondary_01);
-    box-shadow: ${({ $isOpen }) =>
-      !$isOpen && `0 4px 4px var(--neutral_05_op025)`};
+    box-shadow: ${({ isOpen }) =>
+      !isOpen && `0 4px 4px var(--neutral_05_op025)`};
     transition: all 0.5s linear;
 
     :first-child {
-      transform: ${({ $isOpen }) =>
-        $isOpen
-          ? 'translateY(11px) rotate(45deg) '
-          : 'rotate(0) translateY(0)'};
+      transform: ${({ isOpen }) =>
+        isOpen ? 'translateY(11px) rotate(45deg) ' : 'rotate(0) translateY(0)'};
     }
 
     :nth-child(2) {
-      opacity: ${({ $isOpen }) => ($isOpen ? '0' : '1')};
-      transform: ${({ $isOpen }) => ($isOpen ? 'rotate(45deg)' : 'rotate(0)')};
+      opacity: ${({ isOpen }) => (isOpen ? '0' : '1')};
+      transform: ${({ isOpen }) => (isOpen ? 'rotate(45deg)' : 'rotate(0)')};
     }
 
     :nth-child(3) {
-      transform: ${({ $isOpen }) =>
-        $isOpen
+      transform: ${({ isOpen }) =>
+        isOpen
           ? 'translateY(-11px) rotate(-45deg) '
           : 'rotate(0) translateY(0)'};
     }
   }
 `;
 
-export const AppButtonHamburger = ({
-  $isOpen,
-  onClick,
-  ...props
-}: AppButtonHamburgerProps): JSX.Element => {
-  return (
-    <ButtonContainer $isOpen={$isOpen} onClick={onClick} {...props}>
-      <div />
-      <div />
-      <div />
-    </ButtonContainer>
-  );
-};
+export const AppButtonHamburger = forwardRef(
+  (
+    { isOpen, onClick, $animated, ...props }: AppButtonHamburgerProps,
+    ref: ForwardedRef<HTMLButtonElement>,
+  ): JSX.Element => {
+    return (
+      <ButtonContainer
+        isOpen={isOpen}
+        onClick={onClick}
+        $animated={$animated}
+        {...props}
+        ref={ref}
+      >
+        <div />
+        <div />
+        <div />
+      </ButtonContainer>
+    );
+  },
+);

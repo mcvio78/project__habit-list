@@ -10,5 +10,5 @@ export default {
 } as ComponentMeta<typeof AppButtonHamburger>;
 
 export const Default: ComponentStory<typeof AppButtonHamburger> = () => (
-  <AppButtonHamburger aria-label="open side drawer menu button" $isOpen />
+  <AppButtonHamburger aria-label="open side drawer menu button" isOpen />
 );

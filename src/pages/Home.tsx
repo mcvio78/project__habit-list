@@ -10,7 +10,7 @@ import {
 } from '../components/UI/Typography';
 import { AppButton } from '../components/UI/buttons';
 import { Header } from '../components/UI/Header';
-import { SideDrawer } from '../components/UI/SideDrawer';
+import { SideBar } from '../components/UI/Sidebar/SideBar';
 import { Toolbar } from '../components/layout/Toolbar';
 import { useAuth } from '../hooks/useAuth';
 import { authStorage } from '../auth/storage';
@@ -69,7 +69,7 @@ export const Home = (): JSX.Element => {
             </SpanLarge>
           </AppButton>
         )}
-        {(breakpoint === 'de' || breakpoint === 'xs') && <SideDrawer />}
+        {(breakpoint === 'de' || breakpoint === 'xs') && <SideBar />}
       </Toolbar>
       <Header
         $header={

@@ -1,10 +1,10 @@
 import { useState, useCallback, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-import { AppButtonHamburger } from '../buttons';
 import { Backdrop } from '../Backdrop';
 import { SideDrawer } from '../SideDrawer';
 import { useKeyEvent } from '../../../hooks/useKeyEvent';
+import { AppButtonHamburger } from '../buttons';
 
 export const SideBar = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -33,11 +33,13 @@ export const SideBar = (): JSX.Element => {
         nodeRef={AppButtonHamburgerRef}
       >
         <AppButtonHamburger
+          title="open sidebar button"
           aria-label="open side drawer menu button"
           isOpen={isOpen}
           onClick={() => setIsOpen(!isOpen)}
           $animated
           ref={AppButtonHamburgerRef}
+          id="myId"
         />
       </CSSTransition>
 

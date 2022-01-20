@@ -11,7 +11,7 @@ interface NavContainerAnimatedProps {
 
 interface NavContainerProps extends NavContainerAnimatedProps {}
 
-const NavContainerAnimationOpen = keyframes`
+const listAnimationOpen = keyframes`
   0% {
     opacity: 0;
   }
@@ -27,7 +27,7 @@ const NavContainerAnimationOpen = keyframes`
   }
 `;
 
-const NavContainerAnimationClose = keyframes`
+const listAnimationClose = keyframes`
   0% {
     opacity: 1;
     transform: translateY(0%);
@@ -49,16 +49,21 @@ export const AnimatedCSS = css`
   &.enter-active,
   &.enter-done {
     ul li {
-      animation-name: ${NavContainerAnimationOpen};
+      animation-name: ${listAnimationOpen};
       animation-duration: 4.5s;
       animation-fill-mode: forwards;
     }
   }
 
   &.exit-active {
-    animation-name: ${NavContainerAnimationClose};
+    animation-name: ${listAnimationClose};
     animation-duration: 4.5s;
     animation-fill-mode: forwards;
+
+    ul li a {
+      pointer-events: none;
+      cursor: default;
+    }
   }
 `;
 

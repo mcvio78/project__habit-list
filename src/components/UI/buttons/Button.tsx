@@ -11,8 +11,6 @@ export interface ButtonProps extends StyledMarginProps {
   title: string;
   /** aria-label attribute - required */
   'aria-label': string;
-  /** type attribute */
-  type?: 'button' | 'submit' | 'reset' | undefined;
   /** handle onClick functions */
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   /** background-color CSS property (prop) */

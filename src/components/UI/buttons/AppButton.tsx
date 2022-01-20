@@ -1,6 +1,4 @@
-import { MouseEvent } from 'react';
 import styled, { css } from 'styled-components/macro';
-import { FormikHandlers } from 'formik';
 
 import { Button, ButtonProps } from './Button';
 
@@ -19,8 +17,6 @@ export interface AppButtonProps extends ButtonProps {
   $text?: boolean;
   /** button variant alert */
   $alert?: boolean;
-  /** button event listener */
-  onClick?: (event: MouseEvent<HTMLButtonElement>) => void | FormikHandlers;
 }
 
 const stdBtnCSS = css`

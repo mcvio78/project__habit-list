@@ -1,18 +1,18 @@
-import { forwardRef, ForwardedRef } from 'react';
+import { ForwardedRef, forwardRef, PropsWithChildren } from 'react';
 import styled, { css, keyframes } from 'styled-components/macro';
 
 import { Button, ButtonProps } from './Button';
 
-interface AppButtonHamburgerProps
-  extends Omit<ButtonProps, 'title' | 'boxSdw' | 'bkgCol'> {
+interface AppButtonHamburgerContainerProps extends ButtonProps {
   /** open button state (prop) */
   isOpen: boolean;
+  /** animate with transition group */
   $animated?: boolean;
 }
 
 const AppButtonHamburgerAnimationOpen = keyframes`
   0% {
-    opacity: 0;
+    opacity: 1;
   }
 
   100% {
@@ -26,11 +26,11 @@ const AppButtonHamburgerAnimationClose = keyframes`
   }
 
   100% {
-    opacity: 0;
+    opacity: 1;
   }
 `;
 
-export const AnimatedCSS = css`
+const AnimatedCSS = css`
   &.appear-active,
   &.enter-active,
   &.enter-done {
@@ -41,16 +41,15 @@ export const AnimatedCSS = css`
 
   &.exit-active {
     animation-name: ${AppButtonHamburgerAnimationClose};
-    animation-duration: 5s;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
   }
 `;
 
-const ButtonContainer = styled(Button).attrs({
+export const AppButtonHamburgerContainer = styled(Button).attrs({
   className: 'hamburger-button',
-  title: 'hamburgerButton',
   role: 'button',
-})<AppButtonHamburgerProps>`
+})<AppButtonHamburgerContainerProps>`
   width: 36px;
   height: 26px;
   flex-shrink: 0;
@@ -90,21 +89,13 @@ const ButtonContainer = styled(Button).attrs({
 
 export const AppButtonHamburger = forwardRef(
   (
-    { isOpen, onClick, $animated, ...props }: AppButtonHamburgerProps,
+    props: PropsWithChildren<any>,
     ref: ForwardedRef<HTMLButtonElement>,
-  ): JSX.Element => {
-    return (
-      <ButtonContainer
-        isOpen={isOpen}
-        onClick={onClick}
-        $animated={$animated}
-        {...props}
-        ref={ref}
-      >
-        <div />
-        <div />
-        <div />
-      </ButtonContainer>
-    );
-  },
+  ): JSX.Element => (
+    <AppButtonHamburgerContainer {...props} ref={ref}>
+      <div />
+      <div />
+      <div />
+    </AppButtonHamburgerContainer>
+  ),
 );

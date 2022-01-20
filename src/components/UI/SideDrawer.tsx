@@ -89,6 +89,7 @@ export const SideDrawer = forwardRef(
         ref={ref}
       >
         <AppButtonHamburger
+          title="close sidebar button"
           aria-label="close side drawer menu button"
           isOpen={isOpen}
           onClick={setIsOpen}

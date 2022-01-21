@@ -16,7 +16,7 @@ interface SideDrawerAnimatedProps {
   $animated?: boolean;
 }
 
-const SideDrawerAnimationOpen = keyframes`
+const SideDrawerEnter = keyframes`
   0% {
     height: 0;
     width: 0;
@@ -30,7 +30,7 @@ const SideDrawerAnimationOpen = keyframes`
   }
 `;
 
-const SideDrawerAnimationClose = keyframes`
+const SideDrawerExit = keyframes`
   0% {
     height: 100%;
     width: 100%;
@@ -48,13 +48,13 @@ export const AnimatedCSS = css`
   &.appear-active,
   &.enter-active,
   &.enter-done {
-    animation-name: ${SideDrawerAnimationOpen};
+    animation-name: ${SideDrawerEnter};
     animation-duration: 3s;
     animation-fill-mode: forwards;
   }
 
   &.exit-active {
-    animation-name: ${SideDrawerAnimationClose};
+    animation-name: ${SideDrawerExit};
     animation-duration: 3s;
     animation-fill-mode: forwards;
   }
@@ -73,6 +73,7 @@ export const SideDrawer = forwardRef(
     { isOpen, setIsOpen, $animated }: SideDrawerProps,
     ref: ForwardedRef<HTMLDivElement>,
   ): JSX.Element => {
+    const AppButtonHamburgerCloseRef = useRef<HTMLButtonElement>(null);
     const NavigationItemsRef = useRef<HTMLInputElement>(null);
 
     return (
@@ -88,14 +89,26 @@ export const SideDrawer = forwardRef(
         $animated={$animated}
         ref={ref}
       >
-        <AppButtonHamburger
-          title="close sidebar button"
-          aria-label="close side drawer menu button"
-          isOpen={isOpen}
-          onClick={setIsOpen}
-          $flxAs={{ de: 'flex-end' }}
-          $mt={{ de: '30px' }}
-        />
+        <CSSTransition
+          in={isOpen}
+          timeout={{ enter: 3000, exit: 3000 }}
+          mountOnEnter
+          unmountOnExit
+          appear
+          nodeRef={AppButtonHamburgerCloseRef}
+        >
+          <AppButtonHamburger
+            title="close sidebar button"
+            aria-label="close side drawer menu button"
+            isOpen={isOpen}
+            onClick={setIsOpen}
+            $flxAs={{ de: 'flex-end' }}
+            $mt={{ de: '30px' }}
+            $animated
+            ref={AppButtonHamburgerCloseRef}
+            id="hide-side-driver-btn"
+          />
+        </CSSTransition>
         <CSSTransition
           in={isOpen}
           timeout={{ enter: 4500, exit: 4500 }}

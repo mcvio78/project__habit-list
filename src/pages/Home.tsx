@@ -1,5 +1,3 @@
-import { useCallback, useEffect } from 'react';
-
 import { PageLayout, Container } from '../components/layout';
 import {
   ParagraphLarge,
@@ -10,40 +8,15 @@ import {
 } from '../components/UI/Typography';
 import { AppButton } from '../components/UI/buttons';
 import { Header } from '../components/UI/Header';
-import { SideBar } from '../components/UI/Sidebar/SideBar';
+import { SideBar } from '../components/UI/SideBar';
 import { Toolbar } from '../components/layout/Toolbar';
 import { useAuth } from '../hooks/useAuth';
-import { authStorage } from '../auth/storage';
-import { authAPI } from '../services/auth';
-import { isAxiosError } from '../utility/request/axios';
 import { useBreakpoint } from '../hooks/useBreakpoint';
 import { NavigationItems } from '../components/UI/navigation';
 
 export const Home = (): JSX.Element => {
-  const { user, logOut, setUserContextIfToken } = useAuth();
+  const { user, logOut } = useAuth();
   const breakpoint = useBreakpoint();
-
-  const setUserIfStoredToken = useCallback(async () => {
-    const authToken = authStorage.getToken();
-    if (authToken && user === null) {
-      try {
-        const isTokenValid = await authAPI.checkTokenValidity();
-        if (isTokenValid) {
-          setUserContextIfToken(authToken);
-        }
-      } catch (err) {
-        if (isAxiosError(err)) {
-          if (err?.response?.status === 401) {
-            authStorage.removeToken();
-          }
-        }
-      }
-    }
-  }, [user, setUserContextIfToken]);
-
-  useEffect(() => {
-    setUserIfStoredToken();
-  }, [setUserIfStoredToken]);
 
   return (
     <PageLayout>

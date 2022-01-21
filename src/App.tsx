@@ -6,6 +6,7 @@ import { Home } from './pages/Home';
 import { Auth } from './pages/Auth';
 import { Account } from './pages/Account';
 import { AuthContext } from './auth/context';
+import { ResetContext } from './auth/ResetContext';
 
 export const App = (): JSX.Element => {
   const [user, setUser] = useState(null);
@@ -17,6 +18,7 @@ export const App = (): JSX.Element => {
   return (
     // eslint-disable-next-line
     <AuthContext.Provider value={{ user, setUser }}>
+      <ResetContext />
       <PageContainer>
         <Routes>
           <Route path="/auth" element={<Auth />} />

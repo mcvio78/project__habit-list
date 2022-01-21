@@ -59,7 +59,7 @@ app.post('/register', async (req, res) => {
       },
       process.env.TOKEN_KEY,
       {
-        expiresIn: '20000',
+        expiresIn: '2000000',
         issuer: 'auth-backend',
         subject: email,
         audience: 'web-frontend',
@@ -100,7 +100,7 @@ app.post('/login', async (req, res) => {
         },
         process.env.TOKEN_KEY,
         {
-          expiresIn: '20000',
+          expiresIn: '2000000',
           issuer: 'auth-backend',
           subject: user.email,
           audience: 'web-frontend',

@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { PageContainer } from './components/layout';
 import { Home } from './pages/Home';
 import { Auth } from './pages/Auth';
+import { Account } from './pages/Account';
 import { AuthContext } from './auth/context';
 
 export const App = (): JSX.Element => {
@@ -18,7 +19,8 @@ export const App = (): JSX.Element => {
     <AuthContext.Provider value={{ user, setUser }}>
       <PageContainer>
         <Routes>
-          <Route path="auth" element={<Auth />} />
+          <Route path="/auth" element={<Auth />} />
+          {user && <Route path="/account" element={<Account />} />}
           <Route path="/" element={<Home />} />
         </Routes>
       </PageContainer>

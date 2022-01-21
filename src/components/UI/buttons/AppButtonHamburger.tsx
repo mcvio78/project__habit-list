@@ -10,9 +10,9 @@ interface AppButtonHamburgerContainerProps extends ButtonProps {
   $animated?: boolean;
 }
 
-const AppButtonHamburgerAnimationOpen = keyframes`
+const showSideDrawerBtnEnter = keyframes`
   0% {
-    opacity: 1;
+    opacity: 0;
   }
 
   100% {
@@ -20,13 +20,39 @@ const AppButtonHamburgerAnimationOpen = keyframes`
   }
 `;
 
-const AppButtonHamburgerAnimationClose = keyframes`
+const showSideDrawerBtnExit = keyframes`
   0% {
     opacity: 1;
   }
 
   100% {
+    opacity: 0;
+  }
+`;
+
+const hideSideDrawerBtnEnter = keyframes`
+  0% {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  99% {
+    pointer-events: none;
+  }
+
+  100% {
     opacity: 1;
+    pointer-events: auto;
+  }
+`;
+
+const hideSideDrawerBtnExit = keyframes`
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 `;
 
@@ -34,15 +60,29 @@ const AnimatedCSS = css`
   &.appear-active,
   &.enter-active,
   &.enter-done {
-    animation-name: ${AppButtonHamburgerAnimationOpen};
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
+    &#show-side-driver-btn {
+      animation-name: ${showSideDrawerBtnEnter};
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+    }
+    &#hide-side-driver-btn {
+      animation-name: ${hideSideDrawerBtnEnter};
+      animation-duration: 3s;
+      animation-fill-mode: forwards;
+    }
   }
 
   &.exit-active {
-    animation-name: ${AppButtonHamburgerAnimationClose};
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
+    &#show-side-driver-btn {
+      animation-name: ${showSideDrawerBtnExit};
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+    }
+    &#hide-side-driver-btn {
+      animation-name: ${hideSideDrawerBtnExit};
+      animation-duration: 3s;
+      animation-fill-mode: forwards;
+    }
   }
 `;
 

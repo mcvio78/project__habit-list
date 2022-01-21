@@ -10,17 +10,23 @@ interface BackdropProps extends BackdropAnimatedProps {
   setIsOpen: () => void;
 }
 
-const BackdropAnimationOpen = keyframes`
+const backdropEnter = keyframes`
   0% {
     opacity: 0;
+    pointer-events: none;
+  }
+
+  99% {
+    pointer-events: none;
   }
 
   100% {
     opacity: 1;
+    pointer-events: auto;
   }
 `;
 
-const BackdropAnimationClose = keyframes`
+const backdropExit = keyframes`
   0% {
     opacity: 1;
   }
@@ -34,13 +40,13 @@ export const AnimatedCSS = css`
   &.appear-active,
   &.enter-active,
   &.enter-done {
-    animation-name: ${BackdropAnimationOpen};
-    animation-duration: 2s;
+    animation-name: ${backdropEnter};
+    animation-duration: 3s;
     animation-fill-mode: forwards;
   }
 
   &.exit-active {
-    animation-name: ${BackdropAnimationClose};
+    animation-name: ${backdropExit};
     animation-duration: 3s;
     animation-fill-mode: forwards;
   }

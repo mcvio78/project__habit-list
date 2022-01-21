@@ -17,6 +17,7 @@ import { authStorage } from '../auth/storage';
 import { authAPI } from '../services/auth';
 import { isAxiosError } from '../utility/request/axios';
 import { useBreakpoint } from '../hooks/useBreakpoint';
+import { NavigationItems } from '../components/UI/navigation';
 
 export const Home = (): JSX.Element => {
   const { user, logOut, setUserContextIfToken } = useAuth();
@@ -69,7 +70,11 @@ export const Home = (): JSX.Element => {
             </SpanLarge>
           </AppButton>
         )}
-        {(breakpoint === 'de' || breakpoint === 'xs') && <SideBar />}
+        {breakpoint === 'de' || breakpoint === 'xs' ? (
+          <SideBar />
+        ) : (
+          <NavigationItems />
+        )}
       </Toolbar>
       <Header
         $header={

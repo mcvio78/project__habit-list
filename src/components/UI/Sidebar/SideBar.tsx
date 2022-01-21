@@ -8,7 +8,7 @@ import { AppButtonHamburger } from '../buttons';
 
 export const SideBar = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const AppButtonHamburgerRef = useRef<HTMLButtonElement>(null);
+  const AppButtonHamburgerOpenRef = useRef<HTMLButtonElement>(null);
   const BackdropRef = useRef<HTMLInputElement>(null);
   const SideDrawerRef = useRef<HTMLInputElement>(null);
 
@@ -30,7 +30,7 @@ export const SideBar = (): JSX.Element => {
         timeout={{ enter: 2000, exit: 2000 }}
         mountOnEnter
         unmountOnExit
-        nodeRef={AppButtonHamburgerRef}
+        nodeRef={AppButtonHamburgerOpenRef}
       >
         <AppButtonHamburger
           title="open sidebar button"
@@ -38,19 +38,24 @@ export const SideBar = (): JSX.Element => {
           isOpen={isOpen}
           onClick={() => setIsOpen(!isOpen)}
           $animated
-          ref={AppButtonHamburgerRef}
-          id="myId"
+          ref={AppButtonHamburgerOpenRef}
+          id="show-side-driver-btn"
         />
       </CSSTransition>
 
       <CSSTransition
         in={isOpen}
-        timeout={{ enter: 2000, exit: 3000 }}
+        timeout={{ enter: 3000, exit: 3000 }}
         mountOnEnter
         unmountOnExit
         nodeRef={BackdropRef}
       >
-        <Backdrop isOpen setIsOpen={() => setIsOpen(false)} ref={BackdropRef} />
+        <Backdrop
+          isOpen
+          setIsOpen={() => setIsOpen(false)}
+          $animated
+          ref={BackdropRef}
+        />
       </CSSTransition>
 
       <CSSTransition

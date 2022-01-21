@@ -11,9 +11,10 @@ interface NavContainerAnimatedProps {
 
 interface NavContainerProps extends NavContainerAnimatedProps {}
 
-const listAnimationOpen = keyframes`
+const listItemEnter = keyframes`
   0% {
     opacity: 0;
+    pointer-events: none;
   }
 
   75% {
@@ -21,13 +22,18 @@ const listAnimationOpen = keyframes`
     transform: translateY(-50%);
   }
 
+  99% {
+    pointer-events: none;
+  }
+
   100% {
     opacity: 1;
     transform: translateY(0%);
+    pointer-events: auto;
   }
 `;
 
-const listAnimationClose = keyframes`
+const listItemExit = keyframes`
   0% {
     opacity: 1;
     transform: translateY(0%);
@@ -49,14 +55,14 @@ export const AnimatedCSS = css`
   &.enter-active,
   &.enter-done {
     ul li {
-      animation-name: ${listAnimationOpen};
+      animation-name: ${listItemEnter};
       animation-duration: 4.5s;
       animation-fill-mode: forwards;
     }
   }
 
   &.exit-active {
-    animation-name: ${listAnimationClose};
+    animation-name: ${listItemExit};
     animation-duration: 4.5s;
     animation-fill-mode: forwards;
 
@@ -82,7 +88,7 @@ export const NavigationItems = forwardRef(
       <NavContainer $animated={$animated} ref={ref}>
         <Container
           as="ul"
-          $fd={{ de: 'column' }}
+          $fd={{ de: 'column', sm: 'row' }}
           $g={{ de: '10px' }}
           $m={{ de: '20px 16px' }}
           $ai={{ de: 'center' }}

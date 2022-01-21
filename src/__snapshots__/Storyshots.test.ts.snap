@@ -338,7 +338,7 @@ exports[`Storyshots ButtonHamburger Default 1`] = `
   aria-label="open side drawer menu button"
   className="c0 c1 hamburger-button"
   role="button"
-  title="hamburgerButton"
+  title="hamburger button"
   type="button"
 >
   <div />

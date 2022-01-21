@@ -89,8 +89,8 @@ export const NavigationItems = forwardRef(
         <Container
           as="ul"
           $fd={{ de: 'column', sm: 'row' }}
-          $g={{ de: '10px' }}
-          $m={{ de: '20px 16px' }}
+          $g={{ de: '10px', md: '24px' }}
+          $m={{ de: '20px 16px', sm: 0 }}
           $ai={{ de: 'center' }}
           $jc={{ de: 'center' }}
           $pl={{ de: 0 }}

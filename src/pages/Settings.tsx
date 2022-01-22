@@ -4,6 +4,7 @@ import { PageLayout, Container } from '../components/layout';
 import {
   B,
   HeadingMedium,
+  LabelMedium,
   It,
   NavLinkIcon,
   ParagraphMedium,
@@ -12,6 +13,7 @@ import { Header } from '../components/UI/Header';
 import { Toolbar } from '../components/layout/Toolbar';
 import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';
 import { useTheme } from '../hooks/useTheme';
+import { Checkbox } from '../components/UI/checkbox/Checkbox';
 
 export const Settings = (): JSX.Element => {
   const { setDefaultTheme, setSelectedTheme } = useTheme();
@@ -37,18 +39,18 @@ export const Settings = (): JSX.Element => {
             </B>
           </HeadingMedium>
           <Container $ai={{ de: 'center' }}>
-            <input
+            <Checkbox
               type="checkbox"
               id="light-theme"
               name="light-theme"
               value="light"
               onChange={() => setDefaultTheme()}
             />
-            <ParagraphMedium>
+            <LabelMedium htmlFor="light-theme">
               <B>
                 <It>Light</It>
               </B>
-            </ParagraphMedium>
+            </LabelMedium>
           </Container>
           <Container>
             <input

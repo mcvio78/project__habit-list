@@ -17,6 +17,8 @@ export const themeLight = css`
     --secondary_02_hlw_btn_focus: ${COLORS.tealBlue};
     --secondary_02_btn_active: ${COLORS.azure};
     --secondary_03: transparent;
+    --secondary_04: ${COLORS.ghost};
+    --secondary_04_cbox_checked: ${COLORS.azure};
 
     --accent_01: ${COLORS.tealBlue};
     --accent_01_btn_hover: ${COLORS.white};
@@ -133,6 +135,12 @@ export const themeLight = css`
         &:hover {
           --accent_04: var(--accent_04_inp_active);
         }
+      }
+    }
+
+    .checkbox {
+      &:checked {
+        --secondary_04: var(--secondary_04_cbox_checked);
       }
     }
   }

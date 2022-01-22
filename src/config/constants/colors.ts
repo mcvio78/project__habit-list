@@ -6,6 +6,7 @@ export const COLORS = {
   greenWhite: '#d0d3c8',
   lightPurple: '#bc6ff1',
   silverChalice: '#b4a5a5',
+  ghost: '#cbcbd1',
   osloGrey: '#88899E',
   stormGrey: '#6e6f86',
   turquoiseBlue: '#67daff',

@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from 'styled-components/macro';
 
 import { COLORS } from '../../config/constants';
 
@@ -20,6 +20,15 @@ export const themeDark = css`
     --clr-se-v01-f: ${COLORS.stormGrey};
     --clr-nt-v01: ${COLORS.silverChalice};
     --clr-nt-v02-rgb: ${COLORS.black_rgb};
+
+    /* momentary: missing all colors */ /* Todo: remove */
+    --secondary_04: yellow;
+    --secondary_04_cbox_checked: red;
+    .checkbox {
+      &:checked {
+        --secondary_04: var(--secondary_04_cbox_checked);
+      }
+    }
 
     background-color: var(--primary_02, black);
     color: var(--clr-nt-v01, white);

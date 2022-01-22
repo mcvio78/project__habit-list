@@ -1,22 +1,28 @@
-import { ChangeEvent } from 'react';
-
 import { PageLayout, Container } from '../components/layout';
-import {
-  B,
-  HeadingMedium,
-  LabelMedium,
-  It,
-  NavLinkIcon,
-  ParagraphMedium,
-} from '../components/UI/Typography';
+import { HeadingMedium, NavLinkIcon, B, It } from '../components/UI/Typography';
 import { Header } from '../components/UI/Header';
 import { Toolbar } from '../components/layout/Toolbar';
 import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';
 import { useTheme } from '../hooks/useTheme';
-import { Checkbox } from '../components/UI/checkbox/Checkbox';
+import { AppCheckbox } from '../components/UI/checkbox/AppCheckbox';
+import { themes } from '../config/constants/themes';
 
 export const Settings = (): JSX.Element => {
-  const { setDefaultTheme, setSelectedTheme } = useTheme();
+  const { theme, setDefaultTheme, setSelectedTheme } = useTheme();
+
+  const themeCheckboxes = themes.map((themeName, index) => (
+    <AppCheckbox
+      id={`${themeName}-theme-id`}
+      name={`${themeName}-theme`}
+      value={themeName}
+      checked={themeName === theme}
+      onChange={
+        index === 0 ? setDefaultTheme : () => setSelectedTheme(themeName)
+      }
+      labelText={`${themeName}-theme`}
+      forLblAttr={`${themeName}-theme-id`}
+    />
+  ));
 
   return (
     <PageLayout>
@@ -38,36 +44,7 @@ export const Settings = (): JSX.Element => {
               <It>Themes</It>
             </B>
           </HeadingMedium>
-          <Container $ai={{ de: 'center' }}>
-            <Checkbox
-              type="checkbox"
-              id="light-theme"
-              name="light-theme"
-              value="light"
-              onChange={() => setDefaultTheme()}
-            />
-            <LabelMedium htmlFor="light-theme">
-              <B>
-                <It>Light</It>
-              </B>
-            </LabelMedium>
-          </Container>
-          <Container>
-            <input
-              type="checkbox"
-              id="dark-theme"
-              name="dark-theme"
-              value="dark"
-              onChange={(event: ChangeEvent<HTMLInputElement>) =>
-                setSelectedTheme(event.target.value)
-              }
-            />
-            <ParagraphMedium>
-              <B>
-                <It>Dark</It>
-              </B>
-            </ParagraphMedium>
-          </Container>
+          {themeCheckboxes}
         </Container>
       </Container>
     </PageLayout>

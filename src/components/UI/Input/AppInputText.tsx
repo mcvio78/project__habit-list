@@ -1,5 +1,5 @@
 import { FC, SVGProps, ChangeEventHandler } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import { ReactComponent as CloseSVG } from '../../../assets/icons/icon-close_24dp.svg';
 import { Container } from '../../layout';

@@ -1,9 +1,14 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
+
+import {
+  styledMargin,
+  StyledMarginProps,
+} from '../../../utility/UI/styledMargin';
 
 export const Checkbox = styled.input.attrs({
   type: 'checkbox',
   className: 'checkbox',
-})`
+})<StyledMarginProps>`
   width: 24px;
   height: 24px;
   border: 0;
@@ -18,4 +23,5 @@ export const Checkbox = styled.input.attrs({
     box-shadow: inset 0 0 0 20px var(--secondary_04);
     transition: all 0.8s;
   }
+  ${styledMargin}
 `;

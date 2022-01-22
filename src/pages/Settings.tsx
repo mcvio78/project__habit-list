@@ -1,4 +1,4 @@
-import { MouseEvent, useEffect } from 'react';
+import { ChangeEvent } from 'react';
 
 import { PageLayout, Container } from '../components/layout';
 import {
@@ -11,20 +11,10 @@ import {
 import { Header } from '../components/UI/Header';
 import { Toolbar } from '../components/layout/Toolbar';
 import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';
-import { themeStorage } from '../theme/storage';
+import { useTheme } from '../hooks/useTheme';
 
 export const Settings = (): JSX.Element => {
-  useEffect(() => {
-    const localTheme = themeStorage.getTheme();
-    if (localTheme) document.body.dataset.theme = localTheme;
-    else document.body.dataset.theme = 'light';
-  }, []);
-
-  const handleOnChange = (event: MouseEvent<HTMLInputElement>) => {
-    /* eslint-disable */
-    console.log('event: ', event);
-    themeStorage.storeTheme((event.target as HTMLInputElement).value);
-  };
+  const { setDefaultTheme, setSelectedTheme } = useTheme();
 
   return (
     <PageLayout>
@@ -52,7 +42,7 @@ export const Settings = (): JSX.Element => {
               id="light-theme"
               name="light-theme"
               value="light"
-              onClick={() => themeStorage.removeTheme()}
+              onChange={() => setDefaultTheme()}
             />
             <ParagraphMedium>
               <B>
@@ -66,7 +56,9 @@ export const Settings = (): JSX.Element => {
               id="dark-theme"
               name="dark-theme"
               value="dark"
-              onClick={handleOnChange}
+              onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                setSelectedTheme(event.target.value)
+              }
             />
             <ParagraphMedium>
               <B>

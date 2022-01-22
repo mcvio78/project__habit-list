@@ -1,5 +1,7 @@
 import { createContext, Dispatch, SetStateAction } from 'react';
 
+import { themes } from '../config/constants/themes';
+
 export interface User {
   aud: string;
   email: string;
@@ -13,9 +15,15 @@ export interface User {
   user_id: string;
 }
 
+type UserState = [User | null, Dispatch<SetStateAction<null>>];
+
+export type Theme = typeof themes[number];
+
+type ThemeState = [Theme, Dispatch<SetStateAction<string>>];
+
 interface CreateContext {
-  user: User | null;
-  setUser: Dispatch<SetStateAction<null>>;
+  userState: UserState;
+  themeState: ThemeState;
 }
 
 const initialContext = {} as CreateContext;

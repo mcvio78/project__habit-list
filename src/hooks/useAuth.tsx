@@ -12,7 +12,8 @@ interface UseAuthReturn {
 }
 
 export const useAuth = (): UseAuthReturn => {
-  const { user, setUser } = useContext(AuthContext);
+  const { userState } = useContext(AuthContext);
+  const [user, setUser] = userState;
   let logoutTimeout: ReturnType<typeof setTimeout>;
 
   const logOut = () => {

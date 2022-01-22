@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { PageContainer } from './components/layout';
@@ -8,20 +8,17 @@ import { Account } from './pages/Account';
 import { Settings } from './pages/Settings';
 import { AuthContext } from './auth/context';
 import { ResetContext } from './auth/ResetContext';
-import { themeStorage } from './theme/storage';
+import { themes } from './config/constants/themes';
 
 export const App = (): JSX.Element => {
   const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const localTheme = themeStorage.getTheme();
-    if (localTheme) document.body.dataset.theme = localTheme;
-    else document.body.dataset.theme = 'light';
-  }, []);
+  const [theme, setTheme] = useState(themes[0]);
 
   return (
-    // eslint-disable-next-line
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider
+      // eslint-disable-next-line
+      value={{ userState: [user, setUser], themeState: [theme, setTheme] }}
+    >
       <ResetContext />
       <PageContainer>
         <Routes>

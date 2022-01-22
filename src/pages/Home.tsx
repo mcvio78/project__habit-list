@@ -69,8 +69,7 @@ export const Home = (): JSX.Element => {
         </ParagraphLarge>
         <AppButton
           $lg
-          $std
-          $boxSdw
+          $flat
           aria-label="create habits button"
           title="create habits"
         >

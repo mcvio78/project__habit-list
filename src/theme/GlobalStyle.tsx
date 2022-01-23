@@ -4,7 +4,7 @@ import { normalize } from 'styled-normalize';
 import './fontStyles.css';
 import './breakpoints.module.scss';
 import { themeLight, themeDark } from './colorSchemes';
-import { buttonSize, typographySize } from './elementSize';
+import { buttonSize, typographySize, checkboxSize } from './elementSize';
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -26,5 +26,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     ${buttonSize};
     ${typographySize};
+    ${checkboxSize};
   }
 `;

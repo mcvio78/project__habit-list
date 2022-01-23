@@ -77,6 +77,26 @@ export const Home = (): JSX.Element => {
             <It>Create Habits</It>
           </B>
         </AppButton>
+        <AppButton
+          $md
+          $flat
+          aria-label="create habits button"
+          title="create habits"
+        >
+          <B>
+            <It>Create Habits</It>
+          </B>
+        </AppButton>
+        <AppButton
+          $sm
+          $flat
+          aria-label="create habits button"
+          title="create habits"
+        >
+          <B>
+            <It>Create Habits</It>
+          </B>
+        </AppButton>
       </Container>
     </PageLayout>
   );

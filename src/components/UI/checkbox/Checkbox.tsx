@@ -9,8 +9,8 @@ export const Checkbox = styled.input.attrs({
   type: 'checkbox',
   className: 'checkbox',
 })<StyledMarginProps>`
-  width: 24px;
-  height: 24px;
+  width: var(--cbox-w);
+  height: var(--cbox-h);
   border: 0;
   cursor: pointer;
   appearance: none;

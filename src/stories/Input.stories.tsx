@@ -15,7 +15,6 @@ export const Default: ComponentStory<typeof AppInputText> = () => (
     IconSVG={EmailSVG}
     $label="your email"
     id="email"
-    name="email"
     value="fake@email.com"
     onChange={() => {}}
     onBlur={() => {}}

@@ -50,6 +50,8 @@ export const themeLight = css`
     --neutral_10_op05: rgba(0, 0, 0, 0.5);
     --neutral_11: ${COLORS.gunPowder};
     --neutral_12: ${COLORS.stormGrey};
+    --neutral_13: ${COLORS.azure};
+    --neutral_14: ${COLORS.boulder};
 
     --semantic_error_01: ${COLORS.ferrariRed};
 

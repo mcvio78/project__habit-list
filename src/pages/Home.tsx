@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import { PageLayout, Container } from '../components/layout';
 import {
   ParagraphLarge,
@@ -17,6 +19,7 @@ import { NavigationItems } from '../components/UI/navigation';
 export const Home = (): JSX.Element => {
   const { user, logOut } = useAuth();
   const breakpoint = useBreakpoint();
+  const navigate = useNavigate();
 
   return (
     <PageLayout>
@@ -68,30 +71,11 @@ export const Home = (): JSX.Element => {
           <i>Start organizing your life!</i>
         </ParagraphLarge>
         <AppButton
-          $lg
-          $flat
-          aria-label="create habits button"
-          title="create habits"
-        >
-          <B>
-            <It>Create Habits</It>
-          </B>
-        </AppButton>
-        <AppButton
           $md
           $flat
           aria-label="create habits button"
           title="create habits"
-        >
-          <B>
-            <It>Create Habits</It>
-          </B>
-        </AppButton>
-        <AppButton
-          $sm
-          $flat
-          aria-label="create habits button"
-          title="create habits"
+          onClick={() => navigate('/create')}
         >
           <B>
             <It>Create Habits</It>

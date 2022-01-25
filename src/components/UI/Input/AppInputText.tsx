@@ -11,7 +11,6 @@ interface InputProps {
   IconSVG?: FC<SVGProps<SVGSVGElement>>;
   $label?: string;
   id: string;
-  name: string;
   value: string;
   onChange: ChangeEventHandler<HTMLInputElement> | undefined;
   onBlur?: () => void;
@@ -42,7 +41,6 @@ export const AppInputText = ({
   IconSVG,
   $label,
   id,
-  name,
   onClick,
   ...otherProps
 }: InputProps): JSX.Element => {

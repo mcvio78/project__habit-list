@@ -8,6 +8,7 @@ export const COLORS = {
   silverChalice: '#b4a5a5',
   ghost: '#cbcbd1',
   osloGrey: '#88899E',
+  boulder: '#757575',
   stormGrey: '#6e6f86',
   turquoiseBlue: '#67daff',
   malibu: '#56ccf2',

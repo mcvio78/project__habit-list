@@ -179,7 +179,7 @@ export const Auth = (): JSX.Element => {
               $lblSdw
               $lblB
               title={isSignUp ? 'Sign Up' : 'Log In'}
-              aria-label={isSignUp ? 'Sign Up Button' : 'Log In Button'}
+              aria-label={isSignUp ? 'sign up button' : 'log in button'}
               $flxAs={{ de: 'flex-end' }}
               $mt={{ de: isSignUp ? '8px' : 0 }}
             >

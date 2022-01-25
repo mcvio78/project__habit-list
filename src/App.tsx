@@ -6,6 +6,7 @@ import { Home } from './pages/Home';
 import { Auth } from './pages/Auth';
 import { Account } from './pages/Account';
 import { Settings } from './pages/Settings';
+import { Create } from './pages/Create';
 import { AuthContext } from './auth/context';
 import { ResetContext } from './auth/ResetContext';
 import { themes } from './config/constants/themes';
@@ -24,7 +25,8 @@ export const App = (): JSX.Element => {
         <Routes>
           <Route path="/auth" element={<Auth />} />
           {user && <Route path="/account" element={<Account />} />}
-          <Route path="/Settings" element={<Settings />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/create" element={<Create />} />
           <Route path="/" element={<Home />} />
         </Routes>
       </PageContainer>

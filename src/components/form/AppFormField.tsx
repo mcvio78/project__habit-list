@@ -20,6 +20,9 @@ interface FormValues {
   values: {
     email: string;
     password: string;
+    firstName: string;
+    lastName: string;
+    passwordConfirmation: string;
   };
 }
 
@@ -35,7 +38,6 @@ export const AppFormField = ({
       <AppInputText
         onChange={handleChange(name)}
         onBlur={() => setFieldTouched(name)}
-        name={name}
         value={values[name] || ''}
         onClick={() => resetForm({ values: { ...values, [name]: '' } })}
         {...otherProps}

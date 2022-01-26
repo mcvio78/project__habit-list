@@ -447,7 +447,7 @@ exports[`Storyshots Display1 Styled 1`] = `
 </h1>
 `;
 
-exports[`Storyshots Input Default 1`] = `
+exports[`Storyshots InputText Default 1`] = `
 .c6 {
   display: -webkit-box;
   display: -webkit-flex;

@@ -1,23 +1,20 @@
-import { FC, SVGProps, ChangeEventHandler } from 'react';
+import { FC, SVGProps, ReactNode } from 'react';
 import styled from 'styled-components/macro';
 
 import { ReactComponent as CloseSVG } from '../../../assets/icons/icon-close_24dp.svg';
-import { Container } from '../../layout';
-import { InputText } from './InputText';
+import { Container } from '../../layout/Container';
 import { LabelLarge } from '../Typography';
 import { Button } from '../buttons/Button';
 
-interface InputProps {
+export interface InputWrapperProps {
   IconSVG?: FC<SVGProps<SVGSVGElement>>;
   $label?: string;
   id: string;
-  value: string;
-  onChange: ChangeEventHandler<HTMLInputElement> | undefined;
-  onBlur?: () => void;
+  children: ReactNode;
   onClick?: () => void;
 }
 
-const InputWrapper = styled(Container).attrs({
+const LayoutInputWrapper = styled(Container).attrs({
   className: 'input-wrapper',
 })`
   border: none;
@@ -37,13 +34,13 @@ const InputWrapper = styled(Container).attrs({
   }
 `;
 
-export const AppInputText = ({
+export const InputWrapper = ({
   IconSVG,
   $label,
   id,
+  children,
   onClick,
-  ...otherProps
-}: InputProps): JSX.Element => {
+}: InputWrapperProps): JSX.Element => {
   return (
     <Container $fd={{ de: 'column' }}>
       {$label && (
@@ -51,13 +48,13 @@ export const AppInputText = ({
           {$label}
         </LabelLarge>
       )}
-      <InputWrapper
+      <LayoutInputWrapper
         $ai={{ de: 'center' }}
         $jc={{ de: 'space-between' }}
         $p={{ de: '5px' }}
       >
         {IconSVG && <IconSVG />}
-        <InputText id={id} {...otherProps} />
+        {children}
         <Button
           aria-label="reset form field"
           title="reset"
@@ -65,7 +62,7 @@ export const AppInputText = ({
         >
           <CloseSVG onClick={onClick} />
         </Button>
-      </InputWrapper>
+      </LayoutInputWrapper>
     </Container>
   );
 };

@@ -1,21 +1,30 @@
 import { useCallback } from 'react';
 import { FormikValues } from 'formik';
 import * as Yup from 'yup';
-import { AppDateSingleInput } from '../components/form/AppDateSingleInput';
 
 import { PageLayout, Container } from '../components/layout';
 import { Header } from '../components/UI/Header';
 import { Toolbar } from '../components/layout/Toolbar';
-import { AppForm, AppFormField, AppFormSubmit } from '../components/form';
-import { ReactComponent as RepeatSVG } from '../assets/icons/repeat_24dp.svg';
+import {
+  AppForm,
+  AppFormInputText,
+  AppFormSubmit,
+  AppFormInputDate,
+} from '../components/form';
+import { ReactComponent as RepeatSVG } from '../assets/icons/icon-repeat_24dp.svg';
+import { ReactComponent as EventSVG } from '../assets/icons/icon-event_24dp.svg';
 
 const validationSchemaHabit = Yup.object().shape({
   habitName: Yup.string().required('Habit name is required').label('HabitName'),
+  startDate: Yup.date()
+    .nullable()
+    .required('Date is required')
+    .label('StartDate'),
 });
 
 const initialValues = {
   habitName: '',
-  date: null,
+  startDate: null,
 };
 
 export const Create = (): JSX.Element => {
@@ -42,7 +51,7 @@ export const Create = (): JSX.Element => {
           validationSchema={validationSchemaHabit}
         >
           <>
-            <AppFormField
+            <AppFormInputText
               IconSVG={RepeatSVG}
               $label="Habit Name"
               id="habit"
@@ -52,7 +61,14 @@ export const Create = (): JSX.Element => {
               autocapitalize="off"
               spellcheck={false}
             />
-            <AppDateSingleInput name="date" />
+            <AppFormInputDate
+              IconSVG={EventSVG}
+              $label="Select a Date"
+              id="start-date"
+              type="date"
+              name="startDate"
+              placeholder="Select a Date"
+            />
             <AppFormSubmit
               $flat
               $md

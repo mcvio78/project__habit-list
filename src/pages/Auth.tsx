@@ -9,7 +9,7 @@ import { AppButton } from '../components/UI/buttons';
 import { NavLinkIcon, ParagraphSmall } from '../components/UI/Typography';
 import { Modal } from '../components/UI/Modal';
 import { Toolbar } from '../components/layout/Toolbar';
-import { AppFormField, AppFormSubmit, AppForm } from '../components/form';
+import { AppFormInputText, AppFormSubmit, AppForm } from '../components/form';
 import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';
 import { ReactComponent as EmailSVG } from '../assets/icons/icon-email_24dp.svg';
 import { ReactComponent as PasswordSVG } from '../assets/icons/icon-lock_24dp.svg';
@@ -119,7 +119,7 @@ export const Auth = (): JSX.Element => {
           <>
             {isSignUp && (
               <>
-                <AppFormField
+                <AppFormInputText
                   IconSVG={UserSVG}
                   $label="First Name"
                   id="first-name"
@@ -129,7 +129,7 @@ export const Auth = (): JSX.Element => {
                   autocapitalize="off"
                   spellcheck={false}
                 />
-                <AppFormField
+                <AppFormInputText
                   IconSVG={UserSVG}
                   $label="Last Name"
                   id="last-name"
@@ -141,7 +141,7 @@ export const Auth = (): JSX.Element => {
                 />
               </>
             )}
-            <AppFormField
+            <AppFormInputText
               IconSVG={EmailSVG}
               $label="Email"
               id="email"
@@ -151,7 +151,7 @@ export const Auth = (): JSX.Element => {
               autocapitalize="off"
               spellcheck={false}
             />
-            <AppFormField
+            <AppFormInputText
               IconSVG={PasswordSVG}
               $label="Password"
               id="password"
@@ -162,7 +162,7 @@ export const Auth = (): JSX.Element => {
               spellcheck={false}
             />
             {isSignUp && (
-              <AppFormField
+              <AppFormInputText
                 IconSVG={PasswordSVG}
                 $label="Password Confirmation"
                 id="password-confirmation"

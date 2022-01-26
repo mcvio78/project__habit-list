@@ -1,8 +1,9 @@
 import styled from 'styled-components/macro';
 
-export const InputText = styled.input.attrs({
+export const InputText = styled.input.attrs(({ id }) => ({
   className: 'input-text',
-})`
+  id,
+}))`
   min-width: 60px;
   min-height: 28px;
   padding: 0 5px;

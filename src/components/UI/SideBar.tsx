@@ -60,7 +60,7 @@ export const SideBar = (): JSX.Element => {
 
       <CSSTransition
         in={isOpen}
-        timeout={{ enter: 3000, exit: 3000 }}
+        timeout={{ enter: 2000, exit: 2000 }}
         mountOnEnter
         unmountOnExit
         nodeRef={SideDrawerRef}

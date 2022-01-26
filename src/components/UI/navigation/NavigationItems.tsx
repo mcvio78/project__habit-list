@@ -56,14 +56,14 @@ export const AnimatedCSS = css`
   &.enter-done {
     ul li {
       animation-name: ${listItemEnter};
-      animation-duration: 4.5s;
+      animation-duration: 3s;
       animation-fill-mode: forwards;
     }
   }
 
   &.exit-active {
     animation-name: ${listItemExit};
-    animation-duration: 4.5s;
+    animation-duration: 3s;
     animation-fill-mode: forwards;
 
     ul li a {

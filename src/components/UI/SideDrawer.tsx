@@ -49,13 +49,13 @@ export const AnimatedCSS = css`
   &.enter-active,
   &.enter-done {
     animation-name: ${SideDrawerEnter};
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
   }
 
   &.exit-active {
     animation-name: ${SideDrawerExit};
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
   }
 `;
@@ -111,7 +111,7 @@ export const SideDrawer = forwardRef(
         </CSSTransition>
         <CSSTransition
           in={isOpen}
-          timeout={{ enter: 4500, exit: 4500 }}
+          timeout={{ enter: 3000, exit: 3000 }}
           mountOnEnter
           unmountOnExit
           appear

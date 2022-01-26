@@ -13,6 +13,8 @@ import {
 } from '../components/form';
 import { ReactComponent as RepeatSVG } from '../assets/icons/icon-repeat_24dp.svg';
 import { ReactComponent as EventSVG } from '../assets/icons/icon-event_24dp.svg';
+import { ReactComponent as CalculateSVG } from '../assets/icons/icon-calculate_24dp.svg';
+import { AppCheckbox } from '../components/UI/checkbox/AppCheckbox';
 
 const validationSchemaHabit = Yup.object().shape({
   habitName: Yup.string().required('Habit name is required').label('HabitName'),
@@ -42,7 +44,7 @@ export const Create = (): JSX.Element => {
       <Container
         $fd={{ de: 'column' }}
         $mt={{ de: '60px' }}
-        $g={{ de: '20px' }}
+        $g={{ de: '12px' }}
       >
         <AppForm
           enableReinitialize
@@ -51,15 +53,65 @@ export const Create = (): JSX.Element => {
           validationSchema={validationSchemaHabit}
         >
           <>
+            <Container>
+              <Container
+                $w={{ de: '50%' }}
+                $fd={{ de: 'column' }}
+                $g={{ de: '12px' }}
+              >
+                <AppCheckbox
+                  id="do"
+                  checked={false}
+                  onChange={() => {}}
+                  labelText="Do"
+                  forLblAttr="do"
+                />
+                <AppCheckbox
+                  id="not-do"
+                  checked={false}
+                  onChange={() => {}}
+                  labelText="Do Not"
+                  forLblAttr="not-do"
+                />
+              </Container>
+              <Container
+                $w={{ de: '50%' }}
+                $fd={{ de: 'column' }}
+                $g={{ de: '12px' }}
+              >
+                <AppCheckbox
+                  id="do-min"
+                  checked={false}
+                  onChange={() => {}}
+                  labelText="Do Min"
+                  forLblAttr="do-min"
+                />
+                <AppCheckbox
+                  id="do-max"
+                  checked={false}
+                  onChange={() => {}}
+                  labelText="Do Max"
+                  forLblAttr="do-max"
+                />
+              </Container>
+            </Container>
             <AppFormInputText
               IconSVG={RepeatSVG}
-              $label="Habit Name"
-              id="habit"
+              $label="Activity"
+              id="activity"
               type="text"
-              name="habitName"
-              placeholder="Habit Name"
+              name="activity"
+              placeholder="Activity Name"
               autocapitalize="off"
               spellcheck={false}
+            />
+            <AppFormInputText
+              IconSVG={CalculateSVG}
+              $label="Amount"
+              id="amount"
+              type="number"
+              name="amount"
+              placeholder="Amount"
             />
             <AppFormInputDate
               IconSVG={EventSVG}

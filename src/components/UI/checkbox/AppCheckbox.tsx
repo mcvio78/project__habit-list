@@ -4,8 +4,6 @@ import { LabelMedium, B, It } from '../Typography';
 
 interface AppCheckboxProps {
   id: string;
-  name: string;
-  value: string;
   checked: boolean;
   onChange: () => void;
   labelText: string;
@@ -14,8 +12,6 @@ interface AppCheckboxProps {
 
 export const AppCheckbox = ({
   id,
-  name,
-  value,
   checked,
   onChange,
   labelText,
@@ -25,8 +21,6 @@ export const AppCheckbox = ({
     <Container $ai={{ de: 'center' }}>
       <Checkbox
         id={id}
-        name={name}
-        value={value}
         checked={checked}
         onChange={onChange}
         $mr={{ de: '12px' }}

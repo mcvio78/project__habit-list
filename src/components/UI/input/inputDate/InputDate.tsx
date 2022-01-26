@@ -13,6 +13,8 @@ export interface InputDateProps {
 
 const Styles = styled.div`
   .react-datepicker-wrapper {
+    color: var(--neutral_14);
+
     .react-datepicker__input-container {
       input {
         min-width: 60px;
@@ -24,10 +26,10 @@ const Styles = styled.div`
         font-variation-settings: 'wght' 500;
         font-weight: 500;
         line-height: 0;
-        color: var(--neutral_14);
         background-color: transparent;
         outline: none;
         text-align: center;
+        color: var(--neutral_08);
       }
     }
   }

@@ -13,8 +13,6 @@ export const Settings = (): JSX.Element => {
   const themeCheckboxes = themes.map((themeName, index) => (
     <AppCheckbox
       id={`${themeName}-theme-id`}
-      name={`${themeName}-theme`}
-      value={themeName}
       checked={themeName === theme}
       onChange={
         index === 0 ? setDefaultTheme : () => setSelectedTheme(themeName)

@@ -10,7 +10,7 @@ interface AppFormFieldProps {
   $label?: string;
   id: string;
   placeholder?: string;
-  type: 'text' | 'email' | 'password' | 'date';
+  type: 'text' | 'email' | 'password' | 'date' | 'range' | 'number';
   name: string;
   autocapitalize?: 'off' | 'on' | 'sentences' | 'words' | 'characters' | 'none';
   spellcheck?: boolean;

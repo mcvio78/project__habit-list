@@ -1,7 +1,7 @@
 import { FC, SVGProps } from 'react';
 import { useFormikContext } from 'formik';
 
-import { AppInputText } from '../UI/Input';
+import { AppInputDate } from '../UI/input/inputDate/AppInputDate';
 import { AppFormInputError } from './AppFormInputError';
 import { Container } from '../layout';
 
@@ -10,36 +10,33 @@ interface AppFormFieldProps {
   $label?: string;
   id: string;
   placeholder?: string;
-  type: 'text' | 'email' | 'password';
+  type: 'text' | 'email' | 'password' | 'date';
   name: string;
-  autocapitalize?: 'off' | 'on' | 'sentences' | 'words' | 'characters' | 'none';
-  spellcheck?: boolean;
 }
 
 interface FormValues {
   values: {
-    email: string;
-    password: string;
-    firstName: string;
-    lastName: string;
-    passwordConfirmation: string;
+    habitName: string;
+    date: Date | null;
   };
 }
 
-export const AppFormField = ({
+export const AppFormInputDate = ({
   name,
   ...otherProps
 }: AppFormFieldProps): JSX.Element => {
-  const { handleChange, values, setFieldTouched, resetForm, errors, touched } =
+  const { setFieldValue, values, setFieldTouched, resetForm, errors, touched } =
     useFormikContext<FormValues>();
 
   return (
     <Container $fd={{ de: 'column' }} $w={{ de: '100%' }}>
-      <AppInputText
-        onChange={handleChange(name)}
+      <AppInputDate
+        selected={values[name]}
+        onChange={val => {
+          setFieldValue(name, val);
+        }}
         onBlur={() => setFieldTouched(name)}
-        value={values[name] || ''}
-        onClick={() => resetForm({ values: { ...values, [name]: '' } })}
+        onClick={() => resetForm({ values: { ...values, [name]: null } })}
         {...otherProps}
       />
       <AppFormInputError error={errors[name]} touched={touched[name]} />

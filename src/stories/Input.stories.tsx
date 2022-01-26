@@ -3,10 +3,10 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ReactComponent as EmailSVG } from '../assets/icons/icon-email_24dp.svg';
 
-import { AppInputText } from '../components/UI/Input';
+import { AppInputText } from '../components/UI/input/InputText';
 
 export default {
-  title: 'Input',
+  title: 'InputText',
   component: AppInputText,
 } as ComponentMeta<typeof AppInputText>;
 

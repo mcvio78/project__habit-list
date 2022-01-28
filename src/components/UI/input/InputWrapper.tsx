@@ -1,4 +1,4 @@
-import { FC, SVGProps, ReactNode } from 'react';
+import { FC, SVGProps, ReactNode, InputHTMLAttributes } from 'react';
 import styled from 'styled-components/macro';
 
 import { ReactComponent as CloseSVG } from '../../../assets/icons/icon-close_24dp.svg';
@@ -7,16 +7,15 @@ import { LabelLarge } from '../Typography';
 import { Button } from '../buttons/Button';
 
 export interface InputWrapperProps {
+  id: InputHTMLAttributes<HTMLInputElement>['id'];
   IconSVG?: FC<SVGProps<SVGSVGElement>>;
   $label?: string;
-  id: string;
-  children: ReactNode;
-  onClick?: () => void;
+  onClick?: any;
+  children: ReactNode | undefined;
+  className?: string;
 }
 
-const LayoutInputWrapper = styled(Container).attrs({
-  className: 'input-wrapper',
-})`
+const LayoutInputWrapper = styled(Container)`
   border: none;
   border-radius: 4px;
   outline: 2px solid var(--accent_04);
@@ -40,9 +39,10 @@ export const InputWrapper = ({
   id,
   children,
   onClick,
+  className,
 }: InputWrapperProps): JSX.Element => {
   return (
-    <Container $fd={{ de: 'column' }}>
+    <Container $fd={{ de: 'column' }} className={`input-wrapper ${className}`}>
       {$label && (
         <LabelLarge htmlFor={id} $flxAs={{ de: 'flex-start' }}>
           {$label}

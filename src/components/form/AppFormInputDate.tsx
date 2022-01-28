@@ -12,6 +12,7 @@ interface AppFormFieldProps {
   placeholder?: string;
   type: 'text' | 'email' | 'password' | 'date';
   name: string;
+  className?: string;
 }
 
 interface FormValues {
@@ -23,13 +24,18 @@ interface FormValues {
 
 export const AppFormInputDate = ({
   name,
+  className,
   ...otherProps
 }: AppFormFieldProps): JSX.Element => {
   const { setFieldValue, values, setFieldTouched, resetForm, errors, touched } =
     useFormikContext<FormValues>();
 
   return (
-    <Container $fd={{ de: 'column' }} $w={{ de: '100%' }}>
+    <Container
+      className={`app-form-input-date ${className}`}
+      $fd={{ de: 'column' }}
+      $w={{ de: '100%' }}
+    >
       <AppInputDate
         selected={values[name]}
         onChange={val => {

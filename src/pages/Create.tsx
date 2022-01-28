@@ -10,11 +10,11 @@ import {
   AppFormInputText,
   AppFormSubmit,
   AppFormInputDate,
+  AppFormCheckbox,
 } from '../components/form';
 import { ReactComponent as RepeatSVG } from '../assets/icons/icon-repeat_24dp.svg';
 import { ReactComponent as EventSVG } from '../assets/icons/icon-event_24dp.svg';
 import { ReactComponent as CalculateSVG } from '../assets/icons/icon-calculate_24dp.svg';
-import { AppCheckbox } from '../components/UI/checkbox/AppCheckbox';
 
 const validationSchemaHabit = Yup.object().shape({
   habitName: Yup.string().required('Habit name is required').label('HabitName'),
@@ -22,11 +22,22 @@ const validationSchemaHabit = Yup.object().shape({
     .nullable()
     .required('Date is required')
     .label('StartDate'),
+  habitType: Yup.string()
+    .nullable()
+    .required('Habit type is required')
+    .label('HabitType'),
 });
 
-const initialValues = {
+interface InitialValues {
+  habitName: string | '';
+  startDate: null | Date;
+  habitType: boolean | null;
+}
+
+const initialValues: InitialValues = {
   habitName: '',
   startDate: null,
+  habitType: null,
 };
 
 export const Create = (): JSX.Element => {
@@ -58,20 +69,21 @@ export const Create = (): JSX.Element => {
                 $w={{ de: '50%' }}
                 $fd={{ de: 'column' }}
                 $g={{ de: '12px' }}
+                role="group"
+                aria-labelledby="checkbox-group"
               >
-                <AppCheckbox
-                  id="do"
-                  checked={false}
-                  onChange={() => {}}
-                  labelText="Do"
-                  forLblAttr="do"
+                <AppFormCheckbox
+                  id="toDo"
+                  labelText="ToDo"
+                  name="habitType"
+                  value="toDo"
+                  showError={false}
                 />
-                <AppCheckbox
+                <AppFormCheckbox
                   id="not-do"
-                  checked={false}
-                  onChange={() => {}}
                   labelText="Do Not"
-                  forLblAttr="not-do"
+                  name="habitType"
+                  value="notToDo"
                 />
               </Container>
               <Container
@@ -79,46 +91,46 @@ export const Create = (): JSX.Element => {
                 $fd={{ de: 'column' }}
                 $g={{ de: '12px' }}
               >
-                <AppCheckbox
+                <AppFormCheckbox
                   id="do-min"
-                  checked={false}
-                  onChange={() => {}}
                   labelText="Do Min"
-                  forLblAttr="do-min"
+                  name="habitAmount"
+                  value="lessThan"
                 />
-                <AppCheckbox
+                <AppFormCheckbox
                   id="do-max"
-                  checked={false}
-                  onChange={() => {}}
                   labelText="Do Max"
-                  forLblAttr="do-max"
+                  name="habitAmount"
+                  value="moreThan"
                 />
               </Container>
             </Container>
             <AppFormInputText
-              IconSVG={RepeatSVG}
-              $label="Activity"
-              id="activity"
               type="text"
-              name="activity"
-              placeholder="Activity Name"
-              autocapitalize="off"
-              spellcheck={false}
+              id="habit"
+              name="habitName"
+              IconSVG={RepeatSVG}
+              $label="Habit"
+              placeholder="Habit Name"
+              autoCapitalize="off"
+              spellCheck={false}
             />
             <AppFormInputText
+              type="number"
+              id="amount"
+              name="amount"
               IconSVG={CalculateSVG}
               $label="Amount"
-              id="amount"
-              type="number"
-              name="amount"
               placeholder="Amount"
+              min="1"
             />
             <AppFormInputDate
+              className="to-mare-vacca"
+              type="date"
+              id="start-date"
+              name="startDate"
               IconSVG={EventSVG}
               $label="Select a Date"
-              id="start-date"
-              type="date"
-              name="startDate"
               placeholder="Select a Date"
             />
             <AppFormSubmit

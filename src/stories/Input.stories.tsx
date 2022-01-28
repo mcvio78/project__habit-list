@@ -18,5 +18,6 @@ export const Default: ComponentStory<typeof AppInputText> = () => (
     value="fake@email.com"
     onChange={() => {}}
     onBlur={() => {}}
+    onClick={() => {}}
   />
 );

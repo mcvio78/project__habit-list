@@ -18,7 +18,6 @@ export const Settings = (): JSX.Element => {
         index === 0 ? setDefaultTheme : () => setSelectedTheme(themeName)
       }
       labelText={`${themeName}-theme`}
-      forLblAttr={`${themeName}-theme-id`}
     />
   ));
 

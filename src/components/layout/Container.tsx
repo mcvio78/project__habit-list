@@ -127,7 +127,9 @@ const styleBreakpointProps = (
     }
   `;
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div.attrs(props => ({
+  className: props.className || 'generic-container',
+}))<ContainerProps>`
   display: ${'flex'};
   ${styleBreakpointProps(BREAKPOINTS.de, 'de')};
   ${styleBreakpointProps(BREAKPOINTS.xs, 'xs')};

@@ -1,9 +1,11 @@
+import { InputHTMLAttributes } from 'react';
 import styled from 'styled-components/macro';
 
-export const InputText = styled.input.attrs(({ id }) => ({
-  className: 'input-text',
-  id,
-}))`
+export interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {}
+
+export const InputText = styled.input.attrs(props => ({
+  className: props.className || 'input-text',
+}))<InputTextProps>`
   min-width: 60px;
   min-height: 28px;
   padding: 0 5px;

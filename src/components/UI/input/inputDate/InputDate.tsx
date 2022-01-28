@@ -1,17 +1,18 @@
+import { InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
-export interface InputDateProps {
+export interface InputDateProps extends InputHTMLAttributes<HTMLInputElement> {
   selected: Date | null;
-  onChange: (arg: Date) => void;
   onBlur?: () => void;
-  id: string;
-  placeholder?: string;
+  onChange: (val: any) => void;
 }
 
-const Styles = styled.div`
+const Styles = styled.div.attrs(props => ({
+  className: props.className || 'datepicker-restyle-wrapper',
+}))`
   .react-datepicker-wrapper {
     color: var(--neutral_14);
 
@@ -36,10 +37,10 @@ const Styles = styled.div`
 `;
 
 export const InputDate = ({
+  id,
   selected,
   onChange,
   onBlur,
-  id,
   placeholder,
 }: InputDateProps): JSX.Element => (
   <Styles>

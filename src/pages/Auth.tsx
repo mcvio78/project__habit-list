@@ -126,8 +126,8 @@ export const Auth = (): JSX.Element => {
                   type="text"
                   name="firstName"
                   placeholder="First name"
-                  autocapitalize="off"
-                  spellcheck={false}
+                  autoCapitalize="off"
+                  spellCheck={false}
                 />
                 <AppFormInputText
                   IconSVG={UserSVG}
@@ -136,8 +136,8 @@ export const Auth = (): JSX.Element => {
                   type="text"
                   name="lastName"
                   placeholder="Last name"
-                  autocapitalize="off"
-                  spellcheck={false}
+                  autoCapitalize="off"
+                  spellCheck={false}
                 />
               </>
             )}
@@ -148,8 +148,8 @@ export const Auth = (): JSX.Element => {
               type="email"
               name="email"
               placeholder="Email"
-              autocapitalize="off"
-              spellcheck={false}
+              autoCapitalize="off"
+              spellCheck={false}
             />
             <AppFormInputText
               IconSVG={PasswordSVG}
@@ -158,8 +158,8 @@ export const Auth = (): JSX.Element => {
               type="password"
               name="password"
               placeholder="Password"
-              autocapitalize="off"
-              spellcheck={false}
+              autoCapitalize="off"
+              spellCheck={false}
             />
             {isSignUp && (
               <AppFormInputText
@@ -169,8 +169,8 @@ export const Auth = (): JSX.Element => {
                 type="password"
                 name="passwordConfirmation"
                 placeholder="Repeat password"
-                autocapitalize="off"
-                spellcheck={false}
+                autoCapitalize="off"
+                spellCheck={false}
               />
             )}
             <AppFormSubmit

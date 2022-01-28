@@ -1,13 +1,14 @@
+import { ChangeEventHandler } from 'react';
+
 import { Container } from '../../layout';
 import { Checkbox } from './Checkbox';
 import { LabelMedium, B, It } from '../Typography';
 
-interface AppCheckboxProps {
+export interface AppCheckboxProps {
   id: string;
   checked: boolean;
-  onChange: () => void;
+  onChange: ChangeEventHandler<HTMLInputElement> | undefined;
   labelText: string;
-  forLblAttr: string;
 }
 
 export const AppCheckbox = ({
@@ -15,7 +16,6 @@ export const AppCheckbox = ({
   checked,
   onChange,
   labelText,
-  forLblAttr,
 }: AppCheckboxProps): JSX.Element => {
   return (
     <Container $ai={{ de: 'center' }}>
@@ -25,7 +25,7 @@ export const AppCheckbox = ({
         onChange={onChange}
         $mr={{ de: '12px' }}
       />
-      <LabelMedium htmlFor={forLblAttr}>
+      <LabelMedium htmlFor={id}>
         <B>
           <It>{labelText}</It>
         </B>

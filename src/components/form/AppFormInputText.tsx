@@ -1,9 +1,10 @@
 import { FC, SVGProps, InputHTMLAttributes, LabelHTMLAttributes } from 'react';
-import { useFormikContext } from 'formik';
+import { useFormikContext, FormikProps } from 'formik';
 
 import { AppInputText } from '../UI/input/InputText';
 import { AppFormInputError } from './AppFormInputError';
 import { Container } from '../layout';
+import { resetFormFieldValue } from '../../utility/utils';
 
 interface AppFormInputTextProps extends InputHTMLAttributes<HTMLInputElement> {
   type: InputHTMLAttributes<HTMLInputElement>['type'];
@@ -13,38 +14,34 @@ interface AppFormInputTextProps extends InputHTMLAttributes<HTMLInputElement> {
   $label?: LabelHTMLAttributes<HTMLLabelElement>['htmlFor'];
 }
 
-interface FormValues {
-  values: {
-    email: string;
-    password: string;
-    firstName: string;
-    lastName: string;
-    passwordConfirmation: string;
-    className?: string;
-  };
-}
-
 export const AppFormInputText = ({
   name,
   id,
   className,
   ...otherProps
 }: AppFormInputTextProps): JSX.Element => {
-  const { handleChange, values, setFieldTouched, resetForm, errors, touched } =
-    useFormikContext<FormValues>();
+  const {
+    handleChange,
+    values,
+    setFieldTouched,
+    setFieldValue,
+    errors,
+    touched,
+  } = useFormikContext<FormikProps<keyof AppFormInputTextProps>>();
 
   return (
     <Container
       className={`app-form-input-text ${className}`}
       $fd={{ de: 'column' }}
       $w={{ de: '100%' }}
+      {...otherProps}
     >
       <AppInputText
         id={id}
         onChange={handleChange(name)}
         value={values[name] || ''}
         onBlur={() => setFieldTouched(name)}
-        onClick={() => resetForm({ values: { ...values, [name]: '' } })}
+        onClick={() => setFieldValue(name, resetFormFieldValue(values[name]))}
         {...otherProps}
       />
       <AppFormInputError error={errors[name]} touched={touched[name]} />

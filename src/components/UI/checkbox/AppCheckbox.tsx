@@ -8,14 +8,15 @@ export interface AppCheckboxProps {
   id: string;
   checked: boolean;
   onChange: ChangeEventHandler<HTMLInputElement> | undefined;
-  labelText: string;
+  $labelText: string;
 }
 
 export const AppCheckbox = ({
   id,
   checked,
   onChange,
-  labelText,
+  $labelText,
+  ...otherProps
 }: AppCheckboxProps): JSX.Element => {
   return (
     <Container $ai={{ de: 'center' }}>
@@ -24,10 +25,11 @@ export const AppCheckbox = ({
         checked={checked}
         onChange={onChange}
         $mr={{ de: '12px' }}
+        {...otherProps}
       />
       <LabelMedium htmlFor={id}>
         <B>
-          <It>{labelText}</It>
+          <It>{$labelText}</It>
         </B>
       </LabelMedium>
     </Container>

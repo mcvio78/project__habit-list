@@ -1,10 +1,4 @@
-import {
-  FC,
-  InputHTMLAttributes,
-  LabelHTMLAttributes,
-  MouseEventHandler,
-  SVGProps,
-} from 'react';
+import { FC, InputHTMLAttributes, LabelHTMLAttributes, SVGProps } from 'react';
 import { InputDate } from './InputDate';
 import { InputWrapper } from '../InputWrapper';
 
@@ -12,7 +6,6 @@ interface AppInputDateProps extends InputHTMLAttributes<HTMLInputElement> {
   id: InputHTMLAttributes<HTMLInputElement>['id'];
   IconSVG?: FC<SVGProps<SVGSVGElement>>;
   $label?: LabelHTMLAttributes<HTMLLabelElement>['htmlFor'];
-  onClickReset?: MouseEventHandler<HTMLInputElement> | undefined;
   selected: Date | null;
   onChange: (val: any) => void;
   onBlur: () => void;
@@ -23,7 +16,7 @@ export const AppInputDate = ({
   id,
   IconSVG,
   $label,
-  onClickReset,
+  onClick,
   ...otherProps
 }: AppInputDateProps): JSX.Element => {
   return (
@@ -32,7 +25,7 @@ export const AppInputDate = ({
       id={id}
       IconSVG={IconSVG}
       $label={$label}
-      onClick={onClickReset}
+      onClick={onClick}
     >
       <InputDate id={id} {...otherProps} />
     </InputWrapper>

@@ -14,7 +14,7 @@ export const debounce = (
   };
 };
 
-export const getRefElement = <T>(
+export const getRefElement = <T,>(
   element?: RefObject<Element> | T,
 ): Element | T | undefined | null => {
   if (element && 'current' in element) {
@@ -26,3 +26,12 @@ export const getRefElement = <T>(
 export const isSSR = !(
   typeof window !== 'undefined' && window.document?.createElement
 );
+
+export const resetFormFieldValue = (
+  value: string | boolean | number | Date,
+): string | boolean | null | undefined => {
+  if (typeof value === 'string') return '';
+  if (typeof value === 'boolean') return false;
+  if (typeof value === 'number') return null;
+  if (Object.prototype.toString.call(value) === '[object Date]') return null;
+};

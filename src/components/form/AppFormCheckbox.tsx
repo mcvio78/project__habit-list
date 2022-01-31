@@ -3,13 +3,15 @@ import { useFormikContext } from 'formik';
 import { AppFormInputError } from './AppFormInputError';
 import { Container } from '../layout';
 import { AppCheckbox } from '../UI/checkbox/AppCheckbox';
+import { resetFormFieldValue } from '../../utility/utils';
 
 interface AppFormCheckboxProps {
   name: string;
-  value: string;
+  value: string | null | any;
   id: string;
-  labelText: string;
-  showError?: boolean;
+  disabled?: boolean;
+  $labelText: string;
+  $showError?: boolean;
 }
 
 interface FormValues {
@@ -23,7 +25,7 @@ interface FormValues {
 export const AppFormCheckbox = ({
   name,
   value,
-  showError = true,
+  $showError = true,
   ...otherProps
 }: AppFormCheckboxProps): JSX.Element => {
   const { setFieldValue, values, errors, touched } =
@@ -33,12 +35,15 @@ export const AppFormCheckbox = ({
     <Container $fd={{ de: 'column' }} $w={{ de: '100%' }}>
       <AppCheckbox
         onChange={() => {
-          setFieldValue(name, value);
+          setFieldValue(
+            name,
+            value === values[name] ? resetFormFieldValue(value) : value,
+          );
         }}
         checked={values[name] === value}
         {...otherProps}
       />
-      {showError && (
+      {$showError && (
         <AppFormInputError error={errors[name]} touched={touched[name]} />
       )}
     </Container>

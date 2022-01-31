@@ -5,10 +5,10 @@ import {
   StyledMarginProps,
 } from '../../../utility/UI/styledMargin';
 
-export const Checkbox = styled.input.attrs({
+export const Checkbox = styled.input.attrs(props => ({
   type: 'checkbox',
-  className: 'checkbox',
-})<StyledMarginProps>`
+  className: props.className || 'checkbox',
+}))<StyledMarginProps>`
   width: var(--cbox-w);
   height: var(--cbox-h);
   border: 0;

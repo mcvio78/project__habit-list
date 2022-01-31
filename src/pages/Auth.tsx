@@ -37,11 +37,21 @@ const shapeRegister = {
 const validationSchemaLogin = Yup.object().shape(shapeLogin);
 const validationSchemaRegister = Yup.object().shape(shapeRegister);
 
-const initialValuesLogin = {
+interface InitialValuesLogin {
+  email: string;
+  password: string;
+}
+interface InitialValuesRegister extends InitialValuesLogin {
+  firstName: string;
+  lastName: string;
+  passwordConfirmation: string;
+}
+
+const initialValuesLogin: InitialValuesLogin = {
   email: '',
   password: '',
 };
-const initialValuesRegister = {
+const initialValuesRegister: InitialValuesRegister = {
   firstName: '',
   lastName: '',
   ...initialValuesLogin,

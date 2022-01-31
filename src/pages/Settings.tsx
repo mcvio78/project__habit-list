@@ -17,7 +17,7 @@ export const Settings = (): JSX.Element => {
       onChange={
         index === 0 ? setDefaultTheme : () => setSelectedTheme(themeName)
       }
-      labelText={`${themeName}-theme`}
+      $labelText={`${themeName}-theme`}
     />
   ));
 

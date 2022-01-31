@@ -15,29 +15,42 @@ import {
 import { ReactComponent as RepeatSVG } from '../assets/icons/icon-repeat_24dp.svg';
 import { ReactComponent as EventSVG } from '../assets/icons/icon-event_24dp.svg';
 import { ReactComponent as CalculateSVG } from '../assets/icons/icon-calculate_24dp.svg';
+import { HeadingExtraSmall, HeadingLarge } from '../components/UI/Typography';
 
 const validationSchemaHabit = Yup.object().shape({
+  habitType: Yup.string().required('Habit type is required').label('HabitType'),
   habitName: Yup.string().required('Habit name is required').label('HabitName'),
-  startDate: Yup.date()
+  targetType: Yup.string().label('TargetType'),
+  targetAmount: Yup.number()
+    .nullable()
+    .when('targetType', {
+      is: (TargetType: InitialValuesCreate['targetType']) =>
+        TargetType === 'min' || TargetType === 'max',
+      then: Yup.number()
+        .nullable()
+        .required('Amount is required')
+        .label('HabitAmount'),
+    }),
+  habitDate: Yup.date()
     .nullable()
     .required('Date is required')
     .label('StartDate'),
-  habitType: Yup.string()
-    .nullable()
-    .required('Habit type is required')
-    .label('HabitType'),
 });
 
-interface InitialValues {
-  habitName: string | '';
-  startDate: null | Date;
-  habitType: boolean | null;
+export interface InitialValuesCreate {
+  habitType: 'toDo' | 'avoid' | '';
+  habitName: string;
+  targetType: 'min' | 'max' | '';
+  targetAmount: number | null;
+  habitDate: Date | null;
 }
 
-const initialValues: InitialValues = {
+export const initialValuesCreate: InitialValuesCreate = {
+  habitType: '',
   habitName: '',
-  startDate: null,
-  habitType: null,
+  targetType: '',
+  targetAmount: null,
+  habitDate: null,
 };
 
 export const Create = (): JSX.Element => {
@@ -46,6 +59,7 @@ export const Create = (): JSX.Element => {
     console.log('habitValues: ', habitValues);
   }, []);
 
+  // @ts-ignore
   return (
     <PageLayout>
       <Toolbar>
@@ -54,98 +68,115 @@ export const Create = (): JSX.Element => {
       <Header $header="Create" $subHeader="Habit" />
       <Container
         $fd={{ de: 'column' }}
-        $mt={{ de: '60px' }}
+        $mt={{ de: '20px' }}
         $g={{ de: '12px' }}
       >
         <AppForm
           enableReinitialize
-          initialValues={initialValues}
+          initialValues={initialValuesCreate}
           onSubmit={values => submitFormHandler(values)}
           validationSchema={validationSchemaHabit}
         >
-          <>
-            <Container>
-              <Container
-                $w={{ de: '50%' }}
-                $fd={{ de: 'column' }}
-                $g={{ de: '12px' }}
-                role="group"
-                aria-labelledby="checkbox-group"
-              >
-                <AppFormCheckbox
-                  id="toDo"
-                  labelText="ToDo"
-                  name="habitType"
-                  value="toDo"
-                  showError={false}
+          {({ values }) => (
+            <>
+              <Container $fd={{ de: 'column' }} $g={{ de: '12px' }}>
+                <Container $fd={{ de: 'column' }} $g={{ de: '12px' }}>
+                  <HeadingLarge>I want...</HeadingLarge>
+                  <Container
+                    $fd={{ de: 'column' }}
+                    $g={{ de: '12px' }}
+                    role="group"
+                    aria-labelledby="checkbox-group"
+                  >
+                    <AppFormCheckbox
+                      id="toDo"
+                      name="habitType"
+                      value="toDo"
+                      $labelText="ToDo"
+                      $showError={false}
+                    />
+                    <AppFormCheckbox
+                      id="avoid"
+                      name="habitType"
+                      value="avoid"
+                      $labelText="Avoid"
+                    />
+                  </Container>
+                </Container>
+                <AppFormInputText
+                  type="text"
+                  id="habitName"
+                  name="habitName"
+                  IconSVG={RepeatSVG}
+                  $label="Habit"
+                  placeholder="Habit Name"
+                  autoCapitalize="off"
+                  spellCheck={false}
                 />
-                <AppFormCheckbox
-                  id="not-do"
-                  labelText="Do Not"
-                  name="habitType"
-                  value="notToDo"
-                />
+                {values['habitType'] === 'toDo' && (
+                  <Container $fd={{ de: 'column' }} $g={{ de: '12px' }}>
+                    <Container $fd={{ de: 'column' }}>
+                      <HeadingLarge>...and my target is:</HeadingLarge>
+                      <HeadingExtraSmall>(optional)</HeadingExtraSmall>
+                    </Container>
+                    <Container
+                      $fd={{ de: 'column' }}
+                      $g={{ de: '12px' }}
+                      role="group"
+                      aria-labelledby="checkbox-group"
+                    >
+                      <AppFormCheckbox
+                        id="min"
+                        name="targetType"
+                        value="min"
+                        $labelText="Min"
+                        disabled={values['habitType'] === 'avoid'}
+                        $showError={false}
+                      />
+                      <AppFormCheckbox
+                        id="max"
+                        name="targetType"
+                        value="max"
+                        $labelText="Max"
+                        disabled={values['habitType'] === 'avoid'}
+                      />
+                    </Container>
+                    {values['targetType'] !== '' && (
+                      <AppFormInputText
+                        type="number"
+                        id="targetAmount"
+                        name="targetAmount"
+                        IconSVG={CalculateSVG}
+                        $label="Amount"
+                        placeholder="Target Amount"
+                        min="1"
+                      />
+                    )}
+                  </Container>
+                )}
               </Container>
-              <Container
-                $w={{ de: '50%' }}
-                $fd={{ de: 'column' }}
-                $g={{ de: '12px' }}
+              <AppFormInputDate
+                type="date"
+                id="habit-date"
+                name="habitDate"
+                IconSVG={EventSVG}
+                $label="Select a Date"
+                placeholder="Select a Date"
+              />
+              <AppFormSubmit
+                $flat
+                $md
+                $lblSdw
+                $lblB
+                title="Create"
+                aria-label="create habit"
+                $flxAs={{ de: 'flex-end' }}
+                $mt={{ de: '8px' }}
               >
-                <AppFormCheckbox
-                  id="do-min"
-                  labelText="Do Min"
-                  name="habitAmount"
-                  value="lessThan"
-                />
-                <AppFormCheckbox
-                  id="do-max"
-                  labelText="Do Max"
-                  name="habitAmount"
-                  value="moreThan"
-                />
-              </Container>
-            </Container>
-            <AppFormInputText
-              type="text"
-              id="habit"
-              name="habitName"
-              IconSVG={RepeatSVG}
-              $label="Habit"
-              placeholder="Habit Name"
-              autoCapitalize="off"
-              spellCheck={false}
-            />
-            <AppFormInputText
-              type="number"
-              id="amount"
-              name="amount"
-              IconSVG={CalculateSVG}
-              $label="Amount"
-              placeholder="Amount"
-              min="1"
-            />
-            <AppFormInputDate
-              className="to-mare-vacca"
-              type="date"
-              id="start-date"
-              name="startDate"
-              IconSVG={EventSVG}
-              $label="Select a Date"
-              placeholder="Select a Date"
-            />
-            <AppFormSubmit
-              $flat
-              $md
-              $lblSdw
-              $lblB
-              title="Create"
-              aria-label="create habit"
-              $flxAs={{ de: 'flex-end' }}
-              $mt={{ de: '8px' }}
-            >
-              Create
-            </AppFormSubmit>
-          </>
+                Create
+              </AppFormSubmit>
+            </>
+          )}
         </AppForm>
       </Container>
     </PageLayout>

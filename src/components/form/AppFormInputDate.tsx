@@ -1,11 +1,12 @@
 import { FC, SVGProps } from 'react';
-import { useFormikContext } from 'formik';
+import { useFormikContext, FormikProps } from 'formik';
 
 import { AppInputDate } from '../UI/input/inputDate/AppInputDate';
 import { AppFormInputError } from './AppFormInputError';
 import { Container } from '../layout';
+import { resetFormFieldValue } from '../../utility/utils';
 
-interface AppFormFieldProps {
+interface AppFormInputDateProps {
   IconSVG?: FC<SVGProps<SVGSVGElement>>;
   $label?: string;
   id: string;
@@ -15,20 +16,13 @@ interface AppFormFieldProps {
   className?: string;
 }
 
-interface FormValues {
-  values: {
-    habitName: string;
-    date: Date | null;
-  };
-}
-
 export const AppFormInputDate = ({
   name,
   className,
   ...otherProps
-}: AppFormFieldProps): JSX.Element => {
-  const { setFieldValue, values, setFieldTouched, resetForm, errors, touched } =
-    useFormikContext<FormValues>();
+}: AppFormInputDateProps): JSX.Element => {
+  const { setFieldValue, values, setFieldTouched, errors, touched } =
+    useFormikContext<FormikProps<keyof AppFormInputDateProps>>();
 
   return (
     <Container
@@ -42,7 +36,7 @@ export const AppFormInputDate = ({
           setFieldValue(name, val);
         }}
         onBlur={() => setFieldTouched(name)}
-        onClick={() => resetForm({ values: { ...values, [name]: null } })}
+        onClick={() => setFieldValue(name, resetFormFieldValue(values[name]))}
         {...otherProps}
       />
       <AppFormInputError error={errors[name]} touched={touched[name]} />

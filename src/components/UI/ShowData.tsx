@@ -12,8 +12,12 @@ export const ShowData = ({
 }: ShowDataProps): JSX.Element | null => {
   if (!fieldTitle || !fieldValue) return null;
   return (
-    <Container $fd={{ de: 'column' }} $flxAs={{ de: 'flex-start' }}>
-      <HeadingMedium $flxAs={{ de: 'flex-start' }} $txtSdw>
+    <Container
+      $fd={{ de: 'column' }}
+      $flxAs={{ de: 'flex-start' }}
+      $ai={{ de: 'flex-start' }}
+    >
+      <HeadingMedium $txtSdw>
         <B>
           <It>{fieldTitle}</It>
         </B>

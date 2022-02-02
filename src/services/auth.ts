@@ -4,22 +4,20 @@ import { apiClient } from './client';
 
 const registerEndpoint = '/register';
 const register = (
-  firstName: string,
-  lastName: string,
+  username: string,
   email: string,
   password: string,
 ): Promise<AxiosResponse> =>
   apiClient.post(registerEndpoint, {
-    first_name: firstName,
-    last_name: lastName,
+    username,
     email,
     password,
   });
 
 const loginEndpoint = '/login';
-const login = (email: string, password: string): Promise<AxiosResponse> =>
+const login = (username: string, password: string): Promise<AxiosResponse> =>
   apiClient.post(loginEndpoint, {
-    email,
+    username,
     password,
   });
 

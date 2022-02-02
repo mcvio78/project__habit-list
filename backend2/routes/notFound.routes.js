@@ -1,5 +1,4 @@
-const { authJwt } = require('../middlewares');
-const controller = require('../controllers/validity.controller');
+const controller = require('../controllers/notFound.controller');
 
 module.exports = app => {
   app.use((req, res, next) => {
@@ -10,5 +9,5 @@ module.exports = app => {
     next();
   });
 
-  app.get('/api/token', authJwt.verifyToken, controller.tokenValidity);
+  app.get('*', controller.notFoundBoard);
 };

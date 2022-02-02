@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 
+const db = require('./models');
+const dbConfig = require('./config/db.config');
+
 const app = express();
 
 const { ALLOWED_ORIGIN } = process.env;
@@ -10,14 +13,10 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to bezkoder application.' });
-});
-
-// routes
 require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
 require('./routes/validity.routes')(app);
+require('./routes/notFound.routes')(app);
 
 const { SERVER_PORT } = process.env;
 const PORT = SERVER_PORT || 8080;
@@ -25,27 +24,7 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
-const db = require('./models');
-
 const Role = db.role;
-const dbConfig = require('./config/db.config');
-
-db.mongoose
-  .connect(
-    `${dbConfig.PREFIX}${dbConfig.USER}:${dbConfig.PASSWORD}${dbConfig.HOST}/${dbConfig.DB}${dbConfig.OPTIONS}`,
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    },
-  )
-  .then(() => {
-    console.log('Successfully connect to MongoDB.');
-    initial();
-  })
-  .catch(err => {
-    console.error('Connection error', err);
-    process.exit();
-  });
 
 function initial() {
   Role.estimatedDocumentCount((err, count) => {
@@ -56,7 +35,6 @@ function initial() {
         if (err) {
           console.log('error', err);
         }
-
         console.log("added 'user' to roles collection");
       });
 
@@ -66,7 +44,6 @@ function initial() {
         if (err) {
           console.log('error', err);
         }
-
         console.log("added 'moderator' to roles collection");
       });
 
@@ -76,9 +53,27 @@ function initial() {
         if (err) {
           console.log('error', err);
         }
-
         console.log("added 'admin' to roles collection");
       });
     }
   });
 }
+
+const connectionDB = async () => {
+  try {
+    await db.mongoose.connect(
+      `${dbConfig.PREFIX}${dbConfig.USER}:${dbConfig.PASSWORD}${dbConfig.HOST}/${dbConfig.DB}${dbConfig.OPTIONS}`,
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      },
+    );
+    console.log('Successfully connect to MongoDB.');
+    initial();
+  } catch (err) {
+    console.error('Connection error', err);
+    process.exit();
+  }
+};
+
+connectionDB();

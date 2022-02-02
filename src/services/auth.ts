@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios';
 
 import { apiClient } from './client';
 
-const registerEndpoint = '/register';
+const registerEndpoint = '/api/auth/signup';
 const register = (
   username: string,
   email: string,
@@ -14,16 +14,16 @@ const register = (
     password,
   });
 
-const loginEndpoint = '/login';
+const loginEndpoint = '/api/auth/signin';
 const login = (username: string, password: string): Promise<AxiosResponse> =>
   apiClient.post(loginEndpoint, {
     username,
     password,
   });
 
-const tokenValidityEndpoint = '/tokenValidity';
+const tokenValidityEndpoint = '/api/token';
 const checkTokenValidity = async (): Promise<boolean> => {
-  const response = await apiClient.post(tokenValidityEndpoint);
+  const response = await apiClient.get(tokenValidityEndpoint);
   return response.status === 200;
 };
 

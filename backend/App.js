@@ -22,16 +22,16 @@ app.post('/register', async (req, res) => {
   // Our register logic starts here
   try {
     // Get user input
-    const { first_name, last_name, email, password } = req.body;
+    const { username, email, password } = req.body;
 
     // Validate user input
-    if (!(email && password && first_name && last_name)) {
+    if (!(email && password && username)) {
       res.status(400).send('All input is required');
     }
 
     // check if user already exist
     // Validate if user exist in our database
-    const oldUser = await User.findOne({ email });
+    const oldUser = await User.findOne({ username });
 
     if (oldUser) {
       return res.status(409).send('User Already Exist. Please Login');
@@ -42,8 +42,7 @@ app.post('/register', async (req, res) => {
 
     // Create user in our database
     const user = await User.create({
-      first_name,
-      last_name,
+      username,
       email: email.toLowerCase(), // sanitize: convert email to lowercase
       password: encryptedPassword,
     });
@@ -55,7 +54,7 @@ app.post('/register', async (req, res) => {
         user_id: user._id,
         email,
         permissions: ['read', 'write'],
-        name: `${first_name}_${last_name}`,
+        username: username,
       },
       process.env.TOKEN_KEY,
       {
@@ -79,14 +78,14 @@ app.post('/login', async (req, res) => {
   // Our login logic starts here
   try {
     // Get user input
-    const { email, password } = req.body;
+    const { username, password } = req.body;
 
     // Validate user input
-    if (!(email && password)) {
+    if (!(username && password)) {
       res.status(400).send('All input is required');
     }
     // Validate if user exist in our database
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ username });
 
     if (user && (await bcrypt.compare(password, user.password))) {
       // Create token
@@ -96,7 +95,7 @@ app.post('/login', async (req, res) => {
           user_id: user._id,
           email: user.email,
           permissions: user.permissions,
-          name: `${user.first_name}_${user.last_name}`,
+          username: user.username,
         },
         process.env.TOKEN_KEY,
         {

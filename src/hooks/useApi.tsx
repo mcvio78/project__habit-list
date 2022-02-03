@@ -31,7 +31,7 @@ export const useAPI = (apiFunction: ApiFunction): UseAPIReturn => {
     } catch (err) {
       if (isAxiosError(err)) {
         if (err?.response) {
-          setErrorMessage(err?.response?.data);
+          setErrorMessage(err?.response?.data.message);
         } else if (err?.request) {
           setErrorMessage('The request was made but no response was received');
         }

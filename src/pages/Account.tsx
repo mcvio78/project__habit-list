@@ -17,7 +17,7 @@ export const Account = (): JSX.Element => {
 
   const filteredAccount: FilteredAccountData = {
     ID: user?.user_id,
-    Username: user?.name,
+    Username: user?.username,
     Email: user?.email,
   };
 

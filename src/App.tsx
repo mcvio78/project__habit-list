@@ -6,6 +6,7 @@ import { Home } from './pages/Home';
 import { AuthContext } from './auth/context';
 import { ResetContext } from './auth/ResetContext';
 import { themes } from './config/constants/themes';
+import { SpanLarge } from './components/UI/Typography';
 
 const AuthLazy = lazy(() =>
   import('./pages/Auth').then(({ Auth }) => ({
@@ -42,7 +43,7 @@ export const App = (): JSX.Element => {
     >
       <ResetContext />
       <PageContainer>
-        <Suspense fallback={<span>Loading...</span>}>
+        <Suspense fallback={<SpanLarge>Loading...</SpanLarge>}>
           <Routes>
             <Route path="/auth" element={<AuthLazy />} />
             {user && <Route path="/account" element={<AccountLazy />} />}

@@ -2,8 +2,9 @@ const http = require('http');
 const app = require('./app');
 const server = http.createServer(app);
 
-const { PORT } = process.env;
-const port = process.env.PORT || PORT;
+const { SERVER_PORT } = process.env;
+console.log('SERVER_PORT: ', SERVER_PORT);
+const port = process.env.PORT || SERVER_PORT;
 
 // server listening
 server.listen(port, () => {

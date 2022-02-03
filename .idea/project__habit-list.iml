@@ -27,5 +27,6 @@
     <orderEntry type="library" name="@types/testing-library__cypress" level="application" />
     <orderEntry type="library" name="@types/testing-library__jest-dom" level="application" />
     <orderEntry type="library" name="@types/webpack" level="application" />
+    <orderEntry type="library" name="@types/react-addons-css-transition-group" level="application" />
   </component>
 </module>

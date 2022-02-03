@@ -19,16 +19,15 @@ import { useAPI } from '../hooks/useApi';
 import { useAuth } from '../hooks/useAuth';
 
 const shapeLogin = {
-  email: Yup.string().required('Email is required').email().label('Email'),
+  userName: Yup.string().required('First name is required').label('userName'),
   password: Yup.string()
     .required('Password is required')
     .min(8)
     .label('Password'),
 };
 const shapeRegister = {
-  firstName: Yup.string().required('First name is required').label('FirstName'),
-  lastName: Yup.string().required('Last name is required').label('LastName'),
   ...shapeLogin,
+  email: Yup.string().required('Email is required').email().label('Email'),
   passwordConfirmation: Yup.string()
     .required('Confirm your password')
     .oneOf([Yup.ref('password'), null], 'Passwords must match'),
@@ -38,23 +37,21 @@ const validationSchemaLogin = Yup.object().shape(shapeLogin);
 const validationSchemaRegister = Yup.object().shape(shapeRegister);
 
 interface InitialValuesLogin {
-  email: string;
+  userName: string;
   password: string;
 }
 interface InitialValuesRegister extends InitialValuesLogin {
-  firstName: string;
-  lastName: string;
+  email: string;
   passwordConfirmation: string;
 }
 
 const initialValuesLogin: InitialValuesLogin = {
-  email: '',
+  userName: '',
   password: '',
 };
 const initialValuesRegister: InitialValuesRegister = {
-  firstName: '',
-  lastName: '',
   ...initialValuesLogin,
+  email: '',
   passwordConfirmation: '',
 };
 
@@ -73,12 +70,11 @@ export const Auth = (): JSX.Element => {
   const submitFormHandler = useCallback(
     async (userValues: FormikValues) => {
       const registerFormData = [
-        userValues.firstName,
-        userValues.lastName,
+        userValues.userName,
         userValues.email,
         userValues.password,
       ];
-      const loginFormData = [userValues.email, userValues.password];
+      const loginFormData = [userValues.userName, userValues.password];
       const submitData = isSignUp ? registerFormData : loginFormData;
       const response = await request(...submitData);
 
@@ -127,40 +123,28 @@ export const Auth = (): JSX.Element => {
           }
         >
           <>
-            {isSignUp && (
-              <>
-                <AppFormInputText
-                  IconSVG={UserSVG}
-                  $label="First Name"
-                  id="first-name"
-                  type="text"
-                  name="firstName"
-                  placeholder="First name"
-                  autoCapitalize="off"
-                  spellCheck={false}
-                />
-                <AppFormInputText
-                  IconSVG={UserSVG}
-                  $label="Last Name"
-                  id="last-name"
-                  type="text"
-                  name="lastName"
-                  placeholder="Last name"
-                  autoCapitalize="off"
-                  spellCheck={false}
-                />
-              </>
-            )}
             <AppFormInputText
-              IconSVG={EmailSVG}
-              $label="Email"
-              id="email"
-              type="email"
-              name="email"
-              placeholder="Email"
+              IconSVG={UserSVG}
+              $label="Username"
+              id="username"
+              type="text"
+              name="userName"
+              placeholder="Username"
               autoCapitalize="off"
               spellCheck={false}
             />
+            {isSignUp && (
+              <AppFormInputText
+                IconSVG={EmailSVG}
+                $label="Email"
+                id="email"
+                type="email"
+                name="email"
+                placeholder="Email"
+                autoCapitalize="off"
+                spellCheck={false}
+              />
+            )}
             <AppFormInputText
               IconSVG={PasswordSVG}
               $label="Password"

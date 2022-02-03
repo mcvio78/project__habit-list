@@ -30,7 +30,7 @@ export const Home = (): JSX.Element => {
             aria-label="navigation link to authentication page"
             $txtSdw
           >
-            <It>Sign In</It>
+            <It>Sign Up</It>
           </NavLinkLarge>
         ) : (
           <AppButton

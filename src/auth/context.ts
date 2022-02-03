@@ -8,7 +8,7 @@ export interface User {
   exp: number;
   iat: number;
   iss: string;
-  name: string;
+  username: string;
   nbf: number;
   permissions: string[];
   sub: string;

@@ -6,23 +6,26 @@ import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';
 import { useAuth } from '../hooks/useAuth';
 import { ShowData } from '../components/UI/ShowData';
 
+interface FilteredAccountData {
+  ID: string | undefined;
+  Username: string | undefined;
+  Email: string | undefined;
+}
+
 export const Account = (): JSX.Element => {
   const { user } = useAuth();
 
-  const filteredAccountData: Record<
-    'ID' | 'Username' | 'Email',
-    string | undefined
-  > = {
+  const filteredAccount: FilteredAccountData = {
     ID: user?.user_id,
     Username: user?.name,
     Email: user?.email,
   };
 
-  const userData = Object.keys(filteredAccountData).map((key: string) => (
+  const userData = Object.keys(filteredAccount).map((accountField: string) => (
     <ShowData
-      key={key}
-      fieldTitle={key}
-      fieldValue={filteredAccountData[key]}
+      key={accountField}
+      fieldTitle={accountField}
+      fieldValue={filteredAccount[accountField]}
     />
   ));
 

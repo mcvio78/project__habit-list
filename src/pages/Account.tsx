@@ -45,7 +45,7 @@ export const Account = (): JSX.Element => {
       <Container
         $fd={{ de: 'column' }}
         $mt={{ de: '60px' }}
-        $ai={{ de: 'center' }}
+        $ai={{ de: 'flex-start' }}
         $g={{ de: '30px' }}
       >
         {userData}

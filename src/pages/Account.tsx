@@ -7,18 +7,18 @@ import { useAuth } from '../hooks/useAuth';
 import { ShowData } from '../components/UI/ShowData';
 
 interface FilteredAccountData {
-  ID: string | undefined;
-  Username: string | undefined;
-  Email: string | undefined;
+  ID: string;
+  Username: string;
+  Email: string;
 }
 
 export const Account = (): JSX.Element => {
   const { user } = useAuth();
 
   const filteredAccount: FilteredAccountData = {
-    ID: user?.user_id,
-    Username: user?.username,
-    Email: user?.email,
+    ID: user?.user_id || '',
+    Username: user?.username || '',
+    Email: user?.email || '',
   };
 
   const userData = Object.keys(filteredAccount).map((accountField: string) => (

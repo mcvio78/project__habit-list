@@ -1,22 +1,19 @@
 import {
-  ChangeEventHandler,
   FC,
-  InputHTMLAttributes,
-  LabelHTMLAttributes,
-  MouseEventHandler,
   SVGProps,
+  ComponentPropsWithoutRef,
+  MouseEventHandler,
 } from 'react';
 
 import { InputText } from './InputText';
 import { InputWrapper } from '../InputWrapper';
 
-interface AppInputTextProps extends InputHTMLAttributes<HTMLInputElement> {
-  id: InputHTMLAttributes<HTMLInputElement>['id'];
-  onChange: ChangeEventHandler<HTMLInputElement>;
-  value: string;
+interface AppInputTextProps
+  extends Omit<ComponentPropsWithoutRef<'input'>, 'onClick'> {
   IconSVG?: FC<SVGProps<SVGSVGElement>>;
-  $label?: LabelHTMLAttributes<HTMLLabelElement>['htmlFor'];
-  onClick?: MouseEventHandler<HTMLInputElement> | undefined;
+  $label?: string;
+  className?: string;
+  onClick?: MouseEventHandler<SVGSVGElement> | undefined;
 }
 
 export const AppInputText = ({
@@ -24,11 +21,12 @@ export const AppInputText = ({
   IconSVG,
   $label,
   onClick,
+  className,
   ...otherProps
 }: AppInputTextProps): JSX.Element => {
   return (
     <InputWrapper
-      className="app-input-text"
+      className={['app-input-text', className].join(' ')}
       id={id}
       IconSVG={IconSVG}
       $label={$label}

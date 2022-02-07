@@ -1,16 +1,22 @@
-import { FC, SVGProps, ReactNode, InputHTMLAttributes } from 'react';
+import {
+  FC,
+  SVGProps,
+  ReactNode,
+  ComponentPropsWithoutRef,
+  MouseEventHandler,
+} from 'react';
 import styled from 'styled-components/macro';
 
 import { ReactComponent as CloseSVG } from '../../../assets/icons/icon-close_24dp.svg';
 import { Container } from '../../layout/Container';
 import { LabelLarge } from '../Typography';
-import { Button } from '../buttons/Button';
+import { Button } from '../button/Button';
 
-export interface InputWrapperProps {
-  id: InputHTMLAttributes<HTMLInputElement>['id'];
+export interface InputWrapperProps
+  extends Omit<ComponentPropsWithoutRef<'input'>, 'onClick'> {
   IconSVG?: FC<SVGProps<SVGSVGElement>>;
   $label?: string;
-  onClick?: any;
+  onClick?: MouseEventHandler<SVGSVGElement> | undefined;
   children: ReactNode | undefined;
   className?: string;
 }
@@ -58,7 +64,7 @@ export const InputWrapper = ({
         <Button
           aria-label="reset form field"
           title="reset"
-          $bkgCol="var(--secondary_03)"
+          $backgroundColor="var(--secondary_03)"
         >
           <CloseSVG onClick={onClick} />
         </Button>

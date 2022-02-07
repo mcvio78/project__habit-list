@@ -4,13 +4,15 @@ import { CSSTransition } from 'react-transition-group';
 import { Backdrop } from './Backdrop';
 import { SideDrawer } from './SideDrawer';
 import { useKeyEvent } from '../../hooks/useKeyEvent';
-import { AppButtonHamburger } from './buttons';
+import { AppButtonHamburger } from './button';
+import { NavigationItems } from './navigation/NavigationItems';
 
 export const SideBar = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const AppButtonHamburgerOpenRef = useRef<HTMLButtonElement>(null);
   const BackdropRef = useRef<HTMLInputElement>(null);
   const SideDrawerRef = useRef<HTMLInputElement>(null);
+  const NavigationItemsRef = useRef<HTMLInputElement>(null);
 
   const onKeyDownHandler = useCallback(event => {
     if (event.defaultPrevented) {
@@ -70,7 +72,18 @@ export const SideBar = (): JSX.Element => {
           setIsOpen={() => setIsOpen(false)}
           $animated
           ref={SideDrawerRef}
-        />
+        >
+          <CSSTransition
+            in={isOpen}
+            timeout={{ enter: 3000, exit: 3000 }}
+            mountOnEnter
+            unmountOnExit
+            appear
+            nodeRef={NavigationItemsRef}
+          >
+            <NavigationItems $animated ref={NavigationItemsRef} />
+          </CSSTransition>
+        </SideDrawer>
       </CSSTransition>
     </>
   );

@@ -4,13 +4,16 @@ import styled from 'styled-components/macro';
 import { Backdrop } from './Backdrop';
 import { Container } from '../layout';
 import { HeadingExtraLarge, ParagraphSmall, It, B } from './Typography';
-import { AppButton } from './buttons';
+import { AppButton } from './button';
 import { ReactComponent as CloseSVG } from '../../assets/icons/icon-close_24dp.svg';
 import { useKeyEvent } from '../../hooks/useKeyEvent';
 
 interface ModalProps {
-  showModal: string;
+  /** show/hide modal */
+  showModal: boolean;
+  /** modal callback function */
   modalCallback: () => void;
+  /** modal notification message */
   modalMessage: string;
 }
 
@@ -52,7 +55,7 @@ export const Modal = ({
 
   return (
     <>
-      <Backdrop isOpen={showModal !== ''} setIsOpen={modalCallback} />
+      <Backdrop isOpen={showModal} setIsOpen={modalCallback} />
 
       {showModal && (
         <TextContainer
@@ -78,9 +81,9 @@ export const Modal = ({
             {modalMessage}
           </ParagraphSmall>
           <AppButton
-            $md
-            $alert
-            $boxSdw
+            $size="medium"
+            $variant="alert"
+            $boxShadow
             aria-label="close modal"
             title="close modal button"
             onClick={modalCallback}

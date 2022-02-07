@@ -8,9 +8,9 @@ import {
   B,
   It,
 } from '../components/UI/Typography';
-import { AppButton } from '../components/UI/buttons';
+import { AppButton } from '../components/UI/button';
 import { Header } from '../components/UI/Header';
-import { SideBar } from '../components/UI/SideBar';
+import { SideBar } from '../components/UI/Sidebar';
 import { Toolbar } from '../components/layout/Toolbar';
 import { useAuth } from '../hooks/useAuth';
 import { useBreakpoint } from '../hooks/useBreakpoint';
@@ -34,7 +34,7 @@ export const Home = (): JSX.Element => {
           </NavLinkLarge>
         ) : (
           <AppButton
-            $text
+            $variant="text"
             aria-label="logout button"
             title="logout"
             onClick={logOut}
@@ -70,17 +70,19 @@ export const Home = (): JSX.Element => {
         <ParagraphLarge $txtSdw>
           <i>Start organizing your life!</i>
         </ParagraphLarge>
-        <AppButton
-          $md
-          $flat
-          aria-label="create habits button"
-          title="create habits"
-          onClick={() => navigate('/create')}
-        >
-          <B>
-            <It>Create Habits</It>
-          </B>
-        </AppButton>
+        {user && (
+          <AppButton
+            $variant="flat"
+            $size="medium"
+            aria-label="create habits button"
+            title="create habits"
+            onClick={() => navigate('/create')}
+          >
+            <B>
+              <It>Create Habits</It>
+            </B>
+          </AppButton>
+        )}
       </Container>
     </PageLayout>
   );

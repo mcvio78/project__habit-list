@@ -15,7 +15,11 @@ import {
 import { ReactComponent as RepeatSVG } from '../assets/icons/icon-repeat_24dp.svg';
 import { ReactComponent as EventSVG } from '../assets/icons/icon-event_24dp.svg';
 import { ReactComponent as CalculateSVG } from '../assets/icons/icon-calculate_24dp.svg';
-import { HeadingExtraSmall, HeadingLarge } from '../components/UI/Typography';
+import {
+  HeadingExtraSmall,
+  HeadingLarge,
+  B,
+} from '../components/UI/Typography';
 
 const validationSchemaHabit = Yup.object().shape({
   habitType: Yup.string().required('Habit type is required').label('HabitType'),
@@ -59,7 +63,6 @@ export const Create = (): JSX.Element => {
     console.log('habitValues: ', habitValues);
   }, []);
 
-  // @ts-ignore
   return (
     <PageLayout>
       <Toolbar>
@@ -164,16 +167,15 @@ export const Create = (): JSX.Element => {
                 placeholder="Select a Date"
               />
               <AppFormSubmit
-                $flat
-                $md
-                $lblSdw
-                $lblB
+                $variant="flat"
+                $size="medium"
+                $labelShadow
                 title="Create"
                 aria-label="create habit"
                 $flxAs={{ de: 'flex-end' }}
                 $mt={{ de: '8px' }}
               >
-                Create
+                <B>Create</B>
               </AppFormSubmit>
             </>
           )}

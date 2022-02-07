@@ -1,28 +1,18 @@
+import { ComponentPropsWithoutRef } from 'react';
 import styled, { css } from 'styled-components/macro';
 
 import { Button, ButtonProps } from './Button';
 
 export interface AppButtonProps extends ButtonProps {
-  /** button size small  */
-  $sm?: boolean;
-  /** button size medium  */
-  $md?: boolean;
-  /** button size large  */
-  $lg?: boolean;
-  /** button variant standard */
-  $std?: boolean;
-  /** button variant flat */
-  $flat?: boolean;
-  /** button variant text */
-  $text?: boolean;
-  /** button variant alert */
-  $alert?: boolean;
+  $variant?: 'standard' | 'flat' | 'text' | 'alert';
+  $size?: 'small' | 'medium' | 'large';
 }
 
 const stdBtnCSS = css`
   color: var(--accent_01);
   background-color: var(--secondary_01);
   outline: var(--neutral_02) 1px solid;
+  box-shadow: 0 4px 4px var(--neutral_05_op025);
 `;
 
 const flatBtnCSS = css`
@@ -35,6 +25,10 @@ const textBtnCSS = css`
   color: inherit;
   background-color: transparent;
   outline: var(--neutral_03) 1px solid;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
 `;
 
 const alertBtnCSS = css`
@@ -71,26 +65,24 @@ const smallBtnCSS = css`
 `;
 
 const AppButtonClassName = (props: any) => {
-  if (props.$std) return 'app-button std-btn';
-  if (props.$flat) return 'app-button flat-btn';
-  if (props.$text) return 'app-button text-btn';
-  if (props.$alert) return 'app-button alert-btn';
+  if (props.$variant === 'standard') return 'app-button std-btn';
+  if (props.$variant === 'flat') return 'app-button flat-btn';
+  if (props.$variant === 'text') return 'app-button text-btn';
+  if (props.$variant === 'alert') return 'app-button alert-btn';
   return 'app-button';
 };
 
-export const AppButton = styled(Button).attrs(props => ({
+export const AppButton = styled(Button).attrs<
+  ComponentPropsWithoutRef<'button'>
+>(props => ({
   className: AppButtonClassName(props),
 }))<AppButtonProps>`
-  ${props => {
-    if (props.$std) return `${stdBtnCSS}`;
-    if (props.$flat) return `${flatBtnCSS}`;
-    if (props.$text) return `${textBtnCSS}`;
-    if (props.$alert) return `${alertBtnCSS}`;
-  }};
+  ${props => props.$variant === 'standard' && stdBtnCSS};
+  ${props => props.$variant === 'flat' && flatBtnCSS};
+  ${props => props.$variant === 'text' && textBtnCSS};
+  ${props => props.$variant === 'alert' && alertBtnCSS};
 
-  ${props => {
-    if (props.$sm && !props.$text) return `${smallBtnCSS}`;
-    if (props.$md && !props.$text) return `${mediumBtnCSS}`;
-    if (props.$lg && !props.$text) return `${largeBtnCSS}`;
-  }};
+  ${props => props.$size === 'small' && smallBtnCSS};
+  ${props => props.$size === 'medium' && mediumBtnCSS};
+  ${props => props.$size === 'large' && largeBtnCSS};
 `;

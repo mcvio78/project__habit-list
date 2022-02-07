@@ -5,8 +5,8 @@ import { Navigate } from 'react-router-dom';
 
 import { PageLayout, Container } from '../components/layout';
 import { Header } from '../components/UI/Header';
-import { AppButton } from '../components/UI/buttons';
-import { NavLinkIcon, ParagraphSmall } from '../components/UI/Typography';
+import { AppButton } from '../components/UI/button';
+import { NavLinkIcon, ParagraphSmall, B } from '../components/UI/Typography';
 import { Modal } from '../components/UI/Modal';
 import { Toolbar } from '../components/layout/Toolbar';
 import { AppFormInputText, AppFormSubmit, AppForm } from '../components/form';
@@ -92,7 +92,7 @@ export const Auth = (): JSX.Element => {
   return (
     <PageLayout>
       <Modal
-        showModal={errorMessage}
+        showModal={!!errorMessage}
         modalCallback={() => setErrorMessage('')}
         modalMessage={errorMessage}
       />
@@ -168,16 +168,15 @@ export const Auth = (): JSX.Element => {
               />
             )}
             <AppFormSubmit
-              $flat
-              $md
-              $lblSdw
-              $lblB
+              $variant="flat"
+              $size="medium"
+              $labelShadow
               title={isSignUp ? 'Sign Up' : 'Log In'}
               aria-label={isSignUp ? 'sign up button' : 'log in button'}
               $flxAs={{ de: 'flex-end' }}
               $mt={{ de: isSignUp ? '8px' : 0 }}
             >
-              {isSignUp ? 'Sign Up' : 'Log In'}
+              <B>{isSignUp ? 'Sign Up' : 'Log In'}</B>
             </AppFormSubmit>
           </>
         </AppForm>
@@ -188,16 +187,15 @@ export const Auth = (): JSX.Element => {
               : 'Create a new account'}
           </ParagraphSmall>
           <AppButton
-            $flat
-            $md
-            $lblSdw
-            $lblB
+            $variant="flat"
+            $size="medium"
+            $labelShadow
             title="Sign in"
             aria-label="Sign in button"
             $flxAs={{ de: 'center' }}
             onClick={switchLogHandler}
           >
-            Click here
+            <B>Click here</B>
           </AppButton>
         </Container>
       </Container>

@@ -1,3 +1,4 @@
+import { ComponentPropsWithoutRef } from 'react';
 import styled from 'styled-components/macro';
 
 import {
@@ -5,10 +6,14 @@ import {
   StyledMarginProps,
 } from '../../../utility/UI/styledMargin';
 
-export const Checkbox = styled.input.attrs(props => ({
-  type: 'checkbox',
-  className: props.className || 'checkbox',
-}))<StyledMarginProps>`
+interface CheckboxProps extends StyledMarginProps {}
+
+export const Checkbox = styled.input.attrs<ComponentPropsWithoutRef<'input'>>(
+  props => ({
+    type: 'checkbox',
+    className: ['checkbox', props.className].join(' '),
+  }),
+)<CheckboxProps>`
   width: var(--cbox-w);
   height: var(--cbox-h);
   border: 0;

@@ -2,7 +2,7 @@ import { useFormikContext } from 'formik';
 
 import { AppFormInputError } from './AppFormInputError';
 import { Container } from '../layout';
-import { AppCheckbox } from '../UI/checkbox/AppCheckbox';
+import { AppCheckbox } from '../UI/checkbox/';
 import { resetFormFieldValue } from '../../utility/utils';
 
 interface AppFormCheckboxProps {

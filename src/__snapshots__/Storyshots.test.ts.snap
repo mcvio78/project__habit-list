@@ -1,274 +1,192 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Button Default 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  background-color: undefined !important;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: none;
-  box-shadow: none;
-}
+exports[`Storyshots Components/UI/Backdrop Animated Backdrop 1`] = `null`;
 
-.c0:disabled {
-  opacity: 0.6;
-  -webkit-filter: saturate(60%);
-  filter: saturate(60%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: not-allowed;
-}
+exports[`Storyshots Components/UI/Backdrop Default Backdrop 1`] = `null`;
 
-.c0:active {
-  box-shadow: none;
-}
-
-@media screen and (min-width:de) {
-
-}
-
-@media screen and (min-width:xs) {
-
-}
-
-@media screen and (min-width:sm) {
-
-}
-
-@media screen and (min-width:md) {
-
-}
-
-@media screen and (min-width:lg) {
-
-}
-
-@media screen and (min-width:xl) {
-
-}
-
-<button
-  className="c0 app-button"
-  type="button"
->
-  Default
-</button>
-`;
-
-exports[`Storyshots Button Disabled 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  background-color: undefined !important;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: none;
-  box-shadow: none;
-}
-
-.c0:disabled {
-  opacity: 0.6;
-  -webkit-filter: saturate(60%);
-  filter: saturate(60%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: not-allowed;
-}
-
-.c0:active {
-  box-shadow: none;
-}
-
-@media screen and (min-width:de) {
-
-}
-
-@media screen and (min-width:xs) {
-
-}
-
-@media screen and (min-width:sm) {
-
-}
-
-@media screen and (min-width:md) {
-
-}
-
-@media screen and (min-width:lg) {
-
-}
-
-@media screen and (min-width:xl) {
-
-}
-
-<button
-  aria-label="a button"
-  className="c0 app-button"
-  disabled={true}
-  title="AppButton"
-  type="button"
->
-  Disabled
-</button>
-`;
-
-exports[`Storyshots Button Submit 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  background-color: undefined !important;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: none;
-  box-shadow: none;
-}
-
-.c0:disabled {
-  opacity: 0.6;
-  -webkit-filter: saturate(60%);
-  filter: saturate(60%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: not-allowed;
-}
-
-.c0:active {
-  box-shadow: none;
-}
-
-@media screen and (min-width:de) {
-
-}
-
-@media screen and (min-width:xs) {
-
-}
-
-@media screen and (min-width:sm) {
-
-}
-
-@media screen and (min-width:md) {
-
-}
-
-@media screen and (min-width:lg) {
-
-}
-
-@media screen and (min-width:xl) {
-
-}
-
-<button
-  aria-label="form submit button"
-  className="c0 app-button"
-  id="submit-form-01"
-  name="subject"
-  title="AppButton"
-  type="submit"
-  value="form"
->
-  Submit
-</button>
-`;
-
-exports[`Storyshots ButtonHamburger Default 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  background-color: undefined !important;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: none;
-  box-shadow: none;
-}
-
-.c0:disabled {
-  opacity: 0.6;
-  -webkit-filter: saturate(60%);
-  filter: saturate(60%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: not-allowed;
-}
-
-.c0:active {
-  box-shadow: none;
-}
-
+exports[`Storyshots Components/UI/Button Default App Button 1`] = `
 .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: undefined !important;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+
+.c1:disabled {
+  opacity: 0.6;
+  -webkit-filter: saturate(60%);
+  filter: saturate(60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: not-allowed;
+}
+
+.c1:active {
+  box-shadow: none;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c0 {
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<div
+  className="c0 generic-container "
+  style={
+    Object {
+      "backgroundColor": "var(--primary_01)",
+    }
+  }
+>
+  <button
+    aria-label="App button"
+    className="c1 button app-button"
+    title="AppButton"
+    type="button"
+  >
+    AppButton
+  </button>
+</div>
+`;
+
+exports[`Storyshots Components/UI/Button Default App Button Hamburger 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: undefined !important;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+
+.c1:disabled {
+  opacity: 0.6;
+  -webkit-filter: saturate(60%);
+  filter: saturate(60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: not-allowed;
+}
+
+.c1:active {
+  box-shadow: none;
+}
+
+.c2 {
   width: 36px;
   height: 26px;
   -webkit-flex-shrink: 0;
@@ -283,31 +201,177 @@ exports[`Storyshots ButtonHamburger Default 1`] = `
   outline: var(--neutral_06) 2px solid;
 }
 
-.c1 div {
+.c2 div {
   width: 100%;
   height: 4px;
   background-color: var(--secondary_01);
+  box-shadow: 0 4px 4px var(--neutral_05_op025);
   -webkit-transition: all 0.5s linear;
   transition: all 0.5s linear;
 }
 
-.c1 div:first-child {
-  -webkit-transform: translateY(11px) rotate(45deg);
-  -ms-transform: translateY(11px) rotate(45deg);
-  transform: translateY(11px) rotate(45deg);
+.c2 div:first-child {
+  -webkit-transform: rotate(0) translateY(0);
+  -ms-transform: rotate(0) translateY(0);
+  transform: rotate(0) translateY(0);
 }
 
-.c1 div:nth-child(2) {
-  opacity: 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+.c2 div:nth-child(2) {
+  opacity: 1;
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
 }
 
-.c1 div:nth-child(3) {
-  -webkit-transform: translateY(-11px) rotate(-45deg);
-  -ms-transform: translateY(-11px) rotate(-45deg);
-  transform: translateY(-11px) rotate(-45deg);
+.c2 div:nth-child(3) {
+  -webkit-transform: rotate(0) translateY(0);
+  -ms-transform: rotate(0) translateY(0);
+  transform: rotate(0) translateY(0);
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c0 {
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<div
+  className="c0 generic-container "
+  style={
+    Object {
+      "backgroundColor": "var(--primary_01)",
+    }
+  }
+>
+  <button
+    aria-label="hamburger button"
+    className="c1 c2 button hamburger-button button"
+    role="button"
+    title="AppButtonHamburger"
+    type="button"
+  >
+    <div />
+    <div />
+    <div />
+  </button>
+</div>
+`;
+
+exports[`Storyshots Components/UI/Button Default Button 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: white !important;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 4px 4px var(--neutral_05_op025);
+  text-shadow: 0 4px 4px rgba(--neutral_05-s025);
+}
+
+.c0:disabled {
+  opacity: 0.6;
+  -webkit-filter: saturate(60%);
+  filter: saturate(60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: not-allowed;
+}
+
+.c0:active {
+  box-shadow: 0 1px 1px var(--neutral_05_op025);
 }
 
 @media screen and (min-width:de) {
@@ -335,187 +399,36 @@ exports[`Storyshots ButtonHamburger Default 1`] = `
 }
 
 <button
-  aria-label="open side drawer menu button"
-  className="c0 c1 hamburger-button"
-  role="button"
-  title="hamburger button"
+  aria-label="button"
+  className="c0 button"
+  title="Button"
   type="button"
 >
-  <div />
-  <div />
-  <div />
+  Button
 </button>
 `;
 
-exports[`Storyshots Display1 Default 1`] = `
-.c0 {
-  margin: 0;
-  text-align: center;
-  font-variation-settings: 'wght' 700;
-  font-weight: 700;
-  font-size: var(--typ-d-1-fs);
-  line-height: var(--typ-d-1-lh);
-  -webkit-letter-spacing: var(--typ-d-1-ls);
-  -moz-letter-spacing: var(--typ-d-1-ls);
-  -ms-letter-spacing: var(--typ-d-1-ls);
-  letter-spacing: var(--typ-d-1-ls);
-}
-
-@media screen and (min-width:de) {
-
-}
-
-@media screen and (min-width:xs) {
-
-}
-
-@media screen and (min-width:sm) {
-
-}
-
-@media screen and (min-width:md) {
-
-}
-
-@media screen and (min-width:lg) {
-
-}
-
-@media screen and (min-width:xl) {
-
-}
-
-<h1
-  className="c0"
->
-  Basic Display1
-</h1>
-`;
-
-exports[`Storyshots Display1 Styled 1`] = `
-.c0 {
-  margin: 0;
-  text-align: center;
-  color: navy;
-  font-variation-settings: 'wght' 700;
-  font-weight: 700;
-  font-size: var(--typ-d-1-fs);
-  line-height: var(--typ-d-1-lh);
-  -webkit-letter-spacing: var(--typ-d-1-ls);
-  -moz-letter-spacing: var(--typ-d-1-ls);
-  -ms-letter-spacing: var(--typ-d-1-ls);
-  letter-spacing: var(--typ-d-1-ls);
-}
-
-.c1 {
-  font-style: italic;
-  font-synthesis: none;
-}
-
-@media screen and (min-width:de) {
-
-}
-
-@media screen and (min-width:xs) {
-
-}
-
-@media screen and (min-width:sm) {
-
-}
-
-@media screen and (min-width:md) {
-
-}
-
-@media screen and (min-width:lg) {
-
-}
-
-@media screen and (min-width:xl) {
-
-}
-
-<h1
-  className="c0"
->
-  <span
-    className="c1"
-  >
-    Styled Display1
-  </span>
-</h1>
-`;
-
-exports[`Storyshots InputText Default 1`] = `
-.c6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  background-color: var(--secondary_03) !important;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: none;
-  box-shadow: none;
-}
-
-.c6:disabled {
-  opacity: 0.6;
-  -webkit-filter: saturate(60%);
-  filter: saturate(60%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: not-allowed;
-}
-
-.c6:active {
-  box-shadow: none;
-}
-
-.c1 {
+exports[`Storyshots Components/UI/Checkbox Default App Checkbox 1`] = `
+.c2 {
   margin: 0;
   text-align: center;
   font-variation-settings: 'wght' 300;
   font-weight: 400;
 }
 
-.c2 {
-  font-size: var(--typ-lbl-lg-fs);
-  line-height: var(--typ-lbl-lg-lh);
+.c3 {
+  font-size: var(--typ-lbl-md-fs);
+  line-height: var(--typ-lbl-md-lh);
+}
+
+.c4 {
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
 }
 
 .c5 {
-  min-width: 60px;
-  min-height: 28px;
-  padding: 0 5px;
-  border: none;
-  -webkit-flex: 1 0;
-  -ms-flex: 1 0;
-  flex: 1 0;
-  font-style: inherit;
-  font-variation-settings: 'wght' 500;
-  font-weight: 500;
-  line-height: 0;
-  color: var(--neutral_08);
-  background-color: transparent;
-  outline: none;
-  text-align: center;
+  font-style: italic;
+  font-synthesis: none;
 }
 
 .c0 {
@@ -525,29 +438,83 @@ exports[`Storyshots InputText Default 1`] = `
   display: flex;
 }
 
-.c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+.c1 {
+  width: var(--cbox-w);
+  height: var(--cbox-h);
+  border: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--secondary_04);
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+  -webkit-transition: box-shadow 0.4s,-webkit-transform 0.5s;
+  -webkit-transition: box-shadow 0.4s,transform 0.5s;
+  transition: box-shadow 0.4s,transform 0.5s;
 }
 
-.c4 {
-  border: none;
-  border-radius: 4px;
-  outline: 2px solid var(--accent_04);
-  background-color: var(--secondary_01);
+.c1:checked {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  box-shadow: inset 0 0 0 20px var(--secondary_04);
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
 }
 
-.c4:focus-within {
-  outline: 3px solid var(--accent_04);
+@media screen and (min-width:de) {
+
 }
 
-.c4 svg {
-  width: 24px;
-  height: 24px;
-  fill: var(--neutral_09);
-  fill-opacity: 0.2;
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c0 {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
 }
 
 @media screen and (min-width:de) {
@@ -576,10 +543,196 @@ exports[`Storyshots InputText Default 1`] = `
 
 @media screen and (min-width:de) {
   .c1 {
-    -webkit-align-self: flex-start;
-    -ms-flex-item-align: start;
-    align-self: flex-start;
+    margin-right: 12px;
   }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<div
+  style={
+    Object {
+      "backgroundColor": "grey",
+      "height": "20vh",
+      "width": "100vw",
+    }
+  }
+>
+  <div
+    className="c0 app-checkbox  generic-container app-checkbox "
+  >
+    <input
+      className="c1 checkbox "
+      type="checkbox"
+    />
+    <label
+      className="c2 c3"
+    >
+      <span
+        className="c4"
+      >
+        <span
+          className="c5"
+        >
+          App Checkbox
+        </span>
+      </span>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components/UI/Checkbox Default Checkbox 1`] = `
+.c0 {
+  width: var(--cbox-w);
+  height: var(--cbox-h);
+  border: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--secondary_04);
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+  -webkit-transition: box-shadow 0.4s,-webkit-transform 0.5s;
+  -webkit-transition: box-shadow 0.4s,transform 0.5s;
+  transition: box-shadow 0.4s,transform 0.5s;
+}
+
+.c0:checked {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  box-shadow: inset 0 0 0 20px var(--secondary_04);
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<div
+  style={
+    Object {
+      "backgroundColor": "grey",
+      "height": "20vh",
+      "width": "100vw",
+    }
+  }
+>
+  <input
+    className="c0 checkbox "
+    type="checkbox"
+  />
+</div>
+`;
+
+exports[`Storyshots Components/UI/Header Default Header 1`] = `
+.c2 {
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 4px 4px var(--neutral_05_op025);
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
+}
+
+.c1 {
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 4px 4px var(--neutral_05_op025);
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+  font-size: var(--typ-d-1-fs);
+  line-height: var(--typ-d-1-lh);
+  -webkit-letter-spacing: var(--typ-d-1-ls);
+  -moz-letter-spacing: var(--typ-d-1-ls);
+  -ms-letter-spacing: var(--typ-d-1-ls);
+  letter-spacing: var(--typ-d-1-ls);
+}
+
+.c3 {
+  font-size: var(--typ-p-lg-fs);
+  line-height: var(--typ-p-lg-lh);
+}
+
+.c4 {
+  font-style: italic;
+  font-synthesis: none;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
 }
 
 @media screen and (min-width:xs) {
@@ -654,8 +807,474 @@ exports[`Storyshots InputText Default 1`] = `
 
 }
 
+<header
+  aria-level={1}
+  className="c0 generic-container "
+  role="heading"
+>
+  <h1
+    className="c1"
+    style={
+      Object {
+        "lineHeight": undefined,
+      }
+    }
+  >
+    Headline
+  </h1>
+  <p
+    className="c2 c3"
+    style={
+      Object {
+        "lineHeight": "var(--typ-p-lg-fs)",
+      }
+    }
+  >
+    <span
+      className="c4"
+    />
+  </p>
+</header>
+`;
+
+exports[`Storyshots Components/UI/Header With Sub Header 1`] = `
+.c2 {
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 4px 4px var(--neutral_05_op025);
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
+}
+
+.c1 {
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 4px 4px var(--neutral_05_op025);
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+  font-size: var(--typ-d-1-fs);
+  line-height: var(--typ-d-1-lh);
+  -webkit-letter-spacing: var(--typ-d-1-ls);
+  -moz-letter-spacing: var(--typ-d-1-ls);
+  -ms-letter-spacing: var(--typ-d-1-ls);
+  letter-spacing: var(--typ-d-1-ls);
+}
+
+.c3 {
+  font-size: var(--typ-p-lg-fs);
+  line-height: var(--typ-p-lg-lh);
+}
+
+.c4 {
+  font-style: italic;
+  font-synthesis: none;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 @media screen and (min-width:de) {
-  .c3 {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<header
+  aria-level={1}
+  className="c0 generic-container "
+  role="heading"
+>
+  <h1
+    className="c1"
+    style={
+      Object {
+        "lineHeight": "var(--typ-d-1-fs)",
+      }
+    }
+  >
+    Headline
+  </h1>
+  <p
+    className="c2 c3"
+    style={
+      Object {
+        "lineHeight": "var(--typ-p-lg-fs)",
+      }
+    }
+  >
+    <span
+      className="c4"
+    >
+      Subheadline
+    </span>
+  </p>
+</header>
+`;
+
+exports[`Storyshots Components/UI/Input Default App Input Text 1`] = `
+.c2 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
+}
+
+.c3 {
+  font-size: var(--typ-lbl-lg-fs);
+  line-height: var(--typ-lbl-lg-lh);
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: var(--secondary_03) !important;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+
+.c7:disabled {
+  opacity: 0.6;
+  -webkit-filter: saturate(60%);
+  filter: saturate(60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: not-allowed;
+}
+
+.c7:active {
+  box-shadow: none;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c6 {
+  min-width: 60px;
+  min-height: 28px;
+  padding: 0 5px;
+  border: none;
+  -webkit-flex: 1 0;
+  -ms-flex: 1 0;
+  flex: 1 0;
+  font-style: inherit;
+  font-variation-settings: 'wght' 500;
+  font-weight: 500;
+  line-height: 0;
+  color: var(--neutral_08);
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+}
+
+.c5 {
+  border: none;
+  border-radius: 4px;
+  outline: 2px solid var(--accent_04);
+  background-color: var(--secondary_01);
+}
+
+.c5:focus-within {
+  outline: 3px solid var(--accent_04);
+}
+
+.c5 svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--neutral_09);
+  fill-opacity: 0.2;
+}
+
+@media screen and (min-width:de) {
+  .c2 {
+    -webkit-align-self: flex-start;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c0 {
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c1 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c4 {
     -webkit-align-items: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -713,54 +1332,103 @@ exports[`Storyshots InputText Default 1`] = `
 }
 
 <div
-  className="c0 input-wrapper app-input-text input-wrapper app-input-text"
+  className="c0 generic-container "
+  style={
+    Object {
+      "backgroundColor": "var(--primary_01)",
+    }
+  }
 >
-  <label
-    className="c1 c2"
-    htmlFor="email"
-  >
-    your email
-  </label>
   <div
-    className="c3 c4 generic-container"
+    className="c1 input-wrapper app-input-text  generic-container input-wrapper app-input-text "
   >
-    <svg>
-      icon-email_24dp.svg
-    </svg>
-    <input
-      className="c5 input-text"
-      id="email"
-      onBlur={[Function]}
-      onChange={[Function]}
-      value="fake@email.com"
-    />
-    <button
-      aria-label="reset form field"
-      className="c6"
-      title="reset"
-      type="button"
+    <label
+      className="c2 c3"
+      htmlFor="app-input-text"
     >
-      <svg
-        onClick={[Function]}
-      >
-        icon-close_24dp.svg
+      Input Text
+    </label>
+    <div
+      className="c4 c5 generic-container "
+    >
+      <svg>
+        icon-email_24dp.svg
       </svg>
-    </button>
+      <input
+        className="c6 input-text "
+        id="app-input-text"
+      />
+      <button
+        aria-label="reset form field"
+        className="c7 button"
+        title="reset"
+        type="button"
+      >
+        <svg
+          onClick={[Function]}
+        >
+          icon-close_24dp.svg
+        </svg>
+      </button>
+    </div>
   </div>
 </div>
 `;
 
-exports[`Storyshots ParagraphLarge Default 1`] = `
+exports[`Storyshots Components/UI/Input Default Input Date 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
-  font-variation-settings: 'wght' 300;
-  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.c1 {
-  font-size: var(--typ-p-lg-fs);
-  line-height: var(--typ-p-lg-lh);
+.c1 .react-datepicker-wrapper {
+  color: var(--neutral_14);
+}
+
+.c1 .react-datepicker-wrapper .react-datepicker__input-container input {
+  min-width: 60px;
+  min-height: 28px;
+  padding: 0 5px;
+  border: none;
+  -webkit-flex: 1 0;
+  -ms-flex: 1 0;
+  flex: 1 0;
+  font-style: inherit;
+  font-variation-settings: 'wght' 500;
+  font-weight: 500;
+  line-height: 0;
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+  color: var(--neutral_08);
+}
+
+@media screen and (min-width:de) {
+  .c0 {
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
 }
 
 @media screen and (min-width:de) {
@@ -787,33 +1455,1823 @@ exports[`Storyshots ParagraphLarge Default 1`] = `
 
 }
 
-<p
-  className="c0 c1"
+<div
+  className="c0 generic-container "
+  style={
+    Object {
+      "backgroundColor": "var(--primary_01)",
+    }
+  }
 >
-  Basic ParagraphLarge
-</p>
+  <div
+    className="c1 datepicker-restyle-wrapper"
+  >
+    <div
+      className="react-datepicker-wrapper"
+    >
+      <div
+        className="react-datepicker__input-container"
+      >
+        <input
+          className=""
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          readOnly={false}
+          type="text"
+          value="02/07/2022"
+        />
+      </div>
+    </div>
+  </div>
+</div>
 `;
 
-exports[`Storyshots ParagraphLarge Styled 1`] = `
+exports[`Storyshots Components/UI/Input Default Input Text 1`] = `
 .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  min-width: 60px;
+  min-height: 28px;
+  padding: 0 5px;
+  border: none;
+  -webkit-flex: 1 0;
+  -ms-flex: 1 0;
+  flex: 1 0;
+  font-style: inherit;
+  font-variation-settings: 'wght' 500;
+  font-weight: 500;
+  line-height: 0;
+  color: var(--neutral_08);
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+}
+
+@media screen and (min-width:de) {
+  .c0 {
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<div
+  className="c0 generic-container "
+  style={
+    Object {
+      "backgroundColor": "var(--primary_01)",
+    }
+  }
+>
+  <input
+    className="c1 input-text "
+  />
+</div>
+`;
+
+exports[`Storyshots Components/UI/Modal Default Modal 1`] = `
+Array [
+  .c0 {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background-color: var(--neutral_10_op05);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<div
+    className="c0 checkbox "
+    onKeyDown={[Function]}
+    role="button"
+    tabIndex={0}
+  />,
+  .c3 {
   margin: 0;
   text-align: center;
-  color: navy;
-  text-shadow: 0 4px 4px var(--neutral_05_op025);
+  color: var(--neutral_11);
+  font-variation-settings: 'wght' 600;
+  font-weight: 700;
+}
+
+.c5 {
+  margin: 0;
+  text-align: center;
+  color: var(--neutral_12);
   font-variation-settings: 'wght' 300;
   font-weight: 400;
 }
 
-.c1 {
-  font-size: var(--typ-p-lg-fs);
-  line-height: var(--typ-p-lg-lh);
+.c4 {
+  font-size: var(--typ-h-xl-fs);
+  line-height: var(--typ-h-xl-lh);
+  -webkit-letter-spacing: var(--typ-h-xl-ls);
+  -moz-letter-spacing: var(--typ-h-xl-ls);
+  -ms-letter-spacing: var(--typ-h-xl-ls);
+  letter-spacing: var(--typ-h-xl-ls);
 }
 
-.c2 {
+.c6 {
+  font-size: var(--typ-p-sm-fs);
+  line-height: var(--typ-p-sm-lh);
+}
+
+.c9 {
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+}
+
+.c10 {
   font-style: italic;
   font-synthesis: none;
 }
 
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: undefined !important;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 4px 4px var(--neutral_05_op025);
+}
+
+.c7:disabled {
+  opacity: 0.6;
+  -webkit-filter: saturate(60%);
+  filter: saturate(60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: not-allowed;
+}
+
+.c7:active {
+  box-shadow: 0 1px 1px var(--neutral_05_op025);
+}
+
+.c8 {
+  color: var(--accent_02);
+  background-color: var(--accent_05);
+  outline: var(--neutral_03) 1px solid;
+  min-width: var(--btn-md-mw);
+  min-height: var(--btn-md-mh);
+  padding: var(--btn-md-p);
+  border-radius: var(--btn-md-br);
+  font-size: var(--btn-lbl-md-fs);
+  line-height: var(--btn-lbl-md-lh);
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  border-radius: 2px;
+  background-color: var(--secondary_01);
+  box-shadow: 0 4px 4px var(--neutral_10_op05);
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.c2 {
+  --padding: 4px;
+  padding: var(--padding);
+  -webkit-transform: scale(2) translateY(calc(-50% + var(--padding) / 2));
+  -ms-transform: scale(2) translateY(calc(-50% + var(--padding) / 2));
+  transform: scale(2) translateY(calc(-50% + var(--padding) / 2));
+  border-radius: 50%;
+  fill: var(--neutral_01);
+  background-color: var(--accent_05);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c0 {
+    width: 80%;
+    min-width: 60px;
+    max-width: 400px;
+    box-sizing: border-box;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 24px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 300;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<div
+    className="c0 c1 generic-container "
+  >
+    <svg
+      className="c2"
+    >
+      icon-close_24dp.svg
+    </svg>
+    <h1
+      className="c3 c4"
+    >
+      Error!
+    </h1>
+    <p
+      className="c5 c6"
+    />
+    <button
+      aria-label="close modal"
+      className="c7 c8 button app-button alert-btn"
+      title="close modal button"
+      type="button"
+    >
+      <span
+        className="c9"
+      >
+        <span
+          className="c10"
+        >
+          OK
+        </span>
+      </span>
+    </button>
+  </div>,
+]
+`;
+
+exports[`Storyshots Components/UI/ShowData Default Show Data 1`] = `
+.c1 {
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 4px 4px var(--neutral_05_op025);
+  font-variation-settings: 'wght' 600;
+  font-weight: 700;
+}
+
+.c5 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
+}
+
+.c2 {
+  font-size: var(--typ-h-md-fs);
+  line-height: var(--typ-h-md-lh);
+  -webkit-letter-spacing: var(--typ-h-md-ls);
+  -moz-letter-spacing: var(--typ-h-md-ls);
+  -ms-letter-spacing: var(--typ-h-md-ls);
+  letter-spacing: var(--typ-h-md-ls);
+}
+
+.c6 {
+  font-size: var(--typ-p-md-fs);
+  line-height: var(--typ-p-md-lh);
+}
+
+.c3 {
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+}
+
+.c4 {
+  font-style: italic;
+  font-synthesis: none;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (min-width:de) {
+  .c1 {
+    -webkit-align-self: flex-start;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<div
+  className="c0 generic-container "
+>
+  <h1
+    className="c1 c2"
+  >
+    <span
+      className="c3"
+    >
+      <span
+        className="c4"
+      >
+        Field title
+      </span>
+    </span>
+  </h1>
+  <p
+    className="c5 c6"
+  >
+    Field value
+  </p>
+</div>
+`;
+
+exports[`Storyshots Components/UI/SideBar Default Side Bar 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: undefined !important;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+
+.c0:disabled {
+  opacity: 0.6;
+  -webkit-filter: saturate(60%);
+  filter: saturate(60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: not-allowed;
+}
+
+.c0:active {
+  box-shadow: none;
+}
+
+.c1 {
+  width: 36px;
+  height: 26px;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-shadow: none;
+  background-color: transparent;
+  outline: var(--neutral_06) 2px solid;
+}
+
+.c1.appear-active#show-side-driver-btn,
+.c1.enter-active#show-side-driver-btn,
+.c1.enter-done#show-side-driver-btn {
+  -webkit-animation-name: iHsNqv;
+  animation-name: iHsNqv;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.c1.appear-active#hide-side-driver-btn,
+.c1.enter-active#hide-side-driver-btn,
+.c1.enter-done#hide-side-driver-btn {
+  -webkit-animation-name: camtMz;
+  animation-name: camtMz;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.c1.exit-active#show-side-driver-btn {
+  -webkit-animation-name: jpMGBj;
+  animation-name: jpMGBj;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.c1.exit-active#hide-side-driver-btn {
+  -webkit-animation-name: jpMGBj;
+  animation-name: jpMGBj;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.c1 div {
+  width: 100%;
+  height: 4px;
+  background-color: var(--secondary_01);
+  box-shadow: 0 4px 4px var(--neutral_05_op025);
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+.c1 div:first-child {
+  -webkit-transform: rotate(0) translateY(0);
+  -ms-transform: rotate(0) translateY(0);
+  transform: rotate(0) translateY(0);
+}
+
+.c1 div:nth-child(2) {
+  opacity: 1;
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+}
+
+.c1 div:nth-child(3) {
+  -webkit-transform: rotate(0) translateY(0);
+  -ms-transform: rotate(0) translateY(0);
+  transform: rotate(0) translateY(0);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<button
+  aria-label="open side drawer menu button"
+  className="c0 c1 button hamburger-button button"
+  id="show-side-driver-btn"
+  onClick={[Function]}
+  role="button"
+  title="open sidebar button"
+  type="button"
+>
+  <div />
+  <div />
+  <div />
+</button>
+`;
+
+exports[`Storyshots Components/UI/SideDrawer Default Side Drawer 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  border-radius: 10px;
+  background-color: var(--primary_01);
+  box-sizing: border-box;
+}
+
+@media screen and (min-width:de) {
+  .c0 {
+    max-width: 100%;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 16px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 200;
+  }
+}
+
+@media screen and (min-width:xs) {
+  .c0 {
+    max-width: 70%;
+  }
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<div
+  className="c0 c1 generic-container "
+/>
+`;
+
+exports[`Storyshots Components/UI/Typography/Display Default Display 1 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+  font-size: var(--typ-d-1-fs);
+  line-height: var(--typ-d-1-lh);
+  -webkit-letter-spacing: var(--typ-d-1-ls);
+  -moz-letter-spacing: var(--typ-d-1-ls);
+  -ms-letter-spacing: var(--typ-d-1-ls);
+  letter-spacing: var(--typ-d-1-ls);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<h1
+  className="c0"
+>
+  Display1
+</h1>
+`;
+
+exports[`Storyshots Components/UI/Typography/Display Default Display 2 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+  font-size: var(--typ-d-2-fs);
+  line-height: var(--typ-d-2-lh);
+  -webkit-letter-spacing: var(--typ-d-2-ls);
+  -moz-letter-spacing: var(--typ-d-2-ls);
+  -ms-letter-spacing: var(--typ-d-2-ls);
+  letter-spacing: var(--typ-d-2-ls);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<h1
+  className="c0"
+>
+  Display2
+</h1>
+`;
+
+exports[`Storyshots Components/UI/Typography/Display Default Display 3 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+  font-size: var(--typ-d-3-fs);
+  line-height: var(--typ-d-3-lh);
+  -webkit-letter-spacing: var(--typ-d-3-ls);
+  -moz-letter-spacing: var(--typ-d-3-ls);
+  -ms-letter-spacing: var(--typ-d-3-ls);
+  letter-spacing: var(--typ-d-3-ls);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<h2
+  className="c0"
+>
+  Display3
+</h2>
+`;
+
+exports[`Storyshots Components/UI/Typography/Heading Default Heading Extra Large 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 600;
+  font-weight: 700;
+}
+
+.c1 {
+  font-size: var(--typ-h-xl-fs);
+  line-height: var(--typ-h-xl-lh);
+  -webkit-letter-spacing: var(--typ-h-xl-ls);
+  -moz-letter-spacing: var(--typ-h-xl-ls);
+  -ms-letter-spacing: var(--typ-h-xl-ls);
+  letter-spacing: var(--typ-h-xl-ls);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<h1
+  className="c0 c1"
+>
+  HeadingExtraLarge
+</h1>
+`;
+
+exports[`Storyshots Components/UI/Typography/Heading Default Heading Extra Small 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 600;
+  font-weight: 700;
+}
+
+.c1 {
+  font-size: var(--typ-h-xs-fs);
+  line-height: var(--typ-h-xs-lh);
+  -webkit-letter-spacing: var(--typ-h-xs-ls);
+  -moz-letter-spacing: var(--typ-h-xs-ls);
+  -ms-letter-spacing: var(--typ-h-xs-ls);
+  letter-spacing: var(--typ-h-xs-ls);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<h1
+  className="c0 c1"
+>
+  HeadingExtraSmall
+</h1>
+`;
+
+exports[`Storyshots Components/UI/Typography/Heading Default Heading Large 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 600;
+  font-weight: 700;
+}
+
+.c1 {
+  font-size: var(--typ-h-lg-fs);
+  line-height: var(--typ-h-lg-lh);
+  -webkit-letter-spacing: var(--typ-h-lg-ls);
+  -moz-letter-spacing: var(--typ-h-lg-ls);
+  -ms-letter-spacing: var(--typ-h-lg-ls);
+  letter-spacing: var(--typ-h-lg-ls);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<h1
+  className="c0 c1"
+>
+  HeadingLarge
+</h1>
+`;
+
+exports[`Storyshots Components/UI/Typography/Heading Default Heading Medium 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 600;
+  font-weight: 700;
+}
+
+.c1 {
+  font-size: var(--typ-h-md-fs);
+  line-height: var(--typ-h-md-lh);
+  -webkit-letter-spacing: var(--typ-h-md-ls);
+  -moz-letter-spacing: var(--typ-h-md-ls);
+  -ms-letter-spacing: var(--typ-h-md-ls);
+  letter-spacing: var(--typ-h-md-ls);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<h1
+  className="c0 c1"
+>
+  HeadingMedium
+</h1>
+`;
+
+exports[`Storyshots Components/UI/Typography/Heading Default Heading Small 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 600;
+  font-weight: 700;
+}
+
+.c1 {
+  font-size: var(--typ-h-sm-fs);
+  line-height: var(--typ-h-sm-lh);
+  -webkit-letter-spacing: var(--typ-h-sm-ls);
+  -moz-letter-spacing: var(--typ-h-sm-ls);
+  -ms-letter-spacing: var(--typ-h-sm-ls);
+  letter-spacing: var(--typ-h-sm-ls);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<h1
+  className="c0 c1"
+>
+  HeadingSmall
+</h1>
+`;
+
+exports[`Storyshots Components/UI/Typography/Label Default Label Large 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
+}
+
+.c1 {
+  font-size: var(--typ-lbl-lg-fs);
+  line-height: var(--typ-lbl-lg-lh);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<label
+  className="c0 c1"
+>
+  LabelLarge
+</label>
+`;
+
+exports[`Storyshots Components/UI/Typography/Label Default Label Medium 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
+}
+
+.c1 {
+  font-size: var(--typ-lbl-md-fs);
+  line-height: var(--typ-lbl-md-lh);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<label
+  className="c0 c1"
+>
+  LabelMedium
+</label>
+`;
+
+exports[`Storyshots Components/UI/Typography/Label Default Label Small 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
+}
+
+.c1 {
+  font-size: var(--typ-lbl-sm-fs);
+  line-height: var(--typ-lbl-sm-lh);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<label
+  className="c0 c1"
+>
+  LabelSmall
+</label>
+`;
+
+exports[`Storyshots Components/UI/Typography/NavLink Default Nav Icon 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+}
+
+.c0.active {
+  -webkit-filter: none;
+  filter: none;
+  pointer-events: none;
+  border-bottom: 2px solid var(--secondary_01);
+}
+
+.c0 svg {
+  width: var(--nvi-w);
+  height: var(--nvi-h);
+  fill: var(--secondary_01);
+}
+
+.c0 svg:hover {
+  -webkit-filter: none;
+  filter: none;
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<a
+  aria-label="ariaLabel"
+  className="c0 navigation-icon"
+  href="/"
+  onClick={[Function]}
+>
+  <svg>
+    icon-home_24dp.svg
+  </svg>
+</a>
+`;
+
+exports[`Storyshots Components/UI/Typography/NavLink Default Nav Link Extra Small 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 500;
+  font-weight: 600;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--neutral_07);
+}
+
+.c0:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-shadow: none;
+}
+
+.c0.active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-shadow: none;
+  pointer-events: none;
+}
+
+.c1 {
+  font-size: var(--typ-ln-xs-fs);
+  line-height: var(--typ-ln-xs-lh);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<a
+  aria-label="ariaLabel"
+  className="c0 c1 navigation-link"
+  href="/"
+  onClick={[Function]}
+>
+  NavLinkExtraSmall
+</a>
+`;
+
+exports[`Storyshots Components/UI/Typography/NavLink Default Nav Link Large 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 500;
+  font-weight: 600;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--neutral_07);
+}
+
+.c0:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-shadow: none;
+}
+
+.c0.active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-shadow: none;
+  pointer-events: none;
+}
+
+.c1 {
+  font-size: var(--typ-ln-lg-fs);
+  line-height: var(--typ-ln-lg-lh);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<a
+  aria-label="ariaLabel"
+  className="c0 c1 navigation-link"
+  href="/"
+  onClick={[Function]}
+>
+  NavLinkLarge
+</a>
+`;
+
+exports[`Storyshots Components/UI/Typography/NavLink Default Nav Link Medium 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 500;
+  font-weight: 600;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--neutral_07);
+}
+
+.c0:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-shadow: none;
+}
+
+.c0.active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-shadow: none;
+  pointer-events: none;
+}
+
+.c1 {
+  font-size: var(--typ-ln-md-fs);
+  line-height: var(--typ-ln-md-lh);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<a
+  aria-label="ariaLabel"
+  className="c0 c1 navigation-link"
+  href="/"
+  onClick={[Function]}
+>
+  NavLinkMedium
+</a>
+`;
+
+exports[`Storyshots Components/UI/Typography/NavLink Default Nav Link Small 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 500;
+  font-weight: 600;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--neutral_07);
+}
+
+.c0:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-shadow: none;
+}
+
+.c0.active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-shadow: none;
+  pointer-events: none;
+}
+
+.c1 {
+  font-size: var(--typ-ln-sm-fs);
+  line-height: var(--typ-ln-sm-lh);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<a
+  aria-label="ariaLabel"
+  className="c0 c1 navigation-link"
+  href="/"
+  onClick={[Function]}
+>
+  NavLinkSmall
+</a>
+`;
+
+exports[`Storyshots Components/UI/Typography/Paragraph Default Paragraph Extra Small 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
+}
+
+.c1 {
+  font-size: var(--typ-p-xs-fs);
+  line-height: var(--typ-p-xs-lh);
+}
+
 @media screen and (min-width:de) {
 
 }
@@ -841,10 +3299,270 @@ exports[`Storyshots ParagraphLarge Styled 1`] = `
 <p
   className="c0 c1"
 >
-  <span
-    className="c2"
-  >
-    Styled ParagraphLarge
-  </span>
+  ParagraphExtraSmall
 </p>
+`;
+
+exports[`Storyshots Components/UI/Typography/Paragraph Default Paragraph Large 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
+}
+
+.c1 {
+  font-size: var(--typ-p-lg-fs);
+  line-height: var(--typ-p-lg-lh);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<p
+  className="c0 c1"
+>
+  ParagraphLarge
+</p>
+`;
+
+exports[`Storyshots Components/UI/Typography/Paragraph Default Paragraph Medium 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
+}
+
+.c1 {
+  font-size: var(--typ-p-md-fs);
+  line-height: var(--typ-p-md-lh);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<p
+  className="c0 c1"
+>
+  ParagraphMedium
+</p>
+`;
+
+exports[`Storyshots Components/UI/Typography/Paragraph Default Paragraph Small 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
+}
+
+.c1 {
+  font-size: var(--typ-p-sm-fs);
+  line-height: var(--typ-p-sm-lh);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<p
+  className="c0 c1"
+>
+  ParagraphSmall
+</p>
+`;
+
+exports[`Storyshots Components/UI/Typography/Span Default Span Large 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
+}
+
+.c1 {
+  font-size: var(--typ-spn-lg-fs);
+  line-height: var(--typ-spn-lg-lh);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<span
+  className="c0 c1"
+>
+  SpanLarge
+</span>
+`;
+
+exports[`Storyshots Components/UI/Typography/Span Default Span Medium 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
+}
+
+.c1 {
+  font-size: var(--typ-spn-md-fs);
+  line-height: var(--typ-spn-md-lh);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<span
+  className="c0 c1"
+>
+  SpanMedium
+</span>
+`;
+
+exports[`Storyshots Components/UI/Typography/Span Default Span Small 1`] = `
+.c0 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
+}
+
+.c1 {
+  font-size: var(--typ-spn-sm-fs);
+  line-height: var(--typ-spn-sm-lh);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<span
+  className="c0 c1"
+>
+  SpanSmall
+</span>
 `;

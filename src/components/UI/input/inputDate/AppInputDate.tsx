@@ -1,15 +1,14 @@
-import { FC, InputHTMLAttributes, LabelHTMLAttributes, SVGProps } from 'react';
+import { ComponentPropsWithoutRef, FC, SVGProps } from 'react';
 import { InputDate } from './InputDate';
 import { InputWrapper } from '../InputWrapper';
 
-interface AppInputDateProps extends InputHTMLAttributes<HTMLInputElement> {
-  id: InputHTMLAttributes<HTMLInputElement>['id'];
+interface AppInputDateProps extends ComponentPropsWithoutRef<'input'> {
   IconSVG?: FC<SVGProps<SVGSVGElement>>;
-  $label?: LabelHTMLAttributes<HTMLLabelElement>['htmlFor'];
+  $label?: string;
   selected: Date | null;
   onChange: (val: any) => void;
-  onBlur: () => void;
   onClick: () => void;
+  className?: string;
 }
 
 export const AppInputDate = ({
@@ -17,11 +16,12 @@ export const AppInputDate = ({
   IconSVG,
   $label,
   onClick,
+  className,
   ...otherProps
 }: AppInputDateProps): JSX.Element => {
   return (
     <InputWrapper
-      className="app-input-date"
+      className={['app-input-date', className].join(' ')}
       id={id}
       IconSVG={IconSVG}
       $label={$label}

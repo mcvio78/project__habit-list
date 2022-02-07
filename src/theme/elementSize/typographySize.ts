@@ -57,8 +57,8 @@ export const typographySize = css`
     --typ-h-sm-fs: 16px;
     --typ-h-sm-lh: 20px;
 
-    --typ-h-xs-fs: 16px;
-    --typ-h-xs-lh: 20px;
+    --typ-h-xs-fs: 14px;
+    --typ-h-xs-lh: 18px;
   }
 
   p {

@@ -1,15 +1,19 @@
-import { forwardRef, ForwardedRef, useRef } from 'react';
+import { forwardRef, ForwardedRef, useRef, ReactNode } from 'react';
 import styled, { css, keyframes } from 'styled-components/macro';
 import { CSSTransition } from 'react-transition-group';
 
 import { Container } from '../layout';
-import { AppButtonHamburger } from './buttons';
-import { NavigationItems } from './navigation';
+import { AppButtonHamburger } from './button';
 
 interface SideDrawerProps {
+  /** open side drawer */
   isOpen: boolean;
+  /** side drawer callback function */
   setIsOpen: () => void;
+  /** animate side drawer with react transitions */
   $animated?: boolean;
+  /** children element */
+  children: string | ReactNode;
 }
 
 interface SideDrawerAnimatedProps {
@@ -70,11 +74,10 @@ const SideDrawerStyled = styled(Container)<SideDrawerAnimatedProps>`
 
 export const SideDrawer = forwardRef(
   (
-    { isOpen, setIsOpen, $animated }: SideDrawerProps,
+    { isOpen, setIsOpen, $animated, children }: SideDrawerProps,
     ref: ForwardedRef<HTMLDivElement>,
   ): JSX.Element => {
     const AppButtonHamburgerCloseRef = useRef<HTMLButtonElement>(null);
-    const NavigationItemsRef = useRef<HTMLInputElement>(null);
 
     return (
       <SideDrawerStyled
@@ -109,16 +112,7 @@ export const SideDrawer = forwardRef(
             id="hide-side-driver-btn"
           />
         </CSSTransition>
-        <CSSTransition
-          in={isOpen}
-          timeout={{ enter: 3000, exit: 3000 }}
-          mountOnEnter
-          unmountOnExit
-          appear
-          nodeRef={NavigationItemsRef}
-        >
-          <NavigationItems $animated ref={NavigationItemsRef} />
-        </CSSTransition>
+        {children}
       </SideDrawerStyled>
     );
   },

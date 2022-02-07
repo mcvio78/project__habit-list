@@ -38,7 +38,7 @@
     "check-types": "tsc -p tsconfig.json",
     "pre-commit-lint": "yarn lint-staged",
     "prepare": "husky install",
-    "storybook": "start-storybook -p 6006 -s public",
+    "storybook": "start-storybook -p 6006 -s public --no-open",
     "build-storybook": "build-storybook -s public"
   },
   "browserslist": {
@@ -64,7 +64,8 @@
     "@storybook/addon-storyshots": "^6.4.7",
     "@storybook/node-logger": "^6.4.4",
     "@storybook/preset-create-react-app": "^3.2.0",
-    "@storybook/react": "^6.4.4",
+    "@storybook/react": "^6.4.18",
+    "@storybook/react-docgen-typescript-plugin": "^1.0.1",
     "@stylelint/postcss-css-in-js": "^0.37.2",
     "@types/react-datepicker": "^4.3.4",
     "@types/react-router-dom": "^5.3.3",

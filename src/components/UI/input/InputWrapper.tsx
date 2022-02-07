@@ -8,9 +8,9 @@ import {
 import styled from 'styled-components/macro';
 
 import { ReactComponent as CloseSVG } from '../../../assets/icons/icon-close_24dp.svg';
-import { Container } from '../../layout/Container';
+import { Container } from '../../layout';
 import { LabelLarge } from '../Typography';
-import { Button } from '../button/Button';
+import { Button } from '../button';
 
 export interface InputWrapperProps
   extends Omit<ComponentPropsWithoutRef<'input'>, 'onClick'> {

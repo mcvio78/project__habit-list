@@ -1,7 +1,7 @@
 import { FC, SVGProps } from 'react';
 import { useFormikContext, FormikProps } from 'formik';
 
-import { AppInputDate } from '../UI/input/inputDate/AppInputDate';
+import { AppInputDate } from '../UI/input/inputDate';
 import { AppFormInputError } from './AppFormInputError';
 import { Container } from '../layout';
 import { resetFormFieldValue } from '../../utility/utils';

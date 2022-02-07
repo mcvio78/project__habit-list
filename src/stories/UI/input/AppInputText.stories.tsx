@@ -3,7 +3,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { AppInputText } from '../../../components/UI/input/inputText';
-import { Container } from '../../../components/layout/Container';
+import { Container } from '../../../components/layout';
 import { ReactComponent as EmailSVG } from '../../../assets/icons/icon-email_24dp.svg';
 
 export default {

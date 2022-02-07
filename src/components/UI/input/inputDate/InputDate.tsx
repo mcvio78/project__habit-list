@@ -1,12 +1,11 @@
-import { InputHTMLAttributes } from 'react';
+import { ComponentPropsWithoutRef } from 'react';
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
-export interface InputDateProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface InputDateProps extends ComponentPropsWithoutRef<'input'> {
   selected: Date | null;
-  onBlur?: () => void;
   onChange: (val: any) => void;
 }
 

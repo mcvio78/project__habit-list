@@ -15,8 +15,15 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "suppressImplicitAnyIndexErrors": true,
+    "suppressImplicitAnyIndexErrors": true
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
-  "exclude": ["node_modules/**", "config/**", "build/**", "backend/**"]
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.stories.tsx"],
+  "exclude": [
+    "node_modules/**",
+    "config/**",
+    "build/**",
+    "backend/**",
+    ".storybook/**",
+    ".husky/**"
+  ]
 }

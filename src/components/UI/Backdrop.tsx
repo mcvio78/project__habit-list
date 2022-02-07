@@ -1,4 +1,4 @@
-import { forwardRef, ForwardedRef } from 'react';
+import { forwardRef, ForwardedRef, ComponentPropsWithoutRef } from 'react';
 import styled, { keyframes, css } from 'styled-components/macro';
 
 interface BackdropAnimatedProps {
@@ -52,9 +52,12 @@ export const AnimatedCSS = css`
   }
 `;
 
-export const BackdropStyled = styled.div.attrs(props => ({
+export const BackdropStyled = styled.div.attrs<
+  ComponentPropsWithoutRef<'button'>
+>(props => ({
   role: props.role || 'button',
   tabIndex: props.tabIndex || 0,
+  className: ['checkbox', props.className].join(' '),
 }))<BackdropAnimatedProps>`
   width: 100%;
   height: 100%;

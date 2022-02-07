@@ -1,12 +1,15 @@
-import { ForwardedRef, forwardRef, PropsWithChildren } from 'react';
+import {
+  ComponentPropsWithoutRef,
+  ForwardedRef,
+  forwardRef,
+  PropsWithChildren,
+} from 'react';
 import styled, { css, keyframes } from 'styled-components/macro';
 
 import { Button, ButtonProps } from './Button';
 
 interface AppButtonHamburgerContainerProps extends ButtonProps {
-  /** open button state (prop) */
   isOpen: boolean;
-  /** animate with transition group */
   $animated?: boolean;
 }
 
@@ -86,10 +89,12 @@ const AnimatedCSS = css`
   }
 `;
 
-export const AppButtonHamburgerContainer = styled(Button).attrs({
-  className: 'hamburger-button',
-  role: 'button',
-})<AppButtonHamburgerContainerProps>`
+export const AppButtonHamburgerContainer = styled(Button).attrs<
+  ComponentPropsWithoutRef<'button'>
+>(props => ({
+  className: ['hamburger-button', props.className].join(' '),
+  role: props.role || 'button',
+}))<AppButtonHamburgerContainerProps>`
   width: 36px;
   height: 26px;
   flex-shrink: 0;

@@ -4,9 +4,7 @@ import { Container, ContainerProps } from '../layout';
 import { Display1, ParagraphLarge, It } from './Typography';
 
 interface HeaderProps {
-  /** Page header */
   $header: string | JSX.Element;
-  /** Page sub header */
   $subHeader?: string;
 }
 

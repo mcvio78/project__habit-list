@@ -2,15 +2,17 @@ import { Container } from '../layout';
 import { B, HeadingMedium, It, ParagraphMedium } from './Typography';
 
 interface ShowDataProps {
+  /** data field title */
   fieldTitle: string;
-  fieldValue: string | undefined;
+  /** data field value */
+  fieldValue: string;
 }
 
 export const ShowData = ({
   fieldTitle,
   fieldValue,
 }: ShowDataProps): JSX.Element | null => {
-  if (!fieldTitle || !fieldValue) return null;
+  if (!fieldValue) return null;
   return (
     <Container $fd={{ de: 'column' }} $ai={{ de: 'flex-start' }}>
       <HeadingMedium $flxAs={{ de: 'flex-start' }} $txtSdw>

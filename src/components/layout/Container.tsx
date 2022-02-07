@@ -128,7 +128,7 @@ const styleBreakpointProps = (
   `;
 
 export const Container = styled.div.attrs(props => ({
-  className: props.className || 'generic-container',
+  className: ['generic-container', props.className].join(' '),
 }))<ContainerProps>`
   display: ${'flex'};
   ${styleBreakpointProps(BREAKPOINTS.de, 'de')};

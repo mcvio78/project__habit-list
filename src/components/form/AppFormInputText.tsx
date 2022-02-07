@@ -1,14 +1,18 @@
-import { FC, SVGProps, InputHTMLAttributes, LabelHTMLAttributes } from 'react';
+import {
+  FC,
+  SVGProps,
+  LabelHTMLAttributes,
+  ComponentPropsWithoutRef,
+} from 'react';
 import { useFormikContext, FormikProps } from 'formik';
 
-import { AppInputText } from '../UI/input/InputText';
+import { AppInputText } from '../UI/input/inputText';
 import { AppFormInputError } from './AppFormInputError';
 import { Container } from '../layout';
 import { resetFormFieldValue } from '../../utility/utils';
 
-interface AppFormInputTextProps extends InputHTMLAttributes<HTMLInputElement> {
-  type: InputHTMLAttributes<HTMLInputElement>['type'];
-  id: InputHTMLAttributes<HTMLInputElement>['id'];
+interface AppFormInputTextProps
+  extends Omit<ComponentPropsWithoutRef<'input'>, 'onClick'> {
   name: string;
   IconSVG?: FC<SVGProps<SVGSVGElement>>;
   $label?: LabelHTMLAttributes<HTMLLabelElement>['htmlFor'];

@@ -9,7 +9,15 @@ export default {
   component: Modal,
 } as ComponentMeta<typeof Modal>;
 
-export const DefaultModal: ComponentStory<typeof Modal> = ({
-  showModal = true,
-  ...args
-}) => <Modal showModal={showModal} {...args} />;
+const Template: ComponentStory<typeof Modal> = args => <Modal {...args} />;
+
+export const DefaultModal = Template.bind({});
+DefaultModal.args = {
+  showModal: true,
+};
+
+export const ModalWithNotification = Template.bind({});
+ModalWithNotification.args = {
+  showModal: true,
+  modalMessage: 'error message',
+};

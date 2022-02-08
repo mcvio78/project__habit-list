@@ -9,7 +9,12 @@ export default {
   component: ShowData,
 } as ComponentMeta<typeof ShowData>;
 
-export const DefaultShowData: ComponentStory<typeof ShowData> = ({
-  fieldTitle = 'Field title',
-  fieldValue = 'Field value',
-}) => <ShowData fieldTitle={fieldTitle} fieldValue={fieldValue} />;
+const Template: ComponentStory<typeof ShowData> = args => (
+  <ShowData {...args} />
+);
+
+export const DefaultShowData = Template.bind({});
+DefaultShowData.args = {
+  fieldTitle: 'Field title',
+  fieldValue: 'Field value',
+};

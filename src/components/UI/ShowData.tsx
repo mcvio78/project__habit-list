@@ -2,9 +2,7 @@ import { Container } from '../layout';
 import { B, HeadingMedium, It, ParagraphMedium } from './Typography';
 
 interface ShowDataProps {
-  /** data field title */
   fieldTitle: string;
-  /** data field value */
   fieldValue: string;
 }
 

@@ -9,11 +9,8 @@ import { ReactComponent as CloseSVG } from '../../assets/icons/icon-close_24dp.s
 import { useKeyEvent } from '../../hooks/useKeyEvent';
 
 interface ModalProps {
-  /** show/hide modal */
   showModal: boolean;
-  /** modal callback function */
   modalCallback: () => void;
-  /** modal notification message */
   modalMessage: string;
 }
 

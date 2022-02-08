@@ -1,22 +1,17 @@
+import { AriaAttributes } from 'react';
 import styled, { css } from 'styled-components/macro';
 import { NavLink, NavLinkProps } from 'react-router-dom';
 
 import { styledMargin, StyledMarginProps } from '../../utility/UI/styledMargin';
 
-interface CommonStyleProps extends StyledMarginProps {
-  /** font text shadow */
+interface CommonStyleProps extends StyledMarginProps, AriaAttributes {
   $txtSdw?: boolean;
-  /** overwrite default font color */
   $txtClr?: string;
 }
 
-export interface NavLinkCommonProps extends NavLinkProps, CommonStyleProps {
-  /** aria-label attribute - required */
-  'aria-label': string;
-}
+export interface NavLinkCommonProps extends NavLinkProps, CommonStyleProps {}
 
 interface NavLinkIconProps extends NavLinkCommonProps {
-  /** NavLink active class */
   $iconSdw?: boolean;
 }
 

@@ -6,13 +6,9 @@ import { Container } from '../layout';
 import { AppButtonHamburger } from './button';
 
 interface SideDrawerProps {
-  /** open side drawer */
   isOpen: boolean;
-  /** side drawer callback function */
   setIsOpen: () => void;
-  /** animate side drawer with react transitions */
   $animated?: boolean;
-  /** children element */
   children: string | ReactNode;
 }
 

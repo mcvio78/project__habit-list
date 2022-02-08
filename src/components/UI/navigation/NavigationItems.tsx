@@ -96,14 +96,14 @@ export const NavigationItems = forwardRef(
           $pl={{ de: 0 }}
         >
           {user && (
-            <NavigationItem link="/account" ariaLabel="user account">
+            <NavigationItem to="/account" aria-label="user account">
               Account
             </NavigationItem>
           )}
-          <NavigationItem link="/ui" ariaLabel="application style">
+          <NavigationItem to="/ui" aria-label="application style">
             UI Style
           </NavigationItem>
-          <NavigationItem link="/settings" ariaLabel="application settings">
+          <NavigationItem to="/settings" aria-label="application settings">
             Settings
           </NavigationItem>
         </Container>

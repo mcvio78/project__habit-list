@@ -1,23 +1,23 @@
 import { ReactNode } from 'react';
+import { NavLinkProps } from 'react-router-dom';
 
 import { NavLinkLarge } from '../Typography';
 
-interface NavigationItemProps {
+interface NavigationItemProps extends NavLinkProps {
   children: ReactNode;
-  link: string;
-  ariaLabel: string;
 }
 
 export const NavigationItem = ({
   children,
-  link,
-  ariaLabel,
+  className,
+  ...otherProps
 }: NavigationItemProps): JSX.Element => {
   return (
-    <li style={{ listStyleType: 'none' }}>
-      <NavLinkLarge to={link} aria-label={ariaLabel}>
-        {children}
-      </NavLinkLarge>
+    <li
+      style={{ listStyleType: 'none' }}
+      className={['navigation-item', className].join(' ')}
+    >
+      <NavLinkLarge {...otherProps}>{children}</NavLinkLarge>
     </li>
   );
 };

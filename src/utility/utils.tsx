@@ -29,9 +29,10 @@ export const isSSR = !(
 
 export const resetFormFieldValue = (
   value: string | boolean | number | Date,
-): string | boolean | null | undefined => {
+): string | boolean | null => {
   if (typeof value === 'string') return '';
   if (typeof value === 'boolean') return false;
   if (typeof value === 'number') return null;
   if (Object.prototype.toString.call(value) === '[object Date]') return null;
+  return null;
 };

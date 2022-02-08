@@ -1,48 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components/UI/Backdrop Animated Backdrop 1`] = `null`;
-
-exports[`Storyshots Components/UI/Backdrop Default Backdrop 1`] = `null`;
-
-exports[`Storyshots Components/UI/Button Default App Button 1`] = `
+exports[`Storyshots Components/Form App Form Input Error Message 1`] = `
 .c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  background-color: undefined !important;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: none;
-  box-shadow: none;
+  margin: 0;
+  text-align: center;
+  color: var(--semantic_error_01);
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
 }
 
-.c1:disabled {
-  opacity: 0.6;
-  -webkit-filter: saturate(60%);
-  filter: saturate(60%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: not-allowed;
-}
-
-.c1:active {
-  box-shadow: none;
+.c2 {
+  font-size: var(--typ-p-md-fs);
+  line-height: var(--typ-p-md-lh);
 }
 
 .c0 {
@@ -53,7 +22,9 @@ exports[`Storyshots Components/UI/Button Default App Button 1`] = `
 }
 
 @media screen and (min-width:de) {
-
+  .c1 {
+    margin: 6px;
+  }
 }
 
 @media screen and (min-width:xs) {
@@ -134,6 +105,148 @@ exports[`Storyshots Components/UI/Button Default App Button 1`] = `
     }
   }
 >
+  <p
+    className="c1 c2"
+  >
+    error message
+  </p>
+</div>
+`;
+
+exports[`Storyshots Components/UI/Backdrop Animated Backdrop 1`] = `null`;
+
+exports[`Storyshots Components/UI/Backdrop Default Backdrop 1`] = `null`;
+
+exports[`Storyshots Components/UI/Button Default App Button 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: undefined !important;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+
+.c1:disabled {
+  opacity: 0.6;
+  -webkit-filter: saturate(60%);
+  filter: saturate(60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: not-allowed;
+}
+
+.c1:active {
+  box-shadow: none;
+}
+
+@media screen and (min-width:de) {
+  .c0 {
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<div
+  className="c0 generic-container "
+  style={
+    Object {
+      "backgroundColor": "var(--primary_01)",
+    }
+  }
+>
   <button
     aria-label="App button"
     className="c1 button app-button"
@@ -146,6 +259,13 @@ exports[`Storyshots Components/UI/Button Default App Button 1`] = `
 `;
 
 exports[`Storyshots Components/UI/Button Default App Button Hamburger 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -229,15 +349,10 @@ exports[`Storyshots Components/UI/Button Default App Button Hamburger 1`] = `
   transform: rotate(0) translateY(0);
 }
 
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 @media screen and (min-width:de) {
-
+  .c0 {
+    padding: 30px;
+  }
 }
 
 @media screen and (min-width:xs) {
@@ -261,9 +376,7 @@ exports[`Storyshots Components/UI/Button Default App Button Hamburger 1`] = `
 }
 
 @media screen and (min-width:de) {
-  .c0 {
-    padding: 30px;
-  }
+
 }
 
 @media screen and (min-width:xs) {
@@ -1009,7 +1122,7 @@ exports[`Storyshots Components/UI/Header With Sub Header 1`] = `
 </header>
 `;
 
-exports[`Storyshots Components/UI/Input Default App Input Text 1`] = `
+exports[`Storyshots Components/UI/Input Default App Input Date 1`] = `
 .c2 {
   margin: 0;
   text-align: center;
@@ -1020,6 +1133,49 @@ exports[`Storyshots Components/UI/Input Default App Input Text 1`] = `
 .c3 {
   font-size: var(--typ-lbl-lg-fs);
   line-height: var(--typ-lbl-lg-lh);
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c6 .react-datepicker-wrapper {
+  color: var(--neutral_14);
+}
+
+.c6 .react-datepicker-wrapper .react-datepicker__input-container input {
+  min-width: 60px;
+  min-height: 28px;
+  padding: 0 5px;
+  border: none;
+  -webkit-flex: 1 0;
+  -ms-flex: 1 0;
+  flex: 1 0;
+  font-style: inherit;
+  font-variation-settings: 'wght' 500;
+  font-weight: 500;
+  line-height: 0;
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+  color: var(--neutral_08);
 }
 
 .c7 {
@@ -1062,45 +1218,6 @@ exports[`Storyshots Components/UI/Input Default App Input Text 1`] = `
   box-shadow: none;
 }
 
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.c4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.c6 {
-  min-width: 60px;
-  min-height: 28px;
-  padding: 0 5px;
-  border: none;
-  -webkit-flex: 1 0;
-  -ms-flex: 1 0;
-  flex: 1 0;
-  font-style: inherit;
-  font-variation-settings: 'wght' 500;
-  font-weight: 500;
-  line-height: 0;
-  color: var(--neutral_08);
-  background-color: transparent;
-  outline: none;
-  text-align: center;
-}
-
 .c5 {
   border: none;
   border-radius: 4px;
@@ -1125,30 +1242,6 @@ exports[`Storyshots Components/UI/Input Default App Input Text 1`] = `
     -ms-flex-item-align: start;
     align-self: flex-start;
   }
-}
-
-@media screen and (min-width:xs) {
-
-}
-
-@media screen and (min-width:sm) {
-
-}
-
-@media screen and (min-width:md) {
-
-}
-
-@media screen and (min-width:lg) {
-
-}
-
-@media screen and (min-width:xl) {
-
-}
-
-@media screen and (min-width:de) {
-
 }
 
 @media screen and (min-width:xs) {
@@ -1285,6 +1378,417 @@ exports[`Storyshots Components/UI/Input Default App Input Text 1`] = `
     justify-content: space-between;
     padding: 5px;
   }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<div
+  className="c0 generic-container "
+  style={
+    Object {
+      "backgroundColor": "var(--primary_01)",
+    }
+  }
+>
+  <div
+    className="c1 input-wrapper app-input-date  generic-container input-wrapper app-input-date "
+  >
+    <label
+      className="c2 c3"
+      htmlFor="app-input-date"
+    >
+      Input Date
+    </label>
+    <div
+      className="c4 c5 generic-container "
+    >
+      <svg>
+        icon-event_24dp.svg
+      </svg>
+      <div
+        className="c6 datepicker-restyle-wrapper"
+      >
+        <div
+          className="react-datepicker-wrapper"
+        >
+          <div
+            className="react-datepicker__input-container"
+          >
+            <input
+              className=""
+              disabled={false}
+              id="app-input-date"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
+              type="text"
+              value="02/08/2022"
+            />
+          </div>
+        </div>
+      </div>
+      <button
+        aria-label="reset form field"
+        className="c7 button"
+        title="reset"
+        type="button"
+      >
+        <svg
+          onClick={[Function]}
+        >
+          icon-close_24dp.svg
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components/UI/Input Default App Input Text 1`] = `
+.c2 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
+}
+
+.c3 {
+  font-size: var(--typ-lbl-lg-fs);
+  line-height: var(--typ-lbl-lg-lh);
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: var(--secondary_03) !important;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+
+.c7:disabled {
+  opacity: 0.6;
+  -webkit-filter: saturate(60%);
+  filter: saturate(60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: not-allowed;
+}
+
+.c7:active {
+  box-shadow: none;
+}
+
+.c5 {
+  border: none;
+  border-radius: 4px;
+  outline: 2px solid var(--accent_04);
+  background-color: var(--secondary_01);
+}
+
+.c5:focus-within {
+  outline: 3px solid var(--accent_04);
+}
+
+.c5 svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--neutral_09);
+  fill-opacity: 0.2;
+}
+
+.c6 {
+  min-width: 60px;
+  min-height: 28px;
+  padding: 0 5px;
+  border: none;
+  -webkit-flex: 1 0;
+  -ms-flex: 1 0;
+  flex: 1 0;
+  font-style: inherit;
+  font-variation-settings: 'wght' 500;
+  font-weight: 500;
+  line-height: 0;
+  color: var(--neutral_08);
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+}
+
+@media screen and (min-width:de) {
+  .c2 {
+    -webkit-align-self: flex-start;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c0 {
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c1 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c4 {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 5px;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
 }
 
 @media screen and (min-width:xs) {
@@ -1482,7 +1986,7 @@ exports[`Storyshots Components/UI/Input Default Input Date 1`] = `
           onKeyDown={[Function]}
           readOnly={false}
           type="text"
-          value="02/07/2022"
+          value="02/08/2022"
         />
       </div>
     </div>
@@ -1758,6 +2262,13 @@ Array [
   font-synthesis: none;
 }
 
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .c7 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1810,13 +2321,6 @@ Array [
   line-height: var(--btn-lbl-md-lh);
 }
 
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 .c1 {
   border-radius: 2px;
   background-color: var(--secondary_01);
@@ -1835,30 +2339,6 @@ Array [
   border-radius: 50%;
   fill: var(--neutral_01);
   background-color: var(--accent_05);
-}
-
-@media screen and (min-width:de) {
-
-}
-
-@media screen and (min-width:xs) {
-
-}
-
-@media screen and (min-width:sm) {
-
-}
-
-@media screen and (min-width:md) {
-
-}
-
-@media screen and (min-width:lg) {
-
-}
-
-@media screen and (min-width:xl) {
-
 }
 
 @media screen and (min-width:de) {
@@ -1979,6 +2459,30 @@ Array [
 
 }
 
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
 <div
     className="c0 c1 generic-container "
   >
@@ -2013,6 +2517,662 @@ Array [
     </button>
   </div>,
 ]
+`;
+
+exports[`Storyshots Components/UI/Modal Modal With Notification 1`] = `
+Array [
+  .c0 {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background-color: var(--neutral_10_op05);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<div
+    className="c0 checkbox "
+    onKeyDown={[Function]}
+    role="button"
+    tabIndex={0}
+  />,
+  .c3 {
+  margin: 0;
+  text-align: center;
+  color: var(--neutral_11);
+  font-variation-settings: 'wght' 600;
+  font-weight: 700;
+}
+
+.c5 {
+  margin: 0;
+  text-align: center;
+  color: var(--neutral_12);
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
+}
+
+.c4 {
+  font-size: var(--typ-h-xl-fs);
+  line-height: var(--typ-h-xl-lh);
+  -webkit-letter-spacing: var(--typ-h-xl-ls);
+  -moz-letter-spacing: var(--typ-h-xl-ls);
+  -ms-letter-spacing: var(--typ-h-xl-ls);
+  letter-spacing: var(--typ-h-xl-ls);
+}
+
+.c6 {
+  font-size: var(--typ-p-sm-fs);
+  line-height: var(--typ-p-sm-lh);
+}
+
+.c9 {
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+}
+
+.c10 {
+  font-style: italic;
+  font-synthesis: none;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: undefined !important;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 4px 4px var(--neutral_05_op025);
+}
+
+.c7:disabled {
+  opacity: 0.6;
+  -webkit-filter: saturate(60%);
+  filter: saturate(60%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: not-allowed;
+}
+
+.c7:active {
+  box-shadow: 0 1px 1px var(--neutral_05_op025);
+}
+
+.c8 {
+  color: var(--accent_02);
+  background-color: var(--accent_05);
+  outline: var(--neutral_03) 1px solid;
+  min-width: var(--btn-md-mw);
+  min-height: var(--btn-md-mh);
+  padding: var(--btn-md-p);
+  border-radius: var(--btn-md-br);
+  font-size: var(--btn-lbl-md-fs);
+  line-height: var(--btn-lbl-md-lh);
+}
+
+.c1 {
+  border-radius: 2px;
+  background-color: var(--secondary_01);
+  box-shadow: 0 4px 4px var(--neutral_10_op05);
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.c2 {
+  --padding: 4px;
+  padding: var(--padding);
+  -webkit-transform: scale(2) translateY(calc(-50% + var(--padding) / 2));
+  -ms-transform: scale(2) translateY(calc(-50% + var(--padding) / 2));
+  transform: scale(2) translateY(calc(-50% + var(--padding) / 2));
+  border-radius: 50%;
+  fill: var(--neutral_01);
+  background-color: var(--accent_05);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c0 {
+    width: 80%;
+    min-width: 60px;
+    max-width: 400px;
+    box-sizing: border-box;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 24px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 300;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<div
+    className="c0 c1 generic-container "
+  >
+    <svg
+      className="c2"
+    >
+      icon-close_24dp.svg
+    </svg>
+    <h1
+      className="c3 c4"
+    >
+      Error!
+    </h1>
+    <p
+      className="c5 c6"
+    >
+      error message
+    </p>
+    <button
+      aria-label="close modal"
+      className="c7 c8 button app-button alert-btn"
+      title="close modal button"
+      type="button"
+    >
+      <span
+        className="c9"
+      >
+        <span
+          className="c10"
+        >
+          OK
+        </span>
+      </span>
+    </button>
+  </div>,
+]
+`;
+
+exports[`Storyshots Components/UI/Navigation Default Navigation Items 1`] = `
+.c2 {
+  margin: 0;
+  text-align: center;
+  font-variation-settings: 'wght' 500;
+  font-weight: 600;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--neutral_07);
+}
+
+.c2:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-shadow: none;
+}
+
+.c2.active {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-shadow: none;
+  pointer-events: none;
+}
+
+.c3 {
+  font-size: var(--typ-ln-lg-fs);
+  line-height: var(--typ-ln-lg-lh);
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0.appear-active ul li,
+.c0.appear-done ul li,
+.c0.enter-active ul li,
+.c0.enter-done ul li {
+  -webkit-animation-name: bVrwXC;
+  animation-name: bVrwXC;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.c0.exit-active {
+  -webkit-animation-name: hNnLGd;
+  animation-name: hNnLGd;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.c0.exit-active ul li a {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c1 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 10px;
+    padding-left: 0;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+  .c1 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width:md) {
+  .c1 {
+    gap: 24px;
+  }
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c1 {
+    margin: 20px 16px;
+  }
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+  .c1 {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+<nav
+  className="c0"
+>
+  <ul
+    className="c1 generic-container "
+  >
+    <li
+      className="navigation-item "
+      style={
+        Object {
+          "listStyleType": "none",
+        }
+      }
+    >
+      <a
+        aria-label="user account"
+        className="c2 c3 navigation-link"
+        href="/account"
+        onClick={[Function]}
+      >
+        Account
+      </a>
+    </li>
+    <li
+      className="navigation-item "
+      style={
+        Object {
+          "listStyleType": "none",
+        }
+      }
+    >
+      <a
+        aria-label="application style"
+        className="c2 c3 navigation-link"
+        href="/ui"
+        onClick={[Function]}
+      >
+        UI Style
+      </a>
+    </li>
+    <li
+      className="navigation-item "
+      style={
+        Object {
+          "listStyleType": "none",
+        }
+      }
+    >
+      <a
+        aria-label="application settings"
+        className="c2 c3 navigation-link"
+        href="/settings"
+        onClick={[Function]}
+      >
+        Settings
+      </a>
+    </li>
+  </ul>
+</nav>
 `;
 
 exports[`Storyshots Components/UI/ShowData Default Show Data 1`] = `
@@ -2437,7 +3597,9 @@ exports[`Storyshots Components/UI/SideDrawer Default Side Drawer 1`] = `
 
 <div
   className="c0 c1 generic-container "
-/>
+>
+  SideDrawer Children
+</div>
 `;
 
 exports[`Storyshots Components/UI/Typography/Display Default Display 1 1`] = `

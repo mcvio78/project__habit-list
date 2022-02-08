@@ -1,3 +1,4 @@
+import { ComponentPropsWithoutRef } from 'react';
 import { useFormikContext } from 'formik';
 
 import { AppFormInputError } from './AppFormInputError';
@@ -5,11 +6,10 @@ import { Container } from '../layout';
 import { AppCheckbox } from '../UI/checkbox/';
 import { resetFormFieldValue } from '../../utility/utils';
 
-interface AppFormCheckboxProps {
+interface AppFormCheckboxProps
+  extends Omit<ComponentPropsWithoutRef<'input'>, 'value'> {
   name: string;
-  value: string | null | any;
-  id: string;
-  disabled?: boolean;
+  value: string | number | boolean | Date;
   $labelText: string;
   $showError?: boolean;
 }

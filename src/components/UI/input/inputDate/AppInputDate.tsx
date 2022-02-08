@@ -1,13 +1,19 @@
-import { ComponentPropsWithoutRef, FC, SVGProps } from 'react';
+import {
+  ComponentPropsWithoutRef,
+  FC,
+  SVGProps,
+  MouseEventHandler,
+} from 'react';
 import { InputDate } from './InputDate';
 import { InputWrapper } from '../InputWrapper';
 
-interface AppInputDateProps extends ComponentPropsWithoutRef<'input'> {
+interface AppInputDateProps
+  extends Omit<ComponentPropsWithoutRef<'input'>, 'onClick'> {
   IconSVG?: FC<SVGProps<SVGSVGElement>>;
   $label?: string;
   selected: Date | null;
   onChange: (val: any) => void;
-  onClick: () => void;
+  onClick: MouseEventHandler<SVGSVGElement> | undefined;
   className?: string;
 }
 

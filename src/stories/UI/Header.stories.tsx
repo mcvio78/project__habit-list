@@ -9,13 +9,15 @@ export default {
   component: Header,
 } as ComponentMeta<typeof Header>;
 
-export const DefaultHeader: ComponentStory<typeof Header> = ({
-  $header,
-  ...args
-}) => <Header $header="Headline" {...args} />;
+const Template: ComponentStory<typeof Header> = args => <Header {...args} />;
 
-export const WithSubHeader: ComponentStory<typeof Header> = ({
-  $header,
-  $subHeader,
-  ...args
-}) => <Header $header="Headline" $subHeader="Subheadline" {...args} />;
+export const DefaultHeader = Template.bind({});
+DefaultHeader.args = {
+  $header: 'Headline',
+};
+
+export const WithSubHeader = Template.bind({});
+WithSubHeader.args = {
+  $header: 'Headline',
+  $subHeader: 'Subheadline',
+};

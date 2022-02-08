@@ -11,9 +11,7 @@ export default {
   component: SideDrawer,
 } as ComponentMeta<typeof SideDrawer>;
 
-export const DefaultSideDrawer: ComponentStory<typeof SideDrawer> = ({
-  ...args
-}) => (
+export const DefaultSideDrawer: ComponentStory<typeof SideDrawer> = args => (
   <MemoryRouter>
     <AuthContext.Provider
       // eslint-disable-next-line
@@ -36,7 +34,7 @@ export const DefaultSideDrawer: ComponentStory<typeof SideDrawer> = ({
         themeState: ['theme', () => {}],
       }}
     >
-      <SideDrawer {...args} />
+      <SideDrawer {...args}>SideDrawer Children</SideDrawer>
     </AuthContext.Provider>
   </MemoryRouter>
 );

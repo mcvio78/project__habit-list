@@ -1,16 +1,22 @@
+const Yup = require('yup');
+
 const db = require('../models');
 const ROLES = db.ROLES;
 const User = db.user;
 
-const emailRegexp =
-  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+const checkEmailValidity = async (req, res, next) => {
+  const { email } = req.body;
 
-checkEmailValidity = (req, res, next) => {
-  if (!emailRegexp.test(req.email)) {
-    res.status(409).send({ message: 'Failed! Email is not a valid email!' });
+  try {
+    await Yup.string()
+    .required('Email is required')
+    .email()
+    .label('Email')
+    .validate(email);
+    return next();
+  } catch (err) {
+    return res.status(500).json({ type: err.name, message: err.message });
   }
-
-  next();
 };
 
 checkDuplicateUsernameOrEmail = (req, res, next) => {

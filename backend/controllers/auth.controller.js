@@ -15,7 +15,7 @@ crateToken = user => {
     },
     config.secret,
     {
-      expiresIn: '20000',
+      expiresIn: '2000000',
       issuer: 'auth-backend',
       subject: 'email',
       audience: 'web-frontend',
@@ -39,56 +39,29 @@ exports.signup = async (req, res) => {
       password: encryptedPassword,
     });
 
-    user.save((err, user) => {
-      if (err) {
-        return res.status(500).send({ message: err });
-      }
+    await user.save(user);
 
-      if (req.body.roles) {
-        Role.find(
-          {
-            name: { $in: req.body.roles },
-          },
-          (err, roles) => {
-            if (err) {
-              return res.status(500).send({ message: err });
-            }
+    if (req.body.roles) {
+      const roles = await Role.find({ name: { $in: req.body.roles } });
+      user.roles = roles.map(role => role._id);
+      await user.save;
+      const token = crateToken(user);
 
-            user.roles = roles.map(role => role._id);
-            user.save(err => {
-              if (err) {
-                return res.status(500).send({ message: err });
-              }
+      res.status(201).json({ token });
+    } else {
+      const role = await Role.findOne({ name: 'user' });
+      user.roles = [role._id];
+      await user.save;
+      const token = crateToken(user);
 
-              const token = crateToken(user);
-
-              res.status(201).json({ token });
-            });
-          },
-        );
-      } else {
-        Role.findOne({ name: 'user' }, (err, role) => {
-          if (err) {
-            return res.status(500).send({ message: err });
-          }
-
-          user.roles = [role._id];
-          user.save(err => {
-            if (err) {
-              return res.status(500).send({ message: err });
-            }
-
-            const token = crateToken(user);
-
-            res
-              .status(201)
-              .json({ token, message: 'User was registered successfully!' });
-          });
-        });
-      }
-    });
+      res
+        .status(201)
+        .json({ token, message: 'User was registered successfully!' });
+    }
   } catch (err) {
-    console.log(err);
+    res.status(500).send({
+      message: err.message || 'Some error occurred while registering user.',
+    });
   }
 };
 
@@ -123,6 +96,8 @@ exports.signin = async (req, res) => {
       res.status(201).json({ token });
     }
   } catch (err) {
-    console.log(err);
+    res.status(500).send({
+      message: err.message || 'Some error occurred while authenticating user.',
+    });
   }
 };

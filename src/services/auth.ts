@@ -2,24 +2,28 @@ import { AxiosResponse } from 'axios';
 
 import { apiClient } from './client';
 
+interface RegisterUserCredentials {
+  username: string;
+  email: string;
+  password: string;
+}
+
+interface LoginUserCredentials {
+  username: string;
+  password: string;
+}
+
 const registerEndpoint = '/api/auth/signup';
 const register = (
-  username: string,
-  email: string,
-  password: string,
+  registerUserCredentials: RegisterUserCredentials,
 ): Promise<AxiosResponse> =>
-  apiClient.post(registerEndpoint, {
-    username,
-    email,
-    password,
-  });
+  apiClient.post(registerEndpoint, registerUserCredentials);
 
 const loginEndpoint = '/api/auth/signin';
-const login = (username: string, password: string): Promise<AxiosResponse> =>
-  apiClient.post(loginEndpoint, {
-    username,
-    password,
-  });
+const login = (
+  loginUserCredentials: LoginUserCredentials,
+): Promise<AxiosResponse> =>
+  apiClient.post(loginEndpoint, loginUserCredentials);
 
 const tokenValidityEndpoint = '/api/token';
 const checkTokenValidity = async (): Promise<boolean> => {

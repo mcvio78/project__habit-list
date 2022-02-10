@@ -17,6 +17,7 @@ require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
 require('./routes/validity.routes')(app);
 require('./routes/notFound.routes')(app);
+require('./routes/habit.routes')(app);
 
 const { SERVER_PORT } = process.env;
 const PORT = SERVER_PORT || 8080;

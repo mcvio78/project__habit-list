@@ -9,48 +9,41 @@ const checkEmailValidity = async (req, res, next) => {
 
   try {
     await Yup.string()
-    .required('Email is required')
-    .email()
-    .label('Email')
-    .validate(email);
+      .required('Email is required')
+      .email()
+      .label('Email')
+      .validate(email);
     return next();
   } catch (err) {
     return res.status(500).json({ type: err.name, message: err.message });
   }
 };
 
-checkDuplicateUsernameOrEmail = (req, res, next) => {
+checkDuplicateUsernameOrEmail = async (req, res, next) => {
   const { username, email } = req.body;
+  console.log('username: ', username);
 
-  User.findOne({
-    username: username,
-  }).exec((err, user) => {
-    if (err) {
-      res.status(500).send({ message: err });
-      return;
-    }
-
-    if (user) {
+  try {
+    const existingUser = await User.findOne({ username: username });
+    if (existingUser) {
       res.status(409).send({ message: 'Failed! Username is already in use!' });
       return;
     }
 
-    User.findOne({
-      email: email,
-    }).exec((err, user) => {
-      if (err) {
-        res.status(500).send({ message: err });
-        return;
-      }
+    const existingEmail = await User.findOne({ email: email });
+    if (existingEmail) {
+      res.status(409).send({ message: 'Failed! Email is already in use!' });
+      return;
+    }
 
-      if (user) {
-        res.status(409).send({ message: 'Failed! Email is already in use!' });
-        return;
-      }
-
-      next();
+    next();
+  } catch (err) {
+    res.status(500).send({
+      message:
+        err.message ||
+        'Some error occurred while checking username or email validity.',
     });
-  });
+  }
 };
 
 checkRolesExisted = (req, res, next) => {

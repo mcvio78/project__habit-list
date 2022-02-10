@@ -69,14 +69,20 @@ export const Auth = (): JSX.Element => {
 
   const submitFormHandler = useCallback(
     async (userValues: FormikValues) => {
-      const registerFormData = [
-        userValues.userName,
-        userValues.email,
-        userValues.password,
-      ];
-      const loginFormData = [userValues.userName, userValues.password];
-      const submitData = isSignUp ? registerFormData : loginFormData;
-      const response = await request(...submitData);
+      const registerUserFormData = {
+        username: userValues.userName,
+        email: userValues.email,
+        password: userValues.password,
+      };
+      const loginUserFormData = {
+        username: userValues.userName,
+        password: userValues.password,
+      };
+
+      const submitUserData = isSignUp
+        ? registerUserFormData
+        : loginUserFormData;
+      const response = await request(submitUserData);
 
       if (
         (response?.status === 200 || 201 || 204) &&

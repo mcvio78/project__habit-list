@@ -20,6 +20,9 @@ import {
   HeadingLarge,
   B,
 } from '../components/UI/Typography';
+import { useAPI } from '../hooks/useApi';
+import { habitAPI } from '../services/habit';
+import { Modal } from '../components/UI/Modal';
 
 const validationSchemaHabit = Yup.object().shape({
   habitType: Yup.string().required('Habit type is required').label('HabitType'),
@@ -35,7 +38,7 @@ const validationSchemaHabit = Yup.object().shape({
         .required('Amount is required')
         .label('HabitAmount'),
     }),
-  habitDate: Yup.date()
+  expirationDate: Yup.date()
     .nullable()
     .required('Date is required')
     .label('StartDate'),
@@ -46,7 +49,7 @@ export interface InitialValuesCreate {
   habitName: string;
   targetType: 'min' | 'max' | '';
   targetAmount: number | null;
-  habitDate: Date | null;
+  expirationDate: Date | null;
 }
 
 export const initialValuesCreate: InitialValuesCreate = {
@@ -54,17 +57,28 @@ export const initialValuesCreate: InitialValuesCreate = {
   habitName: '',
   targetType: '',
   targetAmount: null,
-  habitDate: null,
+  expirationDate: null,
 };
 
 export const Create = (): JSX.Element => {
-  const submitFormHandler = useCallback(async (habitValues: FormikValues) => {
-    /* eslint-disable */
-    console.log('habitValues: ', habitValues);
-  }, []);
+  const { request, setErrorMessage, errorMessage } = useAPI(
+    habitAPI.createHabit,
+  );
+
+  const submitFormHandler = useCallback(
+    async (habitValues: FormikValues) => {
+      request(habitValues);
+    },
+    [request],
+  );
 
   return (
     <PageLayout>
+      <Modal
+        showModal={!!errorMessage}
+        modalCallback={() => setErrorMessage('')}
+        modalMessage={errorMessage}
+      />
       <Toolbar>
         <p>Something here?</p>
       </Toolbar>
@@ -116,7 +130,7 @@ export const Create = (): JSX.Element => {
                   autoCapitalize="off"
                   spellCheck={false}
                 />
-                {values['habitType'] === 'toDo' && (
+                {values.habitType === 'toDo' && (
                   <Container $fd={{ de: 'column' }} $g={{ de: '12px' }}>
                     <Container $fd={{ de: 'column' }}>
                       <HeadingLarge>...and my target is:</HeadingLarge>
@@ -133,7 +147,7 @@ export const Create = (): JSX.Element => {
                         name="targetType"
                         value="min"
                         $labelText="Min"
-                        disabled={values['habitType'] === 'avoid'}
+                        disabled={values.habitType === 'avoid'}
                         $showError={false}
                       />
                       <AppFormCheckbox
@@ -141,10 +155,10 @@ export const Create = (): JSX.Element => {
                         name="targetType"
                         value="max"
                         $labelText="Max"
-                        disabled={values['habitType'] === 'avoid'}
+                        disabled={values.habitType === 'avoid'}
                       />
                     </Container>
-                    {values['targetType'] !== '' && (
+                    {values.targetType !== '' && (
                       <AppFormInputText
                         type="number"
                         id="targetAmount"
@@ -161,7 +175,7 @@ export const Create = (): JSX.Element => {
               <AppFormInputDate
                 type="date"
                 id="habit-date"
-                name="habitDate"
+                name="expirationDate"
                 IconSVG={EventSVG}
                 $label="Select a Date"
                 placeholder="Select a Date"

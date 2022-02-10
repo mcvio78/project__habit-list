@@ -21,7 +21,6 @@ const checkEmailValidity = async (req, res, next) => {
 
 checkDuplicateUsernameOrEmail = async (req, res, next) => {
   const { username, email } = req.body;
-  console.log('username: ', username);
 
   try {
     const existingUser = await User.findOne({ username: username });

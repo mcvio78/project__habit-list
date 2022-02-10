@@ -12,8 +12,12 @@ const User = mongoose.model(
         ref: 'Role',
       },
     ],
+    habits: {
+      daily: [],
+      weekly: [],
+      monthly: [],
+    },
   }),
 );
 
 module.exports = User;
-

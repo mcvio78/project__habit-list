@@ -32,13 +32,13 @@ const initial = async () => {
     const count = await Role.estimatedDocumentCount();
 
     if (count === 0) {
-      await new Role({ name: 'user' });
+      await new Role({ name: 'user' }).save();
       console.log("added 'user' to roles collection");
 
-      await new Role({ name: 'moderator' });
+      await new Role({ name: 'moderator' }).save();
       console.log("added 'moderator' to roles collection");
 
-      await new Role({ name: 'admin' });
+      await new Role({ name: 'admin' }).save();
       console.log("added 'admin' to roles collection");
     }
   } catch (err) {

@@ -1491,7 +1491,7 @@ exports[`Storyshots Components/UI/Input Default App Input Date 1`] = `
               onKeyDown={[Function]}
               readOnly={false}
               type="text"
-              value="02/10/2022"
+              value="02/12/2022"
             />
           </div>
         </div>
@@ -1986,7 +1986,7 @@ exports[`Storyshots Components/UI/Input Default Input Date 1`] = `
           onKeyDown={[Function]}
           readOnly={false}
           type="text"
-          value="02/10/2022"
+          value="02/12/2022"
         />
       </div>
     </div>
@@ -2222,7 +2222,7 @@ Array [
     role="button"
     tabIndex={0}
   />,
-  .c3 {
+  .c2 {
   margin: 0;
   text-align: center;
   color: var(--neutral_11);
@@ -2230,7 +2230,7 @@ Array [
   font-weight: 700;
 }
 
-.c5 {
+.c4 {
   margin: 0;
   text-align: center;
   color: var(--neutral_12);
@@ -2238,7 +2238,7 @@ Array [
   font-weight: 400;
 }
 
-.c4 {
+.c3 {
   font-size: var(--typ-h-xl-fs);
   line-height: var(--typ-h-xl-lh);
   -webkit-letter-spacing: var(--typ-h-xl-ls);
@@ -2247,17 +2247,17 @@ Array [
   letter-spacing: var(--typ-h-xl-ls);
 }
 
-.c6 {
+.c5 {
   font-size: var(--typ-p-sm-fs);
   line-height: var(--typ-p-sm-lh);
 }
 
-.c9 {
+.c8 {
   font-variation-settings: 'wght' 700;
   font-weight: 700;
 }
 
-.c10 {
+.c9 {
   font-style: italic;
   font-synthesis: none;
 }
@@ -2269,7 +2269,7 @@ Array [
   display: flex;
 }
 
-.c7 {
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2294,7 +2294,7 @@ Array [
   box-shadow: 0 4px 4px var(--neutral_05_op025);
 }
 
-.c7:disabled {
+.c6:disabled {
   opacity: 0.6;
   -webkit-filter: saturate(60%);
   filter: saturate(60%);
@@ -2305,11 +2305,11 @@ Array [
   cursor: not-allowed;
 }
 
-.c7:active {
+.c6:active {
   box-shadow: 0 1px 1px var(--neutral_05_op025);
 }
 
-.c8 {
+.c7 {
   color: var(--accent_02);
   background-color: var(--accent_05);
   outline: var(--neutral_03) 1px solid;
@@ -2328,17 +2328,6 @@ Array [
   -webkit-transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
-}
-
-.c2 {
-  --padding: 4px;
-  padding: var(--padding);
-  -webkit-transform: scale(2) translateY(calc(-50% + var(--padding) / 2));
-  -ms-transform: scale(2) translateY(calc(-50% + var(--padding) / 2));
-  transform: scale(2) translateY(calc(-50% + var(--padding) / 2));
-  border-radius: 50%;
-  fill: var(--neutral_01);
-  background-color: var(--accent_05);
 }
 
 @media screen and (min-width:de) {
@@ -2486,30 +2475,23 @@ Array [
 <div
     className="c0 c1 generic-container "
   >
-    <svg
-      className="c2"
-    >
-      icon-close_24dp.svg
-    </svg>
     <h1
-      className="c3 c4"
-    >
-      Error!
-    </h1>
+      className="c2 c3"
+    />
     <p
-      className="c5 c6"
+      className="c4 c5"
     />
     <button
       aria-label="close modal"
-      className="c7 c8 button app-button alert-btn"
+      className="c6 c7 button app-button alert-btn"
       title="close modal button"
       type="button"
     >
       <span
-        className="c9"
+        className="c8"
       >
         <span
-          className="c10"
+          className="c9"
         >
           OK
         </span>
@@ -2653,6 +2635,7 @@ Array [
 
 <div
     className="c0 checkbox "
+    onClick={[Function]}
     onKeyDown={[Function]}
     role="button"
     tabIndex={0}
@@ -2929,16 +2912,17 @@ Array [
     <h1
       className="c3 c4"
     >
-      Error!
+       Error!
     </h1>
     <p
       className="c5 c6"
     >
-      error message
+      Error
     </p>
     <button
       aria-label="close modal"
       className="c7 c8 button app-button alert-btn"
+      onClick={[Function]}
       title="close modal button"
       type="button"
     >

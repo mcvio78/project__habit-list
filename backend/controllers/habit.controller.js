@@ -26,8 +26,9 @@ exports.create = async (req, res) => {
       expirationDate: expirationDate,
     });
 
-    const data = await habit.save(habit);
-    res.send(data);
+    const createdHabit = await habit.save(habit);
+    res.statusMessage = 'Habit was created successfully!';
+    res.status(201).send(createdHabit);
   } catch (err) {
     res.status(500).send({
       message: err.message || 'Some error occurred while creating the Habit.',

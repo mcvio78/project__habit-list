@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import * as Yup from 'yup';
 import { FormikValues } from 'formik';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { PageLayout, Container } from '../components/layout';
 import { Header } from '../components/UI/Header';
@@ -58,8 +58,9 @@ const initialValuesRegister: InitialValuesRegister = {
 export const Auth = (): JSX.Element => {
   const [isSignUp, setIsSignUp] = useState(true);
   const { user, logIn } = useAuth();
+  const navigate = useNavigate();
 
-  const { request, setErrorMessage, errorMessage } = useAPI(
+  const { request, status, setStatus, message, setMessage } = useAPI(
     isSignUp ? authAPI.register : authAPI.login,
   );
 
@@ -88,7 +89,7 @@ export const Auth = (): JSX.Element => {
         (response?.status === 200 || 201 || 204) &&
         response?.data !== undefined
       ) {
-        const token = response.data?.token;
+        const token = response.data;
         logIn(token);
       }
     },
@@ -98,9 +99,14 @@ export const Auth = (): JSX.Element => {
   return (
     <PageLayout>
       <Modal
-        showModal={!!errorMessage}
-        modalCallback={() => setErrorMessage('')}
-        modalMessage={errorMessage}
+        showModal={status !== null && !!message}
+        modalCallback={() => {
+          setStatus(null);
+          setMessage('');
+          if (user) navigate('/');
+        }}
+        status={status}
+        modalMessage={message}
       />
       <Toolbar>
         <NavLinkIcon
@@ -205,7 +211,6 @@ export const Auth = (): JSX.Element => {
           </AppButton>
         </Container>
       </Container>
-      {user && <Navigate to="/" />}
     </PageLayout>
   );
 };

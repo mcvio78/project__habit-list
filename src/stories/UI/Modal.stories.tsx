@@ -19,5 +19,7 @@ DefaultModal.args = {
 export const ModalWithNotification = Template.bind({});
 ModalWithNotification.args = {
   showModal: true,
-  modalMessage: 'error message',
+  modalCallback: () => {},
+  status: 500,
+  modalMessage: 'Error',
 };

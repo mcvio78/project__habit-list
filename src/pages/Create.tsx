@@ -61,7 +61,7 @@ export const initialValuesCreate: InitialValuesCreate = {
 };
 
 export const Create = (): JSX.Element => {
-  const { request, setErrorMessage, errorMessage } = useAPI(
+  const { request, status, setStatus, message, setMessage } = useAPI(
     habitAPI.createHabit,
   );
 
@@ -75,9 +75,13 @@ export const Create = (): JSX.Element => {
   return (
     <PageLayout>
       <Modal
-        showModal={!!errorMessage}
-        modalCallback={() => setErrorMessage('')}
-        modalMessage={errorMessage}
+        showModal={status !== null && !!message}
+        modalCallback={() => {
+          setStatus(null);
+          setMessage('');
+        }}
+        status={status}
+        modalMessage={message}
       />
       <Toolbar>
         <p>Something here?</p>

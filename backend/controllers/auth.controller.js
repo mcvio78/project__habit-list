@@ -93,7 +93,8 @@ exports.signin = async (req, res) => {
 
     if (user && (await bcrypt.compare(password, user.password))) {
       const token = crateToken(user);
-      res.status(201).json({ token });
+      res.statusMessage = 'User was authenticated successfully!';
+      res.status(201).send(token);
     }
   } catch (err) {
     res.status(500).send({

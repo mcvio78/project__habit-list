@@ -44,14 +44,14 @@ exports.signup = async (req, res) => {
     if (req.body.roles) {
       const roles = await Role.find({ name: { $in: req.body.roles } });
       user.roles = roles.map(role => role._id);
-      await user.save;
+      await user.save();
       const token = crateToken(user);
 
       res.status(201).json({ token });
     } else {
       const role = await Role.findOne({ name: 'user' });
       user.roles = [role._id];
-      await user.save;
+      await user.save();
       const token = crateToken(user);
 
       res.status(201);

@@ -1,5 +1,6 @@
 const db = require('../models');
 const Habit = db.habit;
+const User = db.user;
 
 exports.create = async (req, res) => {
   try {
@@ -18,19 +19,29 @@ exports.create = async (req, res) => {
       return res.status(400).send({ message: 'Target type is required.' });
     }
 
-    console.log('req.userId: ', req.userId);
+    if (User.findById(req.user.user_id)) {
+      const habit = new Habit({
+        habitType: habitType,
+        habitName: habitName,
+        targetType: targetType,
+        targetAmount: targetAmount,
+        expirationDate: expirationDate,
+        pending: true,
+        habitOwnerId: req.user.user_id,
+      });
 
-    const habit = new Habit({
-      habitType: habitType,
-      habitName: habitName,
-      targetType: targetType,
-      targetAmount: targetAmount,
-      expirationDate: expirationDate,
-    });
+      const createdHabit = await habit.save(habit);
 
-    const createdHabit = await habit.save(habit);
-    res.statusMessage = 'Habit was created successfully!';
-    res.status(201).send(createdHabit);
+      await User.findOneAndUpdate(
+        { _id: req.user.user_id },
+        { $push: { 'habits.daily': createdHabit._id } },
+      );
+
+      res.statusMessage = 'Habit was created successfully!';
+      res.status(201).send(createdHabit);
+    } else {
+      res.status(404).send({ message: "Failed! User ID doesn't exist." });
+    }
   } catch (err) {
     res.status(500).send({
       message: err.message || 'Some error occurred while creating the Habit.',

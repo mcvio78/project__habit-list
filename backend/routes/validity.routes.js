@@ -10,5 +10,5 @@ module.exports = app => {
     next();
   });
 
-  app.get('/api/token', authJwt.verifyToken, controller.tokenValidity);
+  app.get('/api/token-validate', authJwt.verifyToken, controller.tokenValidate);
 };

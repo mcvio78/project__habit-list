@@ -18,6 +18,8 @@ exports.create = async (req, res) => {
       return res.status(400).send({ message: 'Target type is required.' });
     }
 
+    console.log('req.userId: ', req.userId);
+
     const habit = new Habit({
       habitType: habitType,
       habitName: habitName,

@@ -54,9 +54,9 @@ exports.signup = async (req, res) => {
       await user.save;
       const token = crateToken(user);
 
-      res
-        .status(201)
-        .json({ token, message: 'User was registered successfully!' });
+      res.status(201);
+      res.statusMessage = 'User was registered successfully!';
+      res.status(201).send(`bearer ${token}`);
     }
   } catch (err) {
     res.status(500).send({
@@ -94,7 +94,7 @@ exports.signin = async (req, res) => {
     if (user && (await bcrypt.compare(password, user.password))) {
       const token = crateToken(user);
       res.statusMessage = 'User was authenticated successfully!';
-      res.status(201).send(token);
+      res.status(201).send(`bearer ${token}`);
     }
   } catch (err) {
     res.status(500).send({

@@ -25,7 +25,7 @@ const login = (
 ): Promise<AxiosResponse> =>
   apiClient.post(loginEndpoint, loginUserCredentials);
 
-const tokenValidityEndpoint = '/api/token';
+const tokenValidityEndpoint = '/api/token-validate';
 const checkTokenValidity = async (): Promise<boolean> => {
   const response = await apiClient.get(tokenValidityEndpoint);
   return response.status === 200;

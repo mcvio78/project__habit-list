@@ -1,4 +1,5 @@
 const controller = require('../controllers/habit.controller');
+const { authJwt } = require('../middlewares');
 
 module.exports = app => {
   app.use((req, res, next) => {
@@ -9,5 +10,5 @@ module.exports = app => {
     next();
   });
 
-  app.post('/api/habit/create', controller.create);
+  app.post('/api/habit/create', authJwt.verifyToken, controller.create);
 };

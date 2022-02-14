@@ -6,15 +6,26 @@ const Role = db.role;
 
 verifyToken = async (req, res, next) => {
   try {
-    let token = req.headers['x-access-token'];
+    if (req.headers['x-access-token']) {
+      const token = req.headers['x-access-token'].split(' ')[1];
 
-    if (!token) {
+      if (token) {
+        const payload = await jwt.verify(token, config.secret);
+
+        if (payload) {
+          req.user = payload;
+          next();
+        } else {
+          res.status(400).send({ message: 'token verification failed' });
+        }
+      } else {
+        res.status(400).send({ message: 'malformed auth header' });
+      }
+
+      console.log('token: ', token);
+    } else {
       return res.status(403).send({ message: 'No token provided!' });
     }
-
-    const { id } = await jwt.verify(token, config.secret);
-    req.userId = id;
-    next();
   } catch (err) {
     res.status(401).send({ message: 'Unauthorized!' });
   }

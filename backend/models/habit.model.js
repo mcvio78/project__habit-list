@@ -11,6 +11,7 @@ const Habit = mongoose.model(
       expirationDate: Date,
       pending: Boolean,
       state: String,
+      habitOwnerId: String,
     },
     { timestamps: true },
   ),

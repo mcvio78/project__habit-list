@@ -16,8 +16,8 @@ interface ModalProps {
   modalCallback: () => void;
   status: number | null;
   modalMessage: string;
-  navigateTo: string;
-  conditionToNavigate: boolean;
+  navigateTo?: string;
+  conditionToNavigate?: boolean;
 }
 
 const TextContainer = styled(Container)`
@@ -107,7 +107,7 @@ export const Modal = ({
             title="close modal button"
             onClick={() => {
               modalCallback();
-              if (conditionToNavigate) navigate(navigateTo);
+              if (conditionToNavigate && navigateTo) navigate(navigateTo);
             }}
           >
             <B>

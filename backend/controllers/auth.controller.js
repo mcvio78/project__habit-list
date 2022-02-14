@@ -9,7 +9,7 @@ const bcrypt = require('bcryptjs');
 crateToken = user => {
   return jwt.sign(
     {
-      user_id: user._id,
+      id: user._id,
       email: user.email,
       username: user.username,
     },

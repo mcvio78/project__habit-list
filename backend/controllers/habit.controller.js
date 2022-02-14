@@ -19,7 +19,7 @@ exports.create = async (req, res) => {
       return res.status(400).send({ message: 'Target type is required.' });
     }
 
-    if (User.findById(req.user.user_id)) {
+    if (User.findById(req.user.id)) {
       const habit = new Habit({
         habitType: habitType,
         habitName: habitName,
@@ -27,13 +27,13 @@ exports.create = async (req, res) => {
         targetAmount: targetAmount,
         expirationDate: expirationDate,
         pending: true,
-        habitOwnerId: req.user.user_id,
+        habitOwnerId: req.user.id,
       });
 
       const createdHabit = await habit.save(habit);
 
       await User.findOneAndUpdate(
-        { _id: req.user.user_id },
+        { _id: req.user.id },
         { $push: { 'habits.daily': createdHabit._id } },
       );
 

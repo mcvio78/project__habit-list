@@ -16,7 +16,7 @@ export const Account = (): JSX.Element => {
   const { user } = useAuth();
 
   const filteredAccount: FilteredAccountData = {
-    ID: user?.user_id || '',
+    ID: user?.id || '',
     Username: user?.username || '',
     Email: user?.email || '',
   };

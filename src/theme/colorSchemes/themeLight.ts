@@ -54,6 +54,7 @@ export const themeLight = css`
     --neutral_14: ${COLORS.boulder};
 
     --semantic_error_01: ${COLORS.ferrariRed};
+    --semantic_success_01: ${COLORS.lemonLime};
 
     background-color: var(--primary_02, white);
     color: var(--neutral_01, black);

@@ -19,10 +19,13 @@ import {
   HeadingExtraSmall,
   HeadingLarge,
   B,
+  NavLinkIcon,
 } from '../components/UI/Typography';
 import { useAPI } from '../hooks/useApi';
 import { habitAPI } from '../services/habit';
 import { Modal } from '../components/UI/Modal';
+import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';
+import { successStatus } from '../utility/request/statuses';
 
 const validationSchemaHabit = Yup.object().shape({
   habitType: Yup.string().required('Habit type is required').label('HabitType'),
@@ -82,9 +85,18 @@ export const Create = (): JSX.Element => {
         }}
         status={status}
         modalMessage={message}
+        navigateTo="/"
+        conditionToNavigate={successStatus(status)}
       />
       <Toolbar>
-        <p>Something here?</p>
+        <NavLinkIcon
+          to="/"
+          aria-label="navigation link to homepage"
+          $ml={{ de: 'auto' }}
+          $iconSdw
+        >
+          <HomeSVG />
+        </NavLinkIcon>
       </Toolbar>
       <Header $header="Create" $subHeader="Habit" />
       <Container

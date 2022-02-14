@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
 import * as Yup from 'yup';
 import { FormikValues } from 'formik';
-import { useNavigate } from 'react-router-dom';
 
 import { PageLayout, Container } from '../components/layout';
 import { Header } from '../components/UI/Header';
@@ -58,7 +57,6 @@ const initialValuesRegister: InitialValuesRegister = {
 export const Auth = (): JSX.Element => {
   const [isSignUp, setIsSignUp] = useState(true);
   const { user, logIn } = useAuth();
-  const navigate = useNavigate();
 
   const { request, status, setStatus, message, setMessage } = useAPI(
     isSignUp ? authAPI.register : authAPI.login,
@@ -103,10 +101,11 @@ export const Auth = (): JSX.Element => {
         modalCallback={() => {
           setStatus(null);
           setMessage('');
-          if (user) navigate('/');
         }}
         status={status}
         modalMessage={message}
+        navigateTo="/"
+        conditionToNavigate={!!user}
       />
       <Toolbar>
         <NavLinkIcon

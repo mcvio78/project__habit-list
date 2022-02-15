@@ -12,7 +12,7 @@ export interface User {
   nbf: number;
   permissions: string[];
   sub: string;
-  user_id: string;
+  id: string;
 }
 
 type UserState = [User | null, Dispatch<SetStateAction<null>>];

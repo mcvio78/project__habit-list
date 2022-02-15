@@ -1,5 +1,5 @@
+const controller = require('../controllers/habit.controller');
 const { authJwt } = require('../middlewares');
-const controller = require('../controllers/validity.controller');
 
 module.exports = app => {
   app.use((req, res, next) => {
@@ -10,5 +10,5 @@ module.exports = app => {
     next();
   });
 
-  app.get('/api/token-validate', authJwt.verifyToken, controller.tokenValidate);
+  app.post('/api/habit/create', authJwt.verifyToken, controller.create);
 };

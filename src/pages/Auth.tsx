@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
 import * as Yup from 'yup';
 import { FormikValues } from 'formik';
-import { Navigate } from 'react-router-dom';
 
 import { PageLayout, Container } from '../components/layout';
 import { Header } from '../components/UI/Header';
@@ -59,7 +58,7 @@ export const Auth = (): JSX.Element => {
   const [isSignUp, setIsSignUp] = useState(true);
   const { user, logIn } = useAuth();
 
-  const { request, setErrorMessage, errorMessage } = useAPI(
+  const { request, status, setStatus, message, setMessage } = useAPI(
     isSignUp ? authAPI.register : authAPI.login,
   );
 
@@ -69,20 +68,26 @@ export const Auth = (): JSX.Element => {
 
   const submitFormHandler = useCallback(
     async (userValues: FormikValues) => {
-      const registerFormData = [
-        userValues.userName,
-        userValues.email,
-        userValues.password,
-      ];
-      const loginFormData = [userValues.userName, userValues.password];
-      const submitData = isSignUp ? registerFormData : loginFormData;
-      const response = await request(...submitData);
+      const registerUserFormData = {
+        username: userValues.userName,
+        email: userValues.email,
+        password: userValues.password,
+      };
+      const loginUserFormData = {
+        username: userValues.userName,
+        password: userValues.password,
+      };
+
+      const submitUserData = isSignUp
+        ? registerUserFormData
+        : loginUserFormData;
+      const response = await request(submitUserData);
 
       if (
         (response?.status === 200 || 201 || 204) &&
         response?.data !== undefined
       ) {
-        const token = response.data?.token;
+        const token = response.data;
         logIn(token);
       }
     },
@@ -92,9 +97,15 @@ export const Auth = (): JSX.Element => {
   return (
     <PageLayout>
       <Modal
-        showModal={!!errorMessage}
-        modalCallback={() => setErrorMessage('')}
-        modalMessage={errorMessage}
+        showModal={status !== null && !!message}
+        modalCallback={() => {
+          setStatus(null);
+          setMessage('');
+        }}
+        status={status}
+        modalMessage={message}
+        navigateTo="/"
+        conditionToNavigate={!!user}
       />
       <Toolbar>
         <NavLinkIcon
@@ -199,7 +210,6 @@ export const Auth = (): JSX.Element => {
           </AppButton>
         </Container>
       </Container>
-      {user && <Navigate to="/" />}
     </PageLayout>
   );
 };

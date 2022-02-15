@@ -27,7 +27,7 @@ export const DefaultSideDrawer: ComponentStory<typeof SideDrawer> = args => (
             nbf: 1,
             permissions: [],
             sub: 'sub',
-            user_id: 'user_id',
+            id: 'user_id',
           },
           () => {},
         ],

@@ -1,17 +1,23 @@
 import { useCallback } from 'react';
-import styled from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
+import { useNavigate } from 'react-router-dom';
 
 import { Backdrop } from './Backdrop';
 import { Container } from '../layout';
 import { HeadingExtraLarge, ParagraphSmall, It, B } from './Typography';
 import { AppButton } from './button';
 import { ReactComponent as CloseSVG } from '../../assets/icons/icon-close_24dp.svg';
+import { ReactComponent as CheckSVG } from '../../assets/icons/icons-check_24dp.svg';
 import { useKeyEvent } from '../../hooks/useKeyEvent';
+import { successStatus, errorStatus } from '../../utility/request/statuses';
 
 interface ModalProps {
   showModal: boolean;
   modalCallback: () => void;
+  status: number | null;
   modalMessage: string;
+  navigateTo?: string;
+  conditionToNavigate?: boolean;
 }
 
 const TextContainer = styled(Container)`
@@ -21,20 +27,34 @@ const TextContainer = styled(Container)`
   transform: translate(-50%, -50%);
 `;
 
-const ErrorIcon = styled(CloseSVG)`
+const StyleIcon = css`
   --padding: 4px;
   padding: var(--padding);
   transform: scale(2) translateY(calc(-50% + var(--padding) / 2));
   border-radius: 50%;
   fill: var(--neutral_01);
+`;
+
+const SuccessIcon = styled(CheckSVG)`
+  ${StyleIcon};
+  background-color: var(--semantic_success_01);
+`;
+
+const ErrorIcon = styled(CloseSVG)`
+  ${StyleIcon};
   background-color: var(--accent_05);
 `;
 
 export const Modal = ({
   showModal,
   modalCallback,
+  status,
   modalMessage,
+  navigateTo,
+  conditionToNavigate,
 }: ModalProps): JSX.Element => {
+  const navigate = useNavigate();
+
   const onKeyDownHandler = useCallback(
     event => {
       if (event.defaultPrevented) {
@@ -70,20 +90,25 @@ export const Modal = ({
           $g={{ de: '12px' }}
           $bs={{ de: 'border-box' }}
         >
-          <ErrorIcon />
+          {successStatus(status) && <SuccessIcon />}
+          {errorStatus(status) && <ErrorIcon />}
           <HeadingExtraLarge $txtClr="var(--neutral_11)">
-            Error!
+            {successStatus(status) && ' Success!'}
+            {errorStatus(status) && ' Error!'}
           </HeadingExtraLarge>
           <ParagraphSmall $txtClr="var(--neutral_12)">
             {modalMessage}
           </ParagraphSmall>
           <AppButton
             $size="medium"
-            $variant="alert"
+            $variant={successStatus(status) ? 'flat' : 'alert'}
             $boxShadow
             aria-label="close modal"
             title="close modal button"
-            onClick={modalCallback}
+            onClick={() => {
+              modalCallback();
+              if (conditionToNavigate && navigateTo) navigate(navigateTo);
+            }}
           >
             <B>
               <It>OK</It>

@@ -17,6 +17,7 @@ require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
 require('./routes/validity.routes')(app);
 require('./routes/notFound.routes')(app);
+require('./routes/habit.routes')(app);
 
 const { SERVER_PORT } = process.env;
 const PORT = SERVER_PORT || 8080;
@@ -26,38 +27,24 @@ app.listen(PORT, () => {
 
 const Role = db.role;
 
-function initial() {
-  Role.estimatedDocumentCount((err, count) => {
-    if (!err && count === 0) {
-      new Role({
-        name: 'user',
-      }).save(err => {
-        if (err) {
-          console.log('error', err);
-        }
-        console.log("added 'user' to roles collection");
-      });
+const initial = async () => {
+  try {
+    const count = await Role.estimatedDocumentCount();
 
-      new Role({
-        name: 'moderator',
-      }).save(err => {
-        if (err) {
-          console.log('error', err);
-        }
-        console.log("added 'moderator' to roles collection");
-      });
+    if (count === 0) {
+      await new Role({ name: 'user' }).save();
+      console.log("added 'user' to roles collection");
 
-      new Role({
-        name: 'admin',
-      }).save(err => {
-        if (err) {
-          console.log('error', err);
-        }
-        console.log("added 'admin' to roles collection");
-      });
+      await new Role({ name: 'moderator' }).save();
+      console.log("added 'moderator' to roles collection");
+
+      await new Role({ name: 'admin' }).save();
+      console.log("added 'admin' to roles collection");
     }
-  });
-}
+  } catch (err) {
+    console.error('Initial error', err);
+  }
+};
 
 const connectionDB = async () => {
   try {

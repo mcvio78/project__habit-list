@@ -1,4 +1,4 @@
-import { useState, Dispatch, SetStateAction } from 'react';
+import { useState, Dispatch } from 'react';
 import { AxiosResponse } from 'axios';
 
 import { isAxiosError } from '../utility/request/axios';
@@ -8,35 +8,43 @@ type ApiFunction = (...args: any[]) => Promise<AxiosResponse>;
 interface UseAPIReturn {
   isLoading: boolean;
   data: AxiosResponse['data'] | null;
-  errorMessage: string;
-  setErrorMessage: Dispatch<SetStateAction<string>>;
+  status: number | null;
+  setStatus: Dispatch<number | null>;
+  message: string;
+  setMessage: Dispatch<string>;
   request: (...args: any[]) => Promise<AxiosResponse | undefined>;
 }
 
 export const useAPI = (apiFunction: ApiFunction): UseAPIReturn => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState(null);
-  const [errorMessage, setErrorMessage] = useState('');
-
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [data, setData] = useState<Date | null>(null);
+  const [status, setStatus] = useState<number | null>(null);
+  const [message, setMessage] = useState<string>('');
   const request = async (...args: any[]) => {
     setIsLoading(false);
     setData(null);
-    setErrorMessage('');
+    setStatus(null);
+    setMessage('');
     try {
       setIsLoading(true);
       const response: AxiosResponse = await apiFunction(...args);
       setData(response.data);
+      setStatus(response.status);
+      setMessage(response.statusText);
       setIsLoading(false);
       return response;
     } catch (err) {
       if (isAxiosError(err)) {
         if (err?.response) {
-          setErrorMessage(err?.response?.data.message);
+          setStatus(err?.response.status);
+          setMessage(err?.response?.data.message);
         } else if (err?.request) {
-          setErrorMessage('The request was made but no response was received');
+          setStatus(err?.request.status);
+          setMessage('The request was made but no response was received');
         }
       } else if (err instanceof Error) {
-        setErrorMessage(err.message);
+        setStatus(null);
+        setMessage(err.message);
       }
       setIsLoading(false);
     }
@@ -45,7 +53,9 @@ export const useAPI = (apiFunction: ApiFunction): UseAPIReturn => {
     request,
     isLoading,
     data,
-    setErrorMessage,
-    errorMessage,
+    status,
+    setStatus,
+    message,
+    setMessage,
   };
 };

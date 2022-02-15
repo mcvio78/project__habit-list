@@ -4,80 +4,65 @@ const db = require('../models');
 const User = db.user;
 const Role = db.role;
 
-verifyToken = (req, res, next) => {
-  let token = req.headers['x-access-token'];
+verifyToken = async (req, res, next) => {
+  try {
+    if (req.headers['x-access-token']) {
+      const token = req.headers['x-access-token'].split(' ')[1];
 
-  if (!token) {
-    return res.status(403).send({ message: 'No token provided!' });
+      if (token) {
+        const payload = await jwt.verify(token, config.secret);
+
+        if (payload) {
+          req.user = payload;
+          next();
+        } else {
+          res.status(400).send({ message: 'token verification failed' });
+        }
+      } else {
+        res.status(400).send({ message: 'malformed auth header' });
+      }
+
+      console.log('token: ', token);
+    } else {
+      return res.status(403).send({ message: 'No token provided!' });
+    }
+  } catch (err) {
+    res.status(401).send({ message: 'Unauthorized!' });
   }
-
-  jwt.verify(token, config.secret, (err, decoded) => {
-    if (err) {
-      return res.status(401).send({ message: 'Unauthorized!' });
-    }
-    req.userId = decoded.id;
-    next();
-  });
 };
 
-isAdmin = (req, res, next) => {
-  User.findById(req.userId).exec((err, user) => {
-    if (err) {
-      res.status(500).send({ message: err });
-      return;
+isAdmin = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.userId);
+    const roles = await Role.find({ _id: { $in: user.roles } });
+
+    for (let i = 0; i < roles.length; i++) {
+      if (roles[i].name === 'admin') {
+        next();
+        return;
+      }
     }
-
-    Role.find(
-      {
-        _id: { $in: user.roles },
-      },
-      (err, roles) => {
-        if (err) {
-          res.status(500).send({ message: err });
-          return;
-        }
-
-        for (let i = 0; i < roles.length; i++) {
-          if (roles[i].name === 'admin') {
-            next();
-            return;
-          }
-        }
-
-        res.status(403).send({ message: 'Require Admin Role!' });
-      },
-    );
-  });
+    res.status(403).send({ message: 'Require Admin Role!' });
+  } catch (err) {
+    res.status(500).send({ message: err });
+  }
 };
 
-isModerator = (req, res, next) => {
-  User.findById(req.userId).exec((err, user) => {
-    if (err) {
-      res.status(500).send({ message: err });
-      return;
+isModerator = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.userId);
+    const roles = await Role.find({ _id: { $in: user.roles } });
+
+    for (let i = 0; i < roles.length; i++) {
+      if (roles[i].name === 'moderator') {
+        next();
+        return;
+      }
     }
-
-    Role.find(
-      {
-        _id: { $in: user.roles },
-      },
-      (err, roles) => {
-        if (err) {
-          res.status(500).send({ message: err });
-          return;
-        }
-
-        for (let i = 0; i < roles.length; i++) {
-          if (roles[i].name === 'moderator') {
-            next();
-            return;
-          }
-        }
-
-        res.status(403).send({ message: 'Require Moderator Role!' });
-      },
-    );
-  });
+    res.status(403).send({ message: 'Require Moderator Role!' });
+  } catch (err) {
+    res.status(500).send({ message: err });
+  }
 };
 
 const authJwt = {

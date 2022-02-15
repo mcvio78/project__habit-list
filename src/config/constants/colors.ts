@@ -7,6 +7,7 @@ export const COLORS = {
   lightPurple: '#bc6ff1',
   silverChalice: '#b4a5a5',
   ghost: '#cbcbd1',
+  lemonLime: '#adff2f',
   osloGrey: '#88899E',
   boulder: '#757575',
   stormGrey: '#6e6f86',

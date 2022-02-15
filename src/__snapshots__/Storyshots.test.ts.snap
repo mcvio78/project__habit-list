@@ -2218,6 +2218,7 @@ Array [
 
 <div
     className="c0 checkbox "
+    onClick={[Function]}
     onKeyDown={[Function]}
     role="button"
     tabIndex={0}
@@ -2311,7 +2312,7 @@ Array [
 
 .c8 {
   color: var(--accent_02);
-  background-color: var(--accent_05);
+  background-color: var(--secondary_02);
   outline: var(--neutral_03) 1px solid;
   min-width: var(--btn-md-mw);
   min-height: var(--btn-md-mh);
@@ -2338,7 +2339,7 @@ Array [
   transform: scale(2) translateY(calc(-50% + var(--padding) / 2));
   border-radius: 50%;
   fill: var(--neutral_01);
-  background-color: var(--accent_05);
+  background-color: var(--semantic_success_01);
 }
 
 @media screen and (min-width:de) {
@@ -2489,19 +2490,22 @@ Array [
     <svg
       className="c2"
     >
-      icon-close_24dp.svg
+      icons-check_24dp.svg
     </svg>
     <h1
       className="c3 c4"
     >
-      Error!
+       Success!
     </h1>
     <p
       className="c5 c6"
-    />
+    >
+      modal message
+    </p>
     <button
       aria-label="close modal"
-      className="c7 c8 button app-button alert-btn"
+      className="c7 c8 button app-button flat-btn"
+      onClick={[Function]}
       title="close modal button"
       type="button"
     >
@@ -2653,6 +2657,7 @@ Array [
 
 <div
     className="c0 checkbox "
+    onClick={[Function]}
     onKeyDown={[Function]}
     role="button"
     tabIndex={0}
@@ -2929,16 +2934,17 @@ Array [
     <h1
       className="c3 c4"
     >
-      Error!
+       Error!
     </h1>
     <p
       className="c5 c6"
     >
-      error message
+      Error
     </p>
     <button
       aria-label="close modal"
       className="c7 c8 button app-button alert-btn"
+      onClick={[Function]}
       title="close modal button"
       type="button"
     >

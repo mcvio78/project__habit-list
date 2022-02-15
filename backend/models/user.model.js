@@ -7,7 +7,7 @@ const User = mongoose.model(
     email: String,
     password: String,
     roles: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Role' }],
-    habits: { daily: [], weekly: [], monthly: [] },
+    habits: { daily: { type: Object }, weekly: [], monthly: [] },
   }),
 );
 

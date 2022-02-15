@@ -1,6 +1,7 @@
 const db = require('../models');
 const Habit = db.habit;
 const User = db.user;
+const { format } = require('date-fns');
 
 exports.create = async (req, res) => {
   try {
@@ -32,10 +33,21 @@ exports.create = async (req, res) => {
 
       const createdHabit = await habit.save(habit);
 
-      await User.findOneAndUpdate(
-        { _id: req.user.id },
-        { $push: { 'habits.daily': createdHabit._id } },
-      );
+      const date = format(new Date(), 'yyyy-MM-dd');
+      const dayFolder = await User.findOne({ 'habits.daily': date });
+      const dayFolderPath = `habits.daily.${date}`;
+
+      if (!dayFolder) {
+        await User.findOneAndUpdate(
+          { _id: req.user.id },
+          { $addToSet: { [dayFolderPath]: createdHabit._id } },
+        );
+      } else {
+        await User.findOneAndUpdate(
+          { _id: req.user.id },
+          { $push: { [dayFolder]: createdHabit._id } },
+        );
+      }
 
       res.statusMessage = 'Habit was created successfully!';
       res.status(201).send(createdHabit);

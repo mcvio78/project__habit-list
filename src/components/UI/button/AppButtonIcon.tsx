@@ -10,12 +10,11 @@ interface AppButtonIconProps {
 export const AppButtonIcon = styled(Button).attrs<
   ComponentPropsWithoutRef<'button'>
 >(props => ({
-  className: ['icon-button', props.className].join(' '),
+  className: ['button-icon', props.className].join(' '),
   role: props.role || 'button',
 }))<AppButtonIconProps>`
-  width: 24px;
-  height: 24px;
-  padding: 2px;
+  width: var(--btn-icon-w);
+  height: var(--btn-icon-h);
   flex-shrink: 0;
   background-color: transparent;
   outline: var(--neutral_06) 2px solid;

@@ -39,5 +39,25 @@ export const buttonSize = css`
       --btn-lg-p: 16px 20px;
       --btn-lg-br: 10px;
     }
+
+    &.button-icon {
+      --btn-icon-w: 24px;
+      --btn-icon-h: 24px;
+
+      @media screen and (min-width: ${BREAKPOINTS.sm}) {
+        --btn-icon-w: 32px;
+        --btn-icon-h: 32px;
+      }
+    }
+
+    &.button-habit-status {
+      --btn-hab-stat-w: 18px;
+      --btn-hab-stat-h: 18px;
+
+      @media screen and (min-width: ${BREAKPOINTS.sm}) {
+        --btn-hab-stat-w: 24px;
+        --btn-hab-stat-h: 24px;
+      }
+    }
   }
 `;

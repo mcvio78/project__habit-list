@@ -9,6 +9,8 @@ export interface ButtonProps extends StyledMarginProps {
   $backgroundColor?: string;
   $boxShadow?: boolean;
   $labelShadow?: boolean;
+  $ital?: boolean;
+  $bold?: boolean;
 }
 
 export const Button = styled.button.attrs(props => ({
@@ -30,6 +32,9 @@ export const Button = styled.button.attrs(props => ({
     $boxShadow ? '0 4px 4px var(--neutral_05_op025)' : 'none'};
   text-shadow: ${({ $labelShadow }) =>
     $labelShadow && '0 4px 4px rgba(--neutral_05-s025)'};
+  font-style: ${({ $ital }) => $ital && 'italic'};
+  font-variation-settings: ${({ $bold }) => $bold && `'wght' 700`};
+  font-weight: ${({ $bold }) => $bold && 700};
 
   &:disabled {
     opacity: 0.6;

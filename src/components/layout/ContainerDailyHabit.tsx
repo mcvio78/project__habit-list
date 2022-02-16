@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import styled from 'styled-components/macro';
 
 import { Container, ContainerProps } from './Container';
-import { ParagraphExtraSmall, ParagraphSmall, It } from '../UI/Typography';
+import { ParagraphExtraSmall, ParagraphSmall } from '../UI/Typography';
 
 interface ContainerDailyHabitProps {
   habitName: string;
@@ -37,16 +37,16 @@ export const ContainerDailyHabit = ({
       >
         {habitTarget ? (
           <Container $ai={{ de: 'center' }} $fw={{ de: 'wrap' }}>
-            <ParagraphSmall $txtSdw>
-              <It>{habitName}</It>
+            <ParagraphSmall $txtSdw $ital>
+              {habitName}
             </ParagraphSmall>
-            <ParagraphExtraSmall $txtSdw>
-              <It>{habitTarget}</It>
+            <ParagraphExtraSmall $txtSdw $ital>
+              {habitTarget}
             </ParagraphExtraSmall>
           </Container>
         ) : (
-          <ParagraphSmall $txtSdw>
-            <It>{habitName}</It>
+          <ParagraphSmall $txtSdw $ital>
+            {habitName}
           </ParagraphSmall>
         )}
         {habitCurrentAmount ? (
@@ -56,8 +56,8 @@ export const ContainerDailyHabit = ({
             $jc={{ de: 'space-between' }}
             $ai={{ de: 'center' }}
           >
-            <ParagraphExtraSmall $txtSdw>
-              <It>{habitCurrentAmount}</It>
+            <ParagraphExtraSmall $txtSdw $ital $txtClr="var(--neutral_12)">
+              {habitCurrentAmount}
             </ParagraphExtraSmall>
             {habitStatusButton}
           </Container>

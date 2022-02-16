@@ -18,7 +18,6 @@ import { ReactComponent as CalculateSVG } from '../assets/icons/icon-calculate_2
 import {
   HeadingExtraSmall,
   HeadingLarge,
-  B,
   NavLinkIcon,
 } from '../components/UI/Typography';
 import { useAPI } from '../hooks/useApi';
@@ -204,8 +203,9 @@ export const Create = (): JSX.Element => {
                 aria-label="create habit"
                 $flxAs={{ de: 'flex-end' }}
                 $mt={{ de: '8px' }}
+                $bold
               >
-                <B>Create</B>
+                Create
               </AppFormSubmit>
             </>
           )}

@@ -7,6 +7,8 @@ import { styledMargin, StyledMarginProps } from '../../utility/UI/styledMargin';
 interface CommonStyleProps extends StyledMarginProps, AriaAttributes {
   $txtSdw?: boolean;
   $txtClr?: string;
+  $ital?: boolean;
+  $bold?: boolean;
 }
 
 export interface NavLinkCommonProps extends NavLinkProps, CommonStyleProps {}
@@ -21,35 +23,38 @@ const CommonStyle = css<CommonStyleProps>`
   color: ${({ $txtClr }) => $txtClr};
   text-shadow: ${({ $txtSdw }) =>
     $txtSdw && '0 4px 4px var(--neutral_05_op025)'};
+  font-style: ${({ $ital }) => $ital && 'italic'};
+  font-variation-settings: ${({ $bold }) => $bold && `'wght' 700`};
+  font-weight: ${({ $bold }) => $bold && 700};
   ${styledMargin};
 `;
 
 const CommonDisplay = css`
-  ${CommonStyle};
   font-variation-settings: 'wght' 600;
   font-weight: 700;
+  ${CommonStyle};
 `;
 
 const CommonHeading = styled.h1<CommonStyleProps>`
-  ${CommonStyle};
   font-variation-settings: 'wght' 400;
   font-weight: 400;
+  ${CommonStyle};
 `;
 
 const CommonParagraph = styled.p<CommonStyleProps>`
-  ${CommonStyle};
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  ${CommonStyle};
 `;
 
 const CommonNavLink = styled(NavLink).attrs({
   className: 'navigation-link',
 })<NavLinkCommonProps>`
-  ${CommonStyle};
   font-variation-settings: 'wght' 500;
   font-weight: 600;
   text-decoration: none;
   color: var(--neutral_07);
+  ${CommonStyle};
 
   &:hover {
     text-decoration: underline;
@@ -64,15 +69,15 @@ const CommonNavLink = styled(NavLink).attrs({
 `;
 
 const CommonSpan = styled.span<CommonStyleProps>`
-  ${CommonStyle};
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  ${CommonStyle};
 `;
 
 const CommonLabel = styled.label<CommonStyleProps>`
-  ${CommonStyle};
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  ${CommonStyle};
 `;
 
 export const Display1 = styled.h1<CommonStyleProps>`

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { Backdrop } from './Backdrop';
 import { Container } from '../layout';
-import { HeadingExtraLarge, ParagraphSmall, It, B } from './Typography';
+import { HeadingExtraLarge, ParagraphSmall } from './Typography';
 import { AppButton } from './button';
 import { ReactComponent as CloseSVG } from '../../assets/icons/icon-close_24dp.svg';
 import { ReactComponent as CheckSVG } from '../../assets/icons/icons-check_24dp.svg';
@@ -103,6 +103,8 @@ export const Modal = ({
             $size="medium"
             $variant={successStatus(status) ? 'flat' : 'alert'}
             $boxShadow
+            $ital
+            $bold
             aria-label="close modal"
             title="close modal button"
             onClick={() => {
@@ -110,9 +112,7 @@ export const Modal = ({
               if (conditionToNavigate && navigateTo) navigate(navigateTo);
             }}
           >
-            <B>
-              <It>OK</It>
-            </B>
+            OK
           </AppButton>
         </TextContainer>
       )}

@@ -7,7 +7,6 @@ import {
   HeadingExtraLarge,
   HeadingSmall,
   NavLinkIcon,
-  It,
   ParagraphSmall,
 } from '../components/UI/Typography';
 import { Header } from '../components/UI/Header';
@@ -88,11 +87,11 @@ export const Daily = (): JSX.Element => {
           $bs={{ de: 'border-box' }}
         >
           <Container $ai={{ de: 'center' }} $fw={{ de: 'wrap' }}>
-            <HeadingSmall $txtSdw>
-              <It>Habit List</It>
+            <HeadingSmall $txtSdw $ital>
+              Habit List
             </HeadingSmall>
-            <ParagraphSmall $txtSdw>
-              <It>(daily+weekly)</It>
+            <ParagraphSmall $txtSdw $ital>
+              (daily+weekly)
             </ParagraphSmall>
           </Container>
           <AppButtonStatus

@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
 import { Container, ContainerProps } from '../layout';
-import { Display1, ParagraphLarge, It } from './Typography';
+import { Display1, ParagraphLarge } from './Typography';
 
 interface HeaderProps {
   $header: string | JSX.Element;
@@ -18,8 +18,8 @@ export const Header = ({ $header, $subHeader }: HeaderProps): JSX.Element => (
     <Display1 $txtSdw style={{ lineHeight: $subHeader && 'var(--typ-d-1-fs)' }}>
       {$header}
     </Display1>
-    <ParagraphLarge $txtSdw style={{ lineHeight: 'var(--typ-p-lg-fs)' }}>
-      <It>{$subHeader}</It>
+    <ParagraphLarge $txtSdw $ital style={{ lineHeight: 'var(--typ-p-lg-fs)' }}>
+      {$subHeader}
     </ParagraphLarge>
   </CustomContainer>
 );

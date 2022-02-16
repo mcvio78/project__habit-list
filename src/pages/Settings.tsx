@@ -1,5 +1,5 @@
 import { PageLayout, Container } from '../components/layout';
-import { HeadingMedium, NavLinkIcon, B, It } from '../components/UI/Typography';
+import { HeadingMedium, NavLinkIcon } from '../components/UI/Typography';
 import { Header } from '../components/UI/Header';
 import { Toolbar } from '../components/layout/Toolbar';
 import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';
@@ -36,10 +36,8 @@ export const Settings = (): JSX.Element => {
       <Header $header="Settings" $subHeader="UI Style" />
       <Container $fd={{ de: 'column' }} $mt={{ de: '60px' }}>
         <Container $fd={{ de: 'column' }} $g={{ de: '12px' }}>
-          <HeadingMedium $txtSdw>
-            <B>
-              <It>Themes</It>
-            </B>
+          <HeadingMedium $txtSdw $ital $bold>
+            Themes
           </HeadingMedium>
           {themeCheckboxes}
         </Container>

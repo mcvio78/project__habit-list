@@ -2,7 +2,7 @@ import { ComponentPropsWithoutRef } from 'react';
 
 import { Container } from '../../layout';
 import { Checkbox } from './Checkbox';
-import { LabelMedium, B, It } from '../Typography';
+import { LabelMedium } from '../Typography';
 
 export interface AppCheckboxProps extends ComponentPropsWithoutRef<'input'> {
   $labelText: string;
@@ -20,10 +20,8 @@ export const AppCheckbox = ({
       className={['app-checkbox', className].join(' ')}
     >
       <Checkbox id={id} {...otherProps} $mr={{ de: '12px' }} />
-      <LabelMedium htmlFor={id}>
-        <B>
-          <It>{$labelText}</It>
-        </B>
+      <LabelMedium htmlFor={id} $ital $bold>
+        {$labelText}
       </LabelMedium>
     </Container>
   );

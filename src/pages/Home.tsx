@@ -5,8 +5,6 @@ import {
   ParagraphLarge,
   NavLinkLarge,
   SpanLarge,
-  B,
-  It,
 } from '../components/UI/Typography';
 import { AppButton } from '../components/UI/button';
 import { Header } from '../components/UI/Header';
@@ -28,9 +26,10 @@ export const Home = (): JSX.Element => {
           <NavLinkLarge
             to="/auth"
             aria-label="navigation link to authentication page"
+            $ital
             $txtSdw
           >
-            <It>Sign Up</It>
+            Sign Up
           </NavLinkLarge>
         ) : (
           <AppButton
@@ -39,10 +38,8 @@ export const Home = (): JSX.Element => {
             title="logout"
             onClick={logOut}
           >
-            <SpanLarge $txtSdw>
-              <B>
-                <It>Logout</It>
-              </B>
+            <SpanLarge $txtSdw $ital $bold>
+              Logout
             </SpanLarge>
           </AppButton>
         )}
@@ -77,10 +74,10 @@ export const Home = (): JSX.Element => {
             aria-label="create habits button"
             title="create habits"
             onClick={() => navigate('/create')}
+            $ital
+            $bold
           >
-            <B>
-              <It>Create Habits</It>
-            </B>
+            Create Habits
           </AppButton>
         )}
       </Container>

@@ -5,7 +5,7 @@ import { FormikValues } from 'formik';
 import { PageLayout, Container } from '../components/layout';
 import { Header } from '../components/UI/Header';
 import { AppButton } from '../components/UI/button';
-import { NavLinkIcon, ParagraphSmall, B } from '../components/UI/Typography';
+import { NavLinkIcon, ParagraphSmall } from '../components/UI/Typography';
 import { Modal } from '../components/UI/Modal';
 import { Toolbar } from '../components/layout/Toolbar';
 import { AppFormInputText, AppFormSubmit, AppForm } from '../components/form';
@@ -186,8 +186,9 @@ export const Auth = (): JSX.Element => {
               aria-label={isSignUp ? 'sign up button' : 'log in button'}
               $flxAs={{ de: 'flex-end' }}
               $mt={{ de: isSignUp ? '8px' : 0 }}
+              $bold
             >
-              <B>{isSignUp ? 'Sign Up' : 'Log In'}</B>
+              {isSignUp ? 'Sign Up' : 'Log In'}
             </AppFormSubmit>
           </>
         </AppForm>
@@ -205,8 +206,9 @@ export const Auth = (): JSX.Element => {
             aria-label="Sign in button"
             $flxAs={{ de: 'center' }}
             onClick={switchLogHandler}
+            $bold
           >
-            <B>Click here</B>
+            Click here
           </AppButton>
         </Container>
       </Container>

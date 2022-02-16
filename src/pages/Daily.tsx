@@ -15,7 +15,7 @@ import { Toolbar } from '../components/layout/Toolbar';
 import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';
 import { ReactComponent as ArrowLeftSVG } from '../assets/icons/icon-arrow_left_24dp-np.svg';
 import { ReactComponent as ArrowRightSVG } from '../assets/icons/icon-arrow_right_24dp-np.svg';
-import { AppIconButton } from '../components/UI/button';
+import { AppButtonIcon, AppButtonStatus } from '../components/UI/button';
 
 const DateSelectorContainer = styled(Container)<ContainerProps>`
   background-color: var(--secondary_05);
@@ -40,6 +40,7 @@ export const Daily = (): JSX.Element => {
       </Toolbar>
       <Header $header="Daily Habits" />
       <DateSelectorContainer
+        as="section"
         $miw={{ de: '100%' }}
         $fd={{ de: 'column' }}
         $ai={{ de: 'center' }}
@@ -48,15 +49,23 @@ export const Daily = (): JSX.Element => {
         $m={{ de: '12px 16px 0' }}
       >
         <Container $ai={{ de: 'center' }}>
-          <AppIconButton $iconSdw>
+          <AppButtonIcon
+            aria-label="previous day button"
+            title="previous date navigation button"
+            $iconSdw
+          >
             <ArrowLeftSVG />
-          </AppIconButton>
+          </AppButtonIcon>
           <HeadingExtraLarge $txtSdw $m={{ de: '0 4px' }}>
             {date}
           </HeadingExtraLarge>
-          <AppIconButton $iconSdw>
+          <AppButtonIcon
+            aria-label="next day button"
+            title="next date navigation button"
+            $iconSdw
+          >
             <ArrowRightSVG />
-          </AppIconButton>
+          </AppButtonIcon>
         </Container>
         <Container
           $w={{ de: '100%' }}
@@ -70,6 +79,13 @@ export const Daily = (): JSX.Element => {
           <ParagraphMedium $txtSdw>
             <It>(Daily+Weekly)</It>
           </ParagraphMedium>
+          <AppButtonStatus
+            aria-label="habit average status button"
+            title="button showing current average habits status"
+            $border="1px solid var(--neutral_01)"
+            $backgroundColor="red"
+            $boxShadow
+          />
         </Container>
       </DateSelectorContainer>
     </PageLayout>

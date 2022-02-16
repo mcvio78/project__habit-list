@@ -3,16 +3,16 @@ import { ComponentPropsWithoutRef } from 'react';
 
 import { Button } from './Button';
 
-interface AppIconButtonProps {
+interface AppButtonIconProps {
   $iconSdw?: boolean;
 }
 
-export const AppIconButton = styled(Button).attrs<
+export const AppButtonIcon = styled(Button).attrs<
   ComponentPropsWithoutRef<'button'>
 >(props => ({
   className: ['icon-button', props.className].join(' '),
   role: props.role || 'button',
-}))<AppIconButtonProps>`
+}))<AppButtonIconProps>`
   width: 24px;
   height: 24px;
   padding: 2px;

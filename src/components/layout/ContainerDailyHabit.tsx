@@ -36,7 +36,7 @@ export const ContainerDailyHabit = ({
         $bs={{ de: 'border-box' }}
       >
         {habitTarget ? (
-          <Container $ai={{ de: 'center' }} $fw={{ de: 'wrap' }}>
+          <Container $fd={{ de: 'column' }} $ai={{ de: 'flex-start' }}>
             <ParagraphSmall $txtSdw $ital>
               {habitName}
             </ParagraphSmall>

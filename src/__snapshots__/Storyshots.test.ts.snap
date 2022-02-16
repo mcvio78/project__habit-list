@@ -793,7 +793,7 @@ exports[`Storyshots Components/UI/Header Default Header 1`] = `
   margin: 0;
   text-align: center;
   text-shadow: 0 4px 4px var(--neutral_05_op025);
-  font-variation-settings: 'wght' 700;
+  font-variation-settings: 'wght' 600;
   font-weight: 700;
   font-size: var(--typ-d-1-fs);
   line-height: var(--typ-d-1-lh);
@@ -963,7 +963,7 @@ exports[`Storyshots Components/UI/Header With Sub Header 1`] = `
   margin: 0;
   text-align: center;
   text-shadow: 0 4px 4px var(--neutral_05_op025);
-  font-variation-settings: 'wght' 700;
+  font-variation-settings: 'wght' 600;
   font-weight: 700;
   font-size: var(--typ-d-1-fs);
   line-height: var(--typ-d-1-lh);
@@ -1491,7 +1491,7 @@ exports[`Storyshots Components/UI/Input Default App Input Date 1`] = `
               onKeyDown={[Function]}
               readOnly={false}
               type="text"
-              value="02/15/2022"
+              value="02/16/2022"
             />
           </div>
         </div>
@@ -1986,7 +1986,7 @@ exports[`Storyshots Components/UI/Input Default Input Date 1`] = `
           onKeyDown={[Function]}
           readOnly={false}
           type="text"
-          value="02/15/2022"
+          value="02/16/2022"
         />
       </div>
     </div>
@@ -2227,8 +2227,8 @@ Array [
   margin: 0;
   text-align: center;
   color: var(--neutral_11);
-  font-variation-settings: 'wght' 600;
-  font-weight: 700;
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
 }
 
 .c5 {
@@ -2666,8 +2666,8 @@ Array [
   margin: 0;
   text-align: center;
   color: var(--neutral_11);
-  font-variation-settings: 'wght' 600;
-  font-weight: 700;
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
 }
 
 .c5 {
@@ -3186,8 +3186,8 @@ exports[`Storyshots Components/UI/ShowData Default Show Data 1`] = `
   margin: 0;
   text-align: center;
   text-shadow: 0 4px 4px var(--neutral_05_op025);
-  font-variation-settings: 'wght' 600;
-  font-weight: 700;
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
 }
 
 .c5 {
@@ -3612,7 +3612,7 @@ exports[`Storyshots Components/UI/Typography/Display Default Display 1 1`] = `
 .c0 {
   margin: 0;
   text-align: center;
-  font-variation-settings: 'wght' 700;
+  font-variation-settings: 'wght' 600;
   font-weight: 700;
   font-size: var(--typ-d-1-fs);
   line-height: var(--typ-d-1-lh);
@@ -3657,7 +3657,7 @@ exports[`Storyshots Components/UI/Typography/Display Default Display 2 1`] = `
 .c0 {
   margin: 0;
   text-align: center;
-  font-variation-settings: 'wght' 700;
+  font-variation-settings: 'wght' 600;
   font-weight: 700;
   font-size: var(--typ-d-2-fs);
   line-height: var(--typ-d-2-lh);
@@ -3702,7 +3702,7 @@ exports[`Storyshots Components/UI/Typography/Display Default Display 3 1`] = `
 .c0 {
   margin: 0;
   text-align: center;
-  font-variation-settings: 'wght' 700;
+  font-variation-settings: 'wght' 600;
   font-weight: 700;
   font-size: var(--typ-d-3-fs);
   line-height: var(--typ-d-3-lh);
@@ -3747,8 +3747,8 @@ exports[`Storyshots Components/UI/Typography/Heading Default Heading Extra Large
 .c0 {
   margin: 0;
   text-align: center;
-  font-variation-settings: 'wght' 600;
-  font-weight: 700;
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
 }
 
 .c1 {
@@ -3795,8 +3795,8 @@ exports[`Storyshots Components/UI/Typography/Heading Default Heading Extra Small
 .c0 {
   margin: 0;
   text-align: center;
-  font-variation-settings: 'wght' 600;
-  font-weight: 700;
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
 }
 
 .c1 {
@@ -3843,8 +3843,8 @@ exports[`Storyshots Components/UI/Typography/Heading Default Heading Large 1`] =
 .c0 {
   margin: 0;
   text-align: center;
-  font-variation-settings: 'wght' 600;
-  font-weight: 700;
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
 }
 
 .c1 {
@@ -3891,8 +3891,8 @@ exports[`Storyshots Components/UI/Typography/Heading Default Heading Medium 1`] 
 .c0 {
   margin: 0;
   text-align: center;
-  font-variation-settings: 'wght' 600;
-  font-weight: 700;
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
 }
 
 .c1 {
@@ -3939,8 +3939,8 @@ exports[`Storyshots Components/UI/Typography/Heading Default Heading Small 1`] =
 .c0 {
   margin: 0;
   text-align: center;
-  font-variation-settings: 'wght' 600;
-  font-weight: 700;
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
 }
 
 .c1 {

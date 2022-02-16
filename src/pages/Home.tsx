@@ -62,7 +62,7 @@ export const Home = (): JSX.Element => {
         }
       />
       <Container
-        $m={{ de: 'auto 0 30px 0' }}
+        $m={{ de: 'auto 0 24px 0' }}
         $fd={{ de: 'column' }}
         $ai={{ de: 'center' }}
         $g={{ de: '30px' }}

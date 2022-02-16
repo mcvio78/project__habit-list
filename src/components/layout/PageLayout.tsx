@@ -1,6 +1,8 @@
 import styled from 'styled-components/macro';
 
-export const PageLayout = styled.div`
+export const PageLayout = styled.div.attrs(props => ({
+  className: props.className || 'page-layout',
+}))`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -9,7 +11,6 @@ export const PageLayout = styled.div`
   box-sizing: border-box;
   position: relative;
   margin: 20px 0;
-  padding: 24px 16px;
   border-radius: 32px;
   background: var(--primary_01);
 `;

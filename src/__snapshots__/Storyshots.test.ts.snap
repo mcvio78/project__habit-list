@@ -2,11 +2,11 @@
 
 exports[`Storyshots Components/Form App Form Input Error Message 1`] = `
 .c1 {
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
   margin: 0;
   text-align: center;
   color: var(--semantic_error_01);
-  font-variation-settings: 'wght' 300;
-  font-weight: 400;
 }
 
 .c2 {
@@ -523,25 +523,18 @@ exports[`Storyshots Components/UI/Button Default Button 1`] = `
 
 exports[`Storyshots Components/UI/Checkbox Default App Checkbox 1`] = `
 .c2 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
 }
 
 .c3 {
   font-size: var(--typ-lbl-md-fs);
   line-height: var(--typ-lbl-md-lh);
-}
-
-.c4 {
-  font-variation-settings: 'wght' 700;
-  font-weight: 700;
-}
-
-.c5 {
-  font-style: italic;
-  font-synthesis: none;
 }
 
 .c0 {
@@ -699,15 +692,7 @@ exports[`Storyshots Components/UI/Checkbox Default App Checkbox 1`] = `
     <label
       className="c2 c3"
     >
-      <span
-        className="c4"
-      >
-        <span
-          className="c5"
-        >
-          App Checkbox
-        </span>
-      </span>
+      App Checkbox
     </label>
   </div>
 </div>
@@ -782,19 +767,20 @@ exports[`Storyshots Components/UI/Checkbox Default Checkbox 1`] = `
 
 exports[`Storyshots Components/UI/Header Default Header 1`] = `
 .c2 {
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
   margin: 0;
   text-align: center;
   text-shadow: 0 4px 4px var(--neutral_05_op025);
-  font-variation-settings: 'wght' 300;
-  font-weight: 400;
+  font-style: italic;
 }
 
 .c1 {
+  font-variation-settings: 'wght' 600;
+  font-weight: 700;
   margin: 0;
   text-align: center;
   text-shadow: 0 4px 4px var(--neutral_05_op025);
-  font-variation-settings: 'wght' 600;
-  font-weight: 700;
   font-size: var(--typ-d-1-fs);
   line-height: var(--typ-d-1-lh);
   -webkit-letter-spacing: var(--typ-d-1-ls);
@@ -806,11 +792,6 @@ exports[`Storyshots Components/UI/Header Default Header 1`] = `
 .c3 {
   font-size: var(--typ-p-lg-fs);
   line-height: var(--typ-p-lg-lh);
-}
-
-.c4 {
-  font-style: italic;
-  font-synthesis: none;
 }
 
 .c0 {
@@ -942,29 +923,26 @@ exports[`Storyshots Components/UI/Header Default Header 1`] = `
         "lineHeight": "var(--typ-p-lg-fs)",
       }
     }
-  >
-    <span
-      className="c4"
-    />
-  </p>
+  />
 </header>
 `;
 
 exports[`Storyshots Components/UI/Header With Sub Header 1`] = `
 .c2 {
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
   margin: 0;
   text-align: center;
   text-shadow: 0 4px 4px var(--neutral_05_op025);
-  font-variation-settings: 'wght' 300;
-  font-weight: 400;
+  font-style: italic;
 }
 
 .c1 {
+  font-variation-settings: 'wght' 600;
+  font-weight: 700;
   margin: 0;
   text-align: center;
   text-shadow: 0 4px 4px var(--neutral_05_op025);
-  font-variation-settings: 'wght' 600;
-  font-weight: 700;
   font-size: var(--typ-d-1-fs);
   line-height: var(--typ-d-1-lh);
   -webkit-letter-spacing: var(--typ-d-1-ls);
@@ -976,11 +954,6 @@ exports[`Storyshots Components/UI/Header With Sub Header 1`] = `
 .c3 {
   font-size: var(--typ-p-lg-fs);
   line-height: var(--typ-p-lg-lh);
-}
-
-.c4 {
-  font-style: italic;
-  font-synthesis: none;
 }
 
 .c0 {
@@ -1113,21 +1086,17 @@ exports[`Storyshots Components/UI/Header With Sub Header 1`] = `
       }
     }
   >
-    <span
-      className="c4"
-    >
-      Subheadline
-    </span>
+    Subheadline
   </p>
 </header>
 `;
 
 exports[`Storyshots Components/UI/Input Default App Input Date 1`] = `
 .c2 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c3 {
@@ -1515,10 +1484,10 @@ exports[`Storyshots Components/UI/Input Default App Input Date 1`] = `
 
 exports[`Storyshots Components/UI/Input Default App Input Text 1`] = `
 .c2 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c3 {
@@ -2224,19 +2193,19 @@ Array [
     tabIndex={0}
   />,
   .c3 {
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
   margin: 0;
   text-align: center;
   color: var(--neutral_11);
-  font-variation-settings: 'wght' 400;
-  font-weight: 400;
 }
 
 .c5 {
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
   margin: 0;
   text-align: center;
   color: var(--neutral_12);
-  font-variation-settings: 'wght' 300;
-  font-weight: 400;
 }
 
 .c4 {
@@ -2251,16 +2220,6 @@ Array [
 .c6 {
   font-size: var(--typ-p-sm-fs);
   line-height: var(--typ-p-sm-lh);
-}
-
-.c9 {
-  font-variation-settings: 'wght' 700;
-  font-weight: 700;
-}
-
-.c10 {
-  font-style: italic;
-  font-synthesis: none;
 }
 
 .c0 {
@@ -2293,6 +2252,9 @@ Array [
   cursor: pointer;
   outline: none;
   box-shadow: 0 4px 4px var(--neutral_05_op025);
+  font-style: italic;
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
 }
 
 .c7:disabled {
@@ -2509,15 +2471,7 @@ Array [
       title="close modal button"
       type="button"
     >
-      <span
-        className="c9"
-      >
-        <span
-          className="c10"
-        >
-          OK
-        </span>
-      </span>
+      OK
     </button>
   </div>,
 ]
@@ -2663,19 +2617,19 @@ Array [
     tabIndex={0}
   />,
   .c3 {
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
   margin: 0;
   text-align: center;
   color: var(--neutral_11);
-  font-variation-settings: 'wght' 400;
-  font-weight: 400;
 }
 
 .c5 {
+  font-variation-settings: 'wght' 300;
+  font-weight: 400;
   margin: 0;
   text-align: center;
   color: var(--neutral_12);
-  font-variation-settings: 'wght' 300;
-  font-weight: 400;
 }
 
 .c4 {
@@ -2690,16 +2644,6 @@ Array [
 .c6 {
   font-size: var(--typ-p-sm-fs);
   line-height: var(--typ-p-sm-lh);
-}
-
-.c9 {
-  font-variation-settings: 'wght' 700;
-  font-weight: 700;
-}
-
-.c10 {
-  font-style: italic;
-  font-synthesis: none;
 }
 
 .c0 {
@@ -2732,6 +2676,9 @@ Array [
   cursor: pointer;
   outline: none;
   box-shadow: 0 4px 4px var(--neutral_05_op025);
+  font-style: italic;
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
 }
 
 .c7:disabled {
@@ -2948,15 +2895,7 @@ Array [
       title="close modal button"
       type="button"
     >
-      <span
-        className="c9"
-      >
-        <span
-          className="c10"
-        >
-          OK
-        </span>
-      </span>
+      OK
     </button>
   </div>,
 ]
@@ -2964,13 +2903,13 @@ Array [
 
 exports[`Storyshots Components/UI/Navigation Default Navigation Items 1`] = `
 .c2 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 500;
   font-weight: 600;
   -webkit-text-decoration: none;
   text-decoration: none;
   color: var(--neutral_07);
+  margin: 0;
+  text-align: center;
 }
 
 .c2:hover {
@@ -3183,18 +3122,21 @@ exports[`Storyshots Components/UI/Navigation Default Navigation Items 1`] = `
 
 exports[`Storyshots Components/UI/ShowData Default Show Data 1`] = `
 .c1 {
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
   margin: 0;
   text-align: center;
   text-shadow: 0 4px 4px var(--neutral_05_op025);
-  font-variation-settings: 'wght' 400;
-  font-weight: 400;
+  font-style: italic;
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
 }
 
-.c5 {
-  margin: 0;
-  text-align: center;
+.c3 {
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c2 {
@@ -3206,19 +3148,9 @@ exports[`Storyshots Components/UI/ShowData Default Show Data 1`] = `
   letter-spacing: var(--typ-h-md-ls);
 }
 
-.c6 {
+.c4 {
   font-size: var(--typ-p-md-fs);
   line-height: var(--typ-p-md-lh);
-}
-
-.c3 {
-  font-variation-settings: 'wght' 700;
-  font-weight: 700;
-}
-
-.c4 {
-  font-style: italic;
-  font-synthesis: none;
 }
 
 .c0 {
@@ -3342,18 +3274,10 @@ exports[`Storyshots Components/UI/ShowData Default Show Data 1`] = `
   <h1
     className="c1 c2"
   >
-    <span
-      className="c3"
-    >
-      <span
-        className="c4"
-      >
-        Field title
-      </span>
-    </span>
+    Field title
   </h1>
   <p
-    className="c5 c6"
+    className="c3 c4"
   >
     Field value
   </p>
@@ -3610,10 +3534,10 @@ exports[`Storyshots Components/UI/SideDrawer Default Side Drawer 1`] = `
 
 exports[`Storyshots Components/UI/Typography/Display Default Display 1 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 600;
   font-weight: 700;
+  margin: 0;
+  text-align: center;
   font-size: var(--typ-d-1-fs);
   line-height: var(--typ-d-1-lh);
   -webkit-letter-spacing: var(--typ-d-1-ls);
@@ -3655,10 +3579,10 @@ exports[`Storyshots Components/UI/Typography/Display Default Display 1 1`] = `
 
 exports[`Storyshots Components/UI/Typography/Display Default Display 2 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 600;
   font-weight: 700;
+  margin: 0;
+  text-align: center;
   font-size: var(--typ-d-2-fs);
   line-height: var(--typ-d-2-lh);
   -webkit-letter-spacing: var(--typ-d-2-ls);
@@ -3700,10 +3624,10 @@ exports[`Storyshots Components/UI/Typography/Display Default Display 2 1`] = `
 
 exports[`Storyshots Components/UI/Typography/Display Default Display 3 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 600;
   font-weight: 700;
+  margin: 0;
+  text-align: center;
   font-size: var(--typ-d-3-fs);
   line-height: var(--typ-d-3-lh);
   -webkit-letter-spacing: var(--typ-d-3-ls);
@@ -3745,10 +3669,10 @@ exports[`Storyshots Components/UI/Typography/Display Default Display 3 1`] = `
 
 exports[`Storyshots Components/UI/Typography/Heading Default Heading Extra Large 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 400;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c1 {
@@ -3793,10 +3717,10 @@ exports[`Storyshots Components/UI/Typography/Heading Default Heading Extra Large
 
 exports[`Storyshots Components/UI/Typography/Heading Default Heading Extra Small 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 400;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c1 {
@@ -3841,10 +3765,10 @@ exports[`Storyshots Components/UI/Typography/Heading Default Heading Extra Small
 
 exports[`Storyshots Components/UI/Typography/Heading Default Heading Large 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 400;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c1 {
@@ -3889,10 +3813,10 @@ exports[`Storyshots Components/UI/Typography/Heading Default Heading Large 1`] =
 
 exports[`Storyshots Components/UI/Typography/Heading Default Heading Medium 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 400;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c1 {
@@ -3937,10 +3861,10 @@ exports[`Storyshots Components/UI/Typography/Heading Default Heading Medium 1`] 
 
 exports[`Storyshots Components/UI/Typography/Heading Default Heading Small 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 400;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c1 {
@@ -3985,10 +3909,10 @@ exports[`Storyshots Components/UI/Typography/Heading Default Heading Small 1`] =
 
 exports[`Storyshots Components/UI/Typography/Label Default Label Large 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c1 {
@@ -4029,10 +3953,10 @@ exports[`Storyshots Components/UI/Typography/Label Default Label Large 1`] = `
 
 exports[`Storyshots Components/UI/Typography/Label Default Label Medium 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c1 {
@@ -4073,10 +3997,10 @@ exports[`Storyshots Components/UI/Typography/Label Default Label Medium 1`] = `
 
 exports[`Storyshots Components/UI/Typography/Label Default Label Small 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c1 {
@@ -4177,13 +4101,13 @@ exports[`Storyshots Components/UI/Typography/NavLink Default Nav Icon 1`] = `
 
 exports[`Storyshots Components/UI/Typography/NavLink Default Nav Link Extra Small 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 500;
   font-weight: 600;
   -webkit-text-decoration: none;
   text-decoration: none;
   color: var(--neutral_07);
+  margin: 0;
+  text-align: center;
 }
 
 .c0:hover {
@@ -4240,13 +4164,13 @@ exports[`Storyshots Components/UI/Typography/NavLink Default Nav Link Extra Smal
 
 exports[`Storyshots Components/UI/Typography/NavLink Default Nav Link Large 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 500;
   font-weight: 600;
   -webkit-text-decoration: none;
   text-decoration: none;
   color: var(--neutral_07);
+  margin: 0;
+  text-align: center;
 }
 
 .c0:hover {
@@ -4303,13 +4227,13 @@ exports[`Storyshots Components/UI/Typography/NavLink Default Nav Link Large 1`] 
 
 exports[`Storyshots Components/UI/Typography/NavLink Default Nav Link Medium 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 500;
   font-weight: 600;
   -webkit-text-decoration: none;
   text-decoration: none;
   color: var(--neutral_07);
+  margin: 0;
+  text-align: center;
 }
 
 .c0:hover {
@@ -4366,13 +4290,13 @@ exports[`Storyshots Components/UI/Typography/NavLink Default Nav Link Medium 1`]
 
 exports[`Storyshots Components/UI/Typography/NavLink Default Nav Link Small 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 500;
   font-weight: 600;
   -webkit-text-decoration: none;
   text-decoration: none;
   color: var(--neutral_07);
+  margin: 0;
+  text-align: center;
 }
 
 .c0:hover {
@@ -4429,10 +4353,10 @@ exports[`Storyshots Components/UI/Typography/NavLink Default Nav Link Small 1`] 
 
 exports[`Storyshots Components/UI/Typography/Paragraph Default Paragraph Extra Small 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c1 {
@@ -4473,10 +4397,10 @@ exports[`Storyshots Components/UI/Typography/Paragraph Default Paragraph Extra S
 
 exports[`Storyshots Components/UI/Typography/Paragraph Default Paragraph Large 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c1 {
@@ -4517,10 +4441,10 @@ exports[`Storyshots Components/UI/Typography/Paragraph Default Paragraph Large 1
 
 exports[`Storyshots Components/UI/Typography/Paragraph Default Paragraph Medium 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c1 {
@@ -4561,10 +4485,10 @@ exports[`Storyshots Components/UI/Typography/Paragraph Default Paragraph Medium 
 
 exports[`Storyshots Components/UI/Typography/Paragraph Default Paragraph Small 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c1 {
@@ -4605,10 +4529,10 @@ exports[`Storyshots Components/UI/Typography/Paragraph Default Paragraph Small 1
 
 exports[`Storyshots Components/UI/Typography/Span Default Span Large 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c1 {
@@ -4649,10 +4573,10 @@ exports[`Storyshots Components/UI/Typography/Span Default Span Large 1`] = `
 
 exports[`Storyshots Components/UI/Typography/Span Default Span Medium 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c1 {
@@ -4693,10 +4617,10 @@ exports[`Storyshots Components/UI/Typography/Span Default Span Medium 1`] = `
 
 exports[`Storyshots Components/UI/Typography/Span Default Span Small 1`] = `
 .c0 {
-  margin: 0;
-  text-align: center;
   font-variation-settings: 'wght' 300;
   font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
 .c1 {

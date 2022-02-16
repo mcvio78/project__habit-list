@@ -26,17 +26,17 @@ const CommonStyle = css<CommonStyleProps>`
 
 const CommonDisplay = css`
   ${CommonStyle};
-  font-variation-settings: 'wght' 700;
-  font-weight: 700;
-`;
-
-const CommonHeading = styled.h1`
-  ${CommonStyle};
   font-variation-settings: 'wght' 600;
   font-weight: 700;
 `;
 
-const CommonParagraph = styled.p`
+const CommonHeading = styled.h1<CommonStyleProps>`
+  ${CommonStyle};
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
+`;
+
+const CommonParagraph = styled.p<CommonStyleProps>`
   ${CommonStyle};
   font-variation-settings: 'wght' 300;
   font-weight: 400;
@@ -63,33 +63,33 @@ const CommonNavLink = styled(NavLink).attrs({
   }
 `;
 
-const CommonSpan = styled.span`
+const CommonSpan = styled.span<CommonStyleProps>`
   ${CommonStyle};
   font-variation-settings: 'wght' 300;
   font-weight: 400;
 `;
 
-const CommonLabel = styled.label`
+const CommonLabel = styled.label<CommonStyleProps>`
   ${CommonStyle};
   font-variation-settings: 'wght' 300;
   font-weight: 400;
 `;
 
-export const Display1 = styled.h1`
+export const Display1 = styled.h1<CommonStyleProps>`
   ${CommonDisplay};
   font-size: var(--typ-d-1-fs);
   line-height: var(--typ-d-1-lh);
   letter-spacing: var(--typ-d-1-ls);
 `;
 
-export const Display2 = styled.h1`
+export const Display2 = styled.h1<CommonStyleProps>`
   ${CommonDisplay};
   font-size: var(--typ-d-2-fs);
   line-height: var(--typ-d-2-lh);
   letter-spacing: var(--typ-d-2-ls);
 `;
 
-export const Display3 = styled.h2`
+export const Display3 = styled.h2<CommonStyleProps>`
   ${CommonDisplay};
   font-size: var(--typ-d-3-fs);
   line-height: var(--typ-d-3-lh);

@@ -19,6 +19,7 @@ export const COLORS = {
   egyptianBlue: '#193498',
   cinder: '#151515',
   azure: '#069af3',
+  cerulean: '#05acd3',
   tealBlue: '#018AB0',
   black: '#000000',
   black_rgb: '0, 0, 0',

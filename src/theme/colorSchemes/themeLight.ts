@@ -14,11 +14,11 @@ export const themeLight = css`
     --secondary_01_nav_ico_active: ${COLORS.lightPurple};
     --secondary_02: ${COLORS.malibu};
     --secondary_02_btn_hover: ${COLORS.white};
-    --secondary_02_hlw_btn_focus: ${COLORS.tealBlue};
     --secondary_02_btn_active: ${COLORS.azure};
     --secondary_03: transparent;
     --secondary_04: ${COLORS.ghost};
     --secondary_04_cbox_checked: ${COLORS.azure};
+    --secondary_05: ${COLORS.cerulean};
 
     --accent_01: ${COLORS.tealBlue};
     --accent_01_btn_hover: ${COLORS.white};

@@ -23,7 +23,7 @@ const DateSelector = styled(Container)<ContainerProps>`
   border-bottom: 2px solid var(--neutral_01);
 `;
 
-const date = format(new Date(), 'eee e MMM yyyy');
+const date = format(new Date(), 'eee d MMM yyyy');
 
 export const Daily = (): JSX.Element => {
   return (
@@ -106,7 +106,7 @@ export const Daily = (): JSX.Element => {
       <ShowDailyItem
         habitName="habit name"
         habitTarget="habit target"
-        habitCurrentAmount="(habit amount)"
+        habitCurrentAmount="( habit amount )"
         habitStatusButton={100}
       />
     </PageLayout>

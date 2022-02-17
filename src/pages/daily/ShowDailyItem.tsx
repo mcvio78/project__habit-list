@@ -1,28 +1,31 @@
-import { ReactNode } from 'react';
 import styled from 'styled-components/macro';
 
-import { Container, ContainerProps } from './Container';
-import { ParagraphExtraSmall, ParagraphSmall } from '../UI/Typography';
+import { Container, ContainerProps } from '../../components/layout';
+import {
+  ParagraphExtraSmall,
+  ParagraphSmall,
+} from '../../components/UI/Typography';
+import { AppButtonStatus } from '../../components/UI/button';
 
-interface ContainerDailyHabitProps {
+interface ShowDailyItemProps {
   habitName: string;
   habitTarget?: string;
   habitCurrentAmount?: string;
-  habitStatusButton: ReactNode;
+  habitStatusButton: number;
 }
 
-const ContainerHabitStyled = styled(Container)<ContainerProps>`
+const ShowDailyItemContainer = styled(Container)<ContainerProps>`
   border-bottom: 2px solid var(--secondary_05);
 `;
 
-export const ContainerDailyHabit = ({
+export const ShowDailyItem = ({
   habitName,
   habitTarget,
   habitCurrentAmount,
   habitStatusButton,
-}: ContainerDailyHabitProps): JSX.Element => {
+}: ShowDailyItemProps): JSX.Element => {
   return (
-    <ContainerHabitStyled
+    <ShowDailyItemContainer
       $w={{ de: '100%' }}
       $jc={{ de: 'center' }}
       $p={{ de: '0 16px' }}
@@ -32,7 +35,7 @@ export const ContainerDailyHabit = ({
         $w={{ de: '100%' }}
         $mxw={{ de: '320px', sm: '420px' }}
         $jc={{ de: 'space-between' }}
-        $p={{ de: '2px 4px', sm: '4px 6px' }}
+        $p={{ de: '4px', sm: '6px' }}
         $bs={{ de: 'border-box' }}
       >
         {habitTarget ? (
@@ -59,12 +62,22 @@ export const ContainerDailyHabit = ({
             <ParagraphExtraSmall $txtSdw $ital $txtClr="var(--neutral_12)">
               {habitCurrentAmount}
             </ParagraphExtraSmall>
-            {habitStatusButton}
+            <AppButtonStatus
+              aria-label="habit status button"
+              title="button showing habits status"
+              $backgroundColor={habitStatusButton < 100 ? 'red' : 'green'}
+              $boxShadow
+            />
           </Container>
         ) : (
-          { habitStatusButton }
+          <AppButtonStatus
+            aria-label="habit status button"
+            title="button showing habits status"
+            $backgroundColor={habitStatusButton < 100 ? 'red' : 'green'}
+            $boxShadow
+          />
         )}
       </Container>
-    </ContainerHabitStyled>
+    </ShowDailyItemContainer>
   );
 };

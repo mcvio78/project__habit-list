@@ -15,9 +15,9 @@ import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';
 import { ReactComponent as ArrowLeftSVG } from '../assets/icons/icon-arrow_left_24dp-np.svg';
 import { ReactComponent as ArrowRightSVG } from '../assets/icons/icon-arrow_right_24dp-np.svg';
 import { AppButtonIcon, AppButtonStatus } from '../components/UI/button';
-import { ContainerDailyHabit } from '../components/layout/ContainerDailyHabit';
+import { ShowDailyItem } from './daily/ShowDailyItem';
 
-const DateSelectorContainer = styled(Container)<ContainerProps>`
+const DateSelector = styled(Container)<ContainerProps>`
   background-color: var(--secondary_05);
   box-sizing: border-box;
   border-bottom: 2px solid var(--neutral_01);
@@ -39,7 +39,7 @@ export const Daily = (): JSX.Element => {
         </NavLinkIcon>
       </Toolbar>
       <Header $header="Daily Habits" />
-      <DateSelectorContainer
+      <DateSelector
         as="section"
         $miw={{ de: '100%' }}
         $fd={{ de: 'column' }}
@@ -102,19 +102,12 @@ export const Daily = (): JSX.Element => {
             $boxShadow
           />
         </Container>
-      </DateSelectorContainer>
-      <ContainerDailyHabit
+      </DateSelector>
+      <ShowDailyItem
         habitName="habit name"
         habitTarget="habit target"
         habitCurrentAmount="(habit amount)"
-        habitStatusButton={
-          <AppButtonStatus
-            aria-label="habit status button"
-            title="button showing habits status"
-            $backgroundColor="red"
-            $boxShadow
-          />
-        }
+        habitStatusButton={100}
       />
     </PageLayout>
   );

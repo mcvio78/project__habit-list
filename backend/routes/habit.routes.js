@@ -10,7 +10,7 @@ module.exports = app => {
     next();
   });
 
-  app.post('/api/habit/create', authJwt.verifyToken, controller.create);
+  app.post('/api/habit/create', authJwt.verifyToken, controller.createDailyHabit);
 
   app.get('/api/habit/daily', authJwt.verifyToken, controller.getDailyHabits);
 };

@@ -3,7 +3,7 @@ const Habit = db.habit;
 const User = db.user;
 const { format } = require('date-fns');
 
-exports.create = async (req, res) => {
+exports.createDailyHabit = async (req, res) => {
   try {
     const { habitType, habitName, targetType, targetAmount, expirationDate } =
       req.body;

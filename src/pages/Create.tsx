@@ -38,12 +38,12 @@ const validationSchemaHabit = Yup.object().shape({
       then: Yup.number()
         .nullable()
         .required('Amount is required')
-        .label('HabitAmount'),
+        .label('TargetAmount'),
     }),
   expirationDate: Yup.date()
     .nullable()
     .required('Date is required')
-    .label('StartDate'),
+    .label('ExpirationDate'),
 });
 
 export interface InitialValuesCreate {

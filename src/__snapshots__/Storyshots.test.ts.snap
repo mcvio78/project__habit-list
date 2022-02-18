@@ -1460,7 +1460,7 @@ exports[`Storyshots Components/UI/Input Default App Input Date 1`] = `
               onKeyDown={[Function]}
               readOnly={false}
               type="text"
-              value="02/16/2022"
+              value="02/18/2022"
             />
           </div>
         </div>
@@ -1955,7 +1955,7 @@ exports[`Storyshots Components/UI/Input Default Input Date 1`] = `
           onKeyDown={[Function]}
           readOnly={false}
           type="text"
-          value="02/16/2022"
+          value="02/18/2022"
         />
       </div>
     </div>

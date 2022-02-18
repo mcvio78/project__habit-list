@@ -10,10 +10,14 @@ import { ShowDailyItem } from './ShowDailyItem';
 import { DateSelector } from './DateSelector';
 import { useAPI } from '../../hooks/useApi';
 import { habitAPI } from '../../services/habit';
+import { Modal } from '../../components/UI/Modal';
+import { errorStatus } from '../../utility/request/statuses';
 
 export const Daily = (): JSX.Element => {
   const [date, setDate] = useState<Date>(new Date());
-  const { request, data } = useAPI(habitAPI.getDailyHabits);
+  const { request, data, status, setStatus, message, setMessage } = useAPI(
+    habitAPI.getDailyHabits,
+  );
 
   const selectDateHandler = useCallback(
     (days: number) => {
@@ -43,6 +47,15 @@ export const Daily = (): JSX.Element => {
 
   return (
     <PageLayout>
+      <Modal
+        showModal={errorStatus(status) && !!message}
+        modalCallback={() => {
+          setStatus(null);
+          setMessage('');
+        }}
+        status={status}
+        modalMessage={message}
+      />
       <Toolbar>
         <NavLinkIcon
           to="/"

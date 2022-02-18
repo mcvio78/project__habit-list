@@ -60,3 +60,17 @@ exports.create = async (req, res) => {
     });
   }
 };
+
+exports.getDailyHabits = async (req, res) => {
+  try {
+    const habits = await Habit.find({
+      habitOwnerId: req.user.id,
+      expirationDate: req.query.day,
+    }).lean();
+    res.status(200).send(habits);
+  } catch (err) {
+    res.status(500).send({
+      message: err.message || 'Some error occurred while getting daily Habits.',
+    });
+  }
+};

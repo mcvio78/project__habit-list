@@ -11,4 +11,6 @@ module.exports = app => {
   });
 
   app.post('/api/habit/create', authJwt.verifyToken, controller.create);
+
+  app.get('/api/habit/daily', authJwt.verifyToken, controller.getDailyHabits);
 };

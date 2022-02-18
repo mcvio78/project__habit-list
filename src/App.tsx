@@ -33,7 +33,7 @@ const CreateLazy = lazy(() =>
 );
 
 const DailyLazy = lazy(() =>
-  import('./pages/Daily').then(({ Daily }) => ({
+  import('./pages/daily/Daily').then(({ Daily }) => ({
     default: Daily,
   })),
 );
@@ -55,7 +55,7 @@ export const App = (): JSX.Element => {
             {user && <Route path="/account" element={<AccountLazy />} />}
             <Route path="/settings" element={<SettingsLazy />} />
             {user && <Route path="/create" element={<CreateLazy />} />}
-            {!user && <Route path="/daily" element={<DailyLazy />} />}
+            {user && <Route path="/daily" element={<DailyLazy />} />}
             <Route path="/" element={<Home />} />
           </Routes>
         </Suspense>

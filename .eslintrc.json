@@ -67,6 +67,7 @@
     "consistent-return": "off",
     "no-param-reassign": ["off", { "config": false }],
     "import/no-useless-path-segments": "off",
+    "no-underscore-dangle": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "off",

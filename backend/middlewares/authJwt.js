@@ -21,8 +21,6 @@ verifyToken = async (req, res, next) => {
       } else {
         res.status(400).send({ message: 'malformed auth header' });
       }
-
-      console.log('token: ', token);
     } else {
       return res.status(403).send({ message: 'No token provided!' });
     }

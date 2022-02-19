@@ -6,7 +6,7 @@ interface NewHabit {
   habitType: string;
   habitName: string;
   targetType: string;
-  targetAmount: number;
+  targetValue: number;
   expirationDate: Date;
 }
 

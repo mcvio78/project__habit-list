@@ -5,18 +5,24 @@ const { format } = require('date-fns');
 
 exports.createDailyHabit = async (req, res) => {
   try {
-    const { habitType, habitName, targetType, targetAmount, expirationDate } =
-      req.body;
+    const {
+      habitType,
+      habitName,
+      targetType,
+      targetValue,
+      targetCurrent,
+      expirationDate,
+    } = req.body;
 
     if (!(habitType && habitName && expirationDate)) {
       return res.status(400).send({ message: 'All input is required.' });
     }
 
-    if (targetType && !targetAmount) {
+    if (targetType && !targetValue) {
       return res.status(400).send({ message: 'Target amount is required.' });
     }
 
-    if (targetAmount && !targetType) {
+    if (targetValue && !targetType) {
       return res.status(400).send({ message: 'Target type is required.' });
     }
 
@@ -25,9 +31,9 @@ exports.createDailyHabit = async (req, res) => {
         habitType: habitType,
         habitName: habitName,
         targetType: targetType,
-        targetAmount: targetAmount,
+        targetValue: targetValue,
+        targetCurrent: targetCurrent,
         expirationDate: expirationDate,
-        pending: true,
         habitOwnerId: req.user.id,
       });
 

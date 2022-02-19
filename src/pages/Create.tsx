@@ -30,7 +30,7 @@ const validationSchemaHabit = Yup.object().shape({
   habitType: Yup.string().required('Habit type is required').label('HabitType'),
   habitName: Yup.string().required('Habit name is required').label('HabitName'),
   targetType: Yup.string().label('TargetType'),
-  targetAmount: Yup.number()
+  targetValue: Yup.number()
     .nullable()
     .when('targetType', {
       is: (TargetType: InitialValuesCreate['targetType']) =>
@@ -38,7 +38,7 @@ const validationSchemaHabit = Yup.object().shape({
       then: Yup.number()
         .nullable()
         .required('Amount is required')
-        .label('TargetAmount'),
+        .label('TargetValue'),
     }),
   expirationDate: Yup.date()
     .nullable()
@@ -50,7 +50,7 @@ export interface InitialValuesCreate {
   habitType: 'toDo' | 'avoid' | '';
   habitName: string;
   targetType: 'min' | 'max' | '';
-  targetAmount: number | null;
+  targetValue: number | null;
   expirationDate: Date | null;
 }
 
@@ -58,7 +58,7 @@ export const initialValuesCreate: InitialValuesCreate = {
   habitType: '',
   habitName: '',
   targetType: '',
-  targetAmount: null,
+  targetValue: null,
   expirationDate: null,
 };
 
@@ -69,6 +69,7 @@ export const Create = (): JSX.Element => {
 
   const submitFormHandler = useCallback(
     async (habitValues: FormikValues) => {
+      habitValues.targetCurrent = habitValues.habitType === 'toDo' ? 100 : 0;
       request(habitValues);
     },
     [request],
@@ -176,8 +177,8 @@ export const Create = (): JSX.Element => {
                     {values.targetType !== '' && (
                       <AppFormInputText
                         type="number"
-                        id="targetAmount"
-                        name="targetAmount"
+                        id="targetValue"
+                        name="targetValue"
                         IconSVG={CalculateSVG}
                         $label="Amount"
                         placeholder="Target Amount"

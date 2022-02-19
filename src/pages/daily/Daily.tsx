@@ -38,9 +38,10 @@ export const Daily = (): JSX.Element => {
         <ShowDailyItem
           key={day._id}
           habitName={day.habitName}
-          habitTarget={day.targetAmount}
-          habitCurrentAmount="miss current"
-          habitStatusButton={100}
+          targetValue={day.targetValue}
+          targetCurrent={day.targetCurrent}
+          habitStatus={day.state}
+          expirationDate={day.expirationDate}
         />
       ))
     : null;

@@ -9,9 +9,10 @@ import { AppButtonStatus } from '../../components/UI/button';
 
 interface ShowDailyItemProps {
   habitName: string;
-  habitTarget?: string;
-  habitCurrentAmount?: string;
-  habitStatusButton: number;
+  targetValue?: string;
+  targetCurrent?: string;
+  habitStatus: number;
+  expirationDate: Date;
 }
 
 const ShowDailyItemContainer = styled(Container)<ContainerProps>`
@@ -20,14 +21,17 @@ const ShowDailyItemContainer = styled(Container)<ContainerProps>`
 
 export const ShowDailyItem = ({
   habitName,
-  habitTarget,
-  habitCurrentAmount,
-  habitStatusButton,
+  targetValue,
+  targetCurrent,
+  habitStatus,
+  expirationDate,
 }: ShowDailyItemProps): JSX.Element => {
   return (
     <ShowDailyItemContainer
       $w={{ de: '100%' }}
+      $mih={{ de: '40px' }}
       $jc={{ de: 'center' }}
+      $ai={{ de: 'center' }}
       $p={{ de: '0 16px' }}
       $bs={{ de: 'border-box' }}
     >
@@ -35,16 +39,17 @@ export const ShowDailyItem = ({
         $w={{ de: '100%' }}
         $mxw={{ de: '320px', sm: '420px' }}
         $jc={{ de: 'space-between' }}
-        $p={{ de: '4px', sm: '6px' }}
+        $ai={{ de: 'center' }}
+        $p={{ sm: '4px' }}
         $bs={{ de: 'border-box' }}
       >
-        {habitTarget ? (
+        {targetValue ? (
           <Container $fd={{ de: 'column' }} $ai={{ de: 'flex-start' }}>
             <ParagraphSmall $txtSdw $ital>
               {habitName}
             </ParagraphSmall>
             <ParagraphExtraSmall $txtSdw $ital>
-              {habitTarget}
+              {targetValue}
             </ParagraphExtraSmall>
           </Container>
         ) : (
@@ -52,7 +57,7 @@ export const ShowDailyItem = ({
             {habitName}
           </ParagraphSmall>
         )}
-        {habitCurrentAmount ? (
+        {targetCurrent ? (
           <Container
             $w={{ de: '100%' }}
             $mxw={{ de: '140px' }}
@@ -60,12 +65,12 @@ export const ShowDailyItem = ({
             $ai={{ de: 'center' }}
           >
             <ParagraphExtraSmall $txtSdw $ital $txtClr="var(--neutral_12)">
-              {habitCurrentAmount}
+              {targetCurrent}
             </ParagraphExtraSmall>
             <AppButtonStatus
               aria-label="habit status button"
               title="button showing habits status"
-              $backgroundColor={habitStatusButton < 100 ? 'red' : 'green'}
+              $backgroundColor={habitStatus < 100 ? 'red' : 'green'}
               $boxShadow
             />
           </Container>
@@ -73,10 +78,11 @@ export const ShowDailyItem = ({
           <AppButtonStatus
             aria-label="habit status button"
             title="button showing habits status"
-            $backgroundColor={habitStatusButton < 100 ? 'red' : 'green'}
+            $backgroundColor={habitStatus < 100 ? 'red' : 'green'}
             $boxShadow
           />
         )}
+        <h1>{expirationDate}</h1>
       </Container>
     </ShowDailyItemContainer>
   );

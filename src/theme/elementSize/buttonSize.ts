@@ -51,12 +51,12 @@ export const buttonSize = css`
     }
 
     &.button-habit-status {
-      --btn-hab-stat-w: 18px;
-      --btn-hab-stat-h: 18px;
+      --btn-hab-stat-w: 22px;
+      --btn-hab-stat-h: 22px;
 
       @media screen and (min-width: ${BREAKPOINTS.sm}) {
-        --btn-hab-stat-w: 24px;
-        --btn-hab-stat-h: 24px;
+        --btn-hab-stat-w: 28px;
+        --btn-hab-stat-h: 28px;
       }
     }
   }

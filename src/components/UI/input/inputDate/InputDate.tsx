@@ -50,6 +50,7 @@ export const InputDate = ({
       onBlur={onBlur}
       placeholderText={placeholder}
       onChangeRaw={e => e.preventDefault()}
+      minDate={new Date()}
     />
   </Styles>
 );

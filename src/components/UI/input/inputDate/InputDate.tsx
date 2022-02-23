@@ -51,6 +51,7 @@ export const InputDate = ({
       placeholderText={placeholder}
       onChangeRaw={e => e.preventDefault()}
       minDate={new Date()}
+      dateFormat="yyyy-MM-dd"
     />
   </Styles>
 );

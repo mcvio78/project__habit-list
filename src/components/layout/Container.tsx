@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components/macro';
 
 import { BreakPointsProps, SpaceValue } from '../../helpers/globalTypes';
 import { styledMargin, StyledMarginProps } from '../../utility/UI/styledMargin';
-import { BREAKPOINTS } from '../../config/constants';
+import { BREAKPOINTS } from '../../config';
 
 export interface ContainerProps extends StyledMarginProps {
   /** width CSS property (prop) */

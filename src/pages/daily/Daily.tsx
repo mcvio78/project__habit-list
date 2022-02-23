@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
-import { format } from 'date-fns';
+import styled from 'styled-components/macro';
 
-import { PageLayout } from '../../components/layout';
+import { Container, PageLayout } from '../../components/layout';
 import { NavLinkIcon } from '../../components/UI/Typography';
 import { Header } from '../../components/UI/Header';
 import { Toolbar } from '../../components/layout/Toolbar';
@@ -12,6 +12,10 @@ import { useAPI } from '../../hooks/useApi';
 import { habitAPI } from '../../services/habit';
 import { Modal } from '../../components/UI/Modal';
 import { errorStatus } from '../../utility/request/statuses';
+
+const DailyListContainer = styled(Container)`
+  overflow-y: auto;
+`;
 
 export const Daily = (): JSX.Element => {
   const [date, setDate] = useState<Date>(new Date());
@@ -28,7 +32,11 @@ export const Daily = (): JSX.Element => {
   );
 
   useEffect(() => {
-    const dateDaySearched = format(date, "yyyy-MM-dd'T'00:00:00.000+00:00");
+    const dateDaySearched = Date.UTC(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+    );
     request(dateDaySearched);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date]);
@@ -38,9 +46,10 @@ export const Daily = (): JSX.Element => {
         <ShowDailyItem
           key={day._id}
           habitName={day.habitName}
+          habitType={day.habitType}
           targetValue={day.targetValue}
           targetCurrent={day.targetCurrent}
-          habitStatus={day.state}
+          habitState={day.state}
           expirationDate={day.expirationDate}
         />
       ))
@@ -73,7 +82,13 @@ export const Daily = (): JSX.Element => {
         onClickHandler={selectDateHandler}
         averageStatus={0}
       />
-      {dailyHabits}
+      <DailyListContainer
+        $w={{ de: '100%' }}
+        $fd={{ de: 'column' }}
+        $mxh={{ de: '280px' }}
+      >
+        {dailyHabits}
+      </DailyListContainer>
     </PageLayout>
   );
 };

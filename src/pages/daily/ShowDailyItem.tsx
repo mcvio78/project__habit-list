@@ -6,13 +6,16 @@ import {
   ParagraphSmall,
 } from '../../components/UI/Typography';
 import { AppButtonStatus } from '../../components/UI/button';
+import { HabitType, HabitState, FinalState } from '../../helpers/constants';
+import { checkHabitStatus } from '../../utility/utils';
 
 interface ShowDailyItemProps {
   habitName: string;
+  habitType: HabitType;
   targetValue?: string;
   targetCurrent?: string;
-  habitStatus: number;
-  expirationDate: Date;
+  habitState: HabitState;
+  expirationDate: number;
 }
 
 const ShowDailyItemContainer = styled(Container)<ContainerProps>`
@@ -21,11 +24,18 @@ const ShowDailyItemContainer = styled(Container)<ContainerProps>`
 
 export const ShowDailyItem = ({
   habitName,
+  habitType,
   targetValue,
   targetCurrent,
-  habitStatus,
+  habitState = HabitState.Unchecked,
   expirationDate,
 }: ShowDailyItemProps): JSX.Element => {
+  const habitFinalState = checkHabitStatus({
+    habitType,
+    habitState,
+    expirationDate,
+  });
+
   return (
     <ShowDailyItemContainer
       $w={{ de: '100%' }}
@@ -65,24 +75,33 @@ export const ShowDailyItem = ({
             $ai={{ de: 'center' }}
           >
             <ParagraphExtraSmall $txtSdw $ital $txtClr="var(--neutral_12)">
-              {targetCurrent}
+              ( {targetCurrent} )
             </ParagraphExtraSmall>
             <AppButtonStatus
               aria-label="habit status button"
               title="button showing habits status"
-              $backgroundColor={habitStatus < 100 ? 'red' : 'green'}
               $boxShadow
+              $status={habitFinalState}
+              disabled={
+                habitFinalState === FinalState.SuccessfulExpired ||
+                habitFinalState === FinalState.FailedExpired ||
+                habitFinalState === FinalState.PostponedExpired
+              }
             />
           </Container>
         ) : (
           <AppButtonStatus
             aria-label="habit status button"
             title="button showing habits status"
-            $backgroundColor={habitStatus < 100 ? 'red' : 'green'}
             $boxShadow
+            $status={habitFinalState}
+            disabled={
+              habitFinalState === FinalState.SuccessfulExpired ||
+              habitFinalState === FinalState.FailedExpired ||
+              habitFinalState === FinalState.PostponedExpired
+            }
           />
         )}
-        <h1>{expirationDate}</h1>
       </Container>
     </ShowDailyItemContainer>
   );

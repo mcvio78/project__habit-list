@@ -1,7 +1,8 @@
 import '../src/theme/fontStyles.css';
 import { GlobalStyle } from '../src/theme/GlobalStyle';
+import { Theme } from '../src/helpers/constants';
 
-document.body.dataset.theme = 'light';
+document.body.dataset.theme = Theme.Light;
 
 export const decorators = [
   Story => (

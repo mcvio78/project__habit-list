@@ -2,15 +2,15 @@ import { useCallback } from 'react';
 import { FormikValues } from 'formik';
 import * as Yup from 'yup';
 
-import { PageLayout, Container } from '../components/layout';
+import { Container, PageLayout } from '../components/layout';
 import { Header } from '../components/UI/Header';
 import { Toolbar } from '../components/layout/Toolbar';
 import {
   AppForm,
+  AppFormCheckbox,
+  AppFormInputDate,
   AppFormInputText,
   AppFormSubmit,
-  AppFormInputDate,
-  AppFormCheckbox,
 } from '../components/form';
 import { ReactComponent as RepeatSVG } from '../assets/icons/icon-repeat_24dp.svg';
 import { ReactComponent as EventSVG } from '../assets/icons/icon-event_24dp.svg';
@@ -25,6 +25,7 @@ import { habitAPI } from '../services/habit';
 import { Modal } from '../components/UI/Modal';
 import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';
 import { successStatus } from '../utility/request/statuses';
+import { HabitType, TargetType } from '../helpers/constants';
 
 const validationSchemaHabit = Yup.object().shape({
   habitType: Yup.string().required('Habit type is required').label('HabitType'),
@@ -33,8 +34,8 @@ const validationSchemaHabit = Yup.object().shape({
   targetValue: Yup.number()
     .nullable()
     .when('targetType', {
-      is: (TargetType: InitialValuesCreate['targetType']) =>
-        TargetType === 'min' || TargetType === 'max',
+      is: (TgtType: InitialValuesCreate['targetType']) =>
+        TgtType === TargetType.min || TgtType === TargetType.max,
       then: Yup.number()
         .nullable()
         .required('Amount is required')
@@ -47,9 +48,9 @@ const validationSchemaHabit = Yup.object().shape({
 });
 
 export interface InitialValuesCreate {
-  habitType: 'toDo' | 'avoid' | '';
+  habitType: HabitType.ToDo | HabitType.Avoid | '';
   habitName: string;
-  targetType: 'min' | 'max' | '';
+  targetType: TargetType.min | TargetType.max | '';
   targetValue: number | null;
   expirationDate: Date | null;
 }

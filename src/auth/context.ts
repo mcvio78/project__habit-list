@@ -1,6 +1,6 @@
 import { createContext, Dispatch, SetStateAction } from 'react';
 
-import { themes } from '../config/constants/themes';
+import { themes } from '../config/themes';
 
 export interface User {
   aud: string;

@@ -5,7 +5,7 @@ import { PageContainer } from './components/layout';
 import { Home } from './pages/Home';
 import { AuthContext } from './auth/context';
 import { ResetContext } from './auth/ResetContext';
-import { themes } from './config/constants/themes';
+import { themes } from './config/themes';
 import { SpanLarge } from './components/UI/Typography';
 
 const AuthLazy = lazy(() =>

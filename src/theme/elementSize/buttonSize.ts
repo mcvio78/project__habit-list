@@ -1,6 +1,6 @@
 import { css } from 'styled-components/macro';
 
-import { BREAKPOINTS } from '../../config/constants';
+import { BREAKPOINTS } from '../../config';
 
 export const buttonSize = css`
   button {

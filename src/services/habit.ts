@@ -11,12 +11,16 @@ interface NewHabit {
 }
 
 const createHabitEndpoint = '/api/habit/create';
-const createHabit = (newHabit: NewHabit): Promise<AxiosResponse> => {
-  newHabit.expirationDate = new Date(
-    newHabit.expirationDate.getTime() -
-      newHabit.expirationDate.getTimezoneOffset() * 60000,
+const createHabit = async (newHabit: NewHabit): Promise<AxiosResponse> => {
+  const dateUTC = Date.UTC(
+    newHabit.expirationDate.getFullYear(),
+    newHabit.expirationDate.getMonth(),
+    newHabit.expirationDate.getDate(),
   );
-  return apiClient.post(createHabitEndpoint, newHabit);
+  return apiClient.post(createHabitEndpoint, {
+    ...newHabit,
+    expirationDate: dateUTC,
+  });
 };
 
 const getDailyHabitsEndpoint = '/api/habit/daily';

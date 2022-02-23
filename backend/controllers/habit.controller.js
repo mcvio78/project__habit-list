@@ -14,7 +14,7 @@ exports.createDailyHabit = async (req, res) => {
       expirationDate,
     } = req.body;
 
-    if (!(habitType && habitName && expirationDate)) {
+    if (!(habitType && habitName)) {
       return res.status(400).send({ message: 'All input is required.' });
     }
 

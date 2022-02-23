@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { AuthContext } from '../auth/context';
 import { themeStorage } from '../theme/storage';
-import { themes } from '../config/constants/themes';
+import { themes } from '../config/themes';
 
 interface UseThemeReturn {
   theme: string;

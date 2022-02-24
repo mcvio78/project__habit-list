@@ -58,11 +58,46 @@ export const Home = (): JSX.Element => {
           </span>
         }
       />
+      {user && (
+        <Container
+          $fd={{ de: 'column' }}
+          $fg={{ de: 1 }}
+          $jc={{ de: 'center' }}
+          $ai={{ de: 'flex-start' }}
+          $g={{ de: '12px' }}
+        >
+          <NavLinkLarge
+            to="/daily"
+            aria-label="navigation link to daily habits page"
+            $ital
+            $txtSdw
+          >
+            Daily
+          </NavLinkLarge>
+          <NavLinkLarge
+            to="/weekly"
+            aria-label="navigation link to weekly habits page"
+            $ital
+            $txtSdw
+          >
+            Weekly
+          </NavLinkLarge>
+          <NavLinkLarge
+            to="/monthly"
+            aria-label="navigation link to monthly habits page"
+            $ital
+            $txtSdw
+          >
+            Monthly
+          </NavLinkLarge>
+        </Container>
+      )}
+
       <Container
         $m={{ de: 'auto 0 24px 0' }}
         $fd={{ de: 'column' }}
         $ai={{ de: 'center' }}
-        $g={{ de: '30px' }}
+        $g={{ de: '24px' }}
       >
         <ParagraphLarge $txtSdw>
           <i>Start organizing your life!</i>

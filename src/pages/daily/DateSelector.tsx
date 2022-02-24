@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 import { format } from 'date-fns';
 
 import { Container, ContainerProps } from '../../components/layout';
-import { AppButtonIcon, AppButtonStatus } from '../../components/UI/button';
+import { AppButtonIcon, AppButtonState } from '../../components/UI/button';
 import { ReactComponent as ArrowLeftSVG } from '../../assets/icons/icon-arrow_left_24dp-np.svg';
 import {
   HeadingExtraLarge,
@@ -84,13 +84,14 @@ export const DateSelector = ({
           (daily+weekly)
         </ParagraphSmall>
       </Container>
-      {averageStatus !== 0 && (
-        <AppButtonStatus
+      {averageStatus === 0 && (
+        <AppButtonState
           aria-label="habit average status button"
           title="button showing current average habits status"
           $border="1px solid var(--neutral_01)"
           $boxShadow
-          $status={FinalState.SuccessfulActive}
+          $status={FinalState.Successful}
+          disabled
         />
       )}
     </Container>

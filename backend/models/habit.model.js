@@ -10,7 +10,7 @@ const Habit = mongoose.model(
       targetValue: { type: Number, default: null },
       targetCurrent: Number,
       expirationDate: Number,
-      state: String,
+      status: String,
       habitOwnerId: String,
     },
     { timestamps: true },

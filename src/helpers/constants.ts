@@ -13,7 +13,7 @@ export enum Theme {
   Dark = 'dark',
 }
 
-export enum HabitState {
+export enum HabitStatus {
   Unchecked = 'unchecked',
   Done = 'done',
   Undone = 'undone',
@@ -22,10 +22,8 @@ export enum HabitState {
 
 export enum FinalState {
   Pending = 'pending',
-  SuccessfulActive = 'successfulActive',
-  FailedActive = 'failedActive',
-  PostponedActive = 'postponedActive',
-  SuccessfulExpired = 'successfulExpired',
-  FailedExpired = 'failedExpired',
-  PostponedExpired = 'postponedExpired',
+  Successful = 'successful',
+  Failed = 'failedActive',
+  Postponed = 'postponed',
+  Error = 'error',
 }

@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import styled from 'styled-components/macro';
 
 import { Container, ContainerProps } from '../../components/layout';
@@ -5,16 +6,17 @@ import {
   ParagraphExtraSmall,
   ParagraphSmall,
 } from '../../components/UI/Typography';
-import { AppButtonStatus } from '../../components/UI/button';
-import { HabitType, HabitState, FinalState } from '../../helpers/constants';
-import { checkHabitStatus } from '../../utility/utils';
+import { AppButtonState } from '../../components/UI/button';
+import { HabitStatus, HabitType, TargetType } from '../../helpers/constants';
+import { checkHabitState } from '../../utility/utils';
 
 interface ShowDailyItemProps {
   habitName: string;
   habitType: HabitType;
-  targetValue?: string;
-  targetCurrent?: string;
-  habitState: HabitState;
+  targetType?: TargetType;
+  targetValue?: number | null;
+  targetCurrent?: number | null;
+  habitStatus: HabitStatus;
   expirationDate: number;
 }
 
@@ -25,16 +27,21 @@ const ShowDailyItemContainer = styled(Container)<ContainerProps>`
 export const ShowDailyItem = ({
   habitName,
   habitType,
+  targetType,
   targetValue,
   targetCurrent,
-  habitState = HabitState.Unchecked,
+  habitStatus = HabitStatus.Unchecked,
   expirationDate,
 }: ShowDailyItemProps): JSX.Element => {
-  const habitFinalState = checkHabitStatus({
-    habitType,
-    habitState,
-    expirationDate,
-  });
+  const { finalState, isHabitValid } = useMemo(
+    () =>
+      checkHabitState({
+        habitType,
+        habitStatus,
+        expirationDate,
+      }),
+    [habitType, habitStatus, expirationDate],
+  );
 
   return (
     <ShowDailyItemContainer
@@ -50,16 +57,20 @@ export const ShowDailyItem = ({
         $mxw={{ de: '320px', sm: '420px' }}
         $jc={{ de: 'space-between' }}
         $ai={{ de: 'center' }}
-        $p={{ sm: '4px' }}
+        $p={{ de: '0 4px', sm: '0 6px' }}
         $bs={{ de: 'border-box' }}
       >
-        {targetValue ? (
+        {targetType && targetValue ? (
           <Container $fd={{ de: 'column' }} $ai={{ de: 'flex-start' }}>
             <ParagraphSmall $txtSdw $ital>
               {habitName}
             </ParagraphSmall>
-            <ParagraphExtraSmall $txtSdw $ital>
-              {targetValue}
+            <ParagraphExtraSmall
+              $txtSdw
+              $ital
+              $txtClr={targetType === TargetType.max ? 'red' : 'green'}
+            >
+              {targetType === TargetType.min ? '>=' : '<'} {targetValue}
             </ParagraphExtraSmall>
           </Container>
         ) : (
@@ -77,29 +88,21 @@ export const ShowDailyItem = ({
             <ParagraphExtraSmall $txtSdw $ital $txtClr="var(--neutral_12)">
               ( {targetCurrent} )
             </ParagraphExtraSmall>
-            <AppButtonStatus
+            <AppButtonState
               aria-label="habit status button"
               title="button showing habits status"
               $boxShadow
-              $status={habitFinalState}
-              disabled={
-                habitFinalState === FinalState.SuccessfulExpired ||
-                habitFinalState === FinalState.FailedExpired ||
-                habitFinalState === FinalState.PostponedExpired
-              }
+              $status={finalState}
+              disabled={!isHabitValid}
             />
           </Container>
         ) : (
-          <AppButtonStatus
+          <AppButtonState
             aria-label="habit status button"
             title="button showing habits status"
             $boxShadow
-            $status={habitFinalState}
-            disabled={
-              habitFinalState === FinalState.SuccessfulExpired ||
-              habitFinalState === FinalState.FailedExpired ||
-              habitFinalState === FinalState.PostponedExpired
-            }
+            $status={finalState}
+            disabled={!isHabitValid}
           />
         )}
       </Container>

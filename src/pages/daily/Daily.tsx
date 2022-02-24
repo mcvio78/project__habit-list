@@ -20,6 +20,7 @@ interface Habit {
   habitName: string;
   targetType: TargetType;
   targetValue: number | null;
+  targetUnit: string;
   targetCurrent: number | null;
   expirationDate: number;
   status: HabitStatus;
@@ -62,6 +63,7 @@ export const Daily = (): JSX.Element => {
           habitType={habit.habitType}
           targetType={habit.targetType}
           targetValue={habit.targetValue}
+          targetUnit={habit.targetUnit}
           targetCurrent={habit.targetCurrent}
           habitStatus={habit.status}
           expirationDate={habit.expirationDate}

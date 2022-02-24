@@ -15,6 +15,7 @@ import {
 import { ReactComponent as RepeatSVG } from '../assets/icons/icon-repeat_24dp.svg';
 import { ReactComponent as EventSVG } from '../assets/icons/icon-event_24dp.svg';
 import { ReactComponent as CalculateSVG } from '../assets/icons/icon-calculate_24dp.svg';
+import { ReactComponent as SegmentSVG } from '../assets/icons/icon-segment_24dp.svg';
 import {
   HeadingExtraSmall,
   HeadingLarge,
@@ -41,6 +42,11 @@ const validationSchemaHabit = Yup.object().shape({
         .required('Amount is required')
         .label('TargetValue'),
     }),
+  targetUnit: Yup.string().when('targetType', {
+    is: (TgtType: InitialValuesCreate['targetType']) =>
+      TgtType === TargetType.min || TgtType === TargetType.max,
+    then: Yup.string().required('Target unit is required').label('TargetUnit'),
+  }),
   expirationDate: Yup.date()
     .nullable()
     .required('Date is required')
@@ -52,6 +58,7 @@ export interface InitialValuesCreate {
   habitName: string;
   targetType: TargetType.min | TargetType.max | '';
   targetValue: number | null;
+  targetUnit: string;
   expirationDate: Date | null;
 }
 
@@ -60,6 +67,7 @@ export const initialValuesCreate: InitialValuesCreate = {
   habitName: '',
   targetType: '',
   targetValue: null,
+  targetUnit: '',
   expirationDate: null,
 };
 
@@ -70,7 +78,8 @@ export const Create = (): JSX.Element => {
 
   const submitFormHandler = useCallback(
     async (habitValues: FormikValues) => {
-      habitValues.targetCurrent = habitValues.habitType === 'toDo' ? 100 : 0;
+      habitValues.targetCurrent =
+        habitValues.habitType === HabitType.ToDo ? 100 : 0;
       request(habitValues);
     },
     [request],
@@ -176,15 +185,27 @@ export const Create = (): JSX.Element => {
                       />
                     </Container>
                     {values.targetType !== '' && (
-                      <AppFormInputText
-                        type="number"
-                        id="targetValue"
-                        name="targetValue"
-                        IconSVG={CalculateSVG}
-                        $label="Amount"
-                        placeholder="Target Amount"
-                        min="1"
-                      />
+                      <>
+                        <AppFormInputText
+                          type="number"
+                          id="targetValue"
+                          name="targetValue"
+                          IconSVG={CalculateSVG}
+                          $label="Amount"
+                          placeholder="Target Amount"
+                          min="1"
+                        />
+                        <AppFormInputText
+                          type="string"
+                          id="targetUnit"
+                          name="targetUnit"
+                          IconSVG={SegmentSVG}
+                          $label="Unit"
+                          placeholder="Target Unit"
+                          autoCapitalize="off"
+                          spellCheck={false}
+                        />
+                      </>
                     )}
                   </Container>
                 )}

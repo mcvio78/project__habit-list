@@ -15,6 +15,7 @@ interface ShowDailyItemProps {
   habitType: HabitType;
   targetType?: TargetType;
   targetValue?: number | null;
+  targetUnit?: string;
   targetCurrent?: number | null;
   habitStatus: HabitStatus;
   expirationDate: number;
@@ -29,6 +30,7 @@ export const ShowDailyItem = ({
   habitType,
   targetType,
   targetValue,
+  targetUnit,
   targetCurrent,
   habitStatus = HabitStatus.Unchecked,
   expirationDate,
@@ -68,9 +70,17 @@ export const ShowDailyItem = ({
             <ParagraphExtraSmall
               $txtSdw
               $ital
-              $txtClr={targetType === TargetType.max ? 'red' : 'green'}
+              $txtClr={
+                targetType === TargetType.max
+                  ? 'var(--semantic_error_01)'
+                  : 'var(--semantic_success_01)'
+              }
             >
-              {targetType === TargetType.min ? '>=' : '<'} {targetValue}
+              {targetType === TargetType.min ? '>=' : '<'}
+              &ensp;
+              {targetValue}
+              &ensp;
+              {targetUnit}
             </ParagraphExtraSmall>
           </Container>
         ) : (

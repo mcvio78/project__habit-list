@@ -21,10 +21,10 @@ export const AppButtonState = styled(Button).attrs<
   border: ${({ $border }) => $border};
   flex-shrink: 0;
   background-color: ${({ $status }) => {
-    if ($status === FinalState.Pending) return 'grey';
-    if ($status === FinalState.Successful) return 'green';
-    if ($status === FinalState.Failed) return 'red';
-    if ($status === FinalState.Postponed) return 'blue';
+    if ($status === FinalState.Pending) return 'var(--semantic_02)';
+    if ($status === FinalState.Successful) return 'var(--semantic_03)';
+    if ($status === FinalState.Failed) return 'var(--semantic_04)';
+    if ($status === FinalState.Postponed) return 'var(--semantic_05)';
   }};
 
   &:disabled {

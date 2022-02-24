@@ -10,7 +10,7 @@ import {
   ParagraphSmall,
 } from '../../components/UI/Typography';
 import { ReactComponent as ArrowRightSVG } from '../../assets/icons/icon-arrow_right_24dp-np.svg';
-import { FinalState } from '../../helpers/constants';
+import { HabitFinalState } from '../../helpers/constants';
 
 interface DateSelectorProps {
   date: Date;
@@ -90,7 +90,7 @@ export const DateSelector = ({
           title="button showing current average habits status"
           $border="1px solid var(--neutral_01)"
           $boxShadow
-          $status={FinalState.Successful}
+          $status={HabitFinalState.Successful}
           disabled
         />
       )}

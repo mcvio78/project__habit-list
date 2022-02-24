@@ -35,7 +35,7 @@ export const ShowDailyItem = ({
   habitStatus = HabitStatus.Unchecked,
   expirationDate,
 }: ShowDailyItemProps): JSX.Element => {
-  const { finalState, isHabitValid } = useMemo(
+  const { habitFinalState, isHabitValid } = useMemo(
     () =>
       checkHabitState({
         habitType,
@@ -102,7 +102,7 @@ export const ShowDailyItem = ({
               aria-label="habit status button"
               title="button showing habits status"
               $boxShadow
-              $status={finalState}
+              $status={habitFinalState}
               disabled={!isHabitValid}
             />
           </Container>
@@ -111,7 +111,7 @@ export const ShowDailyItem = ({
             aria-label="habit status button"
             title="button showing habits status"
             $boxShadow
-            $status={finalState}
+            $status={habitFinalState}
             disabled={!isHabitValid}
           />
         )}

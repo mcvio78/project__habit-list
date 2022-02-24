@@ -1,3 +1,8 @@
+export enum Theme {
+  Light = 'light',
+  Dark = 'dark',
+}
+
 export enum HabitType {
   ToDo = 'toDo',
   Avoid = 'avoid',
@@ -8,11 +13,6 @@ export enum TargetType {
   max = 'max',
 }
 
-export enum Theme {
-  Light = 'light',
-  Dark = 'dark',
-}
-
 export enum HabitStatus {
   Unchecked = 'unchecked',
   Done = 'done',
@@ -20,10 +20,15 @@ export enum HabitStatus {
   Postponed = 'postponed',
 }
 
-export enum FinalState {
+export enum HabitFinalState {
   Pending = 'pending',
   Successful = 'successful',
   Failed = 'failedActive',
   Postponed = 'postponed',
   Error = 'error',
+}
+
+export enum HabitChanges {
+  Pristine = 'pristine',
+  Dirty = 'dirty',
 }

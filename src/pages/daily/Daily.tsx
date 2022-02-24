@@ -6,8 +6,9 @@ import { NavLinkIcon } from '../../components/UI/Typography';
 import { Header } from '../../components/UI/Header';
 import { Toolbar } from '../../components/layout/Toolbar';
 import { ReactComponent as HomeSVG } from '../../assets/icons/icon-home_24dp.svg';
-import { ShowDailyItem } from './ShowDailyItem';
+import { DailyItem } from './DailyItem';
 import { DateSelector } from './DateSelector';
+import { DailyPotential } from './DailyPotential';
 import { useAPI } from '../../hooks/useApi';
 import { habitAPI } from '../../services/habit';
 import { Modal } from '../../components/UI/Modal';
@@ -57,7 +58,7 @@ export const Daily = (): JSX.Element => {
 
   const dailyHabits = data
     ? data.map((habit: Habit) => (
-        <ShowDailyItem
+        <DailyItem
           key={habit._id}
           habitName={habit.habitName}
           habitType={habit.habitType}
@@ -101,10 +102,11 @@ export const Daily = (): JSX.Element => {
       <DailyListContainer
         $w={{ de: '100%' }}
         $fd={{ de: 'column' }}
-        $mxh={{ de: '280px' }}
+        $h={{ de: '278px' }}
       >
         {dailyHabits}
       </DailyListContainer>
+      <DailyPotential />
     </PageLayout>
   );
 };

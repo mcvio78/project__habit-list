@@ -10,7 +10,7 @@ import { AppButtonState } from '../../components/UI/button';
 import { HabitStatus, HabitType, TargetType } from '../../helpers/constants';
 import { checkHabitState } from '../../utility/utils';
 
-interface ShowDailyItemProps {
+interface DailyItemProps {
   habitName: string;
   habitType: HabitType;
   targetType?: TargetType;
@@ -21,11 +21,11 @@ interface ShowDailyItemProps {
   expirationDate: number;
 }
 
-const ShowDailyItemContainer = styled(Container)<ContainerProps>`
+const DailyItemContainer = styled(Container)<ContainerProps>`
   border-bottom: 2px solid var(--secondary_05);
 `;
 
-export const ShowDailyItem = ({
+export const DailyItem = ({
   habitName,
   habitType,
   targetType,
@@ -34,7 +34,7 @@ export const ShowDailyItem = ({
   targetCurrent,
   habitStatus = HabitStatus.Unchecked,
   expirationDate,
-}: ShowDailyItemProps): JSX.Element => {
+}: DailyItemProps): JSX.Element => {
   const { habitFinalState, isHabitValid } = useMemo(
     () =>
       checkHabitState({
@@ -46,7 +46,7 @@ export const ShowDailyItem = ({
   );
 
   return (
-    <ShowDailyItemContainer
+    <DailyItemContainer
       $w={{ de: '100%' }}
       $mih={{ de: '40px' }}
       $jc={{ de: 'center' }}
@@ -91,7 +91,7 @@ export const ShowDailyItem = ({
         {targetCurrent ? (
           <Container
             $w={{ de: '100%' }}
-            $mxw={{ de: '140px' }}
+            $mxw={{ de: '80px', xs: '140px' }}
             $jc={{ de: 'space-between' }}
             $ai={{ de: 'center' }}
           >
@@ -116,6 +116,6 @@ export const ShowDailyItem = ({
           />
         )}
       </Container>
-    </ShowDailyItemContainer>
+    </DailyItemContainer>
   );
 };

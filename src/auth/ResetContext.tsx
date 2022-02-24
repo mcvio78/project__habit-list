@@ -1,4 +1,5 @@
 import { useCallback, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../hooks/useAuth';
 import { authStorage } from './storage';
@@ -10,6 +11,7 @@ import { useTheme } from '../hooks/useTheme';
 export const ResetContext = (): null => {
   const { user, setUserContextIfToken } = useAuth();
   const { setDefaultTheme, setSelectedTheme } = useTheme();
+  const navigate = useNavigate();
 
   const setUserIfStoredToken = useCallback(async () => {
     const authToken = authStorage.getToken();
@@ -24,11 +26,12 @@ export const ResetContext = (): null => {
         if (isAxiosError(err)) {
           if (err?.response?.status === 401) {
             authStorage.removeToken();
+            navigate('/');
           }
         }
       }
     }
-  }, [user, setUserContextIfToken]);
+  }, [user, setUserContextIfToken, navigate]);
 
   const setTheme = useCallback(() => {
     const theme = themeStorage.getTheme();

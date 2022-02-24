@@ -52,6 +52,7 @@ export const themeLight = css`
     --neutral_12: ${COLORS.stormGrey};
     --neutral_13: ${COLORS.azure};
     --neutral_14: ${COLORS.boulder};
+    --neutral_15: ${COLORS.lightPurple};
 
     --semantic_error_01: ${COLORS.ferrariRed};
     --semantic_success_01: ${COLORS.lemonLime};

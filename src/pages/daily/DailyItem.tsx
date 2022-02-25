@@ -11,8 +11,6 @@ import { TargetType } from '../../helpers/constants';
 import { checkHabitState } from '../../utility/utils';
 import { HabitStored } from '../../helpers/globalTypes';
 
-interface DailyItemProps extends Omit<HabitStored, '_id'> {}
-
 const DailyItemContainer = styled(Container)<ContainerProps>`
   border-bottom: 2px solid var(--secondary_05);
 `;
@@ -26,7 +24,7 @@ export const DailyItem = ({
   targetCurrent,
   habitStatus,
   expirationDate,
-}: DailyItemProps): JSX.Element => {
+}: HabitStored): JSX.Element => {
   const { habitFinalState, isHabitValid } = useMemo(
     () =>
       checkHabitState({

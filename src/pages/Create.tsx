@@ -70,7 +70,7 @@ export const Create = (): JSX.Element => {
   );
 
   const submitFormHandler = useCallback(
-    async (habitValues: FormikValues) => {
+    (habitValues: FormikValues) => {
       request(habitValues);
     },
     [request],

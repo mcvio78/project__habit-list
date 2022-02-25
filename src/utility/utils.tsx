@@ -57,8 +57,8 @@ export const checkHabitState = ({
   if (expirationDate) {
     const expirationDateTime = add(new Date(expirationDate), { days: 1 });
     const expirationUnixTime = getUnixTime(expirationDateTime);
-    const currentTime = getUnixTime(new Date());
-    const isHabitValid = currentTime < expirationUnixTime;
+    const currentUnixTime = getUnixTime(new Date());
+    const isHabitValid = currentUnixTime < expirationUnixTime;
 
     if (isHabitValid) {
       if (habitType === HabitType.ToDo) {
@@ -88,7 +88,7 @@ export const checkHabitState = ({
           return { habitFinalState: HabitFinalState.Failed, isHabitValid };
         }
       }
-    } else if (currentTime >= expirationUnixTime) {
+    } else if (currentUnixTime >= expirationUnixTime) {
       if (habitType === HabitType.ToDo) {
         if (habitStatus === HabitStatus.Pending) {
           return { habitFinalState: HabitFinalState.Failed, isHabitValid };

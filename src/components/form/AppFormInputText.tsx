@@ -3,6 +3,7 @@ import {
   SVGProps,
   LabelHTMLAttributes,
   ComponentPropsWithoutRef,
+  useEffect,
 } from 'react';
 import { useFormikContext, FormikProps } from 'formik';
 
@@ -32,6 +33,12 @@ export const AppFormInputText = ({
     errors,
     touched,
   } = useFormikContext<FormikProps<keyof AppFormInputTextProps>>();
+
+  useEffect(() => {
+    return () => {
+      setFieldValue(name, resetFormFieldValue(values[name]));
+    };
+  }, [name, setFieldValue, values]);
 
   return (
     <Container

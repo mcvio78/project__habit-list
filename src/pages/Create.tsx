@@ -26,7 +26,8 @@ import { habitAPI } from '../services/habit';
 import { Modal } from '../components/UI/Modal';
 import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';
 import { successStatus } from '../utility/request/statuses';
-import { HabitType, TargetType } from '../helpers/constants';
+import { TargetType } from '../helpers/constants';
+import { HabitCollected } from '../helpers/globalTypes';
 
 const validationSchemaHabit = Yup.object().shape({
   habitType: Yup.string().required('Habit type is required').label('HabitType'),
@@ -35,7 +36,7 @@ const validationSchemaHabit = Yup.object().shape({
   targetValue: Yup.number()
     .nullable()
     .when('targetType', {
-      is: (TgtType: InitialValuesCreate['targetType']) =>
+      is: (TgtType: HabitCollected['targetType']) =>
         TgtType === TargetType.min || TgtType === TargetType.max,
       then: Yup.number()
         .nullable()
@@ -43,7 +44,7 @@ const validationSchemaHabit = Yup.object().shape({
         .label('TargetValue'),
     }),
   targetUnit: Yup.string().when('targetType', {
-    is: (TgtType: InitialValuesCreate['targetType']) =>
+    is: (TgtType: HabitCollected['targetType']) =>
       TgtType === TargetType.min || TgtType === TargetType.max,
     then: Yup.string().required('Target unit is required').label('TargetUnit'),
   }),
@@ -53,20 +54,12 @@ const validationSchemaHabit = Yup.object().shape({
     .label('ExpirationDate'),
 });
 
-export interface InitialValuesCreate {
-  habitType: HabitType.ToDo | HabitType.Avoid | '';
-  habitName: string;
-  targetType: TargetType.min | TargetType.max | '';
-  targetValue: number | null;
-  targetUnit: string;
-  expirationDate: Date | null;
-}
-
-export const initialValuesCreate: InitialValuesCreate = {
+export const initialValuesCreate: HabitCollected = {
   habitType: '',
   habitName: '',
   targetType: '',
   targetValue: null,
+  targetCurrent: null,
   targetUnit: '',
   expirationDate: null,
 };
@@ -78,8 +71,6 @@ export const Create = (): JSX.Element => {
 
   const submitFormHandler = useCallback(
     async (habitValues: FormikValues) => {
-      habitValues.targetCurrent =
-        habitValues.habitType === HabitType.ToDo ? 100 : 0;
       request(habitValues);
     },
     [request],

@@ -13,20 +13,7 @@ import { useAPI } from '../../hooks/useApi';
 import { habitAPI } from '../../services/habit';
 import { Modal } from '../../components/UI/Modal';
 import { errorStatus } from '../../utility/request/statuses';
-import { HabitType, TargetType, HabitStatus } from '../../helpers/constants';
-
-interface Habit {
-  _id: number;
-  habitType: HabitType;
-  habitName: string;
-  targetType: TargetType;
-  targetValue: number | null;
-  targetUnit: string;
-  targetCurrent: number | null;
-  expirationDate: number;
-  status: HabitStatus;
-  habitOwnerId: string;
-}
+import { HabitStored } from '../../helpers/globalTypes';
 
 const DailyListContainer = styled(Container)`
   overflow-y: auto;
@@ -57,7 +44,7 @@ export const Daily = (): JSX.Element => {
   }, [date]);
 
   const dailyHabits = data
-    ? data.map((habit: Habit) => (
+    ? data.map((habit: HabitStored) => (
         <DailyItem
           key={habit._id}
           habitName={habit.habitName}
@@ -66,7 +53,7 @@ export const Daily = (): JSX.Element => {
           targetValue={habit.targetValue}
           targetUnit={habit.targetUnit}
           targetCurrent={habit.targetCurrent}
-          habitStatus={habit.status}
+          habitStatus={habit.habitStatus}
           expirationDate={habit.expirationDate}
         />
       ))

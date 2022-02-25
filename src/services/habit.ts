@@ -1,25 +1,25 @@
 import { AxiosResponse } from 'axios';
 
 import { apiClient } from './client';
-
-interface NewHabit {
-  habitType: string;
-  habitName: string;
-  targetType: string;
-  targetValue: number;
-  expirationDate: Date;
-}
+import { HabitCreate } from '../helpers/globalTypes';
+import { TargetType } from '../helpers/constants';
 
 const createHabitEndpoint = '/api/habit/create';
-const createHabit = async (newHabit: NewHabit): Promise<AxiosResponse> => {
+const createHabit = async (newHabit: HabitCreate): Promise<AxiosResponse> => {
   const dateUTC = Date.UTC(
     newHabit.expirationDate.getFullYear(),
     newHabit.expirationDate.getMonth(),
     newHabit.expirationDate.getDate(),
   );
+  const initTargetCurrent = () => {
+    if (newHabit.targetType === TargetType.max) return 100;
+    if (newHabit.targetType === TargetType.min) return 0;
+    return null;
+  };
   return apiClient.post(createHabitEndpoint, {
     ...newHabit,
     expirationDate: dateUTC,
+    targetCurrent: initTargetCurrent(),
   });
 };
 

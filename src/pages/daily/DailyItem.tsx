@@ -7,19 +7,11 @@ import {
   ParagraphSmall,
 } from '../../components/UI/Typography';
 import { AppButtonState } from '../../components/UI/button';
-import { HabitStatus, HabitType, TargetType } from '../../helpers/constants';
+import { TargetType } from '../../helpers/constants';
 import { checkHabitState } from '../../utility/utils';
+import { HabitStored } from '../../helpers/globalTypes';
 
-interface DailyItemProps {
-  habitName: string;
-  habitType: HabitType;
-  targetType?: TargetType;
-  targetValue?: number | null;
-  targetUnit?: string;
-  targetCurrent?: number | null;
-  habitStatus: HabitStatus;
-  expirationDate: number;
-}
+interface DailyItemProps extends Omit<HabitStored, '_id'> {}
 
 const DailyItemContainer = styled(Container)<ContainerProps>`
   border-bottom: 2px solid var(--secondary_05);
@@ -32,7 +24,7 @@ export const DailyItem = ({
   targetValue,
   targetUnit,
   targetCurrent,
-  habitStatus = HabitStatus.Unchecked,
+  habitStatus,
   expirationDate,
 }: DailyItemProps): JSX.Element => {
   const { habitFinalState, isHabitValid } = useMemo(
@@ -88,7 +80,7 @@ export const DailyItem = ({
             {habitName}
           </ParagraphSmall>
         )}
-        {targetCurrent ? (
+        {targetCurrent || targetCurrent === 0 ? (
           <Container
             $w={{ de: '100%' }}
             $mxw={{ de: '80px', xs: '140px' }}
@@ -96,7 +88,7 @@ export const DailyItem = ({
             $ai={{ de: 'center' }}
           >
             <ParagraphExtraSmall $txtSdw $ital $txtClr="var(--neutral_12)">
-              ( {targetCurrent} )
+              ( {targetCurrent}% )
             </ParagraphExtraSmall>
             <AppButtonState
               aria-label="habit status button"

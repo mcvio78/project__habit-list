@@ -62,7 +62,7 @@ export const checkHabitState = ({
 
     if (isHabitValid) {
       if (habitType === HabitType.ToDo) {
-        if (habitStatus === HabitStatus.Unchecked) {
+        if (habitStatus === HabitStatus.Pending) {
           return { habitFinalState: HabitFinalState.Pending, isHabitValid };
         }
         if (habitStatus === HabitStatus.Done) {
@@ -75,7 +75,7 @@ export const checkHabitState = ({
           return { habitFinalState: HabitFinalState.Pending, isHabitValid };
         }
       } else if (habitType === HabitType.Avoid) {
-        if (habitStatus === HabitStatus.Unchecked) {
+        if (habitStatus === HabitStatus.Pending) {
           return { habitFinalState: HabitFinalState.Pending, isHabitValid };
         }
         if (habitStatus === HabitStatus.Done) {
@@ -90,7 +90,7 @@ export const checkHabitState = ({
       }
     } else if (currentTime >= expirationUnixTime) {
       if (habitType === HabitType.ToDo) {
-        if (habitStatus === HabitStatus.Unchecked) {
+        if (habitStatus === HabitStatus.Pending) {
           return { habitFinalState: HabitFinalState.Failed, isHabitValid };
         }
         if (habitStatus === HabitStatus.Done) {
@@ -103,7 +103,7 @@ export const checkHabitState = ({
           return { habitFinalState: HabitFinalState.Postponed, isHabitValid };
         }
       } else if (habitType === HabitType.Avoid) {
-        if (habitStatus === HabitStatus.Unchecked) {
+        if (habitStatus === HabitStatus.Pending) {
           return { habitFinalState: HabitFinalState.Successful, isHabitValid };
         }
         if (habitStatus === HabitStatus.Done) {

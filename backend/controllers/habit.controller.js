@@ -10,8 +10,8 @@ exports.createDailyHabit = async (req, res) => {
       habitName,
       targetType,
       targetValue,
-      targetUnit,
       targetCurrent,
+      targetUnit,
       expirationDate,
     } = req.body;
 
@@ -33,8 +33,8 @@ exports.createDailyHabit = async (req, res) => {
         habitName: habitName,
         targetType: targetType,
         targetValue: targetValue,
-        targetUnit: targetUnit,
         targetCurrent: targetCurrent,
+        targetUnit: targetUnit,
         expirationDate: expirationDate,
         habitOwnerId: req.user.id,
       });

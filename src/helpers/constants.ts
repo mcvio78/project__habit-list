@@ -14,7 +14,7 @@ export enum TargetType {
 }
 
 export enum HabitStatus {
-  Unchecked = 'unchecked',
+  Pending = 'pending',
   Done = 'done',
   Undone = 'undone',
   Postponed = 'postponed',

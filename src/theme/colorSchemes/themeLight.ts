@@ -56,7 +56,7 @@ export const themeLight = css`
 
     --semantic_error_01: ${COLORS.ferrariRed};
     --semantic_success_01: ${COLORS.lemonLime};
-    --semantic_02: ${COLORS.boulder};
+    --semantic_02: ${COLORS.osloGrey};
     --semantic_03: ${COLORS.jungleGreen};
     --semantic_04: ${COLORS.persianRed};
     --semantic_05: ${COLORS.egyptianBlue};

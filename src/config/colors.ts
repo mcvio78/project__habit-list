@@ -1,6 +1,7 @@
 export const COLORS = {
   white: '#ffffff',
   white_rgb: '255, 255, 255',
+  geraldine: '#fc828a',
   ferrariRed: '#f90716',
   brightLavender: '#bc8cf2',
   greenWhite: '#d0d3c8',

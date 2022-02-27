@@ -54,6 +54,7 @@ export const themeLight = css`
     --neutral_14: ${COLORS.boulder};
     --neutral_15: ${COLORS.lightPurple};
     --neutral_16: ${COLORS.cinder};
+    --neutral_17: ${COLORS.geraldine};
 
     --semantic_error_01: ${COLORS.ferrariRed};
     --semantic_success_01: ${COLORS.lemonLime};
@@ -61,6 +62,7 @@ export const themeLight = css`
     --semantic_03: ${COLORS.jungleGreen};
     --semantic_04: ${COLORS.persianRed};
     --semantic_05: ${COLORS.egyptianBlue};
+    --semantic_06: ${COLORS.tealBlue};
 
     background-color: var(--primary_02, white);
     color: var(--neutral_01, black);

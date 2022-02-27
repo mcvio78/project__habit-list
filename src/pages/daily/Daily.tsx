@@ -18,6 +18,8 @@ import { HabitStored } from '../../helpers/globalTypes';
 import { checkHabitState } from '../../utility/utils';
 import { HabitFinalState } from '../../helpers/constants';
 import { AppButton } from '../../components/UI/button';
+import { useToggle } from '../../hooks/useToggle';
+import { CalendarSelection } from '../../components/UI/CalendarSelection';
 
 const DailyListContainer = styled(Container)`
   overflow-y: auto;
@@ -29,6 +31,8 @@ export const Daily = (): JSX.Element => {
   const { request, data, status, setStatus, message, setMessage } = useAPI(
     habitAPI.getDailyHabits,
   );
+  const { status: calendarStatus, toggleStatus: toggleCalendarStatus } =
+    useToggle();
 
   useEffect(() => {
     const dateDaySearched = Date.UTC(
@@ -110,43 +114,69 @@ export const Daily = (): JSX.Element => {
         </NavLinkIcon>
       </Toolbar>
       <Header $header="Daily Habits" />
-      <DateSelector
-        date={date}
-        onClickHandler={selectDateHandler}
-        averageStatus={0}
-      />
-      <DailyListContainer
-        $w={{ de: '100%' }}
-        $fd={{ de: 'column' }}
-        $h={{ de: '278px' }}
-      >
-        {dailyHabits}
-      </DailyListContainer>
-      <DailyPotential
-        habitsCompleted={habitsCompleted}
-        habitsAmount={data?.length}
-      />
-      <Container $g={{ de: '24px' }} $p={{ de: '12px 0' }}>
-        <AppButton
-          $size="medium"
-          $variant="flat"
-          $bold
-          aria-label="new habit"
-          title="create new habit"
-          onClick={() => navigate('/create')}
+      {!calendarStatus ? (
+        <>
+          <DateSelector
+            date={date}
+            onClickHandler={selectDateHandler}
+            averageStatus={0}
+          />
+          <DailyListContainer
+            $w={{ de: '100%' }}
+            $fd={{ de: 'column' }}
+            $h={{ de: '278px' }}
+          >
+            {dailyHabits}
+          </DailyListContainer>
+          <DailyPotential
+            habitsCompleted={habitsCompleted}
+            habitsAmount={data?.length}
+          />
+          <Container $g={{ de: '24px' }} $p={{ de: '12px 0' }}>
+            <AppButton
+              $size="medium"
+              $variant="flat"
+              $bold
+              aria-label="new habit"
+              title="create new habit"
+              onClick={() => navigate('/create')}
+            >
+              New
+            </AppButton>
+            <AppButton
+              $size="medium"
+              $variant="flat"
+              aria-label="calendar"
+              title="select date using the calendar"
+              onClick={toggleCalendarStatus}
+            >
+              Calendar
+            </AppButton>
+          </Container>
+        </>
+      ) : (
+        <Container
+          $fd={{ de: 'column' }}
+          $mt={{ de: '24px' }}
+          $g={{ de: '12px' }}
+          $ai={{ de: 'flex-end' }}
         >
-          New
-        </AppButton>
-        <AppButton
-          $size="medium"
-          $variant="flat"
-          aria-label="calendar"
-          title="select date using the calendar"
-          onClick={() => {}}
-        >
-          Calendar
-        </AppButton>
-      </Container>
+          <CalendarSelection
+            date={date}
+            onChange={setDate}
+            toggleCalendarStatus={toggleCalendarStatus}
+          />
+          <AppButton
+            $size="medium"
+            $variant="flat"
+            aria-label="close calendar"
+            title="close calendar selection date"
+            onClick={toggleCalendarStatus}
+          >
+            Close
+          </AppButton>
+        </Container>
+      )}
     </PageLayout>
   );
 };

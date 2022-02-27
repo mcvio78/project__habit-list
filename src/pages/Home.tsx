@@ -60,11 +60,11 @@ export const Home = (): JSX.Element => {
       />
       {user && (
         <Container
-          $fd={{ de: 'column' }}
           $fg={{ de: 1 }}
           $jc={{ de: 'center' }}
           $ai={{ de: 'flex-start' }}
           $g={{ de: '12px' }}
+          $mt={{ de: '24px' }}
         >
           <NavLinkLarge
             to="/daily"

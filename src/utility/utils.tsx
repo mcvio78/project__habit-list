@@ -1,7 +1,7 @@
 import { RefObject } from 'react';
 import { add, getUnixTime } from 'date-fns';
 
-import { HabitFinalState, HabitStatus, HabitType } from '../helpers/constants';
+import { HabitFinalState, HabitStatus } from '../helpers/constants';
 
 export const debounce = (
   callback: (event: Event) => void,
@@ -41,82 +41,36 @@ export const resetFormFieldValue = (
 };
 
 interface CheckHabitStateProps {
-  habitType: HabitType;
   habitStatus: HabitStatus;
   expirationDate: number;
 }
 
 export const checkHabitState = ({
-  habitType,
   habitStatus,
   expirationDate,
 }: CheckHabitStateProps): {
   habitFinalState: HabitFinalState;
   isHabitValid: boolean;
 } => {
-  if (expirationDate) {
-    const expirationDateTime = add(new Date(expirationDate), { days: 1 });
-    const expirationUnixTime = getUnixTime(expirationDateTime);
-    const currentUnixTime = getUnixTime(new Date());
-    const isHabitValid = currentUnixTime < expirationUnixTime;
+  const expirationDateTime = add(new Date(expirationDate), { days: 1 });
+  const expirationUnixTime = getUnixTime(expirationDateTime);
+  const currentUnixTime = getUnixTime(new Date());
+  const isHabitValid = currentUnixTime < expirationUnixTime;
 
-    if (isHabitValid) {
-      if (habitType === HabitType.ToDo) {
-        if (habitStatus === HabitStatus.Pending) {
-          return { habitFinalState: HabitFinalState.Pending, isHabitValid };
-        }
-        if (habitStatus === HabitStatus.Done) {
-          return { habitFinalState: HabitFinalState.Successful, isHabitValid };
-        }
-        if (habitStatus === HabitStatus.Undone) {
-          return { habitFinalState: HabitFinalState.Failed, isHabitValid };
-        }
-        if (habitStatus === HabitStatus.Postponed) {
-          return { habitFinalState: HabitFinalState.Pending, isHabitValid };
-        }
-      } else if (habitType === HabitType.Avoid) {
-        if (habitStatus === HabitStatus.Pending) {
-          return { habitFinalState: HabitFinalState.Pending, isHabitValid };
-        }
-        if (habitStatus === HabitStatus.Done) {
-          return { habitFinalState: HabitFinalState.Failed, isHabitValid };
-        }
-        if (habitStatus === HabitStatus.Undone) {
-          return { habitFinalState: HabitFinalState.Successful, isHabitValid };
-        }
-        if (habitStatus === HabitStatus.Postponed) {
-          return { habitFinalState: HabitFinalState.Failed, isHabitValid };
-        }
-      }
-    } else if (currentUnixTime >= expirationUnixTime) {
-      if (habitType === HabitType.ToDo) {
-        if (habitStatus === HabitStatus.Pending) {
-          return { habitFinalState: HabitFinalState.Failed, isHabitValid };
-        }
-        if (habitStatus === HabitStatus.Done) {
-          return { habitFinalState: HabitFinalState.Successful, isHabitValid };
-        }
-        if (habitStatus === HabitStatus.Undone) {
-          return { habitFinalState: HabitFinalState.Failed, isHabitValid };
-        }
-        if (habitStatus === HabitStatus.Postponed) {
-          return { habitFinalState: HabitFinalState.Postponed, isHabitValid };
-        }
-      } else if (habitType === HabitType.Avoid) {
-        if (habitStatus === HabitStatus.Pending) {
-          return { habitFinalState: HabitFinalState.Successful, isHabitValid };
-        }
-        if (habitStatus === HabitStatus.Done) {
-          return { habitFinalState: HabitFinalState.Failed, isHabitValid };
-        }
-        if (habitStatus === HabitStatus.Undone) {
-          return { habitFinalState: HabitFinalState.Successful, isHabitValid };
-        }
-        if (habitStatus === HabitStatus.Postponed) {
-          return { habitFinalState: HabitFinalState.Failed, isHabitValid };
-        }
-      }
-    }
+  if (habitStatus === HabitStatus.Pending && isHabitValid) {
+    return { habitFinalState: HabitFinalState.Pending, isHabitValid };
+  }
+  if (habitStatus === HabitStatus.Pending && !isHabitValid) {
+    return { habitFinalState: HabitFinalState.Failed, isHabitValid };
+  }
+  if (habitStatus === HabitStatus.Done) {
+    return { habitFinalState: HabitFinalState.Successful, isHabitValid };
+  }
+  if (habitStatus === HabitStatus.Undone) {
+    return { habitFinalState: HabitFinalState.Failed, isHabitValid };
+  }
+  if (habitStatus === HabitStatus.Postponed) {
+    return { habitFinalState: HabitFinalState.Pending, isHabitValid };
   }
   return { habitFinalState: HabitFinalState.Error, isHabitValid: false };
 };

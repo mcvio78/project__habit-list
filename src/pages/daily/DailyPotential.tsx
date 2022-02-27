@@ -5,6 +5,11 @@ import {
   HeadingExtraLarge,
 } from '../../components/UI/Typography';
 
+interface DailyPotentialProps {
+  habitsAmount: number;
+  habitsCompleted: number;
+}
+
 const DailyPotentialContainer = styled(Container)<ContainerProps>`
   background-color: var(--secondary_05);
   border-top: 2px solid var(--neutral_01);
@@ -17,7 +22,10 @@ const DailyPotentialScore = styled(HeadingExtraLarge)`
   -webkit-font-smoothing: antialiased;
 `;
 
-export const DailyPotential = (): JSX.Element => (
+export const DailyPotential = ({
+  habitsAmount = 0,
+  habitsCompleted = 0,
+}: DailyPotentialProps): JSX.Element => (
   <DailyPotentialContainer
     as="section"
     $miw={{ de: '100%' }}
@@ -39,7 +47,7 @@ export const DailyPotential = (): JSX.Element => (
         Daily Potential
       </HeadingSmall>
       <DailyPotentialScore $txtSdw $ital $bold $txtClr="var(--neutral_15)">
-        2/6
+        {habitsAmount}/{habitsCompleted}
       </DailyPotentialScore>
     </Container>
   </DailyPotentialContainer>

@@ -14,6 +14,8 @@ import { habitAPI } from '../../services/habit';
 import { Modal } from '../../components/UI/Modal';
 import { errorStatus } from '../../utility/request/statuses';
 import { HabitStored } from '../../helpers/globalTypes';
+import { checkHabitState } from '../../utility/utils';
+import { HabitFinalState } from '../../helpers/constants';
 
 const DailyListContainer = styled(Container)`
   overflow-y: auto;
@@ -23,14 +25,6 @@ export const Daily = (): JSX.Element => {
   const [date, setDate] = useState<Date>(new Date());
   const { request, data, status, setStatus, message, setMessage } = useAPI(
     habitAPI.getDailyHabits,
-  );
-
-  const selectDateHandler = useCallback(
-    (days: number) => {
-      const daySelected = new Date(date.setDate(date.getDate() + days));
-      setDate(() => daySelected);
-    },
-    [date],
   );
 
   useEffect(() => {
@@ -43,20 +37,52 @@ export const Daily = (): JSX.Element => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date]);
 
+  const selectDateHandler = useCallback(
+    (days: number) => {
+      const daySelected = new Date(date.setDate(date.getDate() + days));
+      setDate(() => daySelected);
+    },
+    [date],
+  );
+
+  const habitStateAndValidity = useCallback(
+    (habitStatus, expirationDate) =>
+      checkHabitState({ habitStatus, expirationDate }),
+    [],
+  );
+
+  let habitsCompleted = 0;
+
   const dailyHabits = data
-    ? data.map((habit: HabitStored) => (
-        <DailyItem
-          key={habit._id}
-          habitName={habit.habitName}
-          habitType={habit.habitType}
-          targetType={habit.targetType}
-          targetValue={habit.targetValue}
-          targetUnit={habit.targetUnit}
-          targetCurrent={habit.targetCurrent}
-          habitStatus={habit.habitStatus}
-          expirationDate={habit.expirationDate}
-        />
-      ))
+    ? data.map((habit: HabitStored) => {
+        const { habitFinalState, isHabitValid } = habitStateAndValidity(
+          habit.habitStatus,
+          habit.expirationDate,
+        );
+
+        if (
+          habitFinalState === HabitFinalState.Successful ||
+          HabitFinalState.Postponed
+        ) {
+          habitsCompleted++;
+        }
+
+        return (
+          <DailyItem
+            key={habit._id}
+            habitName={habit.habitName}
+            habitType={habit.habitType}
+            targetType={habit.targetType}
+            targetValue={habit.targetValue}
+            targetUnit={habit.targetUnit}
+            targetCurrent={habit.targetCurrent}
+            habitStatus={habit.habitStatus}
+            expirationDate={habit.expirationDate}
+            habitFinalState={habitFinalState}
+            isHabitValid={isHabitValid}
+          />
+        );
+      })
     : null;
 
   return (
@@ -93,7 +119,10 @@ export const Daily = (): JSX.Element => {
       >
         {dailyHabits}
       </DailyListContainer>
-      <DailyPotential />
+      <DailyPotential
+        habitsCompleted={habitsCompleted}
+        habitsAmount={data?.length}
+      />
     </PageLayout>
   );
 };

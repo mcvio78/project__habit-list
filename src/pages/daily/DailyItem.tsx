@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import styled from 'styled-components/macro';
 
 import { Container, ContainerProps } from '../../components/layout';
@@ -7,9 +6,17 @@ import {
   ParagraphSmall,
 } from '../../components/UI/Typography';
 import { AppButtonState } from '../../components/UI/button';
-import { TargetType } from '../../helpers/constants';
-import { checkHabitState } from '../../utility/utils';
+import {
+  HabitFinalState,
+  HabitType,
+  TargetType,
+} from '../../helpers/constants';
 import { HabitStored } from '../../helpers/globalTypes';
+
+interface DailyItemProps extends HabitStored {
+  habitFinalState: HabitFinalState;
+  isHabitValid: boolean;
+}
 
 const DailyItemContainer = styled(Container)<ContainerProps>`
   border-bottom: 2px solid var(--secondary_05);
@@ -22,19 +29,9 @@ export const DailyItem = ({
   targetValue,
   targetUnit,
   targetCurrent,
-  habitStatus,
-  expirationDate,
-}: HabitStored): JSX.Element => {
-  const { habitFinalState, isHabitValid } = useMemo(
-    () =>
-      checkHabitState({
-        habitType,
-        habitStatus,
-        expirationDate,
-      }),
-    [habitType, habitStatus, expirationDate],
-  );
-
+  habitFinalState,
+  isHabitValid,
+}: DailyItemProps): JSX.Element => {
   return (
     <DailyItemContainer
       $w={{ de: '100%' }}
@@ -54,7 +51,15 @@ export const DailyItem = ({
       >
         {targetType && targetValue ? (
           <Container $fd={{ de: 'column' }} $ai={{ de: 'flex-start' }}>
-            <ParagraphSmall $txtSdw $ital>
+            <ParagraphSmall
+              $txtSdw
+              $ital
+              $txtClr={
+                habitType === HabitType.Avoid
+                  ? 'var(--semantic_error_01)'
+                  : 'inherit'
+              }
+            >
               {habitName}
             </ParagraphSmall>
             <ParagraphExtraSmall
@@ -74,7 +79,15 @@ export const DailyItem = ({
             </ParagraphExtraSmall>
           </Container>
         ) : (
-          <ParagraphSmall $txtSdw $ital>
+          <ParagraphSmall
+            $txtSdw
+            $ital
+            $txtClr={
+              habitType === HabitType.Avoid
+                ? 'var(--semantic_error_01)'
+                : 'inherit'
+            }
+          >
             {habitName}
           </ParagraphSmall>
         )}

@@ -38,7 +38,8 @@ export const AppFormInputText = ({
     return () => {
       setFieldValue(name, resetFormFieldValue(values[name]));
     };
-  }, [name, setFieldValue, values]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [name, setFieldValue]);
 
   return (
     <Container

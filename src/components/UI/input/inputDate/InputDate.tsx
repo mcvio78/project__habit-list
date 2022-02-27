@@ -33,6 +33,32 @@ const Styles = styled.div.attrs(props => ({
       }
     }
   }
+
+  .react-datepicker,
+  .react-datepicker__header {
+    font-family: inherit;
+    border: none;
+    background-color: var(--secondary_01);
+  }
+
+  .react-datepicker__month-container {
+    box-shadow: 0 4px 20px var(--neutral_10_op05);
+    border-radius: 4px;
+  }
+
+  .react-datepicker__day--weekend {
+    color: var(--neutral_17);
+  }
+
+  .react-datepicker__day--outside-month {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .react-datepicker__day--selected {
+    background: var(--semantic_06) !important;
+    border-radius: 0;
+  }
 `;
 
 export const InputDate = ({
@@ -52,6 +78,7 @@ export const InputDate = ({
       onChangeRaw={e => e.preventDefault()}
       minDate={new Date()}
       dateFormat="yyyy-MM-dd"
+      formatWeekDay={nameOfDay => nameOfDay.substr(0, 3)}
     />
   </Styles>
 );

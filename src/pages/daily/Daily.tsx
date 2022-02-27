@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
 import { Container, PageLayout } from '../../components/layout';
@@ -16,6 +17,7 @@ import { errorStatus } from '../../utility/request/statuses';
 import { HabitStored } from '../../helpers/globalTypes';
 import { checkHabitState } from '../../utility/utils';
 import { HabitFinalState } from '../../helpers/constants';
+import { AppButton } from '../../components/UI/button';
 
 const DailyListContainer = styled(Container)`
   overflow-y: auto;
@@ -23,6 +25,7 @@ const DailyListContainer = styled(Container)`
 
 export const Daily = (): JSX.Element => {
   const [date, setDate] = useState<Date>(new Date());
+  const navigate = useNavigate();
   const { request, data, status, setStatus, message, setMessage } = useAPI(
     habitAPI.getDailyHabits,
   );
@@ -123,6 +126,27 @@ export const Daily = (): JSX.Element => {
         habitsCompleted={habitsCompleted}
         habitsAmount={data?.length}
       />
+      <Container $g={{ de: '24px' }} $p={{ de: '12px 0' }}>
+        <AppButton
+          $size="medium"
+          $variant="flat"
+          $bold
+          aria-label="new habit"
+          title="create new habit"
+          onClick={() => navigate('/create')}
+        >
+          New
+        </AppButton>
+        <AppButton
+          $size="medium"
+          $variant="flat"
+          aria-label="calendar"
+          title="select date using the calendar"
+          onClick={() => {}}
+        >
+          Calendar
+        </AppButton>
+      </Container>
     </PageLayout>
   );
 };

@@ -1147,6 +1147,32 @@ exports[`Storyshots Components/UI/Input Default App Input Date 1`] = `
   color: var(--neutral_08);
 }
 
+.c6 .react-datepicker,
+.c6 .react-datepicker__header {
+  font-family: inherit;
+  border: none;
+  background-color: var(--secondary_01);
+}
+
+.c6 .react-datepicker__month-container {
+  box-shadow: 0 4px 20px var(--neutral_10_op05);
+  border-radius: 4px;
+}
+
+.c6 .react-datepicker__day--weekend {
+  color: var(--neutral_17);
+}
+
+.c6 .react-datepicker__day--outside-month {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.c6 .react-datepicker__day--selected {
+  background: var(--semantic_06) !important;
+  border-radius: 0;
+}
+
 .c7 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1460,7 +1486,7 @@ exports[`Storyshots Components/UI/Input Default App Input Date 1`] = `
               onKeyDown={[Function]}
               readOnly={false}
               type="text"
-              value="2022-02-25"
+              value="2022-02-27"
             />
           </div>
         </div>
@@ -1878,6 +1904,32 @@ exports[`Storyshots Components/UI/Input Default Input Date 1`] = `
   color: var(--neutral_08);
 }
 
+.c1 .react-datepicker,
+.c1 .react-datepicker__header {
+  font-family: inherit;
+  border: none;
+  background-color: var(--secondary_01);
+}
+
+.c1 .react-datepicker__month-container {
+  box-shadow: 0 4px 20px var(--neutral_10_op05);
+  border-radius: 4px;
+}
+
+.c1 .react-datepicker__day--weekend {
+  color: var(--neutral_17);
+}
+
+.c1 .react-datepicker__day--outside-month {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.c1 .react-datepicker__day--selected {
+  background: var(--semantic_06) !important;
+  border-radius: 0;
+}
+
 @media screen and (min-width:de) {
   .c0 {
     padding: 30px;
@@ -1955,7 +2007,7 @@ exports[`Storyshots Components/UI/Input Default Input Date 1`] = `
           onKeyDown={[Function]}
           readOnly={false}
           type="text"
-          value="2022-02-25"
+          value="2022-02-27"
         />
       </div>
     </div>

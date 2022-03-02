@@ -20,18 +20,18 @@ export const useAPI = (apiFunction: ApiFunction): UseAPIReturn => {
   const [data, setData] = useState<Date | null>(null);
   const [status, setStatus] = useState<number | null>(null);
   const [message, setMessage] = useState<string>('');
+
   const request = async (...args: any[]) => {
     setIsLoading(false);
-    setData(null);
+    setData(() => null);
     setStatus(null);
     setMessage('');
     try {
       setIsLoading(true);
       const response: AxiosResponse = await apiFunction(...args);
-      setData(response.data);
+      setData(() => response.data);
       setStatus(response.status);
       setMessage(response.statusText);
-      setIsLoading(false);
       return response;
     } catch (err) {
       if (isAxiosError(err)) {
@@ -46,9 +46,11 @@ export const useAPI = (apiFunction: ApiFunction): UseAPIReturn => {
         setStatus(null);
         setMessage(err.message);
       }
+    } finally {
       setIsLoading(false);
     }
   };
+
   return {
     request,
     isLoading,

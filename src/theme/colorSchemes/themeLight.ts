@@ -61,7 +61,7 @@ export const themeLight = css`
     --semantic_02: ${COLORS.osloGrey};
     --semantic_03: ${COLORS.jungleGreen};
     --semantic_04: ${COLORS.persianRed};
-    --semantic_05: ${COLORS.egyptianBlue};
+    --semantic_05: ${COLORS.azure};
     --semantic_06: ${COLORS.tealBlue};
 
     background-color: var(--primary_02, white);

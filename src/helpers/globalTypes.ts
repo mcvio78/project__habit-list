@@ -1,4 +1,9 @@
-import { HabitStatus, HabitType, TargetType } from './constants';
+import {
+  HabitStatus,
+  HabitType,
+  TargetType,
+  HabitFinalState,
+} from './constants';
 
 export interface BreakPointsProps<T> {
   de?: T;
@@ -30,4 +35,9 @@ export interface HabitStored extends Omit<HabitCreate, 'expirationDate'> {
   _id?: number;
   habitStatus: HabitStatus;
   expirationDate: number;
+}
+
+export interface HabitWithFinalState extends HabitStored {
+  finalState: HabitFinalState;
+  isValid: boolean;
 }

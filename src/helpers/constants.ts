@@ -23,9 +23,8 @@ export enum HabitStatus {
 export enum HabitFinalState {
   Pending = 'pending',
   Successful = 'successful',
-  Failed = 'failedActive',
+  Failed = 'failed',
   Postponed = 'postponed',
-  Error = 'error',
 }
 
 export enum HabitChanges {

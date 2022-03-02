@@ -11,11 +11,12 @@ import {
 } from '../../components/UI/Typography';
 import { ReactComponent as ArrowRightSVG } from '../../assets/icons/icon-arrow_right_24dp-np.svg';
 import { HabitFinalState } from '../../helpers/constants';
+import { Results } from '../../auth/context';
 
 interface DateSelectorProps {
   date: Date;
   onClickHandler: (args: number) => void;
-  averageStatus: number;
+  results: Results;
 }
 
 const SelectorContainer = styled(Container)<ContainerProps>`
@@ -27,7 +28,7 @@ const SelectorContainer = styled(Container)<ContainerProps>`
 export const DateSelector = ({
   date,
   onClickHandler,
-  averageStatus,
+  results,
 }: DateSelectorProps): JSX.Element => (
   <SelectorContainer
     as="section"
@@ -84,16 +85,21 @@ export const DateSelector = ({
           (daily+weekly)
         </ParagraphSmall>
       </Container>
-      {averageStatus === 0 && (
-        <AppButtonState
-          aria-label="habit average status button"
-          title="button showing current average habits status"
-          $border="1px solid var(--neutral_01)"
-          $boxShadow
-          $status={HabitFinalState.Successful}
-          disabled
-        />
-      )}
+      <AppButtonState
+        aria-label="habit average status button"
+        title="button showing current average habits status"
+        $border="1px solid var(--neutral_01)"
+        $boxShadow
+        $status={
+          results.dailyResult.pending +
+            results.dailyResult.failed +
+            results.dailyResult.postponed ===
+          0
+            ? HabitFinalState.Successful
+            : HabitFinalState.Failed
+        }
+        disabled
+      />
     </Container>
   </SelectorContainer>
 );

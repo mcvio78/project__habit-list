@@ -33,7 +33,7 @@ export const ResetContext = (): null => {
     }
   }, [user, setUserContextIfToken, navigate]);
 
-  const setTheme = useCallback(() => {
+  const setThemeIfStored = useCallback(() => {
     const theme = themeStorage.getTheme();
 
     if (theme) {
@@ -44,9 +44,9 @@ export const ResetContext = (): null => {
   }, [setSelectedTheme, setDefaultTheme]);
 
   useEffect(() => {
+    setThemeIfStored();
     setUserIfStoredToken();
-    setTheme();
-  }, [setUserIfStoredToken, setTheme]);
+  }, [setUserIfStoredToken, setThemeIfStored]);
 
   return null;
 };

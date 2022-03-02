@@ -1,13 +1,15 @@
 import styled from 'styled-components/macro';
+
 import { Container, ContainerProps } from '../../components/layout';
 import {
   HeadingSmall,
   HeadingExtraLarge,
+  ParagraphExtraSmall,
 } from '../../components/UI/Typography';
+import { Results } from '../../auth/context';
 
 interface DailyPotentialProps {
-  habitsAmount: number;
-  habitsCompleted: number;
+  results: Results;
 }
 
 const DailyPotentialContainer = styled(Container)<ContainerProps>`
@@ -23,32 +25,43 @@ const DailyPotentialScore = styled(HeadingExtraLarge)`
 `;
 
 export const DailyPotential = ({
-  habitsAmount = 0,
-  habitsCompleted = 0,
-}: DailyPotentialProps): JSX.Element => (
-  <DailyPotentialContainer
-    as="section"
-    $miw={{ de: '100%' }}
-    $mih={{ de: '64px' }}
-    $jc={{ de: 'center' }}
-    $ai={{ de: 'center' }}
-    $p={{ de: '8px 16px 4px' }}
-    $bs={{ de: 'border-box' }}
-  >
-    <Container
-      $w={{ de: '100%' }}
-      $mxw={{ de: '320px', sm: '420px' }}
-      $p={{ de: '0 4px', sm: '0 6px' }}
-      $jc={{ de: 'space-between' }}
+  results,
+}: DailyPotentialProps): JSX.Element => {
+  const {
+    dailyResult: { pending, successful, failed, postponed },
+  } = results;
+
+  return (
+    <DailyPotentialContainer
+      as="section"
+      $miw={{ de: '100%' }}
+      $mih={{ de: '64px' }}
+      $jc={{ de: 'center' }}
       $ai={{ de: 'center' }}
+      $p={{ de: '8px 16px 4px' }}
       $bs={{ de: 'border-box' }}
     >
-      <HeadingSmall $txtSdw $ital>
-        Daily Potential
-      </HeadingSmall>
-      <DailyPotentialScore $txtSdw $ital $bold $txtClr="var(--neutral_15)">
-        {habitsAmount}/{habitsCompleted}
-      </DailyPotentialScore>
-    </Container>
-  </DailyPotentialContainer>
-);
+      <Container
+        $w={{ de: '100%' }}
+        $mxw={{ de: '320px', sm: '420px' }}
+        $p={{ de: '0 4px', sm: '0 6px' }}
+        $jc={{ de: 'space-between' }}
+        $ai={{ de: 'center' }}
+        $bs={{ de: 'border-box' }}
+      >
+        <Container $ai={{ de: 'center' }}>
+          <HeadingSmall $txtSdw $ital>
+            Daily Potential
+          </HeadingSmall>
+          &ensp;
+          <ParagraphExtraSmall $txtSdw>
+            ( Postponed: {postponed} )
+          </ParagraphExtraSmall>
+        </Container>
+        <DailyPotentialScore $txtSdw $ital $bold $txtClr="var(--neutral_15)">
+          {successful}/{pending + successful + failed}
+        </DailyPotentialScore>
+      </Container>
+    </DailyPotentialContainer>
+  );
+};

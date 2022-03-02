@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
@@ -14,33 +14,61 @@ import { useAPI } from '../../hooks/useApi';
 import { habitAPI } from '../../services/habit';
 import { Modal } from '../../components/UI/Modal';
 import { errorStatus } from '../../utility/request/statuses';
-import { HabitStored } from '../../helpers/globalTypes';
-import { checkHabitState } from '../../utility/utils';
-import { HabitFinalState } from '../../helpers/constants';
+import { HabitWithFinalState } from '../../helpers/globalTypes';
+import {
+  addHabitFinalState,
+  calculateResults,
+  dateToUTC,
+} from '../../utility/utils';
 import { AppButton } from '../../components/UI/button';
 import { useToggle } from '../../hooks/useToggle';
 import { CalendarSelection } from '../../components/UI/CalendarSelection';
+import { AuthContext, Results } from '../../auth/context';
 
 const DailyListContainer = styled(Container)`
   overflow-y: auto;
 `;
 
 export const Daily = (): JSX.Element => {
+  const { dailyState, resultsState } = useContext(AuthContext);
+  const [daily, setDaily] = dailyState;
+  const [results, setResults] = resultsState;
   const [date, setDate] = useState<Date>(new Date());
   const navigate = useNavigate();
-  const { request, data, status, setStatus, message, setMessage } = useAPI(
+  const { request, status, setStatus, message, setMessage } = useAPI(
     habitAPI.getDailyHabits,
   );
   const { status: calendarStatus, toggleStatus: toggleCalendarStatus } =
     useToggle();
 
+  const setDailyCB = useCallback(
+    dailyHabitsFinalState => {
+      setDaily(dailyHabitsFinalState);
+    },
+    [setDaily],
+  );
+
+  const setResultsCB = useCallback(
+    globalResultsState => {
+      setResults(globalResultsState);
+    },
+    [setResults],
+  );
+
+  const setNewDate = async () => {
+    const dateUTC = dateToUTC(date);
+    const response = await request(dateUTC);
+    const dailyHabitsFinalState = addHabitFinalState(response?.data);
+    setDailyCB(dailyHabitsFinalState);
+    const currentDailyResults = calculateResults(dailyHabitsFinalState);
+    setResultsCB((prevState: Results) => ({
+      ...prevState,
+      dailyResult: { ...currentDailyResults },
+    }));
+  };
+
   useEffect(() => {
-    const dateDaySearched = Date.UTC(
-      date.getFullYear(),
-      date.getMonth(),
-      date.getDate(),
-    );
-    request(dateDaySearched);
+    setNewDate();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date]);
 
@@ -52,44 +80,22 @@ export const Daily = (): JSX.Element => {
     [date],
   );
 
-  const habitStateAndValidity = useCallback(
-    (habitStatus, expirationDate) =>
-      checkHabitState({ habitStatus, expirationDate }),
-    [],
-  );
-
-  let habitsCompleted = 0;
-
-  const dailyHabits = data
-    ? data.map((habit: HabitStored) => {
-        const { habitFinalState, isHabitValid } = habitStateAndValidity(
-          habit.habitStatus,
-          habit.expirationDate,
-        );
-
-        if (
-          habitFinalState === HabitFinalState.Successful ||
-          HabitFinalState.Postponed
-        ) {
-          habitsCompleted++;
-        }
-
-        return (
-          <DailyItem
-            key={habit._id}
-            habitName={habit.habitName}
-            habitType={habit.habitType}
-            targetType={habit.targetType}
-            targetValue={habit.targetValue}
-            targetUnit={habit.targetUnit}
-            targetCurrent={habit.targetCurrent}
-            habitStatus={habit.habitStatus}
-            expirationDate={habit.expirationDate}
-            habitFinalState={habitFinalState}
-            isHabitValid={isHabitValid}
-          />
-        );
-      })
+  const dailyHabits = daily
+    ? daily.map((habit: HabitWithFinalState) => (
+        <DailyItem
+          key={habit._id}
+          habitName={habit.habitName}
+          habitType={habit.habitType}
+          targetType={habit.targetType}
+          targetValue={habit.targetValue}
+          targetUnit={habit.targetUnit}
+          targetCurrent={habit.targetCurrent}
+          habitStatus={habit.habitStatus}
+          expirationDate={habit.expirationDate}
+          habitFinalState={habit.finalState}
+          isHabitValid={habit.isValid}
+        />
+      ))
     : null;
 
   return (
@@ -119,7 +125,7 @@ export const Daily = (): JSX.Element => {
           <DateSelector
             date={date}
             onClickHandler={selectDateHandler}
-            averageStatus={0}
+            results={results}
           />
           <DailyListContainer
             $w={{ de: '100%' }}
@@ -128,10 +134,7 @@ export const Daily = (): JSX.Element => {
           >
             {dailyHabits}
           </DailyListContainer>
-          <DailyPotential
-            habitsCompleted={habitsCompleted}
-            habitsAmount={data?.length}
-          />
+          <DailyPotential results={results} />
           <Container $g={{ de: '24px' }} $p={{ de: '12px 0' }}>
             <AppButton
               $size="medium"

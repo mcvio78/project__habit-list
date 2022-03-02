@@ -41,19 +41,27 @@ exports.createDailyHabit = async (req, res) => {
 
       const createdHabit = await habit.save(habit);
 
-      const date = format(new Date(), 'yyyy-MM-dd');
+      const date = format(new Date(expirationDate), 'yyyy-MM-dd');
       const dayFolder = await User.findOne({ 'habits.daily': date });
       const dayFolderPath = `habits.daily.${date}`;
 
       if (!dayFolder) {
         await User.findOneAndUpdate(
           { _id: req.user.id },
-          { $addToSet: { [dayFolderPath]: createdHabit._id } },
+          {
+            $addToSet: {
+              [dayFolderPath]: { habitId: createdHabit._id, status: 'pending' },
+            },
+          },
         );
       } else {
         await User.findOneAndUpdate(
           { _id: req.user.id },
-          { $push: { [dayFolder]: createdHabit._id } },
+          {
+            $push: {
+              [dayFolder]: { habitId: createdHabit._id, status: 'pending' },
+            },
+          },
         );
       }
 

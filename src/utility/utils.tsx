@@ -2,6 +2,7 @@ import { RefObject } from 'react';
 import { add, getUnixTime } from 'date-fns';
 
 import { HabitFinalState, HabitStatus } from '../helpers/constants';
+import { HabitWithFinalState, HabitStored } from '../helpers/globalTypes';
 
 export const debounce = (
   callback: (event: Event) => void,
@@ -40,37 +41,57 @@ export const resetFormFieldValue = (
   return null;
 };
 
-interface CheckHabitStateProps {
-  habitStatus: HabitStatus;
-  expirationDate: number;
-}
+export const dateToUTC = (date: Date): number =>
+  Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
 
-export const checkHabitState = ({
-  habitStatus,
-  expirationDate,
-}: CheckHabitStateProps): {
-  habitFinalState: HabitFinalState;
-  isHabitValid: boolean;
-} => {
+export const habitCurrentState = (
+  habitStatus: HabitStatus,
+  expirationDate: number,
+): { habitFinalState: HabitFinalState; isHabitValid: boolean } => {
   const expirationDateTime = add(new Date(expirationDate), { days: 1 });
   const expirationUnixTime = getUnixTime(expirationDateTime);
   const currentUnixTime = getUnixTime(new Date());
   const isHabitValid = currentUnixTime < expirationUnixTime;
 
-  if (habitStatus === HabitStatus.Pending && isHabitValid) {
+  if (habitStatus && habitStatus === HabitStatus.Pending && isHabitValid) {
     return { habitFinalState: HabitFinalState.Pending, isHabitValid };
   }
-  if (habitStatus === HabitStatus.Pending && !isHabitValid) {
+  if (habitStatus && habitStatus === HabitStatus.Pending && !isHabitValid) {
     return { habitFinalState: HabitFinalState.Failed, isHabitValid };
   }
-  if (habitStatus === HabitStatus.Done) {
+  if (habitStatus && habitStatus === HabitStatus.Done) {
     return { habitFinalState: HabitFinalState.Successful, isHabitValid };
   }
-  if (habitStatus === HabitStatus.Undone) {
+  if (habitStatus && habitStatus === HabitStatus.Undone) {
     return { habitFinalState: HabitFinalState.Failed, isHabitValid };
   }
-  if (habitStatus === HabitStatus.Postponed) {
-    return { habitFinalState: HabitFinalState.Pending, isHabitValid };
+  if (habitStatus && habitStatus === HabitStatus.Postponed) {
+    return { habitFinalState: HabitFinalState.Postponed, isHabitValid };
   }
-  return { habitFinalState: HabitFinalState.Error, isHabitValid: false };
+  return { habitFinalState: HabitFinalState.Failed, isHabitValid: false };
+};
+
+export const addHabitFinalState = (
+  DailyHabits: HabitStored[] | [],
+): HabitWithFinalState[] =>
+  DailyHabits?.map((habit: HabitStored) => {
+    const { habitFinalState, isHabitValid } = habitCurrentState(
+      habit.habitStatus,
+      habit.expirationDate,
+    );
+    return {
+      ...habit,
+      finalState: habitFinalState,
+      isValid: isHabitValid,
+    };
+  });
+
+export const calculateResults = (
+  habitsWithFinalState: HabitWithFinalState[],
+): Record<HabitFinalState, number> => {
+  const results = { pending: 0, successful: 0, failed: 0, postponed: 0 };
+  habitsWithFinalState?.forEach((habit: HabitWithFinalState) => {
+    results[habit.finalState]++;
+  });
+  return results;
 };

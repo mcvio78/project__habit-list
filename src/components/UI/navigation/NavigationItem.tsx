@@ -17,7 +17,9 @@ export const NavigationItem = ({
       style={{ listStyleType: 'none' }}
       className={['navigation-item', className].join(' ')}
     >
-      <NavLinkLarge {...otherProps}>{children}</NavLinkLarge>
+      <NavLinkLarge {...otherProps} $ital>
+        {children}
+      </NavLinkLarge>
     </li>
   );
 };

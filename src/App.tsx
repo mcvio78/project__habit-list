@@ -1,9 +1,9 @@
-import React, { useState, Suspense, lazy } from 'react';
+import React, { useState, Suspense, lazy, useMemo } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { PageContainer } from './components/layout';
 import { Home } from './pages/Home';
-import { AuthContext } from './auth/context';
+import { AuthContext, DailyHabit, Theme } from './auth/context';
 import { ResetContext } from './auth/ResetContext';
 import { themes } from './config/themes';
 import { SpanLarge } from './components/UI/Typography';
@@ -40,12 +40,25 @@ const DailyLazy = lazy(() =>
 
 export const App = (): JSX.Element => {
   const [user, setUser] = useState(null);
-  const [theme, setTheme] = useState(themes[0]);
+  const [theme, setTheme] = useState<Theme>(themes[0]);
+  const [daily, setDaily] = useState<DailyHabit>([]);
+  const [results, setResults] = useState({
+    dailyResult: { pending: 0, successful: 0, failed: 0, postponed: 0 },
+    weeklyResult: { pending: 0, successful: 0, failed: 0, postponed: 0 },
+    monthlyResult: { pending: 0, successful: 0, failed: 0, postponed: 0 },
+  });
 
   return (
     <AuthContext.Provider
-      // eslint-disable-next-line
-      value={{ userState: [user, setUser], themeState: [theme, setTheme] }}
+      value={useMemo(
+        () => ({
+          userState: [user, setUser],
+          themeState: [theme, setTheme],
+          dailyState: [daily, setDaily],
+          resultsState: [results, setResults],
+        }),
+        [user, setUser, theme, setTheme, daily, setDaily, results, setResults],
+      )}
     >
       <ResetContext />
       <PageContainer>

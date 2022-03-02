@@ -1,4 +1,4 @@
-import { SetStateAction, useContext } from 'react';
+import { SetStateAction, useContext, useCallback } from 'react';
 import jwtDecode from 'jwt-decode';
 
 import { AuthContext, User } from '../auth/context';
@@ -16,9 +16,16 @@ export const useAuth = (): UseAuthReturn => {
   const [user, setUser] = userState;
   let logoutTimeout: ReturnType<typeof setTimeout>;
 
+  const setUserCB = useCallback(
+    userData => {
+      setUser(userData);
+    },
+    [setUser],
+  );
+
   const logOut = () => {
     authStorage.removeToken();
-    setUser(null);
+    setUserCB(null);
     clearTimeout(logoutTimeout);
   };
 
@@ -31,7 +38,7 @@ export const useAuth = (): UseAuthReturn => {
 
   const setUserContextIfToken = (authToken: string) => {
     const userJWT = jwtDecode<SetStateAction<null>>(authToken);
-    setUser(userJWT);
+    setUserCB(userJWT);
     logoutExpiredToken(authToken);
   };
 

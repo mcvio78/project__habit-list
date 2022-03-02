@@ -32,6 +32,25 @@ export const DefaultSideDrawer: ComponentStory<typeof SideDrawer> = args => (
           () => {},
         ],
         themeState: ['theme', () => {}],
+        dailyState: [[], () => {}],
+        resultsState: [
+          {
+            dailyResult: { pending: 0, successful: 0, failed: 0, postponed: 0 },
+            weeklyResult: {
+              pending: 0,
+              successful: 0,
+              failed: 0,
+              postponed: 0,
+            },
+            monthlyResult: {
+              pending: 0,
+              successful: 0,
+              failed: 0,
+              postponed: 0,
+            },
+          },
+          () => {},
+        ],
       }}
     >
       <SideDrawer {...args}>SideDrawer Children</SideDrawer>

@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { PageContainer } from './components/layout';
 import { Home } from './pages/Home';
-import { AuthContext, DailyHabit, Theme } from './auth/context';
+import { AuthContext, DailyHabit, SelectedDate, Theme } from './auth/context';
 import { ResetContext } from './auth/ResetContext';
 import { themes } from './config/themes';
 import { SpanLarge } from './components/UI/Typography';
@@ -47,6 +47,8 @@ export const App = (): JSX.Element => {
     weeklyResult: { pending: 0, successful: 0, failed: 0, postponed: 0 },
     monthlyResult: { pending: 0, successful: 0, failed: 0, postponed: 0 },
   });
+  const [selectedDate, setSelectedDate] = useState<SelectedDate>(null);
+  const [loadingCX, setLoadingCX] = useState(false);
 
   return (
     <AuthContext.Provider
@@ -56,8 +58,23 @@ export const App = (): JSX.Element => {
           themeState: [theme, setTheme],
           dailyState: [daily, setDaily],
           resultsState: [results, setResults],
+          selectedDateState: [selectedDate, setSelectedDate],
+          loadingCXState: [loadingCX, setLoadingCX],
         }),
-        [user, setUser, theme, setTheme, daily, setDaily, results, setResults],
+        [
+          user,
+          setUser,
+          theme,
+          setTheme,
+          daily,
+          setDaily,
+          results,
+          setResults,
+          selectedDate,
+          setSelectedDate,
+          loadingCX,
+          setLoadingCX,
+        ],
       )}
     >
       <ResetContext />

@@ -51,6 +51,8 @@ export const DefaultSideDrawer: ComponentStory<typeof SideDrawer> = args => (
           },
           () => {},
         ],
+        selectedDateState: [0, () => {}],
+        loadingCXState: [false, () => {}],
       }}
     >
       <SideDrawer {...args}>SideDrawer Children</SideDrawer>

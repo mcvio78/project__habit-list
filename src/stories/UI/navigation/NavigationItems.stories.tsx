@@ -59,6 +59,8 @@ export default {
               },
               () => {},
             ],
+            selectedDateState: [0, () => {}],
+            loadingCXState: [false, () => {}],
           }}
         >
           <Story />

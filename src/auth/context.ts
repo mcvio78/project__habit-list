@@ -37,11 +37,22 @@ export interface Results {
 }
 export type ResultsState = [Results, Dispatch<SetStateAction<Results>>];
 
+export type SelectedDate = number | null;
+export type SelectedDateState = [
+  SelectedDate,
+  Dispatch<SetStateAction<SelectedDate>>,
+];
+
+export type LoadingCX = boolean;
+export type LoadingCXState = [LoadingCX, Dispatch<SetStateAction<LoadingCX>>];
+
 interface CreateContext {
   userState: UserState;
   themeState: ThemeState;
   dailyState: DailyState;
   resultsState: ResultsState;
+  selectedDateState: SelectedDateState;
+  loadingCXState: LoadingCXState;
 }
 
 const initialContext = {} as CreateContext;

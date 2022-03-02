@@ -30,9 +30,11 @@ const DailyListContainer = styled(Container)`
 `;
 
 export const Daily = (): JSX.Element => {
-  const { dailyState, resultsState } = useContext(AuthContext);
+  const { dailyState, resultsState, selectedDateState } =
+    useContext(AuthContext);
   const [daily, setDaily] = dailyState;
   const [results, setResults] = resultsState;
+  const [selectedDate] = selectedDateState;
   const [date, setDate] = useState<Date>(new Date());
   const navigate = useNavigate();
   const { request, status, setStatus, message, setMessage } = useAPI(
@@ -40,6 +42,13 @@ export const Daily = (): JSX.Element => {
   );
   const { status: calendarStatus, toggleStatus: toggleCalendarStatus } =
     useToggle();
+
+  useEffect(() => {
+    if (selectedDate) {
+      setDate(new Date(selectedDate));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const setDailyCB = useCallback(
     dailyHabitsFinalState => {
@@ -67,18 +76,18 @@ export const Daily = (): JSX.Element => {
     }));
   };
 
-  useEffect(() => {
-    setNewDate();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [date]);
-
-  const selectDateHandler = useCallback(
-    (days: number) => {
-      const daySelected = new Date(date.setDate(date.getDate() + days));
+  const setDateCB = useCallback(
+    daySelected => {
       setDate(() => daySelected);
     },
-    [date],
+    [setDate],
   );
+
+  const selectDateHandler = (days: number) => {
+    const daySelected = new Date(date.setDate(date.getDate() + days));
+    setDateCB(daySelected);
+    setNewDate();
+  };
 
   const dailyHabits = daily
     ? daily.map((habit: HabitWithFinalState) => (

@@ -28,9 +28,12 @@ import { Modal } from '../components/UI/Modal';
 import { errorStatus } from '../utility/request/statuses';
 
 export const Home = (): JSX.Element => {
-  const { dailyState, resultsState } = useContext(AuthContext);
+  const { dailyState, resultsState, selectedDateState, loadingCXState } =
+    useContext(AuthContext);
   const [daily, setDaily] = dailyState;
   const [results, setResults] = resultsState;
+  const [loadingCX] = loadingCXState;
+  const [, setSelectedDate] = selectedDateState;
   const { user, logOut } = useAuth();
   const breakpoint = useBreakpoint();
   const navigate = useNavigate();
@@ -52,8 +55,16 @@ export const Home = (): JSX.Element => {
     [setResults],
   );
 
-  const setNewDate = async () => {
+  const setSelectedDateCB = useCallback(
+    date => {
+      setSelectedDate(date);
+    },
+    [setSelectedDate],
+  );
+
+  const setCurrentDateContext = async () => {
     const dateUTC = dateToUTC(new Date());
+    setSelectedDateCB(dateUTC);
     const response = await request(dateUTC);
     const dailyHabitsFinalState = addHabitFinalState(response?.data);
     setDailyCB(dailyHabitsFinalState);
@@ -65,9 +76,14 @@ export const Home = (): JSX.Element => {
   };
 
   useEffect(() => {
-    setNewDate();
+    if (!loadingCX && user) {
+      setCurrentDateContext();
+    } else {
+      const dateUTC = dateToUTC(new Date());
+      setSelectedDateCB(dateUTC);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [loadingCX, user]);
 
   return (
     <PageLayout>
@@ -140,33 +156,43 @@ export const Home = (): JSX.Element => {
             >
               Daily
             </NavLinkLarge>
-            <ParagraphLarge $ital $txtSdw>
-              {daily && daily.length}
-            </ParagraphLarge>
-            <Container
-              $fd={{ de: 'column' }}
-              $ai={{ de: 'flex-start' }}
-              $g={{ de: '4px' }}
-            >
-              <Container>
-                <ParagraphExtraSmall>Pending</ParagraphExtraSmall>&ensp;
-                <ParagraphSmall>{results.dailyResult.pending}</ParagraphSmall>
-              </Container>
-              <Container>
-                <ParagraphExtraSmall>Successful</ParagraphExtraSmall>&ensp;
-                <ParagraphSmall>
-                  {results.dailyResult.successful}
-                </ParagraphSmall>
-              </Container>
-              <Container>
-                <ParagraphExtraSmall>Failed</ParagraphExtraSmall>&ensp;
-                <ParagraphSmall>{results.dailyResult.failed}</ParagraphSmall>
-              </Container>
-              <Container>
-                <ParagraphExtraSmall>Postponed</ParagraphExtraSmall>&ensp;
-                <ParagraphSmall>{results.dailyResult.postponed}</ParagraphSmall>
-              </Container>
-            </Container>
+            {user && (
+              <>
+                <ParagraphLarge $ital $txtSdw>
+                  {daily && daily.length}
+                </ParagraphLarge>
+                <Container
+                  $fd={{ de: 'column' }}
+                  $ai={{ de: 'flex-start' }}
+                  $g={{ de: '4px' }}
+                >
+                  <Container>
+                    <ParagraphExtraSmall>Pending</ParagraphExtraSmall>&ensp;
+                    <ParagraphSmall>
+                      {results.dailyResult.pending}
+                    </ParagraphSmall>
+                  </Container>
+                  <Container>
+                    <ParagraphExtraSmall>Successful</ParagraphExtraSmall>&ensp;
+                    <ParagraphSmall>
+                      {results.dailyResult.successful}
+                    </ParagraphSmall>
+                  </Container>
+                  <Container>
+                    <ParagraphExtraSmall>Failed</ParagraphExtraSmall>&ensp;
+                    <ParagraphSmall>
+                      {results.dailyResult.failed}
+                    </ParagraphSmall>
+                  </Container>
+                  <Container>
+                    <ParagraphExtraSmall>Postponed</ParagraphExtraSmall>&ensp;
+                    <ParagraphSmall>
+                      {results.dailyResult.postponed}
+                    </ParagraphSmall>
+                  </Container>
+                </Container>
+              </>
+            )}
           </Container>
           <NavLinkLarge
             to="/weekly"

@@ -51,6 +51,8 @@ export const DefaultSideBar: ComponentStory<typeof SideBar> = () => (
           },
           () => {},
         ],
+        selectedDateState: [0, () => {}],
+        loadingCXState: [false, () => {}],
       }}
     >
       <SideBar />

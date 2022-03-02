@@ -12,9 +12,17 @@ interface UseAuthReturn {
 }
 
 export const useAuth = (): UseAuthReturn => {
-  const { userState } = useContext(AuthContext);
+  const { userState, loadingCXState } = useContext(AuthContext);
   const [user, setUser] = userState;
+  const [, setLoadingCX] = loadingCXState;
   let logoutTimeout: ReturnType<typeof setTimeout>;
+
+  const setLoadingCXCB = useCallback(
+    status => {
+      setLoadingCX(status);
+    },
+    [setLoadingCX],
+  );
 
   const setUserCB = useCallback(
     userData => {
@@ -37,9 +45,11 @@ export const useAuth = (): UseAuthReturn => {
   };
 
   const setUserContextIfToken = (authToken: string) => {
+    setLoadingCXCB(true);
     const userJWT = jwtDecode<SetStateAction<null>>(authToken);
     setUserCB(userJWT);
     logoutExpiredToken(authToken);
+    setLoadingCXCB(false);
   };
 
   const logIn = (authToken: string) => {

@@ -1,12 +1,11 @@
 import { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useAuth } from '../hooks/useAuth';
+import { useAuth, useTheme } from '../hooks';
 import { authStorage } from './storage';
 import { themeStorage } from '../theme/storage';
 import { authAPI } from '../services/auth';
 import { isAxiosError } from '../utility/request/axios';
-import { useTheme } from '../hooks/useTheme';
 
 export const ResetContext = (): null => {
   const { user, setUserContextIfToken } = useAuth();

@@ -9,6 +9,9 @@ interface UseResults {
 
 export const useResults = (): UseResults => {
   const { resultsState } = useContext(ResultsContext);
+  if (resultsState === undefined) {
+    throw new Error('resultsState was used outside of its Provider');
+  }
   const [results, setResults] = resultsState;
 
   const setResultsCB = useCallback(

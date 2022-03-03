@@ -15,6 +15,9 @@ interface UseAuth {
 
 export const useAuth = (): UseAuth => {
   const { userState } = useContext(AuthContext);
+  if (userState === undefined) {
+    throw new Error('userState was used outside of its Provider');
+  }
   const [user, setUser] = userState;
   const { setLoadingCXCB } = useLoadingCX();
   let logoutTimeout: ReturnType<typeof setTimeout>;

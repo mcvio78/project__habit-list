@@ -14,5 +14,5 @@ export const useEffectSelective = (
       onlyMountFn();
       didMount.current = true;
     }
-  }, deps);
+  }, deps); /* eslint-disable-line */
 };

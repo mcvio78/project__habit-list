@@ -12,6 +12,9 @@ interface UseTheme {
 
 export const useTheme = (): UseTheme => {
   const { themeState } = useContext(ThemeContext);
+  if (themeState === undefined) {
+    throw new Error('themeState was used outside of its Provider');
+  }
   const [theme, setTheme] = themeState;
 
   const setThemeCB = useCallback(

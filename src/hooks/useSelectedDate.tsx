@@ -9,6 +9,9 @@ interface UseSelectedDate {
 
 export const useSelectedDate = (): UseSelectedDate => {
   const { selectedDateState } = useContext(SelectedDateContext);
+  if (selectedDateState === undefined) {
+    throw new Error('selectedDateState was used outside of its Provider');
+  }
   const [selectedDate, setSelectedDate] = selectedDateState;
 
   const setSelectedDateCB = useCallback(

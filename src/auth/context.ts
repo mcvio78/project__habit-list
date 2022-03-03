@@ -82,10 +82,10 @@ export const SelectedDateContext = createContext<CreateSelectedDateContext>(
 // Context loading state
 export type LoadingCX = boolean;
 export type LoadingCXState = [LoadingCX, Dispatch<SetStateAction<LoadingCX>>];
-interface CreateLoadingCXContext {
+interface CreateLoadingStateCXContext {
   loadingCXState: LoadingCXState;
 }
-const initialLoadingCXContext = {} as CreateLoadingCXContext;
-export const LoadingStateCXContext = createContext<CreateLoadingCXContext>(
-  initialLoadingCXContext,
+const initialLoadingStateCXContext = {} as CreateLoadingStateCXContext;
+export const LoadingStateCXContext = createContext<CreateLoadingStateCXContext>(
+  initialLoadingStateCXContext,
 );

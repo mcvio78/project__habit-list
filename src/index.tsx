@@ -5,12 +5,15 @@ import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from './theme/GlobalStyle';
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
+import { ContextProvider } from './auth/contextProvider';
 
 ReactDOM.render(
   <StrictMode>
+    <GlobalStyle />
     <BrowserRouter>
-      <GlobalStyle />
-      <App />
+      <ContextProvider>
+        <App />
+      </ContextProvider>
     </BrowserRouter>
   </StrictMode>,
   document.getElementById('root'),

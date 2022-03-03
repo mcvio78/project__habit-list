@@ -17,8 +17,14 @@ interface UseDaily {
 
 export const useDaily = (): UseDaily => {
   const { dailyState } = useContext(DailyContext);
+  if (dailyState === undefined) {
+    throw new Error('dailyState was used outside of its Provider');
+  }
   const [daily, setDaily] = dailyState;
   const { resultsState } = useContext(ResultsContext);
+  if (resultsState === undefined) {
+    throw new Error('resultsState was used outside of its Provider');
+  }
   const [, setResults] = resultsState;
 
   const setDailyCB = useCallback(

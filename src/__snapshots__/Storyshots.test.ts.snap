@@ -1486,7 +1486,7 @@ exports[`Storyshots Components/UI/Input Default App Input Date 1`] = `
               onKeyDown={[Function]}
               readOnly={false}
               type="text"
-              value="2022-02-27"
+              value="2022-03-03"
             />
           </div>
         </div>
@@ -2007,7 +2007,7 @@ exports[`Storyshots Components/UI/Input Default Input Date 1`] = `
           onKeyDown={[Function]}
           readOnly={false}
           type="text"
-          value="2022-02-27"
+          value="2022-03-03"
         />
       </div>
     </div>
@@ -2962,6 +2962,7 @@ exports[`Storyshots Components/UI/Navigation Default Navigation Items 1`] = `
   color: var(--neutral_07);
   margin: 0;
   text-align: center;
+  font-style: italic;
 }
 
 .c2:hover {
@@ -3117,23 +3118,6 @@ exports[`Storyshots Components/UI/Navigation Default Navigation Items 1`] = `
   <ul
     className="c1 generic-container "
   >
-    <li
-      className="navigation-item "
-      style={
-        Object {
-          "listStyleType": "none",
-        }
-      }
-    >
-      <a
-        aria-label="user account"
-        className="c2 c3 navigation-link"
-        href="/account"
-        onClick={[Function]}
-      >
-        Account
-      </a>
-    </li>
     <li
       className="navigation-item "
       style={

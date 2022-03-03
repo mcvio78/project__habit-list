@@ -2,7 +2,7 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { AuthContext } from '../../../auth/context';
+import { ContextProvider } from '../../../auth/contextProvider';
 
 import {
   NavigationItems,
@@ -16,28 +16,9 @@ export default {
   decorators: [
     Story => (
       <MemoryRouter initialEntries={['/']}>
-        <AuthContext.Provider
-          // eslint-disable-next-line
-          value={{
-            userState: [
-              {
-                aud: 'aud',
-                email: 'email',
-                exp: 1,
-                iat: 1,
-                iss: 'iss',
-                username: 'username',
-                nbf: 1,
-                permissions: [],
-                sub: 'sub',
-                id: 'user_id',
-              },
-              () => {},
-            ],
-          }}
-        >
+        <ContextProvider>
           <Story />
-        </AuthContext.Provider>
+        </ContextProvider>
       </MemoryRouter>
     ),
   ],

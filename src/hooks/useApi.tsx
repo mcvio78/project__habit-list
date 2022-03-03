@@ -5,7 +5,7 @@ import { isAxiosError } from '../utility/request/axios';
 
 type ApiFunction = (...args: any[]) => Promise<AxiosResponse>;
 
-interface UseAPIReturn {
+interface UseAPI {
   isLoading: boolean;
   data: AxiosResponse['data'] | null;
   status: number | null;
@@ -15,7 +15,7 @@ interface UseAPIReturn {
   request: (...args: any[]) => Promise<AxiosResponse | undefined>;
 }
 
-export const useAPI = (apiFunction: ApiFunction): UseAPIReturn => {
+export const useAPI = (apiFunction: ApiFunction): UseAPI => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [data, setData] = useState<Date | null>(null);
   const [status, setStatus] = useState<number | null>(null);

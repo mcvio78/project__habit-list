@@ -1,4 +1,3 @@
-import { useCallback, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
@@ -10,33 +9,32 @@ import { ReactComponent as HomeSVG } from '../../assets/icons/icon-home_24dp.svg
 import { DailyItem } from './DailyItem';
 import { DateSelector } from './DateSelector';
 import { DailyPotential } from './DailyPotential';
-import { useAPI } from '../../hooks/useApi';
+import {
+  useAPI,
+  useToggle,
+  useEffectSelective,
+  useSelectedDate,
+  useDaily,
+  useResults,
+} from '../../hooks';
 import { habitAPI } from '../../services/habit';
 import { Modal } from '../../components/UI/Modal';
 import { errorStatus } from '../../utility/request/statuses';
 import { HabitWithFinalState } from '../../helpers/globalTypes';
-import {
-  addHabitFinalState,
-  calculateResults,
-  dateToUTC,
-} from '../../utility/utils';
+import { dateToUTC } from '../../utility/utils';
 import { AppButton } from '../../components/UI/button';
-import { useToggle } from '../../hooks/useToggle';
 import { CalendarSelection } from '../../components/UI/CalendarSelection';
-import { AuthContext, Results } from '../../auth/context';
-import { useEffectSelective } from '../../hooks/useEffectNoMount';
+import { useLoadingCX } from '../../hooks/useLoadingCX';
 
 const DailyListContainer = styled(Container)`
   overflow-y: auto;
 `;
 
 export const Daily = (): JSX.Element => {
-  const { dailyState, resultsState, selectedDateState, loadingCXState } =
-    useContext(AuthContext);
-  const [daily, setDaily] = dailyState;
-  const [results, setResults] = resultsState;
-  const [loadingCX] = loadingCXState;
-  const [selectedDate, setSelectedDate] = selectedDateState;
+  const { loadingCX } = useLoadingCX();
+  const { results } = useResults();
+  const { daily, setDailyOutcomes } = useDaily();
+  const { selectedDate, setSelectedDateCB } = useSelectedDate();
   const navigate = useNavigate();
   const { request, status, setStatus, message, setMessage } = useAPI(
     habitAPI.getDailyHabits,
@@ -44,41 +42,11 @@ export const Daily = (): JSX.Element => {
   const { status: calendarStatus, toggleStatus: toggleCalendarStatus } =
     useToggle();
 
-  const setDailyCB = useCallback(
-    dailyHabitsFinalState => {
-      setDaily(() => dailyHabitsFinalState);
-    },
-    [setDaily],
-  );
-
-  const setResultsCB = useCallback(
-    globalResultsState => {
-      setResults(globalResultsState);
-    },
-    [setResults],
-  );
-
-  const setSelectedDateCB = useCallback(
-    date => {
-      setSelectedDate(date);
-    },
-    [setSelectedDate],
-  );
-
   const setCurrentDateContext = async (unixDate?: number) => {
     const dateUTC = unixDate || dateToUTC(new Date());
     const response = await request(dateUTC);
-
     setSelectedDateCB(dateUTC);
-
-    const dailyHabitsFinalState = addHabitFinalState(response?.data);
-    setDailyCB(dailyHabitsFinalState);
-
-    const currentDailyResults = calculateResults(dailyHabitsFinalState);
-    setResultsCB((prevState: Results) => ({
-      ...prevState,
-      dailyResult: { ...currentDailyResults },
-    }));
+    setDailyOutcomes(response?.data);
   };
 
   useEffectSelective(
@@ -91,20 +59,13 @@ export const Daily = (): JSX.Element => {
     [selectedDate],
   );
 
-  const setDateCB = useCallback(
-    daySelected => {
-      setSelectedDate(() => daySelected);
-    },
-    [setSelectedDate],
-  );
-
   const selectDateHandler = (days: number) => {
     if (selectedDate) {
       const dateSelectedLocal = new Date(selectedDate);
       const daySelected = dateSelectedLocal.setDate(
         dateSelectedLocal.getDate() + days,
       );
-      setDateCB(daySelected);
+      setSelectedDateCB(daySelected);
     }
   };
 
@@ -194,7 +155,7 @@ export const Daily = (): JSX.Element => {
         >
           <CalendarSelection
             date={selectedDate ? new Date(selectedDate) : new Date()}
-            onChange={date => setSelectedDate(date.getTime())}
+            onChange={date => setSelectedDateCB(date.getTime())}
             toggleCalendarStatus={toggleCalendarStatus}
           />
           <AppButton

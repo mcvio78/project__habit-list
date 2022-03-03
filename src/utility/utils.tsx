@@ -71,7 +71,7 @@ export const habitCurrentState = (
   return { habitFinalState: HabitFinalState.Failed, isHabitValid: false };
 };
 
-export const addHabitFinalState = (
+export const addHabitsFinalState = (
   DailyHabits: HabitStored[] | [],
 ): HabitWithFinalState[] =>
   DailyHabits?.map((habit: HabitStored) => {

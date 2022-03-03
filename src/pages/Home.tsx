@@ -1,4 +1,4 @@
-import { useContext, useEffect, useCallback } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { PageLayout, Container } from '../components/layout';
@@ -13,69 +13,39 @@ import { AppButton } from '../components/UI/button';
 import { Header } from '../components/UI/Header';
 import { SideBar } from '../components/UI/Sidebar';
 import { Toolbar } from '../components/layout/Toolbar';
-import { useAuth } from '../hooks/useAuth';
-import { useBreakpoint } from '../hooks/useBreakpoint';
-import { NavigationItems } from '../components/UI/navigation';
-import { useAPI } from '../hooks/useApi';
-import { habitAPI } from '../services/habit';
-import { AuthContext, Results } from '../auth/context';
 import {
-  dateToUTC,
-  addHabitFinalState,
-  calculateResults,
-} from '../utility/utils';
+  useAuth,
+  useBreakpoint,
+  useAPI,
+  useDaily,
+  useResults,
+  useSelectedDate,
+} from '../hooks/';
+import { NavigationItems } from '../components/UI/navigation';
+import { habitAPI } from '../services/habit';
+import { dateToUTC } from '../utility/utils';
 import { Modal } from '../components/UI/Modal';
 import { errorStatus } from '../utility/request/statuses';
+import { useLoadingCX } from '../hooks/useLoadingCX';
 
 export const Home = (): JSX.Element => {
-  const { dailyState, resultsState, selectedDateState, loadingCXState } =
-    useContext(AuthContext);
-  const [daily, setDaily] = dailyState;
-  const [results, setResults] = resultsState;
-  const [loadingCX] = loadingCXState;
-  const [, setSelectedDate] = selectedDateState;
+  const { loadingCX } = useLoadingCX();
+  const { daily } = useDaily();
+  const { results } = useResults();
   const { user, logOut } = useAuth();
   const breakpoint = useBreakpoint();
   const navigate = useNavigate();
+  const { setSelectedDateCB } = useSelectedDate();
   const { request, status, setStatus, message, setMessage } = useAPI(
     habitAPI.getDailyHabits,
   );
-
-  const setDailyCB = useCallback(
-    dailyHabitsFinalState => {
-      setDaily(dailyHabitsFinalState);
-    },
-    [setDaily],
-  );
-
-  const setResultsCB = useCallback(
-    globalResultsState => {
-      setResults(globalResultsState);
-    },
-    [setResults],
-  );
-
-  const setSelectedDateCB = useCallback(
-    date => {
-      setSelectedDate(date);
-    },
-    [setSelectedDate],
-  );
+  const { setDailyOutcomes } = useDaily();
 
   const setCurrentDateContext = async (unixDate?: number) => {
     const dateUTC = unixDate || dateToUTC(new Date());
     const response = await request(dateUTC);
-
     setSelectedDateCB(dateUTC);
-
-    const dailyHabitsFinalState = addHabitFinalState(response?.data);
-    setDailyCB(dailyHabitsFinalState);
-
-    const currentDailyResults = calculateResults(dailyHabitsFinalState);
-    setResultsCB((prevState: Results) => ({
-      ...prevState,
-      dailyResult: { ...currentDailyResults },
-    }));
+    setDailyOutcomes(response?.data);
   };
 
   useEffect(() => {

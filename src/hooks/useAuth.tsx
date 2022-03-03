@@ -3,26 +3,21 @@ import jwtDecode from 'jwt-decode';
 
 import { AuthContext, User } from '../auth/context';
 import { authStorage } from '../auth/storage';
+import { useLoadingCX } from './useLoadingCX';
 
-interface UseAuthReturn {
+interface UseAuth {
   logIn: (args: string) => void;
   logOut: () => void;
   user: User | null;
+  setUserCB: (args: User) => void;
   setUserContextIfToken: (a: string) => void;
 }
 
-export const useAuth = (): UseAuthReturn => {
-  const { userState, loadingCXState } = useContext(AuthContext);
+export const useAuth = (): UseAuth => {
+  const { userState } = useContext(AuthContext);
   const [user, setUser] = userState;
-  const [, setLoadingCX] = loadingCXState;
+  const { setLoadingCXCB } = useLoadingCX();
   let logoutTimeout: ReturnType<typeof setTimeout>;
-
-  const setLoadingCXCB = useCallback(
-    status => {
-      setLoadingCX(status);
-    },
-    [setLoadingCX],
-  );
 
   const setUserCB = useCallback(
     userData => {
@@ -57,5 +52,5 @@ export const useAuth = (): UseAuthReturn => {
     setUserContextIfToken(authToken);
   };
 
-  return { user, logIn, logOut, setUserContextIfToken };
+  return { user, setUserCB, logIn, logOut, setUserContextIfToken };
 };

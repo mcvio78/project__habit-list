@@ -3,7 +3,17 @@ import { Routes, Route } from 'react-router-dom';
 
 import { PageContainer } from './components/layout';
 import { Home } from './pages/Home';
-import { AuthContext, DailyHabit, SelectedDate, Theme } from './auth/context';
+import {
+  AuthContext,
+  ThemeContext,
+  DailyContext,
+  ResultsContext,
+  SelectedDateContext,
+  LoadingStateCXContext,
+  DailyHabits,
+  SelectedDate,
+  Theme,
+} from './auth/context';
 import { ResetContext } from './auth/ResetContext';
 import { themes } from './config/themes';
 import { SpanLarge } from './components/UI/Typography';
@@ -41,7 +51,7 @@ const DailyLazy = lazy(() =>
 export const App = (): JSX.Element => {
   const [user, setUser] = useState(null);
   const [theme, setTheme] = useState<Theme>(themes[0]);
-  const [daily, setDaily] = useState<DailyHabit>([]);
+  const [daily, setDaily] = useState<DailyHabits>([]);
   const [results, setResults] = useState({
     dailyResult: { pending: 0, successful: 0, failed: 0, postponed: 0 },
     weeklyResult: { pending: 0, successful: 0, failed: 0, postponed: 0 },
@@ -55,41 +65,64 @@ export const App = (): JSX.Element => {
       value={useMemo(
         () => ({
           userState: [user, setUser],
-          themeState: [theme, setTheme],
-          dailyState: [daily, setDaily],
-          resultsState: [results, setResults],
-          selectedDateState: [selectedDate, setSelectedDate],
-          loadingCXState: [loadingCX, setLoadingCX],
         }),
-        [
-          user,
-          setUser,
-          theme,
-          setTheme,
-          daily,
-          setDaily,
-          results,
-          setResults,
-          selectedDate,
-          setSelectedDate,
-          loadingCX,
-          setLoadingCX,
-        ],
+        [user, setUser],
       )}
     >
-      <ResetContext />
-      <PageContainer>
-        <Suspense fallback={<SpanLarge>Loading...</SpanLarge>}>
-          <Routes>
-            <Route path="/auth" element={<AuthLazy />} />
-            {user && <Route path="/account" element={<AccountLazy />} />}
-            <Route path="/settings" element={<SettingsLazy />} />
-            {user && <Route path="/create" element={<CreateLazy />} />}
-            {user && <Route path="/daily" element={<DailyLazy />} />}
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </Suspense>
-      </PageContainer>
+      <ThemeContext.Provider
+        value={useMemo(
+          () => ({ themeState: [theme, setTheme] }),
+          [theme, setTheme],
+        )}
+      >
+        <DailyContext.Provider
+          value={useMemo(
+            () => ({ dailyState: [daily, setDaily] }),
+            [daily, setDaily],
+          )}
+        >
+          <ResultsContext.Provider
+            value={useMemo(
+              () => ({ resultsState: [results, setResults] }),
+              [results, setResults],
+            )}
+          >
+            <SelectedDateContext.Provider
+              value={useMemo(
+                () => ({ selectedDateState: [selectedDate, setSelectedDate] }),
+                [selectedDate, setSelectedDate],
+              )}
+            >
+              <LoadingStateCXContext.Provider
+                value={useMemo(
+                  () => ({
+                    loadingCXState: [loadingCX, setLoadingCX],
+                  }),
+                  [loadingCX, setLoadingCX],
+                )}
+              >
+                <ResetContext />
+                <PageContainer>
+                  <Suspense fallback={<SpanLarge>Loading...</SpanLarge>}>
+                    <Routes>
+                      <Route path="/auth" element={<AuthLazy />} />
+                      {user && (
+                        <Route path="/account" element={<AccountLazy />} />
+                      )}
+                      <Route path="/settings" element={<SettingsLazy />} />
+                      {user && (
+                        <Route path="/create" element={<CreateLazy />} />
+                      )}
+                      {user && <Route path="/daily" element={<DailyLazy />} />}
+                      <Route path="/" element={<Home />} />
+                    </Routes>
+                  </Suspense>
+                </PageContainer>
+              </LoadingStateCXContext.Provider>
+            </SelectedDateContext.Provider>
+          </ResultsContext.Provider>
+        </DailyContext.Provider>
+      </ThemeContext.Provider>
     </AuthContext.Provider>
   );
 };

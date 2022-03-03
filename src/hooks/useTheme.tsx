@@ -1,17 +1,17 @@
 import { useContext, useCallback } from 'react';
 
-import { AuthContext } from '../auth/context';
+import { ThemeContext } from '../auth/context';
 import { themeStorage } from '../theme/storage';
 import { themes } from '../config/themes';
 
-interface UseThemeReturn {
+interface UseTheme {
   theme: string;
   setDefaultTheme: () => void;
   setSelectedTheme: (args: string) => void;
 }
 
-export const useTheme = (): UseThemeReturn => {
-  const { themeState } = useContext(AuthContext);
+export const useTheme = (): UseTheme => {
+  const { themeState } = useContext(ThemeContext);
   const [theme, setTheme] = themeState;
 
   const setThemeCB = useCallback(

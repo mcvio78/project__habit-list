@@ -1,4 +1,4 @@
-import { useCallback, useContext, useState, useEffect } from 'react';
+import { useCallback, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
@@ -24,18 +24,19 @@ import { AppButton } from '../../components/UI/button';
 import { useToggle } from '../../hooks/useToggle';
 import { CalendarSelection } from '../../components/UI/CalendarSelection';
 import { AuthContext, Results } from '../../auth/context';
+import { useEffectSelective } from '../../hooks/useEffectNoMount';
 
 const DailyListContainer = styled(Container)`
   overflow-y: auto;
 `;
 
 export const Daily = (): JSX.Element => {
-  const { dailyState, resultsState, selectedDateState } =
+  const { dailyState, resultsState, selectedDateState, loadingCXState } =
     useContext(AuthContext);
   const [daily, setDaily] = dailyState;
   const [results, setResults] = resultsState;
-  const [selectedDate] = selectedDateState;
-  const [date, setDate] = useState<Date>(new Date());
+  const [loadingCX] = loadingCXState;
+  const [selectedDate, setSelectedDate] = selectedDateState;
   const navigate = useNavigate();
   const { request, status, setStatus, message, setMessage } = useAPI(
     habitAPI.getDailyHabits,
@@ -43,16 +44,9 @@ export const Daily = (): JSX.Element => {
   const { status: calendarStatus, toggleStatus: toggleCalendarStatus } =
     useToggle();
 
-  useEffect(() => {
-    if (selectedDate) {
-      setDate(new Date(selectedDate));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const setDailyCB = useCallback(
     dailyHabitsFinalState => {
-      setDaily(dailyHabitsFinalState);
+      setDaily(() => dailyHabitsFinalState);
     },
     [setDaily],
   );
@@ -64,11 +58,22 @@ export const Daily = (): JSX.Element => {
     [setResults],
   );
 
-  const setNewDate = async () => {
-    const dateUTC = dateToUTC(date);
+  const setSelectedDateCB = useCallback(
+    date => {
+      setSelectedDate(date);
+    },
+    [setSelectedDate],
+  );
+
+  const setCurrentDateContext = async (unixDate?: number) => {
+    const dateUTC = unixDate || dateToUTC(new Date());
     const response = await request(dateUTC);
+
+    setSelectedDateCB(dateUTC);
+
     const dailyHabitsFinalState = addHabitFinalState(response?.data);
     setDailyCB(dailyHabitsFinalState);
+
     const currentDailyResults = calculateResults(dailyHabitsFinalState);
     setResultsCB((prevState: Results) => ({
       ...prevState,
@@ -76,17 +81,31 @@ export const Daily = (): JSX.Element => {
     }));
   };
 
+  useEffectSelective(
+    () => {
+      if (!loadingCX && !selectedDate) setCurrentDateContext();
+    },
+    () => {
+      if (selectedDate) setCurrentDateContext(selectedDate);
+    },
+    [selectedDate],
+  );
+
   const setDateCB = useCallback(
     daySelected => {
-      setDate(() => daySelected);
+      setSelectedDate(() => daySelected);
     },
-    [setDate],
+    [setSelectedDate],
   );
 
   const selectDateHandler = (days: number) => {
-    const daySelected = new Date(date.setDate(date.getDate() + days));
-    setDateCB(daySelected);
-    setNewDate();
+    if (selectedDate) {
+      const dateSelectedLocal = new Date(selectedDate);
+      const daySelected = dateSelectedLocal.setDate(
+        dateSelectedLocal.getDate() + days,
+      );
+      setDateCB(daySelected);
+    }
   };
 
   const dailyHabits = daily
@@ -132,7 +151,7 @@ export const Daily = (): JSX.Element => {
       {!calendarStatus ? (
         <>
           <DateSelector
-            date={date}
+            date={selectedDate ? new Date(selectedDate) : new Date()}
             onClickHandler={selectDateHandler}
             results={results}
           />
@@ -174,8 +193,8 @@ export const Daily = (): JSX.Element => {
           $ai={{ de: 'flex-end' }}
         >
           <CalendarSelection
-            date={date}
-            onChange={setDate}
+            date={selectedDate ? new Date(selectedDate) : new Date()}
+            onChange={date => setSelectedDate(date.getTime())}
             toggleCalendarStatus={toggleCalendarStatus}
           />
           <AppButton

@@ -62,12 +62,15 @@ export const Home = (): JSX.Element => {
     [setSelectedDate],
   );
 
-  const setCurrentDateContext = async () => {
-    const dateUTC = dateToUTC(new Date());
-    setSelectedDateCB(dateUTC);
+  const setCurrentDateContext = async (unixDate?: number) => {
+    const dateUTC = unixDate || dateToUTC(new Date());
     const response = await request(dateUTC);
+
+    setSelectedDateCB(dateUTC);
+
     const dailyHabitsFinalState = addHabitFinalState(response?.data);
     setDailyCB(dailyHabitsFinalState);
+
     const currentDailyResults = calculateResults(dailyHabitsFinalState);
     setResultsCB((prevState: Results) => ({
       ...prevState,
@@ -78,9 +81,6 @@ export const Home = (): JSX.Element => {
   useEffect(() => {
     if (!loadingCX && user) {
       setCurrentDateContext();
-    } else {
-      const dateUTC = dateToUTC(new Date());
-      setSelectedDateCB(dateUTC);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loadingCX, user]);

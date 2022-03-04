@@ -8,6 +8,7 @@ interface UseTheme {
   theme: string;
   setDefaultTheme: () => void;
   setSelectedTheme: (args: string) => void;
+  setThemeIfStored: () => void;
 }
 
 export const useTheme = (): UseTheme => {
@@ -37,5 +38,15 @@ export const useTheme = (): UseTheme => {
     setThemeCB(selectedTheme);
   };
 
-  return { theme, setDefaultTheme, setSelectedTheme };
+  const setThemeIfStored = () => {
+    const storedTheme = themeStorage.getTheme();
+
+    if (storedTheme) {
+      setSelectedTheme(storedTheme);
+    } else {
+      setDefaultTheme();
+    }
+  };
+
+  return { theme, setDefaultTheme, setSelectedTheme, setThemeIfStored };
 };

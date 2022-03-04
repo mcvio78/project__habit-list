@@ -1,11 +1,10 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { PageContainer } from './components/layout';
 import { Home } from './pages/Home';
-import { ResetContext } from './auth/ResetContext';
 import { SpanLarge } from './components/UI/Typography';
-import { useAuth } from './hooks';
+import { useAuth, useTheme } from './hooks';
 
 const AuthLazy = lazy(() =>
   import('./pages/Auth').then(({ Auth }) => ({
@@ -38,23 +37,26 @@ const DailyLazy = lazy(() =>
 );
 
 export const App = (): JSX.Element => {
-  const { user } = useAuth();
+  const { user, setUserBasedOnToken } = useAuth();
+  const { setThemeIfStored } = useTheme();
+
+  useEffect(() => {
+    setThemeIfStored();
+    setUserBasedOnToken();
+  }, [setThemeIfStored, setUserBasedOnToken]);
 
   return (
-    <>
-      <ResetContext />
-      <PageContainer>
-        <Suspense fallback={<SpanLarge>Loading...</SpanLarge>}>
-          <Routes>
-            <Route path="/auth" element={<AuthLazy />} />
-            {user && <Route path="/account" element={<AccountLazy />} />}
-            <Route path="/settings" element={<SettingsLazy />} />
-            {user && <Route path="/create" element={<CreateLazy />} />}
-            {user && <Route path="/daily" element={<DailyLazy />} />}
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </Suspense>
-      </PageContainer>
-    </>
+    <PageContainer>
+      <Suspense fallback={<SpanLarge>Loading...</SpanLarge>}>
+        <Routes>
+          <Route path="/auth" element={<AuthLazy />} />
+          {user && <Route path="/account" element={<AccountLazy />} />}
+          <Route path="/settings" element={<SettingsLazy />} />
+          {user && <Route path="/create" element={<CreateLazy />} />}
+          {user && <Route path="/daily" element={<DailyLazy />} />}
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Suspense>
+    </PageContainer>
   );
 };

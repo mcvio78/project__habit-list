@@ -21,7 +21,7 @@ import {
   HeadingLarge,
   NavLinkIcon,
 } from '../components/UI/Typography';
-import { useAPI } from '../hooks/useApi';
+import { useAPI } from '../hooks/';
 import { habitAPI } from '../services/habit';
 import { Modal } from '../components/UI/Modal';
 import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';

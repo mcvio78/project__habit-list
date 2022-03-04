@@ -30,6 +30,7 @@ export const ContextProvider = ({
   });
   const [selectedDate, setSelectedDate] = useState<SelectedDate>(null);
   const [loadingCX, setLoadingCX] = useState(false);
+
   return (
     <AuthContext.Provider
       value={useMemo(() => ({ userState: [user, setUser] }), [user, setUser])}

@@ -20,13 +20,13 @@ import {
   useDaily,
   useResults,
   useSelectedDate,
+  useLoadingCX,
 } from '../hooks/';
 import { NavigationItems } from '../components/UI/navigation';
 import { habitAPI } from '../services/habit';
 import { dateToUTC } from '../utility/utils';
 import { Modal } from '../components/UI/Modal';
 import { errorStatus } from '../utility/request/statuses';
-import { useLoadingCX } from '../hooks/useLoadingCX';
 
 export const Home = (): JSX.Element => {
   const { loadingCX } = useLoadingCX();

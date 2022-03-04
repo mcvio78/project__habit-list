@@ -1,7 +1,7 @@
 import { ForwardedRef, forwardRef } from 'react';
 import styled, { css, keyframes } from 'styled-components/macro';
 
-import { useAuth } from '../../../hooks';
+import { useAuth } from '../../../hooks/';
 import { Container } from '../../layout';
 import { NavigationItem } from './NavigationItem';
 

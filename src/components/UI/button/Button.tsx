@@ -1,3 +1,4 @@
+import { ComponentPropsWithoutRef } from 'react';
 import styled from 'styled-components/macro';
 
 import {
@@ -5,7 +6,9 @@ import {
   StyledMarginProps,
 } from '../../../utility/UI/styledMargin';
 
-export interface ButtonProps extends StyledMarginProps {
+export interface ButtonProps
+  extends ComponentPropsWithoutRef<'button'>,
+    StyledMarginProps {
   $backgroundColor?: string;
   $boxShadow?: boolean;
   $labelShadow?: boolean;

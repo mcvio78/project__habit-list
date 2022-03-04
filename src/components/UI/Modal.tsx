@@ -8,7 +8,7 @@ import { HeadingExtraLarge, ParagraphSmall } from './Typography';
 import { AppButton } from './button';
 import { ReactComponent as CloseSVG } from '../../assets/icons/icon-close_24dp.svg';
 import { ReactComponent as CheckSVG } from '../../assets/icons/icons-check_24dp.svg';
-import { useKeyEvent } from '../../hooks/useKeyEvent';
+import { useKeyEvent } from '../../hooks/';
 import { successStatus, errorStatus } from '../../utility/request/statuses';
 
 interface ModalProps {

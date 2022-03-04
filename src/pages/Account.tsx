@@ -3,7 +3,7 @@ import { NavLinkIcon } from '../components/UI/Typography';
 import { Header } from '../components/UI/Header';
 import { Toolbar } from '../components/layout/Toolbar';
 import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../hooks/';
 import { ShowData } from '../components/UI/ShowData';
 
 interface FilteredAccountData {

@@ -98,7 +98,7 @@ export const DateSelector = ({
             ? HabitFinalState.Successful
             : HabitFinalState.Failed
         }
-        disabled
+        disabled={false}
       />
     </Container>
   </SelectorContainer>

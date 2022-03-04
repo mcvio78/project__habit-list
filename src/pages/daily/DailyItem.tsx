@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components/macro';
 
 import { Container, ContainerProps } from '../../components/layout';
@@ -16,6 +17,7 @@ import { HabitStored } from '../../helpers/globalTypes';
 interface DailyItemProps extends HabitStored {
   habitFinalState: HabitFinalState;
   isHabitValid: boolean;
+  onClick: Dispatch<SetStateAction<boolean>>;
 }
 
 const DailyItemContainer = styled(Container)<ContainerProps>`
@@ -31,6 +33,7 @@ export const DailyItem = ({
   targetCurrent,
   habitFinalState,
   isHabitValid,
+  onClick,
 }: DailyItemProps): JSX.Element => {
   return (
     <DailyItemContainer
@@ -96,8 +99,7 @@ export const DailyItem = ({
             $boxShadow
             $status={habitFinalState}
             disabled={!isHabitValid}
-            /* eslint-disable-next-line */
-            onClick={() => console.log('mammalo')}
+            onClick={() => onClick(true)}
           />
         </Container>
       </Container>

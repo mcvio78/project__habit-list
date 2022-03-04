@@ -3,7 +3,7 @@ import { HeadingMedium, NavLinkIcon } from '../components/UI/Typography';
 import { Header } from '../components/UI/Header';
 import { Toolbar } from '../components/layout/Toolbar';
 import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';
-import { useTheme } from '../hooks/useTheme';
+import { useTheme } from '../hooks/';
 import { AppCheckbox } from '../components/UI/checkbox/';
 import { themes } from '../config/themes';
 

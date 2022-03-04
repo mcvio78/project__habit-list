@@ -28,7 +28,7 @@ export const AppButtonState = styled(Button).attrs<
   }};
 
   &:disabled {
-    opacity: 1;
-    filter: saturate(100%);
+    opacity: 0.7;
+    filter: saturate(70%);
   }
 `;

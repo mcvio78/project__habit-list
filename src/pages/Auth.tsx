@@ -14,8 +14,7 @@ import { ReactComponent as EmailSVG } from '../assets/icons/icon-email_24dp.svg'
 import { ReactComponent as PasswordSVG } from '../assets/icons/icon-lock_24dp.svg';
 import { ReactComponent as UserSVG } from '../assets/icons/icon-person_24dp.svg';
 import { authAPI } from '../services/auth';
-import { useAPI } from '../hooks/useApi';
-import { useAuth } from '../hooks/useAuth';
+import { useAPI, useAuth } from '../hooks/';
 
 const shapeLogin = {
   userName: Yup.string().required('First name is required').label('userName'),

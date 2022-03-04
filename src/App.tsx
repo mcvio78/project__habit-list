@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { PageContainer } from './components/layout';
 import { Home } from './pages/Home';
 import { SpanLarge } from './components/UI/Typography';
-import { useAuth, useTheme } from './hooks';
+import { useAuth, useTheme } from './hooks/';
 
 const AuthLazy = lazy(() =>
   import('./pages/Auth').then(({ Auth }) => ({

@@ -3,9 +3,9 @@ import { CSSTransition } from 'react-transition-group';
 
 import { Backdrop } from './Backdrop';
 import { SideDrawer } from './SideDrawer';
-import { useKeyEvent } from '../../hooks/useKeyEvent';
+import { useKeyEvent } from '../../hooks/';
 import { AppButtonHamburger } from './button';
-import { NavigationItems } from './navigation/NavigationItems';
+import { NavigationItems } from './navigation';
 
 export const SideBar = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

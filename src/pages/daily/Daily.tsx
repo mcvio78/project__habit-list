@@ -1,3 +1,4 @@
+import { useReducer } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
@@ -16,7 +17,8 @@ import {
   useSelectedDate,
   useDaily,
   useResults,
-} from '../../hooks';
+  useLoadingCX,
+} from '../../hooks/';
 import { habitAPI } from '../../services/habit';
 import { Modal } from '../../components/UI/Modal';
 import { errorStatus } from '../../utility/request/statuses';
@@ -24,13 +26,25 @@ import { HabitWithFinalState } from '../../helpers/globalTypes';
 import { dateToUTC } from '../../utility/utils';
 import { AppButton } from '../../components/UI/button';
 import { CalendarSelection } from '../../components/UI/CalendarSelection';
-import { useLoadingCX } from '../../hooks/useLoadingCX';
+import { Dialog } from '../../components/UI/Dialog';
 
 const DailyListContainer = styled(Container)`
   overflow-y: auto;
 `;
 
 export const Daily = (): JSX.Element => {
+  const initialState = { openDialog: false, habitIndex: null };
+  const reducer = (state: any, action: any) => {
+    switch (action.type) {
+      case 'openDialog':
+        return { openDialog: true, habitIndex: action.habitIndex };
+      case 'closeDialog':
+        return { openDialog: false, habitIndex: null };
+      default:
+        throw new Error();
+    }
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
   const { loadingCX } = useLoadingCX();
   const { results } = useResults();
   const { daily, setDailyOutcomes } = useDaily();
@@ -70,7 +84,7 @@ export const Daily = (): JSX.Element => {
   };
 
   const dailyHabits = daily
-    ? daily.map((habit: HabitWithFinalState) => (
+    ? daily.map((habit: HabitWithFinalState, index: number) => (
         <DailyItem
           key={habit._id}
           habitName={habit.habitName}
@@ -83,6 +97,7 @@ export const Daily = (): JSX.Element => {
           expirationDate={habit.expirationDate}
           habitFinalState={habit.finalState}
           isHabitValid={habit.isValid}
+          onClick={() => dispatch({ type: 'openDialog', habitIndex: index })}
         />
       ))
     : null;
@@ -97,6 +112,11 @@ export const Daily = (): JSX.Element => {
         }}
         status={status}
         modalMessage={message}
+      />
+      <Dialog
+        isOpen={state.openDialog}
+        setOpenDialog={() => dispatch({ type: 'closeDialog' })}
+        habitIndex={state.habitIndex}
       />
       <Toolbar>
         <NavLinkIcon

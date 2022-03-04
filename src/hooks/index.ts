@@ -11,3 +11,4 @@ export { useToggle } from './useToggle';
 export { useWindowSize } from './useWindowSize';
 export { useResults } from './useResults';
 export { useSelectedDate } from './useSelectedDate';
+export { useLoadingCX } from './useLoadingCX';

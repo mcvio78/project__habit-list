@@ -68,7 +68,7 @@ export const habitCurrentState = (
   if (habitStatus && habitStatus === HabitStatus.Postponed) {
     return { habitFinalState: HabitFinalState.Postponed, isHabitValid };
   }
-  return { habitFinalState: HabitFinalState.Failed, isHabitValid: false };
+  throw new Error('There was a problem getting habit state');
 };
 
 export const addHabitsFinalState = (

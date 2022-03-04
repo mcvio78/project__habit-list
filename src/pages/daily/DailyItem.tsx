@@ -49,19 +49,19 @@ export const DailyItem = ({
         $p={{ de: '0 4px', sm: '0 6px' }}
         $bs={{ de: 'border-box' }}
       >
-        {targetType && targetValue ? (
-          <Container $fd={{ de: 'column' }} $ai={{ de: 'flex-start' }}>
-            <ParagraphSmall
-              $txtSdw
-              $ital
-              $txtClr={
-                habitType === HabitType.Avoid
-                  ? 'var(--semantic_error_01)'
-                  : 'inherit'
-              }
-            >
-              {habitName}
-            </ParagraphSmall>
+        <Container $fd={{ de: 'column' }} $ai={{ de: 'flex-start' }}>
+          <ParagraphSmall
+            $txtSdw
+            $ital
+            $txtClr={
+              habitType === HabitType.Avoid
+                ? 'var(--semantic_error_01)'
+                : 'inherit'
+            }
+          >
+            {habitName}
+          </ParagraphSmall>
+          {targetType && targetValue && (
             <ParagraphExtraSmall
               $txtSdw
               $ital
@@ -77,47 +77,29 @@ export const DailyItem = ({
               &ensp;
               {targetUnit}
             </ParagraphExtraSmall>
-          </Container>
-        ) : (
-          <ParagraphSmall
-            $txtSdw
-            $ital
-            $txtClr={
-              habitType === HabitType.Avoid
-                ? 'var(--semantic_error_01)'
-                : 'inherit'
-            }
-          >
-            {habitName}
-          </ParagraphSmall>
-        )}
-        {targetCurrent || targetCurrent === 0 ? (
-          <Container
-            $w={{ de: '100%' }}
-            $mxw={{ de: '80px', xs: '140px' }}
-            $jc={{ de: 'space-between' }}
-            $ai={{ de: 'center' }}
-          >
+          )}
+        </Container>
+        <Container
+          $w={{ de: '100%' }}
+          $mxw={{ de: '80px', xs: '140px' }}
+          $jc={{ de: targetCurrent !== null ? 'space-between' : 'flex-end' }}
+          $ai={{ de: 'center' }}
+        >
+          {targetCurrent !== null && (
             <ParagraphExtraSmall $txtSdw $ital $txtClr="var(--neutral_12)">
               ( {targetCurrent}% )
             </ParagraphExtraSmall>
-            <AppButtonState
-              aria-label="habit status button"
-              title="button showing habits status"
-              $boxShadow
-              $status={habitFinalState}
-              disabled={!isHabitValid}
-            />
-          </Container>
-        ) : (
+          )}
           <AppButtonState
             aria-label="habit status button"
             title="button showing habits status"
             $boxShadow
             $status={habitFinalState}
             disabled={!isHabitValid}
+            /* eslint-disable-next-line */
+            onClick={() => console.log('mammalo')}
           />
-        )}
+        </Container>
       </Container>
     </DailyItemContainer>
   );

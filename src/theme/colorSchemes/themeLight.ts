@@ -35,6 +35,7 @@ export const themeLight = css`
     --accent_03_btn_active: ${COLORS.white};
     --accent_04_inp_active: ${COLORS.tealBlue};
     --accent_05: ${COLORS.ferrariRed};
+    --accent_06: ${COLORS.goldenYellow};
 
     --neutral_01: ${COLORS.white};
     --neutral_02_btn_focus: ${COLORS.gunPowder};

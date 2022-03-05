@@ -19,6 +19,23 @@ interface DailyItemProps extends HabitStored {
   openDialog: () => void;
 }
 
+const ButtonContainer = styled.button`
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: var(--accent_06);
+    cursor: pointer;
+  }
+`;
+
 const DailyItemContainer = styled(Container)<ContainerProps>`
   border-bottom: 2px solid var(--secondary_05);
 `;
@@ -49,13 +66,7 @@ export const DailyItem = ({
         $p={{ de: '0 4px', sm: '0 6px' }}
         $bs={{ de: 'border-box' }}
       >
-        <Container
-          $fg={{ de: 1 }}
-          $fd={{ de: 'column' }}
-          $jc={{ de: 'center' }}
-          $ai={{ de: 'flex-start' }}
-          onClick={openDialog}
-        >
+        <ButtonContainer onClick={openDialog}>
           <ParagraphSmall
             $txtSdw
             $ital
@@ -84,7 +95,7 @@ export const DailyItem = ({
               {targetUnit}
             </ParagraphExtraSmall>
           )}
-        </Container>
+        </ButtonContainer>
         <Container
           $w={{ de: '100%' }}
           $mxw={{ de: '80px', xs: '140px' }}

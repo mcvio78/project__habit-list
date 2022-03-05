@@ -17,7 +17,8 @@ const Styles = styled.div.attrs(props => ({
 
     .react-datepicker__input-container {
       input {
-        min-width: 60px;
+        min-width: 40px;
+        width: 100% !important;
         min-height: 28px;
         padding: 0 5px;
         border: none;

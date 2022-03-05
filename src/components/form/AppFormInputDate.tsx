@@ -26,7 +26,6 @@ export const AppFormInputDate = ({
     <Container
       className={['app-form-input-date', className].join(' ')}
       $fd={{ de: 'column' }}
-      $w={{ de: '100%' }}
     >
       <AppInputDate
         selected={values[name]}

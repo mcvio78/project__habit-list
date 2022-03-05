@@ -36,6 +36,7 @@ const LayoutInputWrapper = styled(Container)`
     height: 24px;
     fill: var(--neutral_09);
     fill-opacity: 0.2;
+    flex-shrink: 0;
   }
 `;
 

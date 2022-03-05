@@ -57,17 +57,15 @@ export const Home = (): JSX.Element => {
 
   return (
     <PageLayout>
-      {user && (
-        <Modal
-          showModal={errorStatus(status) && !!message}
-          modalCallback={() => {
-            setStatus(null);
-            setMessage('');
-          }}
-          status={status}
-          modalMessage={message}
-        />
-      )}
+      <Modal
+        showModal={errorStatus(status) && !!message}
+        modalCallback={() => {
+          setStatus(null);
+          setMessage('');
+        }}
+        status={status}
+        modalMessage={message}
+      />
       <Toolbar>
         {!user ? (
           <NavLinkLarge
@@ -192,7 +190,7 @@ export const Home = (): JSX.Element => {
         $bs={{ de: 'border-box' }}
       >
         <ParagraphLarge $txtSdw>
-          <i>Start organizing your life!</i>
+          <i>Start organizing your&nbsp;life!</i>
         </ParagraphLarge>
         {user && (
           <AppButton

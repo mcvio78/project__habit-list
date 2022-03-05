@@ -19,6 +19,7 @@ export const themeLight = css`
     --secondary_04: ${COLORS.ghost};
     --secondary_04_cbox_checked: ${COLORS.azure};
     --secondary_05: ${COLORS.cerulean};
+    --secondary_06: ${COLORS.gunPowder};
 
     --accent_01: ${COLORS.tealBlue};
     --accent_01_btn_hover: ${COLORS.white};

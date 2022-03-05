@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components/macro';
 
 import { Container, ContainerProps } from '../../components/layout';
@@ -17,7 +16,7 @@ import { HabitStored } from '../../helpers/globalTypes';
 interface DailyItemProps extends HabitStored {
   habitFinalState: HabitFinalState;
   isHabitValid: boolean;
-  onClick: Dispatch<SetStateAction<boolean>>;
+  openDialog: () => void;
 }
 
 const DailyItemContainer = styled(Container)<ContainerProps>`
@@ -33,14 +32,13 @@ export const DailyItem = ({
   targetCurrent,
   habitFinalState,
   isHabitValid,
-  onClick,
+  openDialog,
 }: DailyItemProps): JSX.Element => {
   return (
     <DailyItemContainer
       $w={{ de: '100%' }}
       $mih={{ de: '40px' }}
       $jc={{ de: 'center' }}
-      $ai={{ de: 'center' }}
       $p={{ de: '0 16px' }}
       $bs={{ de: 'border-box' }}
     >
@@ -48,11 +46,16 @@ export const DailyItem = ({
         $w={{ de: '100%' }}
         $mxw={{ de: '320px', sm: '420px' }}
         $jc={{ de: 'space-between' }}
-        $ai={{ de: 'center' }}
         $p={{ de: '0 4px', sm: '0 6px' }}
         $bs={{ de: 'border-box' }}
       >
-        <Container $fd={{ de: 'column' }} $ai={{ de: 'flex-start' }}>
+        <Container
+          $fg={{ de: 1 }}
+          $fd={{ de: 'column' }}
+          $jc={{ de: 'center' }}
+          $ai={{ de: 'flex-start' }}
+          onClick={openDialog}
+        >
           <ParagraphSmall
             $txtSdw
             $ital
@@ -99,7 +102,7 @@ export const DailyItem = ({
             $boxShadow
             $status={habitFinalState}
             disabled={!isHabitValid}
-            onClick={() => onClick(true)}
+            onClick={() => {}}
           />
         </Container>
       </Container>

@@ -33,13 +33,13 @@ const DailyListContainer = styled(Container)`
 `;
 
 export const Daily = (): JSX.Element => {
-  const initialState = { openDialog: false, habitIndex: null };
+  const initialState = { isDialogOpen: false, habitIndex: null };
   const reducer = (state: any, action: any) => {
     switch (action.type) {
       case 'openDialog':
-        return { openDialog: true, habitIndex: action.habitIndex };
+        return { isDialogOpen: true, habitIndex: action.habitIndex };
       case 'closeDialog':
-        return { openDialog: false, habitIndex: null };
+        return { isDialogOpen: false, habitIndex: null };
       default:
         throw new Error();
     }
@@ -97,7 +97,7 @@ export const Daily = (): JSX.Element => {
           expirationDate={habit.expirationDate}
           habitFinalState={habit.finalState}
           isHabitValid={habit.isValid}
-          onClick={() => dispatch({ type: 'openDialog', habitIndex: index })}
+          openDialog={() => dispatch({ type: 'openDialog', habitIndex: index })}
         />
       ))
     : null;
@@ -114,9 +114,9 @@ export const Daily = (): JSX.Element => {
         modalMessage={message}
       />
       <Dialog
-        isOpen={state.openDialog}
-        setOpenDialog={() => dispatch({ type: 'closeDialog' })}
         habitIndex={state.habitIndex}
+        isOpen={state.isDialogOpen}
+        onClose={() => dispatch({ type: 'closeDialog' })}
       />
       <Toolbar>
         <NavLinkIcon

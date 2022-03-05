@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { FormikValues } from 'formik';
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 import { Container, PageLayout } from '../components/layout';
 import { Header } from '../components/UI/Header';
@@ -68,6 +69,7 @@ export const Create = (): JSX.Element => {
   const { request, status, setStatus, message, setMessage } = useAPI(
     habitAPI.createHabit,
   );
+  const navigate = useNavigate();
 
   const submitFormHandler = useCallback(
     (habitValues: FormikValues) => {
@@ -83,11 +85,12 @@ export const Create = (): JSX.Element => {
         modalCallback={() => {
           setStatus(null);
           setMessage('');
+          if (successStatus(status)) {
+            navigate('/');
+          }
         }}
         status={status}
         modalMessage={message}
-        navigateTo="/"
-        conditionToNavigate={successStatus(status)}
       />
       <Toolbar>
         <NavLinkIcon

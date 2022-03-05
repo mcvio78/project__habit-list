@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
 import styled, { css } from 'styled-components/macro';
-import { useNavigate } from 'react-router-dom';
 
 import { Backdrop } from './Backdrop';
 import { Container } from '../layout';
@@ -16,8 +15,6 @@ interface ModalProps {
   modalCallback: () => void;
   status: number | null;
   modalMessage: string;
-  navigateTo?: string;
-  conditionToNavigate?: boolean;
 }
 
 const TextContainer = styled(Container)`
@@ -50,11 +47,7 @@ export const Modal = ({
   modalCallback,
   status,
   modalMessage,
-  navigateTo,
-  conditionToNavigate,
 }: ModalProps): JSX.Element => {
-  const navigate = useNavigate();
-
   const onKeyDownHandler = useCallback(
     event => {
       if (event.defaultPrevented) {
@@ -72,7 +65,7 @@ export const Modal = ({
 
   return (
     <>
-      <Backdrop isOpen={showModal} setIsOpen={modalCallback} />
+      <Backdrop isOpen={showModal} />
 
       {showModal && (
         <TextContainer
@@ -107,10 +100,7 @@ export const Modal = ({
             $bold
             aria-label="close modal"
             title="close modal button"
-            onClick={() => {
-              modalCallback();
-              if (conditionToNavigate && navigateTo) navigate(navigateTo);
-            }}
+            onClick={modalCallback}
           >
             OK
           </AppButton>

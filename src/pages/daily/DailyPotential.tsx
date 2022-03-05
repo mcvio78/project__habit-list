@@ -49,7 +49,7 @@ export const DailyPotential = ({
         $ai={{ de: 'center' }}
         $bs={{ de: 'border-box' }}
       >
-        <Container $ai={{ de: 'center' }}>
+        <Container $ai={{ de: 'center' }} $fw={{ de: 'wrap' }}>
           <HeadingSmall $txtSdw $ital>
             Daily Potential
           </HeadingSmall>

@@ -7,7 +7,7 @@ interface BackdropAnimatedProps {
 
 interface BackdropProps extends BackdropAnimatedProps {
   isOpen: boolean;
-  setIsOpen: () => void;
+  setIsOpen?: () => void;
 }
 
 const backdropEnter = keyframes`
@@ -79,7 +79,9 @@ export const Backdrop = forwardRef(
       return (
         <BackdropStyled
           onClick={setIsOpen}
-          onKeyDown={event => event.key === 'Escape' && setIsOpen()}
+          onKeyDown={event =>
+            event.key === 'Escape' && setIsOpen && setIsOpen()
+          }
           $animated={$animated}
           ref={ref}
         />

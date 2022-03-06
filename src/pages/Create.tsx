@@ -49,7 +49,7 @@ const validationSchemaHabit = Yup.object().shape({
       TgtType === TargetType.min || TgtType === TargetType.max,
     then: Yup.string().required('Target unit is required').label('TargetUnit'),
   }),
-  expirationDate: Yup.date()
+  expirationDate: Yup.number()
     .nullable()
     .required('Date is required')
     .label('ExpirationDate'),

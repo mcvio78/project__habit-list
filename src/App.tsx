@@ -43,7 +43,7 @@ export const App = (): JSX.Element => {
   useEffect(() => {
     setThemeIfStored();
     setUserBasedOnToken();
-  }, [setThemeIfStored, setUserBasedOnToken]);
+  }, []);
 
   return (
     <PageContainer>

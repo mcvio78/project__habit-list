@@ -21,7 +21,7 @@ import { habitAPI } from '../../services/habit';
 import { HabitCollected } from '../../helpers/globalTypes';
 import { TargetType } from '../../helpers/constants';
 import { AppButton } from './button';
-import { dateToUTC } from '../../utility/utils';
+import { Modal } from './Modal';
 
 interface DialogProps {
   habitIndex: number;
@@ -48,7 +48,8 @@ const validationSchemaHabit = Yup.object().shape({
       TgtType === TargetType.min || TgtType === TargetType.max,
     then: Yup.string().required('Target unit is required').label('TargetUnit'),
   }),
-  expirationDate: Yup.string()
+  expirationDate: Yup.number()
+    .nullable()
     .required('Date is required')
     .label('ExpirationDate'),
 });
@@ -64,7 +65,9 @@ export const Dialog = ({
   onClose,
   habitIndex,
 }: DialogProps): JSX.Element | null => {
-  const { request } = useAPI(habitAPI.modifyDailyHabit);
+  const { request, status, setStatus, message, setMessage } = useAPI(
+    habitAPI.modifyDailyHabit,
+  );
   const { daily } = useDaily();
 
   const habitStoredValues =
@@ -88,8 +91,7 @@ export const Dialog = ({
       daily[habitIndex].targetValue === values.targetValue &&
       daily[habitIndex].targetCurrent === values.targetCurrent &&
       daily[habitIndex].targetUnit === values.targetUnit &&
-      daily[habitIndex].expirationDate ===
-        dateToUTC(new Date(values.expirationDate))
+      daily[habitIndex].expirationDate === values.expirationDate
     );
   };
 
@@ -110,6 +112,15 @@ export const Dialog = ({
   if (isOpen) {
     return (
       <>
+        <Modal
+          showModal={status !== null && !!message}
+          modalCallback={() => {
+            setStatus(null);
+            setMessage('');
+          }}
+          status={status}
+          modalMessage={message}
+        />
         <Backdrop isOpen={isOpen} />
         <DialogContainer
           $pos={{ de: 'absolute' }}

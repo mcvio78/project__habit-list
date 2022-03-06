@@ -66,7 +66,7 @@ export const DailyItem = ({
         $p={{ de: '0 4px', sm: '0 6px' }}
         $bs={{ de: 'border-box' }}
       >
-        <ButtonContainer onClick={openDialog}>
+        <ButtonContainer onClick={() => (isHabitValid ? openDialog() : null)}>
           <ParagraphSmall
             $txtSdw
             $ital

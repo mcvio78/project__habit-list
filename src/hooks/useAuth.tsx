@@ -63,7 +63,7 @@ export const useAuth = (): UseAuth => {
   const setUserBasedOnToken = async () => {
     const authToken = authStorage.getToken();
 
-    if (authToken && user === null) {
+    if (authToken) {
       try {
         const isTokenValid = await authAPI.checkTokenValidity();
         if (isTokenValid) {
@@ -71,12 +71,18 @@ export const useAuth = (): UseAuth => {
         }
       } catch (err) {
         if (isAxiosError(err)) {
-          if (err?.response?.status === 401) {
+          if (err?.response?.status) {
             authStorage.removeToken();
+            navigate('/');
+          } else if (err?.request) {
+            setUserValidToken(authToken);
             navigate('/');
           }
         }
       }
+    } else {
+      logOut();
+      navigate('/');
     }
   };
 

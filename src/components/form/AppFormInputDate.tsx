@@ -4,7 +4,7 @@ import { useFormikContext, FormikProps } from 'formik';
 import { AppInputDate } from '../UI/input/inputDate';
 import { AppFormInputError } from './AppFormInputError';
 import { Container } from '../layout';
-import { resetFormFieldValue } from '../../utility/utils';
+import { dateToUTC, resetFormFieldValue } from '../../utility/utils';
 
 interface AppFormInputDateProps
   extends Omit<ComponentPropsWithoutRef<'input'>, 'onClick'> {
@@ -30,7 +30,7 @@ export const AppFormInputDate = ({
       <AppInputDate
         selected={values[name]}
         onChange={val => {
-          setFieldValue(name, val);
+          setFieldValue(name, dateToUTC(val));
         }}
         onBlur={() => setFieldTouched(name)}
         onClick={() => setFieldValue(name, resetFormFieldValue(values[name]))}

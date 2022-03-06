@@ -35,6 +35,6 @@ const modifyDailyHabitEndpoint = '/api/habit/modify';
 const modifyDailyHabit = (
   habitModifies: HabitStoredOptional,
 ): Promise<AxiosResponse> =>
-  apiClient.post(modifyDailyHabitEndpoint, habitModifies);
+  apiClient.patch(modifyDailyHabitEndpoint, habitModifies);
 
 export const habitAPI = { createHabit, getDailyHabits, modifyDailyHabit };

@@ -13,4 +13,6 @@ module.exports = app => {
   app.post('/api/habit/create', authJwt.verifyToken, controller.createDailyHabit);
 
   app.get('/api/habit/daily', authJwt.verifyToken, controller.getDailyHabits);
+
+  app.patch('/api/habit/modify', authJwt.verifyToken, controller.modifyDailyHabit);
 };

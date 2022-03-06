@@ -1,11 +1,10 @@
-import { useCallback } from 'react';
 import styled from 'styled-components/macro';
 import { FormikValues } from 'formik';
 import * as Yup from 'yup';
 
 import { Backdrop } from './Backdrop';
 import { Container } from '../layout';
-import { HeadingExtraSmall, HeadingLarge } from './Typography';
+import { HeadingLarge } from './Typography';
 import {
   AppForm,
   AppFormCheckbox,
@@ -49,8 +48,7 @@ const validationSchemaHabit = Yup.object().shape({
       TgtType === TargetType.min || TgtType === TargetType.max,
     then: Yup.string().required('Target unit is required').label('TargetUnit'),
   }),
-  expirationDate: Yup.date()
-    .nullable()
+  expirationDate: Yup.string()
     .required('Date is required')
     .label('ExpirationDate'),
 });
@@ -95,12 +93,19 @@ export const Dialog = ({
     );
   };
 
-  const updateHabitHandler = useCallback(
-    (habitValues: FormikValues) => {
-      request(habitValues);
-    },
-    [request],
-  );
+  const updateHabitHandler = (habitValues: FormikValues) => {
+    const habitModifies = Object.keys(habitValues).reduce(
+      (accumulator, habitKey) => {
+        if (habitValues[habitKey] !== daily[habitIndex][habitKey]) {
+          accumulator = { ...accumulator, [habitKey]: habitValues[habitKey] };
+        }
+        return accumulator;
+      },
+      {},
+    );
+
+    request(habitModifies);
+  };
 
   if (isOpen) {
     return (
@@ -163,10 +168,7 @@ export const Dialog = ({
                     />
                     {values.habitType === 'toDo' && (
                       <Container $fd={{ de: 'column' }} $g={{ de: '12px' }}>
-                        <Container $fd={{ de: 'column' }}>
-                          <HeadingLarge>...and my target is:</HeadingLarge>
-                          <HeadingExtraSmall>(optional)</HeadingExtraSmall>
-                        </Container>
+                        <HeadingLarge>target</HeadingLarge>
                         <Container
                           $fd={{ de: 'column' }}
                           $g={{ de: '12px' }}
@@ -220,8 +222,8 @@ export const Dialog = ({
                     id="habit-date"
                     name="expirationDate"
                     IconSVG={EventSVG}
-                    $label="Select a Date"
-                    placeholder="Select a Date"
+                    $label="Date"
+                    placeholder="Date"
                   />
                   <Container $jc={{ de: 'flex-end' }} $g={{ de: '16px' }}>
                     <AppButton

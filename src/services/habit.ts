@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios';
 
 import { apiClient } from './client';
-import { HabitCreate } from '../helpers/globalTypes';
+import { HabitCreate, HabitStoredOptional } from '../helpers/globalTypes';
 import { TargetType } from '../helpers/constants';
 
 const createHabitEndpoint = '/api/habit/create';
@@ -31,4 +31,10 @@ const getDailyHabits = (date: string): Promise<AxiosResponse> =>
     },
   });
 
-export const habitAPI = { createHabit, getDailyHabits };
+const modifyDailyHabitEndpoint = '/api/habit/modify';
+const modifyDailyHabit = (
+  habitModifies: HabitStoredOptional,
+): Promise<AxiosResponse> =>
+  apiClient.post(modifyDailyHabitEndpoint, habitModifies);
+
+export const habitAPI = { createHabit, getDailyHabits, modifyDailyHabit };

@@ -64,7 +64,7 @@ export const Dialog = ({
   onClose,
   habitIndex,
 }: DialogProps): JSX.Element | null => {
-  const { request } = useAPI(habitAPI.createHabit);
+  const { request } = useAPI(habitAPI.modifyDailyHabit);
   const { daily } = useDaily();
 
   const habitStoredValues =
@@ -101,7 +101,7 @@ export const Dialog = ({
         }
         return accumulator;
       },
-      {},
+      { _id: daily[habitIndex]._id },
     );
 
     request(habitModifies);

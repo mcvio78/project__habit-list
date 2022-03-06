@@ -37,6 +37,8 @@ export interface HabitStored extends Omit<HabitCreate, 'expirationDate'> {
   expirationDate: number;
 }
 
+export interface HabitStoredOptional extends Partial<HabitStored> {}
+
 export interface HabitWithFinalState extends HabitStored {
   finalState: HabitFinalState;
   isValid: boolean;

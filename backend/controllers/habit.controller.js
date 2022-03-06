@@ -92,9 +92,7 @@ exports.getDailyHabits = async (req, res) => {
 };
 
 exports.modifyDailyHabit = async (req, res) => {
-  console.log('PATCH REQUEST: ', req.body);
   const { _id, ...habitModifies } = req.body;
-  console.log('REST: ', habitModifies);
   try {
     const habit = await Habit.findOneAndUpdate(
       {
@@ -106,9 +104,8 @@ exports.modifyDailyHabit = async (req, res) => {
         returnOriginal: false,
       },
     ).lean();
-    console.log('HABIT: ', habit); // Todo: remove
     res.statusMessage = 'Habit has been updated successfully!';
-    res.status(200).send(habit); // Todo: is this useful?
+    res.status(200).send(habit);
   } catch (err) {
     res.status(500).send({
       message: err.message || 'Some error occurred while updating daily Habit.',

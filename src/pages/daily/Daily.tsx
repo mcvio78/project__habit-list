@@ -21,7 +21,7 @@ import {
 } from '../../hooks/';
 import { habitAPI } from '../../services/habit';
 import { Modal } from '../../components/UI/Modal';
-import { errorStatus } from '../../utility/request/statuses';
+import { errorStatus, successStatus } from '../../utility/request/statuses';
 import { HabitWithFinalState } from '../../helpers/globalTypes';
 import { dateToUTC } from '../../utility/utils';
 import { AppButton } from '../../components/UI/button';
@@ -50,15 +50,26 @@ export const Daily = (): JSX.Element => {
   const { daily, setDailyOutcomes } = useDaily();
   const { selectedDate, setSelectedDateCB } = useSelectedDate();
   const navigate = useNavigate();
-  const { request, status, setStatus, message, setMessage } = useAPI(
-    habitAPI.getDailyHabits,
-  );
   const { status: calendarStatus, toggleStatus: toggleCalendarStatus } =
     useToggle();
+  const {
+    request: getDailyHabitsRequest,
+    status: getDailyHabitsStatus,
+    setStatus: getDailyHabitsSetStatus,
+    message: getDailyHabitsMessage,
+    setMessage: getDailyHabitsSetMessage,
+  } = useAPI(habitAPI.getDailyHabits);
+  const {
+    request: modifyDailyHabitRequest,
+    status: modifyDailyHabitStatus,
+    setStatus: modifyDailyHabitSetStatus,
+    message: modifyDailyHabitMessage,
+    setMessage: modifyDailyHabitSetMessage,
+  } = useAPI(habitAPI.modifyDailyHabit);
 
   const setCurrentDateContext = async (unixDate?: number) => {
     const dateUTC = unixDate || dateToUTC(new Date());
-    const response = await request(dateUTC);
+    const response = await getDailyHabitsRequest(dateUTC);
     setSelectedDateCB(dateUTC);
     setDailyOutcomes(response?.data);
   };
@@ -105,18 +116,29 @@ export const Daily = (): JSX.Element => {
   return (
     <PageLayout>
       <Modal
-        showModal={errorStatus(status) && !!message}
+        showModal={
+          (errorStatus(getDailyHabitsStatus) && !!getDailyHabitsMessage) ||
+          (errorStatus(modifyDailyHabitStatus) && !!modifyDailyHabitMessage) ||
+          (successStatus(modifyDailyHabitStatus) && !!modifyDailyHabitMessage)
+        }
         modalCallback={() => {
-          setStatus(null);
-          setMessage('');
+          getDailyHabitsSetStatus(null);
+          getDailyHabitsSetMessage('');
+          modifyDailyHabitSetStatus(null);
+          modifyDailyHabitSetMessage('');
         }}
-        status={status}
-        modalMessage={message}
+        status={
+          errorStatus(getDailyHabitsStatus)
+            ? getDailyHabitsStatus
+            : modifyDailyHabitStatus
+        }
+        modalMessage={getDailyHabitsMessage || modifyDailyHabitMessage}
       />
       <Dialog
         habitIndex={state.habitIndex}
         isOpen={state.isDialogOpen}
         onClose={() => dispatch({ type: 'closeDialog' })}
+        modifyDailyHabitRequest={modifyDailyHabitRequest}
       />
       <Toolbar>
         <NavLinkIcon

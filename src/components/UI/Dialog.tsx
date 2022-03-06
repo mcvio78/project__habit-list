@@ -16,17 +16,16 @@ import { ReactComponent as RepeatSVG } from '../../assets/icons/icon-repeat_24dp
 import { ReactComponent as CalculateSVG } from '../../assets/icons/icon-calculate_24dp.svg';
 import { ReactComponent as SegmentSVG } from '../../assets/icons/icon-segment_24dp.svg';
 import { ReactComponent as EventSVG } from '../../assets/icons/icon-event_24dp.svg';
-import { useAPI, useDaily } from '../../hooks';
-import { habitAPI } from '../../services/habit';
+import { useDaily } from '../../hooks';
 import { HabitCollected } from '../../helpers/globalTypes';
 import { TargetType } from '../../helpers/constants';
 import { AppButton } from './button';
-import { Modal } from './Modal';
 
 interface DialogProps {
   habitIndex: number;
   isOpen: boolean;
   onClose: () => void;
+  modifyDailyHabitRequest: (args: FormikValues) => void;
 }
 
 const validationSchemaHabit = Yup.object().shape({
@@ -64,10 +63,8 @@ export const Dialog = ({
   isOpen,
   onClose,
   habitIndex,
+  modifyDailyHabitRequest,
 }: DialogProps): JSX.Element | null => {
-  const { request, status, setStatus, message, setMessage } = useAPI(
-    habitAPI.modifyDailyHabit,
-  );
   const { daily } = useDaily();
 
   const habitStoredValues =
@@ -105,22 +102,12 @@ export const Dialog = ({
       },
       { _id: daily[habitIndex]._id },
     );
-
-    request(habitModifies);
+    modifyDailyHabitRequest(habitModifies);
   };
 
   if (isOpen) {
     return (
       <>
-        <Modal
-          showModal={status !== null && !!message}
-          modalCallback={() => {
-            setStatus(null);
-            setMessage('');
-          }}
-          status={status}
-          modalMessage={message}
-        />
         <Backdrop isOpen={isOpen} />
         <DialogContainer
           $pos={{ de: 'absolute' }}

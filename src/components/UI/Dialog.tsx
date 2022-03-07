@@ -68,7 +68,7 @@ export const Dialog = ({
   habitIndex,
   modifyDailyHabitRequest,
 }: DialogProps): JSX.Element | null => {
-  const { daily, setDailyCB } = useDaily();
+  const { daily, setDailyCB, setDailyOutcomes } = useDaily();
 
   const habitStoredValues =
     habitIndex !== null
@@ -106,15 +106,16 @@ export const Dialog = ({
       { _id: daily[habitIndex]._id },
     );
     const response = await modifyDailyHabitRequest(habitModifies);
-
-    const dailyUpdated = daily.map((habit, index) => {
-      if (index === habitIndex) {
-        return response?.data;
-      }
-      return habit;
-    });
-
-    setDailyCB(dailyUpdated);
+    if (response) {
+      const dailyUpdated = daily.map((habit, index) => {
+        if (index === habitIndex) {
+          return response?.data;
+        }
+        return habit;
+      });
+      setDailyCB(dailyUpdated);
+      setDailyOutcomes(dailyUpdated);
+    }
     onClose();
   };
 

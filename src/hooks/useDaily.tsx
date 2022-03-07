@@ -11,7 +11,7 @@ import { HabitStored, HabitWithFinalState } from '../helpers/globalTypes';
 
 interface UseDaily {
   daily: DailyHabits;
-  setDailyCB: (args: (HabitWithFinalState | undefined)[]) => void;
+  setDailyCB: (args: HabitWithFinalState[]) => void;
   setDailyOutcomes: (args: DailyHabits) => void;
 }
 

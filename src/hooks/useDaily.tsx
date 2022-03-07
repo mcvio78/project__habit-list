@@ -7,11 +7,11 @@ import {
   ResultsContext,
 } from '../auth/context';
 import { addHabitsFinalState, calculateResults } from '../utility/utils';
-import { HabitStored } from '../helpers/globalTypes';
+import { HabitStored, HabitWithFinalState } from '../helpers/globalTypes';
 
 interface UseDaily {
   daily: DailyHabits;
-  setDailyCB: (args: DailyHabits) => void;
+  setDailyCB: (args: (HabitWithFinalState | undefined)[]) => void;
   setDailyOutcomes: (args: DailyHabits) => void;
 }
 

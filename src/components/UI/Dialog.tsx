@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
 import { FormikValues } from 'formik';
 import * as Yup from 'yup';
+import { AxiosResponse } from 'axios';
 
 import { Backdrop } from './Backdrop';
 import { Container } from '../layout';
@@ -17,7 +18,7 @@ import { ReactComponent as CalculateSVG } from '../../assets/icons/icon-calculat
 import { ReactComponent as SegmentSVG } from '../../assets/icons/icon-segment_24dp.svg';
 import { ReactComponent as EventSVG } from '../../assets/icons/icon-event_24dp.svg';
 import { useDaily } from '../../hooks';
-import { HabitCollected } from '../../helpers/globalTypes';
+import { HabitCollected, HabitWithFinalState } from '../../helpers/globalTypes';
 import { TargetType } from '../../helpers/constants';
 import { AppButton } from './button';
 
@@ -25,7 +26,9 @@ interface DialogProps {
   habitIndex: number;
   isOpen: boolean;
   onClose: () => void;
-  modifyDailyHabitRequest: (args: FormikValues) => void;
+  modifyDailyHabitRequest: (
+    ...args: any[]
+  ) => Promise<AxiosResponse<HabitWithFinalState> | undefined>;
 }
 
 const validationSchemaHabit = Yup.object().shape({
@@ -65,7 +68,7 @@ export const Dialog = ({
   habitIndex,
   modifyDailyHabitRequest,
 }: DialogProps): JSX.Element | null => {
-  const { daily } = useDaily();
+  const { daily, setDailyCB } = useDaily();
 
   const habitStoredValues =
     habitIndex !== null
@@ -92,7 +95,7 @@ export const Dialog = ({
     );
   };
 
-  const updateHabitHandler = (habitValues: FormikValues) => {
+  const updateHabitHandler = async (habitValues: FormikValues) => {
     const habitModifies = Object.keys(habitValues).reduce(
       (accumulator, habitKey) => {
         if (habitValues[habitKey] !== daily[habitIndex][habitKey]) {
@@ -102,7 +105,17 @@ export const Dialog = ({
       },
       { _id: daily[habitIndex]._id },
     );
-    modifyDailyHabitRequest(habitModifies);
+    const response = await modifyDailyHabitRequest(habitModifies);
+
+    const dailyUpdated = daily.map((habit, index) => {
+      if (index === habitIndex) {
+        return response?.data;
+      }
+      return habit;
+    });
+
+    setDailyCB(dailyUpdated);
+    onClose();
   };
 
   if (isOpen) {

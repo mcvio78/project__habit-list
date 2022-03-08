@@ -68,7 +68,7 @@ export const Dialog = ({
   habitIndex,
   modifyDailyHabitRequest,
 }: DialogProps): JSX.Element | null => {
-  const { daily, setDailyCB, setDailyOutcomes } = useDaily();
+  const { daily, setDailyStateAndOutcomes } = useDaily();
 
   const habitStoredValues =
     habitIndex !== null
@@ -113,8 +113,7 @@ export const Dialog = ({
         }
         return habit;
       });
-      setDailyCB(dailyUpdated);
-      setDailyOutcomes(dailyUpdated);
+      setDailyStateAndOutcomes(dailyUpdated);
     }
     onClose();
   };

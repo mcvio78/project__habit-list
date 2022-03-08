@@ -47,7 +47,7 @@ export const Daily = (): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { loadingCX } = useLoadingCX();
   const { results } = useResults();
-  const { daily, setDailyOutcomes } = useDaily();
+  const { daily, setDailyStateAndOutcomes } = useDaily();
   const { selectedDate, setSelectedDateCB } = useSelectedDate();
   const navigate = useNavigate();
   const { status: calendarStatus, toggleStatus: toggleCalendarStatus } =
@@ -71,7 +71,7 @@ export const Daily = (): JSX.Element => {
     const dateUTC = unixDate || dateToUTC(new Date());
     const response = await getDailyHabitsRequest(dateUTC);
     setSelectedDateCB(dateUTC);
-    setDailyOutcomes(response?.data);
+    setDailyStateAndOutcomes(response?.data);
   };
 
   useEffectSelective(

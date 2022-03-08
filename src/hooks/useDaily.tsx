@@ -12,7 +12,7 @@ import { HabitStored, HabitWithFinalState } from '../helpers/globalTypes';
 interface UseDaily {
   daily: DailyHabits;
   setDailyCB: (args: HabitWithFinalState[]) => void;
-  setDailyOutcomes: (args: DailyHabits) => void;
+  setDailyStateAndOutcomes: (args: DailyHabits) => void;
 }
 
 export const useDaily = (): UseDaily => {
@@ -41,7 +41,7 @@ export const useDaily = (): UseDaily => {
     [setResults],
   );
 
-  const setDailyOutcomes = (dailyHabits: HabitStored[] | []) => {
+  const setDailyStateAndOutcomes = (dailyHabits: HabitStored[] | []) => {
     const dailyHabitsFinalState = addHabitsFinalState(dailyHabits);
     setDailyCB(dailyHabitsFinalState);
     const currentDailyResults = calculateResults(dailyHabitsFinalState);
@@ -51,5 +51,5 @@ export const useDaily = (): UseDaily => {
     }));
   };
 
-  return { daily, setDailyCB, setDailyOutcomes };
+  return { daily, setDailyCB, setDailyStateAndOutcomes };
 };

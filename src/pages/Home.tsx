@@ -39,13 +39,13 @@ export const Home = (): JSX.Element => {
   const { request, status, setStatus, message, setMessage } = useAPI(
     habitAPI.getDailyHabits,
   );
-  const { setDailyOutcomes } = useDaily();
+  const { setDailyStateAndOutcomes } = useDaily();
 
   const setCurrentDateContext = async (unixDate?: number) => {
     const dateUTC = unixDate || dateToUTC(new Date());
     const response = await request(dateUTC);
     setSelectedDateCB(dateUTC);
-    setDailyOutcomes(response?.data);
+    setDailyStateAndOutcomes(response?.data);
   };
 
   useEffect(() => {

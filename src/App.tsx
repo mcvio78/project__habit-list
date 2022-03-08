@@ -43,6 +43,7 @@ export const App = (): JSX.Element => {
   useEffect(() => {
     setThemeIfStored();
     setUserBasedOnToken();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

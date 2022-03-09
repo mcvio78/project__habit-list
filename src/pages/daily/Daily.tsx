@@ -29,7 +29,17 @@ import { CalendarSelection } from '../../components/UI/CalendarSelection';
 import { Dialog } from '../../components/UI/Dialog';
 
 const DailyListContainer = styled(Container)`
-  overflow-y: auto;
+  overflow-y: scroll;
+  /* Firefox */
+  scrollbar-width: none;
+  /* Internet Explorer 10+ */
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    /* WebKit */
+    width: 0;
+    height: 0;
+  }
 `;
 
 export const Daily = (): JSX.Element => {
@@ -161,7 +171,7 @@ export const Daily = (): JSX.Element => {
           <DailyListContainer
             $w={{ de: '100%' }}
             $fd={{ de: 'column' }}
-            $h={{ de: '278px' }}
+            $h={{ de: '280px' }}
           >
             {dailyHabits}
           </DailyListContainer>

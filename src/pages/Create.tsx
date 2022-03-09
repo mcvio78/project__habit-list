@@ -73,7 +73,13 @@ export const Create = (): JSX.Element => {
 
   const submitFormHandler = useCallback(
     (habitValues: FormikValues) => {
-      request(habitValues);
+      const initTargetCurrent = () => {
+        if (habitValues.targetType === TargetType.max) return 100;
+        if (habitValues.targetType === TargetType.min) return 0;
+        return null;
+      };
+
+      request({ ...habitValues, targetCurrent: initTargetCurrent() });
     },
     [request],
   );

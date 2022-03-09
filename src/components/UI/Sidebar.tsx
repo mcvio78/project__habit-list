@@ -51,6 +51,13 @@ export const SideBar = (): JSX.Element => {
         mountOnEnter
         unmountOnExit
         nodeRef={BackdropRef}
+        $pos={{ de: 'fixed' }}
+        $top={{ de: 0 }}
+        $lt={{ de: 0 }}
+        $w={{ de: '100%' }}
+        $h={{ de: '100%' }}
+        $zi={{ de: 100 }}
+        $bs={{ de: 'border-box' }}
       >
         <Backdrop
           isOpen

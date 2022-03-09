@@ -93,11 +93,12 @@ exports.getDailyHabits = async (req, res) => {
 
 exports.modifyDailyHabit = async (req, res) => {
   const { _id, ...habitModifies } = req.body;
+  const { id } = req.user;
   try {
     const habit = await Habit.findOneAndUpdate(
       {
-        habitOwnerId: req.user.id,
-        _id: req.body._id,
+        habitOwnerId: id,
+        _id: _id,
       },
       habitModifies,
       {
@@ -109,6 +110,19 @@ exports.modifyDailyHabit = async (req, res) => {
   } catch (err) {
     res.status(500).send({
       message: err.message || 'Some error occurred while updating daily Habit.',
+    });
+  }
+};
+
+exports.deleteDailyHabit = async (req, res) => {
+  const id = req.query.id;
+  try {
+    await Habit.deleteOne({ _id: id }).lean();
+    res.statusMessage = 'Habit has been removed successfully!';
+    res.status(204).send();
+  } catch (err) {
+    res.status(500).send({
+      message: err.message || 'Some error occurred while deleting daily Habit.',
     });
   }
 };

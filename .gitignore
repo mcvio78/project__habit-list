@@ -33,3 +33,6 @@ debug.log*
 /.eslintcache
 /src/.env.development
 /.env.development
+/.firebase/
+/.firebaserc
+/firebase.json

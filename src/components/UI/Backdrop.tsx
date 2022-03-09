@@ -1,13 +1,21 @@
-import { forwardRef, ForwardedRef, ComponentPropsWithoutRef } from 'react';
+import {
+  forwardRef,
+  ForwardedRef,
+  ComponentPropsWithoutRef,
+  ReactNode,
+} from 'react';
 import styled, { keyframes, css } from 'styled-components/macro';
+
+import { Container, ContainerProps } from '../layout';
 
 interface BackdropAnimatedProps {
   $animated?: boolean;
 }
 
-interface BackdropProps extends BackdropAnimatedProps {
+interface BackdropProps extends ContainerProps, BackdropAnimatedProps {
   isOpen: boolean;
   setIsOpen?: () => void;
+  children?: ReactNode;
 }
 
 const backdropEnter = keyframes`
@@ -52,27 +60,22 @@ export const AnimatedCSS = css`
   }
 `;
 
-export const BackdropStyled = styled.div.attrs<
+export const BackdropStyled = styled(Container).attrs<
   ComponentPropsWithoutRef<'button'>
 >(props => ({
   role: props.role || 'button',
   tabIndex: props.tabIndex || 0,
-  className: ['checkbox', props.className].join(' '),
+  className: ['backdrop', props.className].join(' '),
 }))<BackdropAnimatedProps>`
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 100;
   background-color: var(--neutral_10_op05);
+  border: 2px solid var(--neutral_08);
 
-  ${({ $animated }) => $animated && AnimatedCSS}
+  ${({ $animated }) => $animated && AnimatedCSS};
 `;
 
 export const Backdrop = forwardRef(
   (
-    { isOpen, setIsOpen, $animated }: BackdropProps,
+    { isOpen, setIsOpen, children, ...otherProps }: BackdropProps,
     ref: ForwardedRef<HTMLDivElement>,
   ): JSX.Element | null => {
     if (isOpen) {
@@ -82,9 +85,11 @@ export const Backdrop = forwardRef(
           onKeyDown={event =>
             event.key === 'Escape' && setIsOpen && setIsOpen()
           }
-          $animated={$animated}
+          {...otherProps}
           ref={ref}
-        />
+        >
+          {children}
+        </BackdropStyled>
       );
     }
     return null;

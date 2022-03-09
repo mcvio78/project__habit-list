@@ -65,7 +65,16 @@ export const Modal = ({
 
   return (
     <>
-      <Backdrop isOpen={showModal} />
+      <Backdrop
+        isOpen={showModal}
+        $w={{ de: '100%' }}
+        $h={{ de: '100%' }}
+        $pos={{ de: 'fixed' }}
+        $top={{ de: 0 }}
+        $lt={{ de: 0 }}
+        $zi={{ de: 100 }}
+        $bs={{ de: 'border-box' }}
+      />
 
       {showModal && (
         <TextContainer

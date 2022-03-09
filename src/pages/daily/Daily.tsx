@@ -76,6 +76,13 @@ export const Daily = (): JSX.Element => {
     message: modifyDailyHabitMessage,
     setMessage: modifyDailyHabitSetMessage,
   } = useAPI(habitAPI.modifyDailyHabit);
+  const {
+    request: deleteDailyHabitRequest,
+    status: deleteDailyHabitStatus,
+    setStatus: deleteDailyHabitSetStatus,
+    message: deleteDailyHabitMessage,
+    setMessage: deleteDailyHabitSetMessage,
+  } = useAPI(habitAPI.deleteDailyHabit);
 
   const setCurrentDateContext = async (unixDate?: number) => {
     const dateUTC = unixDate || dateToUTC(new Date());
@@ -129,26 +136,36 @@ export const Daily = (): JSX.Element => {
         showModal={
           (errorStatus(getDailyHabitsStatus) && !!getDailyHabitsMessage) ||
           (errorStatus(modifyDailyHabitStatus) && !!modifyDailyHabitMessage) ||
-          (successStatus(modifyDailyHabitStatus) && !!modifyDailyHabitMessage)
+          (successStatus(modifyDailyHabitStatus) &&
+            !!modifyDailyHabitMessage) ||
+          (errorStatus(deleteDailyHabitStatus) && !!deleteDailyHabitMessage) ||
+          (successStatus(deleteDailyHabitStatus) && !!deleteDailyHabitMessage)
         }
         modalCallback={() => {
           getDailyHabitsSetStatus(null);
           getDailyHabitsSetMessage('');
           modifyDailyHabitSetStatus(null);
           modifyDailyHabitSetMessage('');
+          deleteDailyHabitSetStatus(null);
+          deleteDailyHabitSetMessage('');
         }}
         status={
           errorStatus(getDailyHabitsStatus)
             ? getDailyHabitsStatus
-            : modifyDailyHabitStatus
+            : modifyDailyHabitStatus || deleteDailyHabitStatus
         }
-        modalMessage={getDailyHabitsMessage || modifyDailyHabitMessage}
+        modalMessage={
+          getDailyHabitsMessage ||
+          modifyDailyHabitMessage ||
+          deleteDailyHabitMessage
+        }
       />
       <Dialog
         habitIndex={state.habitIndex}
         isOpen={state.isDialogOpen}
         onClose={() => dispatch({ type: 'closeDialog' })}
         modifyDailyHabitRequest={modifyDailyHabitRequest}
+        deleteDailyHabitRequest={deleteDailyHabitRequest}
       />
       <Toolbar>
         <NavLinkIcon

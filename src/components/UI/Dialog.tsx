@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components/macro';
 import { FormikValues } from 'formik';
 import * as Yup from 'yup';
@@ -18,17 +19,25 @@ import { ReactComponent as CalculateSVG } from '../../assets/icons/icon-calculat
 import { ReactComponent as SegmentSVG } from '../../assets/icons/icon-segment_24dp.svg';
 import { ReactComponent as EventSVG } from '../../assets/icons/icon-event_24dp.svg';
 import { useDaily } from '../../hooks';
-import { HabitCollected, HabitWithFinalState } from '../../helpers/globalTypes';
+import {
+  HabitCollected,
+  HabitStoredOptional,
+  HabitWithFinalState,
+} from '../../helpers/globalTypes';
 import { TargetType } from '../../helpers/constants';
 import { AppButton } from './button';
+import { successStatus } from '../../utility/request/statuses';
 
 interface DialogProps {
   habitIndex: number;
   isOpen: boolean;
   onClose: () => void;
   modifyDailyHabitRequest: (
-    ...args: any[]
+    ...args: HabitStoredOptional[]
   ) => Promise<AxiosResponse<HabitWithFinalState> | undefined>;
+  deleteDailyHabitRequest: (
+    args: number | undefined,
+  ) => Promise<AxiosResponse<any, any> | undefined>;
 }
 
 const validationSchemaHabit = Yup.object().shape({
@@ -59,7 +68,11 @@ const validationSchemaHabit = Yup.object().shape({
 const DialogContainer = styled(Container)`
   background-color: var(--secondary_06);
   border-radius: 8px;
-  z-index: 100;
+`;
+
+const DeleteModalContainer = styled(Container)`
+  background-color: var(--secondary_05);
+  border-radius: 8px;
 `;
 
 export const Dialog = ({
@@ -67,8 +80,10 @@ export const Dialog = ({
   onClose,
   habitIndex,
   modifyDailyHabitRequest,
+  deleteDailyHabitRequest,
 }: DialogProps): JSX.Element | null => {
   const { daily, setDailyStateAndOutcomes } = useDaily();
+  const [isOpenDelete, setIsOpenDelete] = useState<boolean>(false);
 
   const habitStoredValues =
     habitIndex !== null
@@ -118,68 +133,121 @@ export const Dialog = ({
     onClose();
   };
 
+  const deleteDailyHabitHandler = async () => {
+    if (daily[habitIndex]._id) {
+      const response = await deleteDailyHabitRequest(daily[habitIndex]._id);
+      if (response && successStatus(response?.status)) {
+        const dailyUpdated = daily.filter((habit, index) => {
+          return index !== habitIndex ? habit : null;
+        });
+        setIsOpenDelete(false);
+        onClose();
+        setDailyStateAndOutcomes(dailyUpdated);
+      } else {
+        setIsOpenDelete(false);
+        onClose();
+      }
+    }
+  };
+
   if (isOpen) {
     return (
       <>
-        <Backdrop isOpen={isOpen} />
-        <DialogContainer
-          $pos={{ de: 'absolute' }}
+        <Backdrop
+          isOpen={isOpen}
+          $pos={{ de: 'fixed' }}
+          $top={{ de: 0 }}
+          $lt={{ de: 0 }}
           $w={{ de: '100%' }}
-          $mxw={{ de: '600px' }}
+          $h={{ de: '100%' }}
           $jc={{ de: 'center' }}
-          $p={{ de: '36px 16px' }}
+          $ai={{ de: 'flex-start' }}
+          $zi={{ de: 100 }}
+          $bs={{ de: 'border-box' }}
         >
-          <Container
-            $mxw={{ de: '80%' }}
-            $fd={{ de: 'column' }}
-            $g={{ de: '12px' }}
+          <DialogContainer
+            $pos={{ de: 'relative' }}
+            $w={{ de: '100%' }}
+            $mxw={{ de: '600px' }}
+            $mt={{ de: '6%' }}
+            $jc={{ de: 'center' }}
+            $p={{ de: '36px 16px' }}
             $zi={{ de: 100 }}
           >
-            <AppForm
-              enableReinitialize
-              initialValues={habitStoredValues}
-              onSubmit={values => updateHabitHandler(values)}
-              validationSchema={validationSchemaHabit}
+            <Backdrop
+              isOpen={isOpenDelete}
+              $pos={{ de: 'absolute' }}
+              $top={{ de: 0 }}
+              $lt={{ de: 0 }}
+              $w={{ de: '100%' }}
+              $h={{ de: '100%' }}
+              $jc={{ de: 'center' }}
+              $ai={{ de: 'center' }}
+              $zi={{ de: 200 }}
+              $bs={{ de: 'border-box' }}
             >
-              {({ values }) => (
-                <>
-                  <Container $fd={{ de: 'column' }} $g={{ de: '12px' }}>
+              <DeleteModalContainer
+                $fd={{ de: 'column' }}
+                $g={{ de: '12px' }}
+                $p={{ de: '24px' }}
+                $zi={{ de: 200 }}
+              >
+                <HeadingLarge>Are you sure?</HeadingLarge>
+                <Container $jc={{ de: 'space-between' }} $miw={{ de: '160px' }}>
+                  <AppButton
+                    $variant="alert"
+                    $size="medium"
+                    $bold
+                    title="Button to confirm deleting"
+                    aria-label="button to confirm deleting"
+                    onClick={deleteDailyHabitHandler}
+                  >
+                    Yes
+                  </AppButton>
+                  <AppButton
+                    $variant="flat"
+                    $size="medium"
+                    $bold
+                    title="Button to discard deleting"
+                    aria-label="button to discard deleting"
+                    onClick={() => setIsOpenDelete(false)}
+                  >
+                    Cancel
+                  </AppButton>
+                </Container>
+              </DeleteModalContainer>
+            </Backdrop>
+            <Container
+              $mxw={{ de: '80%' }}
+              $fd={{ de: 'column' }}
+              $g={{ de: '12px' }}
+              $zi={{ de: 100 }}
+            >
+              <AppForm
+                enableReinitialize
+                initialValues={habitStoredValues}
+                onSubmit={values => updateHabitHandler(values)}
+                validationSchema={validationSchemaHabit}
+              >
+                {({ values }) => (
+                  <>
                     <Container $fd={{ de: 'column' }} $g={{ de: '12px' }}>
-                      <HeadingLarge>Habit</HeadingLarge>
-                      <Container
-                        $fd={{ de: 'column' }}
-                        $g={{ de: '12px' }}
-                        role="group"
-                        aria-labelledby="checkbox-group"
-                      >
-                        <AppFormCheckbox
-                          id="toDo"
-                          name="habitType"
-                          value="toDo"
-                          $labelText="ToDo"
-                          $showError={false}
-                        />
-                        <AppFormCheckbox
-                          id="avoid"
-                          name="habitType"
-                          value="avoid"
-                          $labelText="Avoid"
-                        />
-                      </Container>
-                    </Container>
-                    <AppFormInputText
-                      type="text"
-                      id="habitName"
-                      name="habitName"
-                      IconSVG={RepeatSVG}
-                      $label="Habit"
-                      placeholder="Habit Name"
-                      autoCapitalize="off"
-                      spellCheck={false}
-                    />
-                    {values.habitType === 'toDo' && (
                       <Container $fd={{ de: 'column' }} $g={{ de: '12px' }}>
-                        <HeadingLarge>target</HeadingLarge>
+                        <Container $fd={{ de: 'column' }}>
+                          <AppButton
+                            $variant="alert"
+                            $size="medium"
+                            $mb={{ de: '8px' }}
+                            $flxAs={{ de: 'flex-end' }}
+                            $bold
+                            title="Delete habit"
+                            aria-label="delete habit"
+                            onClick={() => setIsOpenDelete(true)}
+                          >
+                            Delete
+                          </AppButton>
+                          <HeadingLarge>Habit</HeadingLarge>
+                        </Container>
                         <Container
                           $fd={{ de: 'column' }}
                           $g={{ de: '12px' }}
@@ -187,87 +255,122 @@ export const Dialog = ({
                           aria-labelledby="checkbox-group"
                         >
                           <AppFormCheckbox
-                            id="min"
-                            name="targetType"
-                            value="min"
-                            $labelText="Min"
-                            disabled={values.habitType === 'avoid'}
+                            id="toDo"
+                            name="habitType"
+                            value="toDo"
+                            $labelText="ToDo"
                             $showError={false}
                           />
                           <AppFormCheckbox
-                            id="max"
-                            name="targetType"
-                            value="max"
-                            $labelText="Max"
-                            disabled={values.habitType === 'avoid'}
+                            id="avoid"
+                            name="habitType"
+                            value="avoid"
+                            $labelText="Avoid"
                           />
                         </Container>
-                        {values.targetType !== '' && (
-                          <>
-                            <AppFormInputText
-                              type="number"
-                              id="targetValue"
-                              name="targetValue"
-                              IconSVG={CalculateSVG}
-                              $label="Amount"
-                              placeholder="Target Amount"
-                              min="1"
-                            />
-                            <AppFormInputText
-                              type="string"
-                              id="targetUnit"
-                              name="targetUnit"
-                              IconSVG={SegmentSVG}
-                              $label="Unit"
-                              placeholder="Target Unit"
-                              autoCapitalize="off"
-                              spellCheck={false}
-                            />
-                          </>
-                        )}
                       </Container>
-                    )}
-                  </Container>
-                  <AppFormInputDate
-                    type="date"
-                    id="habit-date"
-                    name="expirationDate"
-                    IconSVG={EventSVG}
-                    $label="Date"
-                    placeholder="Date"
-                  />
-                  <Container $jc={{ de: 'flex-end' }} $g={{ de: '16px' }}>
-                    <AppButton
-                      $variant="flat"
-                      $size="medium"
-                      title="Cancel"
-                      aria-label="cancel and go back"
-                      $flxAs={{ de: 'flex-end' }}
-                      $mt={{ de: '8px' }}
-                      $bold
-                      onClick={onClose}
-                    >
-                      Cancel
-                    </AppButton>
-                    <AppFormSubmit
-                      $variant="flat"
-                      $size="medium"
-                      $labelShadow
-                      title="Save"
-                      aria-label="save habit changes"
-                      $flxAs={{ de: 'flex-end' }}
-                      $mt={{ de: '8px' }}
-                      $bold
-                      disabled={checkVariations(values)}
-                    >
-                      Save
-                    </AppFormSubmit>
-                  </Container>
-                </>
-              )}
-            </AppForm>
-          </Container>
-        </DialogContainer>
+                      <AppFormInputText
+                        type="text"
+                        id="habitName"
+                        name="habitName"
+                        IconSVG={RepeatSVG}
+                        $label="Habit"
+                        placeholder="Habit Name"
+                        autoCapitalize="off"
+                        spellCheck={false}
+                      />
+                      {values.habitType === 'toDo' && (
+                        <Container $fd={{ de: 'column' }} $g={{ de: '12px' }}>
+                          <HeadingLarge>target</HeadingLarge>
+                          <Container
+                            $fd={{ de: 'column' }}
+                            $g={{ de: '12px' }}
+                            role="group"
+                            aria-labelledby="checkbox-group"
+                          >
+                            <AppFormCheckbox
+                              id="min"
+                              name="targetType"
+                              value="min"
+                              $labelText="Min"
+                              disabled={values.habitType === 'avoid'}
+                              $showError={false}
+                            />
+                            <AppFormCheckbox
+                              id="max"
+                              name="targetType"
+                              value="max"
+                              $labelText="Max"
+                              disabled={values.habitType === 'avoid'}
+                            />
+                          </Container>
+                          {values.targetType !== '' && (
+                            <>
+                              <AppFormInputText
+                                type="number"
+                                id="targetValue"
+                                name="targetValue"
+                                IconSVG={CalculateSVG}
+                                $label="Amount"
+                                placeholder="Target Amount"
+                                min="1"
+                              />
+                              <AppFormInputText
+                                type="string"
+                                id="targetUnit"
+                                name="targetUnit"
+                                IconSVG={SegmentSVG}
+                                $label="Unit"
+                                placeholder="Target Unit"
+                                autoCapitalize="off"
+                                spellCheck={false}
+                              />
+                            </>
+                          )}
+                        </Container>
+                      )}
+                    </Container>
+                    <AppFormInputDate
+                      type="date"
+                      id="habit-date"
+                      name="expirationDate"
+                      IconSVG={EventSVG}
+                      $label="Date"
+                      placeholder="Date"
+                    />
+                    <Container $jc={{ de: 'flex-end' }} $g={{ de: '16px' }}>
+                      <AppButton
+                        $variant="flat"
+                        $size="medium"
+                        title="Cancel"
+                        aria-label="cancel and go back"
+                        $flxAs={{ de: 'flex-end' }}
+                        $mt={{ de: '8px' }}
+                        $bold
+                        onClick={onClose}
+                      >
+                        Cancel
+                      </AppButton>
+                      <AppFormSubmit
+                        $variant="flat"
+                        $size="medium"
+                        $labelShadow
+                        title="Save"
+                        aria-label="save habit changes"
+                        $flxAs={{ de: 'flex-end' }}
+                        $mt={{ de: '8px' }}
+                        $bold
+                        disabled={checkVariations(values)}
+                      >
+                        Save
+                      </AppFormSubmit>
+                    </Container>
+                  </>
+                )}
+              </AppForm>
+            </Container>
+          </DialogContainer>
+        </Backdrop>
       </>
     );
   }

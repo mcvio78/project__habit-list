@@ -1490,7 +1490,7 @@ exports[`Storyshots Components/UI/Input Default App Input Date 1`] = `
               onKeyDown={[Function]}
               readOnly={false}
               type="text"
-              value="2022-03-07"
+              value="2022-03-09"
             />
           </div>
         </div>
@@ -2015,7 +2015,7 @@ exports[`Storyshots Components/UI/Input Default Input Date 1`] = `
           onKeyDown={[Function]}
           readOnly={false}
           type="text"
-          value="2022-03-07"
+          value="2022-03-09"
         />
       </div>
     </div>
@@ -2116,17 +2116,75 @@ exports[`Storyshots Components/UI/Input Default Input Text 1`] = `
 exports[`Storyshots Components/UI/Modal Default Modal 1`] = `
 Array [
   .c0 {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 100;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
   background-color: var(--neutral_10_op05);
+  border: 2px solid var(--neutral_08);
 }
 
 @media screen and (min-width:de) {
 
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c0 {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
 }
 
 @media screen and (min-width:xs) {
@@ -2246,7 +2304,7 @@ Array [
 }
 
 <div
-    className="c0 checkbox "
+    className="c0 c1 generic-container  backdrop generic-container "
     onKeyDown={[Function]}
     role="button"
     tabIndex={0}
@@ -2361,6 +2419,54 @@ Array [
   border-radius: 50%;
   fill: var(--neutral_01);
   background-color: var(--semantic_success_01);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
 }
 
 @media screen and (min-width:de) {
@@ -2539,17 +2645,75 @@ Array [
 exports[`Storyshots Components/UI/Modal Modal With Notification 1`] = `
 Array [
   .c0 {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 100;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
   background-color: var(--neutral_10_op05);
+  border: 2px solid var(--neutral_08);
 }
 
 @media screen and (min-width:de) {
 
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+  .c0 {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
 }
 
 @media screen and (min-width:xs) {
@@ -2669,7 +2833,7 @@ Array [
 }
 
 <div
-    className="c0 checkbox "
+    className="c0 c1 generic-container  backdrop generic-container "
     onKeyDown={[Function]}
     role="button"
     tabIndex={0}
@@ -2784,6 +2948,54 @@ Array [
   border-radius: 50%;
   fill: var(--neutral_01);
   background-color: var(--accent_05);
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
+}
+
+@media screen and (min-width:de) {
+
+}
+
+@media screen and (min-width:xs) {
+
+}
+
+@media screen and (min-width:sm) {
+
+}
+
+@media screen and (min-width:md) {
+
+}
+
+@media screen and (min-width:lg) {
+
+}
+
+@media screen and (min-width:xl) {
+
 }
 
 @media screen and (min-width:de) {

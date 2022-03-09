@@ -21,4 +21,17 @@ const modifyDailyHabit = (
 ): Promise<AxiosResponse> =>
   apiClient.patch(modifyDailyHabitEndpoint, habitModifies);
 
-export const habitAPI = { createHabit, getDailyHabits, modifyDailyHabit };
+const deleteDailyHabitEndpoint = '/api/habit/delete';
+const deleteDailyHabit = (habitId: number): Promise<AxiosResponse> =>
+  apiClient.delete(deleteDailyHabitEndpoint, {
+    params: {
+      id: habitId,
+    },
+  });
+
+export const habitAPI = {
+  createHabit,
+  getDailyHabits,
+  modifyDailyHabit,
+  deleteDailyHabit,
+};

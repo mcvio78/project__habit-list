@@ -26,7 +26,7 @@ interface DialogFirstLayerProps {
   submitHandler: (args: FormikValues) => void;
   cancelHandler: () => void;
   deleteHandler: () => void;
-  $dialogIndex: number;
+  $dialogLayerIndex: number;
 }
 
 const validationSchemaHabit = Yup.object().shape({
@@ -64,7 +64,7 @@ export const DialogFirstLayer = ({
   submitHandler,
   cancelHandler,
   deleteHandler,
-  $dialogIndex,
+  $dialogLayerIndex,
 }: DialogFirstLayerProps): JSX.Element | null => {
   const { daily } = useDaily();
 
@@ -102,7 +102,7 @@ export const DialogFirstLayer = ({
         $lt={{ de: 0 }}
         $w={{ de: '100%' }}
         $h={{ de: '100%' }}
-        $zi={{ de: $dialogIndex }}
+        $zi={{ de: $dialogLayerIndex }}
         $bs={{ de: 'border-box' }}
       />
       <DialogContainer
@@ -110,7 +110,7 @@ export const DialogFirstLayer = ({
         $mxw={{ sm: '600px' }}
         $jc={{ de: 'center' }}
         $p={{ de: '36px 16px' }}
-        $zi={{ de: $dialogIndex }}
+        $zi={{ de: $dialogLayerIndex }}
       >
         <Container $fd={{ de: 'column' }} $g={{ de: '12px' }}>
           <AppForm

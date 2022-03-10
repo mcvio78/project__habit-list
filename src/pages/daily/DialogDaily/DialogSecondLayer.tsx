@@ -9,7 +9,7 @@ interface DialogSecondLayerProps {
   isOpen: boolean;
   confirmHandler: () => void;
   discardHandler: () => void;
-  $dialogIndex: number;
+  $dialogLayerIndex: number;
 }
 
 const DeleteModalContainer = styled(Container)`
@@ -21,7 +21,7 @@ export const DialogSecondLayer = ({
   isOpen,
   confirmHandler,
   discardHandler,
-  $dialogIndex,
+  $dialogLayerIndex,
 }: DialogSecondLayerProps): JSX.Element | null => {
   if (isOpen) {
     return (
@@ -31,7 +31,7 @@ export const DialogSecondLayer = ({
           $pos={{ de: 'absolute' }}
           $w={{ de: '100%' }}
           $h={{ de: '100%' }}
-          $zi={{ de: $dialogIndex }}
+          $zi={{ de: $dialogLayerIndex }}
           $bs={{ de: 'border-box' }}
         />
         <DeleteModalContainer
@@ -39,7 +39,7 @@ export const DialogSecondLayer = ({
           $fd={{ de: 'column' }}
           $g={{ de: '12px' }}
           $p={{ de: '24px' }}
-          $zi={{ de: $dialogIndex }}
+          $zi={{ de: $dialogLayerIndex }}
         >
           <HeadingLarge>Are you sure?</HeadingLarge>
           <Container $jc={{ de: 'space-between' }} $miw={{ de: '160px' }}>

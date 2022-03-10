@@ -93,13 +93,13 @@ export const DialogDaily = ({
             submitHandler={updateHabitHandler}
             cancelHandler={closeDialogFirstLayer}
             deleteHandler={() => setIsOpenSecondLayer(true)}
-            $dialogIndex={100}
+            $dialogLayerIndex={100}
           />
           <DialogSecondLayer
             isOpen={isOpenSecondLayer}
             confirmHandler={deleteDailyHabitHandler}
             discardHandler={() => setIsOpenSecondLayer(false)}
-            $dialogIndex={200}
+            $dialogLayerIndex={200}
           />
         </Container>
       </Container>

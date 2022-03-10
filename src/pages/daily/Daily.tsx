@@ -232,7 +232,7 @@ export const Daily = (): JSX.Element => {
         >
           <CalendarSelection
             date={selectedDate ? new Date(selectedDate) : new Date()}
-            onChange={date => setSelectedDateCB(date.getTime())}
+            onChange={(date: Date) => setSelectedDateCB(date.getTime())}
             toggleCalendarStatus={toggleCalendarStatus}
           />
           <AppButton

@@ -25,17 +25,17 @@ export const DialogSecondLayer = ({
 }: DialogSecondLayerProps): JSX.Element | null => {
   if (isOpen) {
     return (
-      <Backdrop
-        isOpen
-        $pos={{ de: 'absolute' }}
-        $w={{ de: '100%' }}
-        $h={{ de: '100%' }}
-        $jc={{ de: 'center' }}
-        $ai={{ de: 'center' }}
-        $zi={{ de: $dialogIndex }}
-        $bs={{ de: 'border-box' }}
-      >
+      <>
+        <Backdrop
+          isOpen
+          $pos={{ de: 'absolute' }}
+          $w={{ de: '100%' }}
+          $h={{ de: '100%' }}
+          $zi={{ de: $dialogIndex }}
+          $bs={{ de: 'border-box' }}
+        />
         <DeleteModalContainer
+          $pos={{ de: 'absolute' }}
           $fd={{ de: 'column' }}
           $g={{ de: '12px' }}
           $p={{ de: '24px' }}
@@ -65,7 +65,7 @@ export const DialogSecondLayer = ({
             </AppButton>
           </Container>
         </DeleteModalContainer>
-      </Backdrop>
+      </>
     );
   }
   return null;

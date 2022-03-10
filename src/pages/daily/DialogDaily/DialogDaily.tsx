@@ -85,6 +85,8 @@ export const DialogDaily = ({
           $pos={{ de: 'relative' }}
           $w={{ de: '100%' }}
           $h={{ de: '100%' }}
+          $jc={{ de: 'center' }}
+          $ai={{ de: 'center' }}
         >
           <DialogFirstLayer
             habitIndex={habitIndex}

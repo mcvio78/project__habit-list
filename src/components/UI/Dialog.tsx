@@ -37,7 +37,7 @@ interface DialogProps {
   ) => Promise<AxiosResponse<HabitWithFinalState> | undefined>;
   deleteDailyHabitRequest: (
     args: number | undefined,
-  ) => Promise<AxiosResponse<any, any> | undefined>;
+  ) => Promise<AxiosResponse | undefined>;
 }
 
 const validationSchemaHabit = Yup.object().shape({

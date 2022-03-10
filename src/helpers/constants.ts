@@ -31,3 +31,8 @@ export enum HabitChanges {
   Pristine = 'pristine',
   Dirty = 'dirty',
 }
+
+export enum DailyDialogStatus {
+  OpenDialogFirstLayer = 'openDialogFirstLayer',
+  CloseDialogFirstLayer = 'closeDialogFirstLayer',
+}

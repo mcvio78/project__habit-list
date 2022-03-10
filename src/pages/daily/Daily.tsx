@@ -26,7 +26,8 @@ import { HabitWithFinalState } from '../../helpers/globalTypes';
 import { dateToUTC } from '../../utility/utils';
 import { AppButton } from '../../components/UI/button';
 import { CalendarSelection } from '../../components/UI/CalendarSelection';
-import { Dialog } from '../../components/UI/Dialog';
+import { DialogDaily } from './DialogDaily/DialogDaily';
+import { DailyDialogStatus } from '../../helpers/constants';
 
 const DailyListContainer = styled(Container)`
   overflow-y: scroll;
@@ -43,13 +44,13 @@ const DailyListContainer = styled(Container)`
 `;
 
 export const Daily = (): JSX.Element => {
-  const initialState = { isDialogOpen: false, habitIndex: null };
+  const initialState = { isDialogFirstLayerOpen: false, habitIndex: null };
   const reducer = (state: any, action: any) => {
     switch (action.type) {
-      case 'openDialog':
-        return { isDialogOpen: true, habitIndex: action.habitIndex };
-      case 'closeDialog':
-        return { isDialogOpen: false, habitIndex: null };
+      case DailyDialogStatus.OpenDialogFirstLayer:
+        return { isDialogFirstLayerOpen: true, habitIndex: action.habitIndex };
+      case DailyDialogStatus.CloseDialogFirstLayer:
+        return { isDialogFirstLayerOpen: false, habitIndex: null };
       default:
         throw new Error();
     }
@@ -125,7 +126,12 @@ export const Daily = (): JSX.Element => {
           expirationDate={habit.expirationDate}
           habitFinalState={habit.finalState}
           isHabitValid={habit.isValid}
-          openDialog={() => dispatch({ type: 'openDialog', habitIndex: index })}
+          openDialog={() =>
+            dispatch({
+              type: DailyDialogStatus.OpenDialogFirstLayer,
+              habitIndex: index,
+            })
+          }
         />
       ))
     : null;
@@ -155,15 +161,17 @@ export const Daily = (): JSX.Element => {
             : modifyDailyHabitStatus || deleteDailyHabitStatus
         }
         modalMessage={
-          getDailyHabitsMessage ||
-          modifyDailyHabitMessage ||
-          deleteDailyHabitMessage
+          errorStatus(getDailyHabitsStatus)
+            ? getDailyHabitsMessage
+            : modifyDailyHabitMessage || deleteDailyHabitMessage
         }
       />
-      <Dialog
+      <DialogDaily
         habitIndex={state.habitIndex}
-        isOpen={state.isDialogOpen}
-        onClose={() => dispatch({ type: 'closeDialog' })}
+        isOpen={state.isDialogFirstLayerOpen}
+        closeDialogFirstLayer={() =>
+          dispatch({ type: DailyDialogStatus.CloseDialogFirstLayer })
+        }
         modifyDailyHabitRequest={modifyDailyHabitRequest}
         deleteDailyHabitRequest={deleteDailyHabitRequest}
       />

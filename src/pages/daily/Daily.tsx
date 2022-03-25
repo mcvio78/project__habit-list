@@ -23,7 +23,7 @@ import { habitAPI } from '../../services/habit';
 import { Modal } from '../../components/UI/Modal';
 import { errorStatus, successStatus } from '../../utility/request/statuses';
 import { HabitWithFinalState } from '../../helpers/globalTypes';
-import { dateToUTC } from '../../utility/utils';
+import { dateToTsUTC } from '../../utility/utils';
 import { AppButton } from '../../components/UI/button';
 import { CalendarSelection } from '../../components/UI/CalendarSelection';
 import { DialogDaily } from './DialogDaily/DialogDaily';
@@ -86,7 +86,7 @@ export const Daily = (): JSX.Element => {
   } = useAPI(habitAPI.deleteDailyHabit);
 
   const setCurrentDateContext = async (unixDate?: number) => {
-    const dateUTC = unixDate || dateToUTC(new Date());
+    const dateUTC = unixDate || dateToTsUTC(new Date());
     const response = await getDailyHabitsRequest(dateUTC);
     setSelectedDateCB(dateUTC);
     setDailyStateAndOutcomes(response?.data);
@@ -112,7 +112,7 @@ export const Daily = (): JSX.Element => {
     }
   };
 
-  const dailyHabits = daily
+  const dailyHabits = daily.length
     ? daily.map((habit: HabitWithFinalState, index: number) => (
         <DailyItem
           key={habit._id}
@@ -123,7 +123,7 @@ export const Daily = (): JSX.Element => {
           targetUnit={habit.targetUnit}
           targetCurrent={habit.targetCurrent}
           habitStatus={habit.habitStatus}
-          expirationDate={habit.expirationDate}
+          selectedDateObj={habit.selectedDateObj}
           habitFinalState={habit.finalState}
           isHabitValid={habit.isValid}
           openDialog={() =>

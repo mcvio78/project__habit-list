@@ -3,7 +3,7 @@ import { FormikValues } from 'formik';
 import { AxiosResponse } from 'axios';
 
 import { Container } from '../../../components/layout';
-import { useDaily } from '../../../hooks';
+import { useDaily, useSelectedDate } from '../../../hooks';
 import {
   HabitStoredOptional,
   HabitWithFinalState,
@@ -32,6 +32,7 @@ export const DialogDaily = ({
   deleteDailyHabitRequest,
 }: DialogDailyProps): JSX.Element | null => {
   const { daily, setDailyStateAndOutcomes } = useDaily();
+  const { selectedDate } = useSelectedDate();
   const [isOpenSecondLayer, setIsOpenSecondLayer] = useState<boolean>(false);
 
   const updateHabitHandler = async (habitValues: FormikValues) => {
@@ -52,9 +53,14 @@ export const DialogDaily = ({
         }
         return habit;
       });
-      setDailyStateAndOutcomes(dailyUpdated);
+
+      const dailyUpdatedFilter = dailyUpdated.filter(habit => {
+        return habit.selectedDateObj.selectedDateTsUTC === selectedDate;
+      });
+
+      closeDialogFirstLayer();
+      setDailyStateAndOutcomes(dailyUpdatedFilter);
     }
-    closeDialogFirstLayer();
   };
 
   const deleteDailyHabitHandler = async () => {
@@ -68,8 +74,8 @@ export const DialogDaily = ({
         closeDialogFirstLayer();
         setDailyStateAndOutcomes(dailyUpdated);
       } else {
-        setIsOpenSecondLayer(false);
         closeDialogFirstLayer();
+        setIsOpenSecondLayer(false);
       }
     }
   };

@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
+
 import { authStorage } from '../auth/storage';
 
 export const apiClient: AxiosInstance = axios.create({

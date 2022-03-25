@@ -4,7 +4,8 @@ import { useFormikContext, FormikProps } from 'formik';
 import { AppInputDate } from '../UI/input/inputDate';
 import { AppFormInputError } from './AppFormInputError';
 import { Container } from '../layout';
-import { dateToUTC, resetFormFieldValue } from '../../utility/utils';
+import { dateToTsTZ, dateToTsUTC } from '../../utility/utils';
+import { initialSelectedDateObj } from '../../pages/Create';
 
 interface AppFormInputDateProps
   extends Omit<ComponentPropsWithoutRef<'input'>, 'onClick'> {
@@ -28,15 +29,26 @@ export const AppFormInputDate = ({
       $fd={{ de: 'column' }}
     >
       <AppInputDate
-        selected={values[name]}
+        selected={values[name].selectedDateTsTZ}
         onChange={val => {
-          setFieldValue(name, dateToUTC(val));
+          setFieldValue(name, {
+            selectedDateString: val.toString(),
+            selectedDateISO: val.toISOString(),
+            selectedDateTsUTC: dateToTsUTC(val),
+            selectedDateTsTZ: dateToTsTZ(val),
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          });
         }}
         onBlur={() => setFieldTouched(name)}
-        onClick={() => setFieldValue(name, resetFormFieldValue(values[name]))}
+        onClick={() => setFieldValue(name, initialSelectedDateObj)}
         {...otherProps}
       />
-      <AppFormInputError error={errors[name]} touched={touched[name]} />
+      {errors[name] && (
+        <AppFormInputError
+          error={errors[name].selectedDateTsTZ}
+          touched={touched[name]}
+        />
+      )}
     </Container>
   );
 };

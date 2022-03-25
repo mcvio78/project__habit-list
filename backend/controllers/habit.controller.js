@@ -12,7 +12,7 @@ exports.createDailyHabit = async (req, res) => {
       targetValue,
       targetCurrent,
       targetUnit,
-      expirationDate,
+      selectedDateObj,
     } = req.body;
 
     if (!(habitType && habitName)) {
@@ -35,13 +35,16 @@ exports.createDailyHabit = async (req, res) => {
         targetValue: targetValue,
         targetCurrent: targetCurrent,
         targetUnit: targetUnit,
-        expirationDate: expirationDate,
+        selectedDateObj: selectedDateObj,
         habitOwnerId: req.user.id,
       });
 
       const createdHabit = await habit.save(habit);
 
-      const date = format(new Date(expirationDate), 'yyyy-MM-dd');
+      const date = format(
+        new Date(selectedDateObj.selectedDateTsUTC),
+        'yyyy-MM-dd',
+      );
       const dayFolder = await User.findOne({ 'habits.daily': date });
       const dayFolderPath = `habits.daily.${date}`;
 
@@ -81,7 +84,7 @@ exports.getDailyHabits = async (req, res) => {
   try {
     const habits = await Habit.find({
       habitOwnerId: req.user.id,
-      expirationDate: req.query.day,
+      'selectedDateObj.selectedDateTsUTC': req.query.day,
     }).lean();
     res.status(200).send(habits);
   } catch (err) {

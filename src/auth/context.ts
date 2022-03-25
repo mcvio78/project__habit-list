@@ -65,7 +65,7 @@ export const ResultsContext = createContext<CreateResultsContext>(
   initialResultsContext,
 );
 
-// Selected date (unix time)
+// Selected date
 export type SelectedDate = number | null;
 export type SelectedDateState = [
   SelectedDate,

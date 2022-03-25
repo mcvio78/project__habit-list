@@ -49,20 +49,33 @@ const validationSchemaHabit = Yup.object().shape({
       TgtType === TargetType.min || TgtType === TargetType.max,
     then: Yup.string().required('Target unit is required').label('TargetUnit'),
   }),
-  expirationDate: Yup.number()
-    .nullable()
-    .required('Date is required')
-    .label('ExpirationDate'),
+  selectedDateObj: Yup.object()
+    .shape({
+      selectedDateString: Yup.string().required('Date is required').nullable(),
+      selectedDateISO: Yup.string().required('Date is required').nullable(),
+      selectedDateTsUTC: Yup.number().required('Date is required').nullable(),
+      selectedDateTsTZ: Yup.number().required('Date is required').nullable(),
+      timezone: Yup.string().required('Date is required').nullable(),
+    })
+    .label('SelectedDateObj'),
 });
 
-export const initialValuesCreate: HabitCollected = {
+export const initialSelectedDateObj = {
+  selectedDateString: null,
+  selectedDateISO: null,
+  selectedDateTsUTC: null,
+  selectedDateTsTZ: null,
+  timezone: null,
+};
+
+const initialValuesCreate: HabitCollected = {
   habitType: '',
   habitName: '',
   targetType: '',
   targetValue: null,
   targetCurrent: null,
   targetUnit: '',
-  expirationDate: null,
+  selectedDateObj: initialSelectedDateObj,
 };
 
 export const Create = (): JSX.Element => {
@@ -78,8 +91,11 @@ export const Create = (): JSX.Element => {
         if (habitValues.targetType === TargetType.min) return 0;
         return null;
       };
-
-      request({ ...habitValues, targetCurrent: initTargetCurrent() });
+      const newHabitTimestamps = {
+        ...habitValues,
+        targetCurrent: initTargetCurrent(),
+      };
+      request(newHabitTimestamps);
     },
     [request],
   );
@@ -213,7 +229,7 @@ export const Create = (): JSX.Element => {
               <AppFormInputDate
                 type="date"
                 id="habit-date"
-                name="expirationDate"
+                name="selectedDateObj"
                 IconSVG={EventSVG}
                 $label="Select a Date"
                 placeholder="Select a Date"

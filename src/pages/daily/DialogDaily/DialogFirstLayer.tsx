@@ -48,10 +48,15 @@ const validationSchemaHabit = Yup.object().shape({
       TgtType === TargetType.min || TgtType === TargetType.max,
     then: Yup.string().required('Target unit is required').label('TargetUnit'),
   }),
-  expirationDate: Yup.number()
-    .nullable()
-    .required('Date is required')
-    .label('ExpirationDate'),
+  selectedDateObj: Yup.object()
+    .shape({
+      selectedDateString: Yup.string().required('Date is required').nullable(),
+      selectedDateISO: Yup.string().required('Date is required').nullable(),
+      selectedDateTsUTC: Yup.number().required('Date is required').nullable(),
+      selectedDateTsTZ: Yup.number().required('Date is required').nullable(),
+      timezone: Yup.string().required('Date is required').nullable(),
+    })
+    .label('SelectedDateObj'),
 });
 
 const DialogContainer = styled(Container)`
@@ -77,7 +82,7 @@ export const DialogFirstLayer = ({
           targetValue: daily[habitIndex].targetValue,
           targetCurrent: daily[habitIndex].targetCurrent,
           targetUnit: daily[habitIndex].targetUnit,
-          expirationDate: daily[habitIndex].expirationDate,
+          selectedDateObj: daily[habitIndex].selectedDateObj,
         }
       : {};
 
@@ -89,7 +94,8 @@ export const DialogFirstLayer = ({
       daily[habitIndex].targetValue === values.targetValue &&
       daily[habitIndex].targetCurrent === values.targetCurrent &&
       daily[habitIndex].targetUnit === values.targetUnit &&
-      daily[habitIndex].expirationDate === values.expirationDate
+      daily[habitIndex].selectedDateObj.selectedDateTsUTC ===
+        values.selectedDateObj.selectedDateTsUTC
     );
   };
 
@@ -223,7 +229,7 @@ export const DialogFirstLayer = ({
                 <AppFormInputDate
                   type="date"
                   id="habit-date"
-                  name="expirationDate"
+                  name="selectedDateObj"
                   IconSVG={EventSVG}
                   $label="Date"
                   placeholder="Date"

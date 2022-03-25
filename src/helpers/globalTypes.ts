@@ -23,18 +23,34 @@ export interface HabitCollected {
   targetValue: number | null;
   targetCurrent: number | null;
   targetUnit: string;
-  expirationDate: Date | null;
+  selectedDateObj: {
+    selectedDateString: string | null;
+    selectedDateISO: string | null;
+    selectedDateTsUTC: number | null;
+    selectedDateTsTZ: number | null;
+    timezone: string | null;
+  };
 }
 
 export interface HabitCreate extends HabitCollected {
   habitType: HabitType;
-  expirationDate: Date;
+  habitName: string;
+  targetType: TargetType;
+  targetValue: number;
+  targetCurrent: number;
+  targetUnit: string;
+  selectedDateObj: {
+    selectedDateString: string;
+    selectedDateISO: string;
+    selectedDateTsUTC: number;
+    selectedDateTsTZ: number;
+    timezone: string;
+  };
 }
 
-export interface HabitStored extends Omit<HabitCreate, 'expirationDate'> {
+export interface HabitStored extends HabitCreate {
   _id?: number;
   habitStatus: HabitStatus;
-  expirationDate: number;
 }
 
 export interface HabitStoredOptional extends Partial<HabitStored> {}

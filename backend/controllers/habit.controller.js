@@ -42,7 +42,7 @@ exports.createDailyHabit = async (req, res) => {
       const createdHabit = await habit.save(habit);
 
       const date = format(
-        new Date(selectedDateObj.selectedDateTsUTC),
+        fromUnixTime(selectedDateObj.selectedDateUTS),
         'yyyy-MM-dd',
       );
       const dayFolder = await User.findOne({ 'habits.daily': date });

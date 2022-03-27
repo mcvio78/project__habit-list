@@ -1,7 +1,7 @@
 const db = require('../models');
 const Habit = db.habit;
 const User = db.user;
-const { format } = require('date-fns');
+const { format, fromUnixTime, addDays, getUnixTime } = require('date-fns');
 
 exports.createDailyHabit = async (req, res) => {
   try {
@@ -84,7 +84,10 @@ exports.getDailyHabits = async (req, res) => {
   try {
     const habits = await Habit.find({
       habitOwnerId: req.user.id,
-      'selectedDateObj.selectedDateTsUTC': req.query.day,
+      'selectedDateObj.selectedDateUTS': {
+        $gte: req.query.day,
+        $lt: getUnixTime(addDays(fromUnixTime(req.query.day), 1)),
+      },
     }).lean();
     res.status(200).send(habits);
   } catch (err) {

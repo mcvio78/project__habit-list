@@ -8,11 +8,9 @@ const createHabit = async (newHabit: HabitCreate): Promise<AxiosResponse> =>
   apiClient.post(createHabitEndpoint, newHabit);
 
 const getDailyHabitsEndpoint = '/api/habit/daily';
-const getDailyHabits = (date: string): Promise<AxiosResponse> =>
+const getDailyHabits = (unixDateStart: number): Promise<AxiosResponse> =>
   apiClient.get(getDailyHabitsEndpoint, {
-    params: {
-      day: date,
-    },
+    params: { day: unixDateStart },
   });
 
 const modifyDailyHabitEndpoint = '/api/habit/modify';
@@ -24,9 +22,7 @@ const modifyDailyHabit = (
 const deleteDailyHabitEndpoint = '/api/habit/delete';
 const deleteDailyHabit = (habitId: number): Promise<AxiosResponse> =>
   apiClient.delete(deleteDailyHabitEndpoint, {
-    params: {
-      id: habitId,
-    },
+    params: { id: habitId },
   });
 
 export const habitAPI = {

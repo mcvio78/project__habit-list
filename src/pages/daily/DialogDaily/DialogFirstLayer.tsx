@@ -53,7 +53,7 @@ const validationSchemaHabit = Yup.object().shape({
       selectedDateString: Yup.string().required('Date is required').nullable(),
       selectedDateISO: Yup.string().required('Date is required').nullable(),
       selectedDateTsUTC: Yup.number().required('Date is required').nullable(),
-      selectedDateTsTZ: Yup.number().required('Date is required').nullable(),
+      selectedDateUTS: Yup.number().required('Date is required').nullable(),
       timezone: Yup.string().required('Date is required').nullable(),
     })
     .label('SelectedDateObj'),
@@ -94,8 +94,8 @@ export const DialogFirstLayer = ({
       daily[habitIndex].targetValue === values.targetValue &&
       daily[habitIndex].targetCurrent === values.targetCurrent &&
       daily[habitIndex].targetUnit === values.targetUnit &&
-      daily[habitIndex].selectedDateObj.selectedDateTsUTC ===
-        values.selectedDateObj.selectedDateTsUTC
+      daily[habitIndex].selectedDateObj.selectedDateUTS ===
+        values.selectedDateObj.selectedDateUTS
     );
   };
 

@@ -13,8 +13,8 @@ const Habit = mongoose.model(
       selectedDateObj: {
         selectedDateString: String,
         selectedDateISO: String,
+        selectedDateUTS: Number,
         selectedDateTsUTC: Number,
-        selectedDateTsTZ: Number,
         timezone: String,
       },
       habitStatus: { type: String, default: 'pending' },

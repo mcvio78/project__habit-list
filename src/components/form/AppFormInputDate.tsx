@@ -1,10 +1,11 @@
 import { ComponentPropsWithoutRef, FC, SVGProps } from 'react';
 import { useFormikContext, FormikProps } from 'formik';
+import { formatISO, fromUnixTime, getUnixTime } from 'date-fns';
 
 import { AppInputDate } from '../UI/input/inputDate';
 import { AppFormInputError } from './AppFormInputError';
 import { Container } from '../layout';
-import { dateToTsTZ, dateToTsUTC } from '../../utility/utils';
+import { dateToTsUTC } from '../../utility/utils';
 import { initialSelectedDateObj } from '../../pages/Create';
 
 interface AppFormInputDateProps
@@ -29,13 +30,16 @@ export const AppFormInputDate = ({
       $fd={{ de: 'column' }}
     >
       <AppInputDate
-        selected={values[name].selectedDateTsTZ}
+        selected={
+          values[name].selectedDateUTS &&
+          fromUnixTime(values[name].selectedDateUTS)
+        }
         onChange={val => {
           setFieldValue(name, {
             selectedDateString: val.toString(),
-            selectedDateISO: val.toISOString(),
+            selectedDateISO: formatISO(val),
+            selectedDateUTS: getUnixTime(val),
             selectedDateTsUTC: dateToTsUTC(val),
-            selectedDateTsTZ: dateToTsTZ(val),
             timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
           });
         }}
@@ -45,7 +49,7 @@ export const AppFormInputDate = ({
       />
       {errors[name] && (
         <AppFormInputError
-          error={errors[name].selectedDateTsTZ}
+          error={errors[name].selectedDateUTS}
           touched={touched[name]}
         />
       )}

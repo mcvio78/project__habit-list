@@ -15,8 +15,8 @@ export const useSelectedDate = (): UseSelectedDate => {
   const [selectedDate, setSelectedDate] = selectedDateState;
 
   const setSelectedDateCB = useCallback(
-    unixDate => {
-      setSelectedDate(unixDate);
+    dateUTS => {
+      setSelectedDate(dateUTS);
     },
     [setSelectedDate],
   );

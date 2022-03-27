@@ -27,7 +27,7 @@ export interface HabitCollected {
     selectedDateString: string | null;
     selectedDateISO: string | null;
     selectedDateTsUTC: number | null;
-    selectedDateTsTZ: number | null;
+    selectedDateUTS: number | null;
     timezone: string | null;
   };
 }
@@ -43,7 +43,7 @@ export interface HabitCreate extends HabitCollected {
     selectedDateString: string;
     selectedDateISO: string;
     selectedDateTsUTC: number;
-    selectedDateTsTZ: number;
+    selectedDateUTS: number;
     timezone: string;
   };
 }

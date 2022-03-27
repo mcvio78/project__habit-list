@@ -54,7 +54,7 @@ const validationSchemaHabit = Yup.object().shape({
       selectedDateString: Yup.string().required('Date is required').nullable(),
       selectedDateISO: Yup.string().required('Date is required').nullable(),
       selectedDateTsUTC: Yup.number().required('Date is required').nullable(),
-      selectedDateTsTZ: Yup.number().required('Date is required').nullable(),
+      selectedDateUTS: Yup.number().required('Date is required').nullable(),
       timezone: Yup.string().required('Date is required').nullable(),
     })
     .label('SelectedDateObj'),
@@ -64,7 +64,7 @@ export const initialSelectedDateObj = {
   selectedDateString: null,
   selectedDateISO: null,
   selectedDateTsUTC: null,
-  selectedDateTsTZ: null,
+  selectedDateUTS: null,
   timezone: null,
 };
 

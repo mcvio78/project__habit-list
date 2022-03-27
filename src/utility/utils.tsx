@@ -1,4 +1,5 @@
 import { RefObject } from 'react';
+import { addDays, fromUnixTime, getUnixTime } from 'date-fns';
 
 import { HabitFinalState, HabitStatus } from '../helpers/constants';
 import { HabitWithFinalState, HabitStored } from '../helpers/globalTypes';
@@ -43,18 +44,20 @@ export const resetFormFieldValue = (
 export const dateToTsUTC = (date: Date): number =>
   Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
 
-export const dateToTsTZ = (date: Date): number =>
-  new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
+export const dateToStartDayUTS = (date: Date): number => {
+  date.setHours(0, 0, 0, 0);
+  return getUnixTime(date);
+};
 
 export const habitCurrentState = (
   habitStatus: HabitStatus,
-  timestampUTC: number,
+  selectedDateUTS: number,
 ): { habitFinalState: HabitFinalState; isHabitValid: boolean } => {
-  const currentUnixTime = new Date().getTime();
-  const timestampUTCExpiration = new Date(timestampUTC).setUTCDate(
-    new Date(timestampUTC).getUTCDate() + 1,
+  const currentUTS = getUnixTime(new Date());
+  const selectedDateExpirationUTS = getUnixTime(
+    addDays(fromUnixTime(selectedDateUTS), 1),
   );
-  const isHabitValid = currentUnixTime < timestampUTCExpiration;
+  const isHabitValid = currentUTS < selectedDateExpirationUTS;
 
   if (habitStatus && habitStatus === HabitStatus.Pending && isHabitValid) {
     return { habitFinalState: HabitFinalState.Pending, isHabitValid };
@@ -80,7 +83,7 @@ export const addHabitsFinalState = (
   DailyHabits?.map((habit: HabitStored) => {
     const { habitFinalState, isHabitValid } = habitCurrentState(
       habit.habitStatus,
-      habit.selectedDateObj.selectedDateTsUTC,
+      habit.selectedDateObj.selectedDateUTS,
     );
     return {
       ...habit,

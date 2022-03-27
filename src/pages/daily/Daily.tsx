@@ -1,6 +1,7 @@
 import { useReducer } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components/macro';
+import { addDays, getUnixTime, fromUnixTime } from 'date-fns';
 
 import { Container, PageLayout } from '../../components/layout';
 import { NavLinkIcon } from '../../components/UI/Typography';
@@ -23,7 +24,7 @@ import { habitAPI } from '../../services/habit';
 import { Modal } from '../../components/UI/Modal';
 import { errorStatus, successStatus } from '../../utility/request/statuses';
 import { HabitWithFinalState } from '../../helpers/globalTypes';
-import { dateToTsUTC } from '../../utility/utils';
+import { dateToStartDayUTS } from '../../utility/utils';
 import { AppButton } from '../../components/UI/button';
 import { CalendarSelection } from '../../components/UI/CalendarSelection';
 import { DialogDaily } from './DialogDaily/DialogDaily';
@@ -86,7 +87,7 @@ export const Daily = (): JSX.Element => {
   } = useAPI(habitAPI.deleteDailyHabit);
 
   const setCurrentDateContext = async (unixDate?: number) => {
-    const dateUTC = unixDate || dateToTsUTC(new Date());
+    const dateUTC = unixDate || dateToStartDayUTS(new Date());
     const response = await getDailyHabitsRequest(dateUTC);
     setSelectedDateCB(dateUTC);
     setDailyStateAndOutcomes(response?.data);
@@ -104,9 +105,8 @@ export const Daily = (): JSX.Element => {
 
   const selectDateHandler = (days: number) => {
     if (selectedDate) {
-      const dateSelectedLocal = new Date(selectedDate);
-      const daySelected = dateSelectedLocal.setDate(
-        dateSelectedLocal.getDate() + days,
+      const daySelected = getUnixTime(
+        addDays(fromUnixTime(selectedDate), days),
       );
       setSelectedDateCB(daySelected);
     }
@@ -189,7 +189,7 @@ export const Daily = (): JSX.Element => {
       {!calendarStatus ? (
         <>
           <DateSelector
-            date={selectedDate ? new Date(selectedDate) : new Date()}
+            date={selectedDate ? fromUnixTime(selectedDate) : new Date()}
             onClickHandler={selectDateHandler}
             results={results}
           />
@@ -231,8 +231,8 @@ export const Daily = (): JSX.Element => {
           $ai={{ de: 'flex-end' }}
         >
           <CalendarSelection
-            date={selectedDate ? new Date(selectedDate) : new Date()}
-            onChange={(date: Date) => setSelectedDateCB(date.getTime())}
+            date={selectedDate ? fromUnixTime(selectedDate) : new Date()}
+            onChange={(date: Date) => setSelectedDateCB(getUnixTime(date))}
             toggleCalendarStatus={toggleCalendarStatus}
           />
           <AppButton

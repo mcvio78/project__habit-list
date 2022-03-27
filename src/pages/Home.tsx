@@ -24,7 +24,7 @@ import {
 } from '../hooks/';
 import { NavigationItems } from '../components/UI/navigation';
 import { habitAPI } from '../services/habit';
-import { dateToTsUTC } from '../utility/utils';
+import { dateToStartDayUTS } from '../utility/utils';
 import { Modal } from '../components/UI/Modal';
 import { errorStatus } from '../utility/request/statuses';
 
@@ -42,9 +42,9 @@ export const Home = (): JSX.Element => {
   const { setDailyStateAndOutcomes } = useDaily();
 
   const setCurrentDateContext = async (unixDate?: number) => {
-    const dateUTC = unixDate || dateToTsUTC(new Date());
-    const response = await request(dateUTC);
-    setSelectedDateCB(dateUTC);
+    const unixDateStart = unixDate || dateToStartDayUTS(new Date());
+    const response = await request(unixDateStart);
+    setSelectedDateCB(unixDateStart);
     setDailyStateAndOutcomes(response?.data);
   };
 

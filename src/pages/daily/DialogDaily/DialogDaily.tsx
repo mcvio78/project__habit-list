@@ -55,7 +55,7 @@ export const DialogDaily = ({
       });
 
       const dailyUpdatedFilter = dailyUpdated.filter(habit => {
-        return habit.selectedDateObj.selectedDateTsUTC === selectedDate;
+        return habit.selectedDateObj.selectedDateUTS === selectedDate;
       });
 
       closeDialogFirstLayer();

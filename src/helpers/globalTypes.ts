@@ -36,8 +36,8 @@ export interface HabitCreate extends HabitCollected {
   habitType: HabitType;
   habitName: string;
   targetType: TargetType;
-  targetValue: number;
-  targetCurrent: number;
+  targetValue: number | null;
+  targetCurrent: number | null;
   targetUnit: string;
   selectedDateObj: {
     selectedDateString: string;
@@ -56,6 +56,8 @@ export interface HabitStored extends HabitCreate {
 export interface HabitStoredOptional extends Partial<HabitStored> {}
 
 export interface HabitWithFinalState extends HabitStored {
-  finalState: HabitFinalState;
-  isValid: boolean;
+  habitFinalState: HabitFinalState;
+  isHabitValid: boolean;
+  habitRemainingTimeStr: string;
+  expirationDate: string;
 }

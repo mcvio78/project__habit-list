@@ -25,5 +25,13 @@ export const AppButtonIcon = styled(Button).attrs<
       $iconSdw && `drop-shadow(0 4px 4px var(--neutral_10_op05))`};
     width: 100%;
     height: 100%;
+
+    &:active {
+      filter: none;
+    }
+
+    &:hover {
+      fill: var(--accent_06);
+    }
   }
 `;

@@ -10,7 +10,7 @@ const createHabit = async (newHabit: HabitCreate): Promise<AxiosResponse> =>
 const getDailyHabitsEndpoint = '/api/habit/daily';
 const getDailyHabits = (unixDateStart: number): Promise<AxiosResponse> =>
   apiClient.get(getDailyHabitsEndpoint, {
-    params: { day: unixDateStart },
+    params: { dateUTC: unixDateStart },
   });
 
 const modifyDailyHabitEndpoint = '/api/habit/modify';

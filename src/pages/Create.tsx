@@ -29,6 +29,7 @@ import { ReactComponent as HomeSVG } from '../assets/icons/icon-home_24dp.svg';
 import { successStatus } from '../utility/request/statuses';
 import { TargetType } from '../helpers/constants';
 import { HabitCollected } from '../helpers/globalTypes';
+import { initTargetCurrent } from '../utility/utils';
 
 const validationSchemaHabit = Yup.object().shape({
   habitType: Yup.string().required('Habit type is required').label('HabitType'),
@@ -60,14 +61,6 @@ const validationSchemaHabit = Yup.object().shape({
     .label('SelectedDateObj'),
 });
 
-export const initialSelectedDateObj = {
-  selectedDateString: null,
-  selectedDateISO: null,
-  selectedDateTsUTC: null,
-  selectedDateUTS: null,
-  timezone: null,
-};
-
 const initialValuesCreate: HabitCollected = {
   habitType: '',
   habitName: '',
@@ -75,7 +68,13 @@ const initialValuesCreate: HabitCollected = {
   targetValue: null,
   targetCurrent: null,
   targetUnit: '',
-  selectedDateObj: initialSelectedDateObj,
+  selectedDateObj: {
+    selectedDateString: '',
+    selectedDateISO: '',
+    selectedDateTsUTC: null,
+    selectedDateUTS: null,
+    timezone: '',
+  },
 };
 
 export const Create = (): JSX.Element => {
@@ -86,14 +85,9 @@ export const Create = (): JSX.Element => {
 
   const submitFormHandler = useCallback(
     (habitValues: FormikValues) => {
-      const initTargetCurrent = () => {
-        if (habitValues.targetType === TargetType.max) return 100;
-        if (habitValues.targetType === TargetType.min) return 0;
-        return null;
-      };
       const newHabitTimestamps = {
         ...habitValues,
-        targetCurrent: initTargetCurrent(),
+        targetCurrent: initTargetCurrent(habitValues.targetType),
       };
       request(newHabitTimestamps);
     },

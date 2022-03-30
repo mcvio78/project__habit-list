@@ -5,8 +5,7 @@ import { formatISO, fromUnixTime, getUnixTime } from 'date-fns';
 import { AppInputDate } from '../UI/input/inputDate';
 import { AppFormInputError } from './AppFormInputError';
 import { Container } from '../layout';
-import { dateToTsUTC } from '../../utility/utils';
-import { initialSelectedDateObj } from '../../pages/Create';
+import { dateToTsUTC, resetFormObjValues } from '../../utility/utils';
 
 interface AppFormInputDateProps
   extends Omit<ComponentPropsWithoutRef<'input'>, 'onClick'> {
@@ -44,7 +43,7 @@ export const AppFormInputDate = ({
           });
         }}
         onBlur={() => setFieldTouched(name)}
-        onClick={() => setFieldValue(name, initialSelectedDateObj)}
+        onClick={() => setFieldValue(name, resetFormObjValues(values[name]))}
         {...otherProps}
       />
       {errors[name] && (

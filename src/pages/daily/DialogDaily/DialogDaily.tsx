@@ -11,6 +11,7 @@ import {
 import { successStatus } from '../../../utility/request/statuses';
 import { DialogFirstLayer } from './DialogFirstLayer';
 import { DialogSecondLayer } from './DialogSecondLayer';
+import { initTargetCurrent } from '../../../utility/utils';
 
 interface DialogDailyProps {
   isOpen: boolean;
@@ -43,7 +44,10 @@ export const DialogDaily = ({
         }
         return accumulator;
       },
-      { _id: daily[habitIndex]._id },
+      {
+        _id: daily[habitIndex]._id,
+        targetCurrent: initTargetCurrent(habitValues.targetType),
+      },
     );
     const response = await modifyDailyHabitRequest(habitModifies);
     if (response) {

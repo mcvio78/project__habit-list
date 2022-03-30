@@ -124,8 +124,10 @@ export const Daily = (): JSX.Element => {
           targetCurrent={habit.targetCurrent}
           habitStatus={habit.habitStatus}
           selectedDateObj={habit.selectedDateObj}
-          habitFinalState={habit.finalState}
-          isHabitValid={habit.isValid}
+          habitFinalState={habit.habitFinalState}
+          isHabitValid={habit.isHabitValid}
+          habitRemainingTimeStr={habit.habitRemainingTimeStr}
+          expirationDate={habit.expirationDate}
           openDialog={() =>
             dispatch({
               type: DailyDialogStatus.OpenDialogFirstLayer,

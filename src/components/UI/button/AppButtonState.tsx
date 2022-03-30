@@ -31,4 +31,12 @@ export const AppButtonState = styled(Button).attrs<
     opacity: 0.7;
     filter: saturate(70%);
   }
+
+  &:active {
+    box-shadow: none;
+  }
+
+  &:hover {
+    outline: 1px solid var(--accent_06);
+  }
 `;
